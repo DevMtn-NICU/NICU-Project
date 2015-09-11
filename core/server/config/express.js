@@ -3,10 +3,8 @@
 var config = require('./config.js'),
     express = require('express'),
     cors = require('cors'),
-    morgan = require('morgan'),
     compress = require('compression'),
     bodyParser = require('body-parser'),
-    methodOverride = require('method-override'),
     session = require('express-session'),
     flash = require('connect-flash'),
     passport = require('passport');
