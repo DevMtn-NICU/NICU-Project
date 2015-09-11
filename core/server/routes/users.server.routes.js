@@ -9,8 +9,8 @@ module.exports = function (app) {
     app.post('/user/login', passport.authenticate('local'), function(req,res) {
       res.json(req.user);
     });
-    app.get('/user', usersController.getUser);
-    app.post('/user/edit', usersController.editUser);
+    app.get('/user/:userId', usersController.getUser);
+    // app.post('/user/edit/:userId', usersController.editUser);
     app.get('/user/logout', function(req, res) {
       req.logout();
       res.end();
