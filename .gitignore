@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+.DStore
 
 # Runtime data
 pids

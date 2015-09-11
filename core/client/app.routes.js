@@ -11,6 +11,7 @@
                     templateUrl: 'components/home/homeTemplate.html',
                     controller: 'homeController'
                 });
+            
         });
 
 
