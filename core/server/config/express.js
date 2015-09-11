@@ -42,7 +42,6 @@ module.exports = function () {
     require('../routes/baby.server.routes.js')(app, passport);
     require('../routes/babyNote.server.routes.js')(app, passport);
 
-
     // THIS WILL BE ANGULAR APP
     // here we set the static files folder
     // needs to come after setting the rendering engine

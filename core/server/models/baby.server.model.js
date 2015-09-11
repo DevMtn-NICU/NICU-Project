@@ -1,4 +1,4 @@
-// baby model
+// Baby model
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
