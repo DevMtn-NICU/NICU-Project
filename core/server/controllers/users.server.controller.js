@@ -62,5 +62,10 @@ module.exports = {
     });
   },
 
-  
+  editUser: function(req, res) {
+    User.findByIdAndUpdate(req.params.userId, req.body, {new: true, upsert: true}, function(err, user){
+      if (err) res.status(500).send(err);
+      else res.send(user);
+    });
+  }
 };
