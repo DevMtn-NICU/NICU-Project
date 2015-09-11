@@ -18,6 +18,7 @@ var userSchema = new Schema({
   created_at: {type: Date, default: Date.now, required: true}
 });
 
+//Password encryption methods
 userSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };

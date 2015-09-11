@@ -5,6 +5,7 @@ module.exports = {
     var newUser = new User();
     newUser.roles.push("parent");
     newUser.email = req.body.email;
+    //hash out password
     newUser.password = newUser.generateHash(req.body.password);
     newUser.parent = {
       access: "parent",
@@ -63,6 +64,7 @@ module.exports = {
   },
 
   editUser: function(req, res) {
+    //returns the updated user document
     User.findByIdAndUpdate(req.params.userId, req.body, {new: true, upsert: true}, function(err, user){
       if (err) res.status(500).send(err);
       else res.send(user);
