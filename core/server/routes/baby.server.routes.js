@@ -1,13 +1,13 @@
 var babiesController = require('../controllers/baby.server.controller.js');
 
-module.exports = function (app) {
+module.exports = function (app, passport) {
     app.route('/api/makeBaby')
-        .post(babiesController.makeBaby);
-        
+      .post(passport.authenticate('local'), babiesController.makeBaby);
+
     app.route('/api/babies')
-        .get(babiesController.getBabies);
-		
-	app.route('/api/babies:id')
-		.get(babiesController.getBaby)
+      .get(passport.authenticate('local'), babiesController.getBabies);
+
+  	app.route('/api/babies:id')
+  		.get(passport.authenticate('local'), babiesController.getBaby);
 
 };

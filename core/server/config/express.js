@@ -19,6 +19,7 @@ module.exports = function () {
             extended: true
         }));
     app.use(bodyParser.json());
+    require('./passport.js')(passport);
 
 
     // cookie support
@@ -35,9 +36,10 @@ module.exports = function () {
 
     // HERE WE INCLUDE THE ROUTES
     // we run the router objects giving them the express app
-    require('../routes/index.server.routes.js')(app);
-    require('../routes/users.server.routes.js')(app);
-    require('../routes/baby.server.routes.js')(app);
+    require('../routes/index.server.routes.js')(app, passport);
+    require('../routes/users.server.routes.js')(app, passport);
+    require('../routes/baby.server.routes.js')(app, passport);
+    require('../routes/babyNote.server.routes.js')(app, passport);
 
 
     // THIS WILL BE ANGULAR APP

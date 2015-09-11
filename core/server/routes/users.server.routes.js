@@ -2,7 +2,7 @@
 var usersController = require('../controllers/users.server.controller'),
     passport = require('passport');
 
-module.exports = function (app) {
+module.exports = function (app, passport) {
     app.post('/user/createParent', usersController.createParent);
     app.post('/user/createContact', usersController.createContact);
     app.post('/user/createNurse', usersController.createNurse);
