@@ -1,11 +1,10 @@
 /// <reference path="../../typings/angularjs/angular.d.ts"/>
 (function () {
-    "use strict";
+   "use strict";
 
-    angular.module('app', [
+   angular.module('app', [
         'ui.router',
-        'ngSanitize'
     ]);
 
 
-} ());
+}());
