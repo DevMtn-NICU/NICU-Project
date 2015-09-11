@@ -60,6 +60,7 @@ module.exports = function () {
     // we run the router objects giving them the express app
     require('../routes/index.server.routes.js')(app);
     require('../routes/users.server.routes.js')(app);
+    require('../routes/baby.server.route.js')(app);
 
 
     // THIS WILL BE ANGULAR APP
