@@ -10,7 +10,7 @@ module.exports = function (app) {
       res.json(req.user);
     });
     app.get('/user/:userId', usersController.getUser);
-    // app.post('/user/edit/:userId', usersController.editUser);
+    app.post('/user/edit/:userId', usersController.editUser);
     app.get('/user/logout', function(req, res) {
       req.logout();
       res.end();
