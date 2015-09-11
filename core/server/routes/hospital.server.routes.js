@@ -8,6 +8,6 @@ module.exports = function (app) {
         .get(hospitalsController.getHospitals);
 		
 	app.route('/api/hospitals:id')
-		.get(hospitalsController.getHospital)
+		.get(hospitalsController.getHospital);
 
 };
