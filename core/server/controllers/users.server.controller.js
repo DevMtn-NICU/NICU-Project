@@ -58,7 +58,7 @@ module.exports = {
     User.findById(req.params.userId)
     .populate(parent.baby)
     .exec(function(err, user){
-      if (err) res.status(500).send(err);
+      if (err) return res.status(500).send(err);
       else res.send(user);
     });
   },
@@ -66,7 +66,7 @@ module.exports = {
   editUser: function(req, res) {
     //returns the updated user document
     User.findByIdAndUpdate(req.params.userId, req.body, {new: true, upsert: true}, function(err, user){
-      if (err) res.status(500).send(err);
+      if (err) return res.status(500).send(err);
       else res.send(user);
     });
   }
