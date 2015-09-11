@@ -4,6 +4,10 @@
   "description": "This will be a fully wired  MEAN stack sample app.",
   "main": "server.js",
   "dependencies": {
+    "angular": "^1.4.5",
+    "angular-animate": "^1.4.5",
+    "angular-aria": "^1.4.5",
+    "angular-material": "^0.11.0",
     "body-parser": "^1.13.3",
     "compression": "^1.5.2",
     "connect-flash": "^0.1.1",
