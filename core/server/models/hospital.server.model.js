@@ -11,6 +11,7 @@ var hospitalSchema = new Schema({
     
     nurses: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    babies: [{ type: Schema.Types.ObjectId, ref: 'Baby' }],
     
     createdAt: {
         type: Date,
