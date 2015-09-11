@@ -14,9 +14,11 @@ var userSchema = new Schema({
   parent: {
     access: {type: String, enum: ["parent"]},
     baby: {type: Schema.Types.ObjectId, ref: "Baby"}
-  }
+  },
+  created_at: {type: Date, default: Date.now, required: true}
 });
 
+//Password encryption methods
 userSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
