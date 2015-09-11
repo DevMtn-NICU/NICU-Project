@@ -19,6 +19,3 @@ app.listen(port, function () {
 
 
 module.exports = app;
-
-as;ldfkj;alsdkfj;alkjef;laksjdf;lj
-asdlfkj;e
