@@ -6,14 +6,29 @@
          $scope.test = "blah blah blah";
 
          $scope.nurseLogin = function () {
-            alert("you have been upgraded from patient to doctor, now for surgery, don't worry you can do it just cut along the dotted line");
+            nurseLogin();
          }
 
          $scope.parentLogin = function () {
             alert("FACT: the nurse instantiated your baby");
          }
 
+         function nurseLogin() {
+            console.log("doc body: ", angular.element(document.body));
+            $mdDialog.show({
+               template: '<md-dialog aria-label="List Dialog">' +
+                  '  <md-dialog-content>' +
+                  '     <p>HEY THERE!!! {{ test }} </p>' +
+                  '  </md-dialog-content>' +
+                  '</md-dialog>',
+               locals: {
+                  test: $scope.test
+               },
+               controller: homeController
+            });
+
+         };
+
+
       });
-
-
 }());
