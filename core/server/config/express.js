@@ -38,6 +38,7 @@ module.exports = function () {
     require('../routes/index.server.routes.js')(app);
     require('../routes/users.server.routes.js')(app);
     require('../routes/baby.server.routes.js')(app);
+    require('../routes/baby.server.routes.js')(app);
 
 
     // THIS WILL BE ANGULAR APP
