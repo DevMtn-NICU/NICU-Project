@@ -3,26 +3,14 @@
 var config = require('./config.js'),
     express = require('express'),
     cors = require('cors'),
-    compress = require('compression'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
-    flash = require('connect-flash'),
     passport = require('passport');
 
 
 module.exports = function () {
     // generates the app object
     var app = express();
-
-
-    // Environment-dependant middleware
-    if (process.env.NODE_ENV === 'development') {
-        app.use(morgan('dev'));
-    }
-    else if (process.env.NODE_ENV === 'production') {
-        app.use(compress());
-    }
-
 
     // this middleware will run no matter the environment
     app.use(cors()); // disable this if this server is not for api
@@ -31,7 +19,6 @@ module.exports = function () {
             extended: true
         }));
     app.use(bodyParser.json());
-    app.use(methodOverride());
 
 
     // cookie support
@@ -41,15 +28,7 @@ module.exports = function () {
         secret: config.sessionSecret
     }));
 
-
-    // here we set our templating engine
-    // route is relative to server.js
-    app.set('views', './core/server/views');
-    app.set('view engine', 'ejs');
-
-
     // here we register flash and passport
-    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
 
@@ -58,7 +37,7 @@ module.exports = function () {
     // we run the router objects giving them the express app
     require('../routes/index.server.routes.js')(app);
     require('../routes/users.server.routes.js')(app);
-    require('../routes/baby.server.route.js')(app);
+    require('../routes/baby.server.routes.js')(app);
 
 
     // THIS WILL BE ANGULAR APP
