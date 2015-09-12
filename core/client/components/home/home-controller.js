@@ -2,7 +2,7 @@
    "use strict";
 
    angular.module('app')
-      .controller('homeController', function ($scope) {
+      .controller('homeController', function ($scope, $mdDialog) {
          $scope.test = "blah blah blah";
 
          $scope.nurseLogin = function () {
@@ -24,7 +24,7 @@
                locals: {
                   test: $scope.test
                },
-               controller: homeController
+               controller: 'homeController'
             });
 
          };
