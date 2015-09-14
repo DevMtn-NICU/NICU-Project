@@ -2,32 +2,24 @@
    "use strict";
 
    angular.module('app')
-      .controller('homeController', function ($scope, $mdDialog) {
-         $scope.test = "blah blah blah";
+      .controller('homeController', function ($scope, $mdDialog, LoginService) {
 
-         $scope.nurseLogin = function () {
-            nurseLogin();
-         }
-
-         $scope.parentLogin = function () {
-            alert("FACT: the nurse instantiated your baby");
-         }
-
-         function nurseLogin() {
-            console.log("doc body: ", angular.element(document.body));
+         $scope.userLogin = function() {
             $mdDialog.show({
-               template: '<md-dialog aria-label="List Dialog">' +
-                  '  <md-dialog-content>' +
-                  '     <p>HEY THERE!!! {{ test }} </p>' +
-                  '  </md-dialog-content>' +
-                  '</md-dialog>',
+               templateUrl: 'components/modal-templates/user-login-modal.html',
                locals: {
-                  test: $scope.test
+                  closeDialog: $scope.closeDialog
                },
                controller: 'homeController'
             });
 
          };
+      $scope.login = {};
+      $scope.closeDialog = function() {
+            $mdDialog.hide({})
+            console.log($scope.login);
+            LoginService.validateLogin($scope.login);
+      };
 
 
       });
