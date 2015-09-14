@@ -24,3 +24,12 @@
       <input type="text" name="lastName" ng-model="baby.lastName">
     </md-input-container>
   </md-content>
+  <md-content layout="row" layout-padding>
+    <md-input-container flex="20">
+      <label>Gender</label>
+      <md-select ng-model="baby.gender">
+        <md-option value="Male">Male</md-option>
+        <md-option value="Female">Female</md-option>
+      </md-select>
+    </md-input-container>
+  </md-content>
