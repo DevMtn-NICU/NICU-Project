@@ -10,13 +10,12 @@ var babySchema = new Schema({
     gender: { type: String, enum: ["Male", "Female"], required: true },
     patientNumber: {type: Number, required: true},
 
-	nurses: [{ type: Schema.Types.ObjectId, ref: 'User' }], //this might not be necessary?
-	parents: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    notes: [{ type: Schema.Types.ObjectId, ref: 'Note' }],
+	  parents: [{parent: { type: Schema.Types.ObjectId, ref: 'User' }}],
+    notes: [{note: { type: Schema.Types.ObjectId, ref: 'Note' }}],
 
-    level1: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    level2: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    level3: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    level1: [{user: { type: Schema.Types.ObjectId, ref: 'User' }}],
+    level2: [{user: { type: Schema.Types.ObjectId, ref: 'User' }}],
+    level3: [{user: { type: Schema.Types.ObjectId, ref: 'User' }}],
 
     birthWeight: { type: String, required: true },
     birthLength: { type: String, required: true },

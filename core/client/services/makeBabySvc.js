@@ -7,9 +7,14 @@
         url: "/api/makeBaby",
         method: "POST",
         data: {
-
+          baby: baby,
+          parent1: parent1,
+          parent2: parent2
         }
+      }).then(function(response) {
+        deferred.resolve(response.data);
       });
+      return deferred.promise;
     };
   });
 } ());
