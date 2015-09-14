@@ -1,18 +1,18 @@
 (function () {
-    "use strict";
+   "use strict";
 
-    angular.module('app')
-        .config(function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/');
+   angular.module('app')
+      .config(function ($stateProvider, $urlRouterProvider) {
+         $urlRouterProvider.otherwise('/');
 
-            $stateProvider
-                .state('home', {
-                    url: '/',
-                    templateUrl: 'components/home/homeTemplate.html',
-                    controller: 'homeController'
-                });
-            
-        });
+         $stateProvider
+            .state('home', {
+               url: '/',
+               templateUrl: 'components/home/home-template.html',
+               controller: 'homeController'
+            });
+
+      });
 
 
-} ());
+}());
