@@ -12,19 +12,12 @@ html, body {
 
 .logo {
 	margin-left: 5%;
+	height: 115px;
+	width: 100px;
 }
 
-.mdButton1 {
-	/*	font: ;*/
-	font-size: 15px;
-	border: 2px red solid;
-	color: red;
-	border-radius: 5px;
-}
-
-.mdButton2 {
-	background-color: red;
-	color: #fff;
+.mdbutton {
+	width: 90%;
 }
 
 .nurseContainer {
@@ -44,5 +37,5 @@ html, body {
 .nurseViewContainer {
 	width: 85%;
 	height: 85%;
-	padding: 5%;
+	padding: 15px;
 }
