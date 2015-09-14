@@ -29,31 +29,19 @@ exports.makeBaby = function (req, res) {
 					access: "parent",
 					baby: babyId
 				};
+				newParent2.password = "test";
 				newParent2.save(function(err, result) {
 					if (err) return res.status(501).send(err);
 					parent2Id = result._id;
 				}).then(function() {
-					Baby.findByIdAndUpdate(babyId, {$push: {'parents': {parent: parent1Id}}}, {new: true}, function(err, result) {
+					Baby.findByIdAndUpdate(babyId, {$push: {'parents': {parent: parent2Id}}}, {new: true}, function(err, result) {
 						if (err) return res.status(501).send(err);
-						else if (req.body.parent2) {
-							Baby.findByIdAndUpdate(babyId, {$push: {'parents': {parent: parent2Id}}}, {new: true}, function(err, result) {
-								if (err) return res.status(501).send(err);
-								res.send(result);
-							});
-						}
-						res.send(result);
 					});
 				});
 			}
 		}).then(function() {
 			Baby.findByIdAndUpdate(babyId, {$push: {'parents': {parent: parent1Id}}}, {new: true}, function(err, result) {
 				if (err) return res.status(501).send(err);
-				else if (req.body.parent2) {
-					Baby.findByIdAndUpdate(babyId, {$push: {'parents': {parent: parent2Id}}}, {new: true}, function(err, result) {
-						if (err) return res.status(501).send(err);
-						res.send(result);
-					});
-				}
 				res.send(result);
 			});
 		});
