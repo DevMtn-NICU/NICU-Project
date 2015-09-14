@@ -5,18 +5,10 @@
       .controller('homeController', function ($scope, $mdDialog) {
          $scope.test = "blah blah blah";
 
-         $scope.nurseLogin = function () {
-            nurseLogin();
-         }
-
-         $scope.parentLogin = function () {
-            alert("FACT: the nurse instantiated your baby");
-         }
-
-         function nurseLogin() {
+         $scope.userLogin = function() {
             console.log("doc body: ", angular.element(document.body));
             $mdDialog.show({
-               templateUrl: 'components/modal-templates/nurse-login-modal.html',
+               templateUrl: 'components/modal-templates/user-login-modal.html',
                locals: {
                   test: $scope.test,
                   closeDialog: $scope.closeDialog
