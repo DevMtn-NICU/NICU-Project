@@ -3,9 +3,11 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var babySchema = new Schema({
-    firstName: String,
-	middleName: String,
-    lastName: String,
+    firstName: { type: String, required: true },
+	middleName: { type: String },
+    lastName: { type: String, required: true },
+    
+    gender: { type: String, enum: ["Male", "Female"], required: true },
 	
 	nurses: [{ type: Schema.Types.ObjectId, ref: 'User' }], //this might not be necessary?
 	parents: [{ type: Schema.Types.ObjectId, ref: 'User' }],
@@ -15,11 +17,12 @@ var babySchema = new Schema({
     level2: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     level3: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     
-    birthWeight: String,
-    birthLength: String,
+    birthWeight: { type: String, required: true },
+    birthLength: { type: String, required: true },
     
-    birthDate: Date,
-    dischargeDate: Date, 
+    birthDate: { type: Date, required: true },
+    dischargeDate: Date,
+    deathDate: Date, 
     
     createdAt: {
         type: Date,

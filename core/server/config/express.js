@@ -38,6 +38,7 @@ module.exports = function () {
     // HERE WE INCLUDE THE ROUTES
     // we run the router objects giving them the express app and passport
     require('../routes/index.server.routes.js')(app, passport);
+    require('../routes/hospital.server.routes.js')(app, passport);
     require('../routes/users.server.routes.js')(app, passport);
     require('../routes/baby.server.routes.js')(app, passport);
     require('../routes/babyNote.server.routes.js')(app, passport);
