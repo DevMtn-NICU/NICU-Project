@@ -53,6 +53,28 @@ hr {
     height: auto;
 }
 
+.blackBox {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #080808;
+    opacity: 0.9;
+    background-color: transparent, #686868; 
+}
+
+.call {
+    color: #ffffff;
+    font-size: 0.85em;
+    padding: 15px;
+    position: relative;
+}
+
+.copyRight {
+    position: relative;
+    left: 37%;
+}
+
 
 
 
