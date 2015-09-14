@@ -1,27 +1,18 @@
-(function () {
-    "use strict";
+(function() {
+		"use strict";
 
-    angular.module('app')
-        .controller('nurseController', function ($scope, $stateParams) {
+		angular.module('app')
+			.controller('nurseController', function($scope, $stateParams) {
 
+					$scope.notes = {};
+					$scope.notes.stats = {};
 
-        $scope.notes = {};
-        $scope.notes.stats = {};
+					$scope.addBabyNote = function(note) {
+						nurseService.addBabyNote(note).
+						then(function(response) {
 
-        $scope.addBabyNote = function() {
-		nurseService.addBabyNote().
-		then(function(response) {
+                        })
+					};
+        })
 
-
-        };
-
-
-
-
-
-
-
-        });
-
-
-} ());
+}());
