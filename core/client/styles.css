@@ -18,6 +18,14 @@ body {
     margin-left: 37%;
 }
 
+hr {
+    width: 35%;
+    border: 0;
+    height: 1px;
+    background: #000;
+    opacity: 0.2;
+}
+
 .titles h1  {
     text-align: center;
 }
@@ -28,15 +36,14 @@ body {
 
 .nurseLogin {
     margin-left: 30%;
-    padding: 50px;
+    padding: 4%;;
 }
 
-hr {
-    width: 55%;
-    border: 0;
-    height: 1px;
-    background: #000;
-    opacity: 0.2;
+.md-raised {
+    margin-left: -10.4%;
+    background-color: #A90F29;
 }
+
+
 
 
