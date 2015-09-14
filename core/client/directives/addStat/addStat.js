@@ -4,7 +4,6 @@
 //   $scope.newBabyNote.stats = {};
 // });
 
-
 (function () {
   "use strict";
 
