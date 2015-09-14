@@ -1,29 +1,26 @@
 <form name="babyForm" ng-submit="makeBaby()">
   <md-content layout="row" layout-padding>
-    <md-input-container>
+    <md-input-container flex>
       <label>Patient Number</label>
       <input type="number" name="patientNumber" ng-model="baby.patientNumber" required>
-      <div ng-messages="babyForm.patientNumber.$error" ng-show="babyForm.patientNumber.$dirty">
-        <div ng-message="required">This is required</div>
-      </div>
     </md-input-container>
-    <md-datepicker ng-model="baby.birthDate" md-placeholder="Date of Birth"></md-datepicker>
-    <md-datepicker ng-model="baby.deathDate" md-placeholder="Date of Death"></md-datepicker>
+    <md-datepicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="10"></md-datepicker>
+    <md-datepicker ng-model="baby.deathDate" md-placeholder="Date of Death" flex></md-datepicker>
+    <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date" flex></md-datepicker>
   </md-content>
-  <md-content layout="row" layout-padding>
-    <md-input-container>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
       <label>First Name</label>
       <input type="text" name="firstName" ng-model="baby.firstName" />
     </md-input-container>
-    <md-input-container>
+    <md-input-container flex>
       <label>Middle Name</label>
       <input type="text" name="middleName" ng-model="baby.middleName" />
     </md-input-container>
-    <md-input-container>
+    <md-input-container flex>
       <label>Last Name</label>
       <input type="text" name="lastName" ng-model="baby.lastName" />
     </md-input-container>
-    <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date"></md-datepicker>
   </md-content>
   <md-content layout="row" layout-padding>
     <md-input-container flex="20">
@@ -34,23 +31,41 @@
       </md-select>
     </md-input-container>
   </md-content>
-  <md-content layout="row" layout-padding>
-    <md-input-container>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
       <label>Birth Length</label>
       <input type="text" name="length" ng-model="baby.birthLength" required />
-      <div ng-messages="babyForm.length.$error" ng-show="babyForm.length.$dirty">
-        <div ng-message="required">This is required</div>
-      </div>
     </md-input-container>
-    <md-input-container>
+    <md-input-container flex>
       <label>Birth Weight</label>
       <input type="text" name="weight" ng-model="baby.birthWeight" required />
-      <div ng-messages="babyForm.weight.$error" ng-show="babyForm.weight.$dirty">
-        <div ng-message="required">This is required</div>
-      </div>
     </md-input-container>
   </md-content>
-  <md-content layout="row" layout-padding>
-    
+  <br>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
+      <label>Parent 1 Name</label>
+      <input type="text" name="parent1Name" ng-model="parent1.name" required />
+      </div>
+    </md-input-container>
+    <md-input-container flex>
+      <label>Parent 1 Email</label>
+      <input type="text" name="parent1email" ng-model="parent1.email" required />
+    </md-input-container>
+  </md-content>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
+      <label>Parent 2 Name</label>
+      <input type="text" name="parent2Name" ng-model="parent2.name" required />
+    </md-input-container>
+    <md-input-container flex>
+      <label>Parent 2 Email</label>
+      <input type="text" name="parent2email" ng-model="parent2.email" required />
+    </md-input-container>
+  </md-content>
+  <br>
+  <md-content layout="row" layout-align="end" layout-padding>
+    <md-button class="md-raised" flex="10">Cancel</md-button>
+    <md-button class="md-raised md-primary" flex="10" ng-click="makeBaby()">Submit</md-button>
   </md-content>
 </form>

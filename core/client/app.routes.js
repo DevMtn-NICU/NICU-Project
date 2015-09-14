@@ -17,15 +17,15 @@
                controller: 'nurseController'
             })
             .state('medical.search', {
-               url: '/medical/search',
+               url: '/search',
                templateUrl: 'components/nurse/search_baby.html',
                controller: 'nurseController'
             })
             .state('medical.create_account', {
-               url: '/medical/account',
-               templateUrl: 'components/nurse/makeBabyTmpl.html',
+               url: '/account',
+               templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
                controller: 'makeBabyCtrl'
-            })
+            });
 
 
       });
