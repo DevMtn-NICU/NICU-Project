@@ -1,2 +1,58 @@
-<p>This is the Create Account</p>
-<p>Test Data: {{ test }}</p>
+<!-- <p>This is the Create Account</p>
+<p>Test Data: {{ test }}</p> -->
+
+<md-input-container>
+	<label>Patient Number</label>
+	<input type="text" ng-model="account.patientNumber">
+</md-input-container>
+
+
+
+
+Date of Birth
+Date of Discharge
+
+
+
+
+
+
+
+
+<md-input-container>
+	<label>Patient Name</label>
+	<input type="text" ng-model="account.patientName">
+</md-input-container>
+<md-input-container>
+	<label>Gender</label>
+	<md-select ng-model="account.patientGender">
+		<md-option value="male">Male</md-option>
+		<md-option value="female">Female</md-option>
+	</md-select>
+</md-input-container>
+<md-input-container>
+	<label>Birth Length</label>
+	<input type="text" ng-model="account.birthLength">
+</md-input-container>
+<md-input-container>
+	<label>Birth Weight</label>
+	<input type="text" ng-model="account.birthWeight">
+</md-input-container>
+
+
+<md-input-container>
+	<label>Parent 1 Name</label>
+	<input type="text" ng-model="account.parent1Name">
+</md-input-container>
+<md-input-container>
+	<label>Parent 1 Email</label>
+	<input type="email" ng-model="account.parent1Email">
+</md-input-container>
+<md-input-container>
+	<label>Parent 2 Name</label>
+	<input type="text" ng-model="account.parent2Name">
+</md-input-container>
+<md-input-container>
+	<label>Parent 2 Email</label>
+	<input type="text" ng-model="account.parent2Email">
+</md-input-container>
