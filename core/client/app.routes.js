@@ -23,8 +23,8 @@
             })
             .state('medical.create_account', {
                url: '/medical/account',
-               templateUrl: 'components/nurse/create_account.html',
-               controller: 'nurseController'
+               templateUrl: 'components/nurse/makeBabyTmpl.html',
+               controller: 'makeBabyCtrl'
             })
 
 
