@@ -11,4 +11,32 @@ body {
     background-color: #A41031;
 }
 
+#logo img {
+    padding: 45px;
+    text-align: center;
+    margin: 70px 0 0 20px;
+    margin-left: 37%;
+}
+
+.titles h1  {
+    text-align: center;
+}
+
+.titles p {
+    text-align: center;
+}
+
+.nurseLogin {
+    margin-left: 30%;
+    padding: 50px;
+}
+
+hr {
+    width: 55%;
+    border: 0;
+    height: 1px;
+    background: #000;
+    opacity: 0.2;
+}
+
 
