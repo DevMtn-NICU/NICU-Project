@@ -5,29 +5,24 @@
       .controller('homeController', function ($scope, $mdDialog) {
          $scope.test = "blah blah blah";
 
-         $scope.nurseLogin = function () {
-            nurseLogin();
-         }
-
-         $scope.parentLogin = function () {
-            alert("FACT: the nurse instantiated your baby");
-         }
-
-         function nurseLogin() {
+         $scope.userLogin = function() {
             console.log("doc body: ", angular.element(document.body));
             $mdDialog.show({
-               template: '<md-dialog aria-label="List Dialog">' +
-                  '  <md-dialog-content>' +
-                  '     <p>HEY THERE!!! {{ test }} </p>' +
-                  '  </md-dialog-content>' +
-                  '</md-dialog>',
+               templateUrl: 'components/modal-templates/user-login-modal.html',
                locals: {
-                  test: $scope.test
+                  test: $scope.test,
+                  closeDialog: $scope.closeDialog
                },
                controller: 'homeController'
             });
 
          };
+      
+      $scope.closeDialog = function() {
+            $mdDialog.hide({})
+            alert($scope.username);
+            alert($scope.password);
+      };
 
 
       });
