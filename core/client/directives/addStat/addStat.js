@@ -1,7 +1,7 @@
 //the baby note script will need to create empty objects for this to work
 // angular.module('app').controller('mainCtrl', function($scope) {
-//   $scope.newBabyNote = {};
-//   $scope.newBabyNote.stats = {};
+//   $scope.note = {};
+//   $scope.note.stats = {};
 // });
 
 (function () {
@@ -15,10 +15,10 @@
         templateUrl: 'addStat.html',
 
         controller: function ($scope) {
-          if (!$scope.newBabyNote.stats.other) $scope.newBabyNote.stats.other = [];
-          console.log($scope.newBabyNote);
+          if (!$scope.note.stats.other) $scope.note.stats.other = [];
+          // console.log($scope.note);
           $scope.addStat = function (idx) {
-            $scope.newBabyNote.stats.other.push({});
+            $scope.note.stats.other.push({});
           };
         }
       };
