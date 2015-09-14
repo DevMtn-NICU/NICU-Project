@@ -1,7 +1,18 @@
 <!-- <p>This is the Nurse Template</p>
 <p>Test Data: {{ test }}</p> -->
+<div class="nurseHeader">
+	<div>
+		<img class="logo" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9O1DpjKnGvnz7D92bbL4URhcsW0V2SPa_bM_0-4h8OKuzHJD_SQ">
+	</div>
+</div>
+
+<div class="nurseContainer">
+	<div class="nurseNav">
+		<md-button class="mdButton1" ui-sref="medical.search">Search for Baby</md-button>
+		<md-button class="mdButton2" ui-sref="medical.create_account">Create Baby</md-button>
+	</div>
+
+	<div class="nurseViewContainer" ui-view></div>
+</div>
 
 
-<md-button ui-sref="medical.search">Search for Baby</md-button>
-<md-button ui-sref="medical.create_account">Create Baby</md-button>
-<div ui-view></div>
