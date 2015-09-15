@@ -1,7 +1,7 @@
-<span ng-repeat="(idx, newStat) in note.stats.other">
+<md-input-container ng-repeat="(idx, newStat) in note.stats.other">
   <input type="text" placeholder="Stat Name" ng-model="newStat.stat">
   <input type="text" placeholder="Value" ng-model="newStat.value">
   <br>
   <br>
-</span>
-<button class="btn btn-primary" style="cursor:pointer" ng-click="addStat()">Add Stat</button>
+</md-input-container>
+<md-button class="md-raised" style="cursor:pointer" ng-click="addStat()">Add Stat</md-button>

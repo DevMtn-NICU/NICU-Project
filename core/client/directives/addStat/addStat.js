@@ -13,7 +13,6 @@
       return {
         restrict: 'E',
         templateUrl: 'addStat.html',
-
         controller: function ($scope) {
           if (!$scope.note.stats.other) $scope.note.stats.other = [];
           // console.log($scope.note);
