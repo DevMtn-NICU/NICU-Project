@@ -19,7 +19,12 @@
 				.state('medical.search', {
 					url: '/search',
 					templateUrl: 'components/nurse/search_baby.html',
-					controller: 'nurseController'
+					controller: 'nurseSearchCtrl',
+					resolve: {
+                        getBabies: function(NurseService){
+                            return NurseService.getBabies();
+                        }
+                    }
 				})
 				.state('medical.create_note', {
 						url: '/create_note/:id',

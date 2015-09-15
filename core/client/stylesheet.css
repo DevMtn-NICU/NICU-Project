@@ -39,3 +39,14 @@ html, body {
 	height: 85%;
 	padding: 15px;
 }
+
+/* this style is for the search page and can be moved */
+#babyRow {
+	height: 30px;
+	padding-top: 10px;
+	border-bottom: 1px solid grey	
+}
+
+#babyRow:hover {
+	background-color: lightgrey;
+}
