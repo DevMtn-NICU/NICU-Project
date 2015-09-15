@@ -39,7 +39,7 @@
 							promised: function($http) {
 								return $http({
 										method: 'GET',
-										url: '/api/babies:id'
+										url: '/api/babies/:id'
 									})
 									.then(function(response) {
 										return response.data[0];
