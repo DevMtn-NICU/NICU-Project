@@ -55,7 +55,8 @@ hr {
 }
 
 .blackBox {
-    position: absolute;
+    position: relative;
+    margin-top: 6.2%;
     bottom: 0;
     height: 50px;
     width: 100%;
@@ -88,7 +89,7 @@ hr {
 }
 
 .logo {
-	margin-left: 5%;
+	margin-left: 2%;
 	height: 115px;
 	width: 100px;
 }
