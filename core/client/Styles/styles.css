@@ -36,17 +36,27 @@ hr {
 }
 
 .nurseLogin {
-    margin-left: 30%;
+    margin-left: 27%;
     padding: 4%;
     width: 180px;
     height: auto;
 }
 
+#loginNurseBtn {
+    position: relative;
+    right: 12.5%;
+}
+
 .childLogin {
-    margin-left: 10%;
+    margin-left: 2%;
     padding: 4%;
     width: 180px;
     height: auto;
+}
+
+#loginChildBtn {
+    position: relative;
+    right: 13%;
 }
 
 .blackBox {
