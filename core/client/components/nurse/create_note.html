@@ -20,8 +20,7 @@
         	</md-list>
         	<md-list>
         		<md-list-item>
-        			Parents: <span ng-repeat="parent in theBaby.parents"> {{parent.parent.name}}</span>
-                    <!-- {{theBaby.parents[0].parent.name}} -->
+        			Parents: &nbsp;<span ng-repeat="parent in theBaby.parents">{{parent.name}}{{$last ? '' : ',&nbsp;'}}</span>
         		</md-list-item>
         	</md-list>
             <md-input-container>
@@ -68,9 +67,9 @@
                 <br>
                 <!-- Wilson's Directive  goes here -->
                 <br>
-                <div layout="row" layout-align="end" layout-padding>
-                    <md-button class="md-raised" flex="20" type="button">Cancel</md-button>
-                    <md-button class="md-raised md-warn" flex="40" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
+                <div layout="row" >
+                    <md-button flex="20" type="button">Cancel</md-button>
+                    <md-button flex="10" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
                 </div>
             </div>
         </form>
