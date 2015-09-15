@@ -14,7 +14,7 @@ var userSchema = new Schema({
   },
   parent: {
     access: {type: String, enum: ["parent"]},
-    baby: {type: Schema.Types.ObjectId, ref: "Baby"}
+    babies: [{baby: {type: Schema.Types.ObjectId, ref: "Baby"}}]
   },
   created_at: {type: Date, default: Date.now, required: true}
 });
