@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var userSchema = new Schema({
   roles: [{type: String, required: true, enum: ["nurse", "parent", "contact"]}],
+  name: {type: String},
   //match checks for valid emails
   email: {type: String, match: [/.+\@.+\..+/, "Please fill a valid e-mail address"], required: true, unique: true},
   password: {type: String, required: true},

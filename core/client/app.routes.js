@@ -17,17 +17,12 @@
 					controller: 'nurseController'
 				})
 				.state('medical.search', {
-					url: '/medical/search',
+					url: '/search',
 					templateUrl: 'components/nurse/search_baby.html',
 					controller: 'nurseController'
 				})
-				.state('medical.create_account', {
-					url: '/medical/account',
-					templateUrl: 'components/nurse/create_account.html',
-					controller: 'nurseController'
-				})
 				.state('medical.create_note', {
-						url: '/medical/create_note/:id',
+						url: '/create_note/:id',
 						templateUrl: 'components/nurse/create_note.html',
 						controller: 'noteController',
 						resolve: {
@@ -42,8 +37,11 @@
 							}
 					}
 				})
-
+	            .state('medical.create_account', {
+	               url: '/account',
+	               templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
+	               controller: 'makeBabyCtrl'
+	            })
 		});
-
 
 }());

@@ -8,6 +8,7 @@ var noteSchema = new Schema({
     bloodPressure: {type: Number},
     heartRate: {type: Number, min: 0},
     oxygen: {type: Number, min: 0},
+    weight: {type: String},
     other: [{
       stat: {type: String},
       value: {type: String}
