@@ -4,7 +4,7 @@
    angular.module('app')
       .controller('homeController', function ($scope, $mdDialog, LoginService) {
 
-         $scope.userLogin = function() {
+         $scope.userLogin = function () {
             $mdDialog.show({
                templateUrl: 'components/modal-templates/user-login-modal.html',
                locals: {
@@ -14,13 +14,11 @@
             });
 
          };
-      $scope.login = {};
-      $scope.closeDialog = function() {
+         $scope.login = {};
+         $scope.closeDialog = function () {
             $mdDialog.hide({})
             console.log($scope.login);
             LoginService.validateLogin($scope.login);
-      };
-
-
+         };
       });
 }());
