@@ -8,9 +8,9 @@ module.exports = function (app, passport) {
    app.post('/user/createNurse', usersController.createNurse);
    app.post('/user/login', passport.authenticate('local',
       function (req, res, msg) {
-         console.log('users.server.routes.js: ', req);
-         console.log(res);
-         console.log(msg);
+         //console.log('users.server.routes.js: ', req);
+         //console.log(res);
+         //console.log(msg);
       }));
    app.get('/user/:userId', usersController.getUser);
    app.post('/user/edit/:userId', usersController.editUser);
