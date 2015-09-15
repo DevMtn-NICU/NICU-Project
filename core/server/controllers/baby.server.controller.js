@@ -44,12 +44,14 @@ exports.makeBaby = function (req, res) {
 	}).then(function() {
 		var deferred = Q.defer();
 		if (parent1Id) {
+			console.log("47");
 			User.findByIdAndUpdate(parent1Id, {$push: {'parent.babies': babyId}}, function(err, parent) {
 				if (err) return res.status(500).send(err);
 				console.log("49", parent);
 				deferred.resolve();
 			});
 		} else {
+			console.log("54");
 			var newParent1 = new User();
 			newParent1.roles.push("parent");
 			newParent1.name = req.body.parent1.name;
@@ -57,6 +59,7 @@ exports.makeBaby = function (req, res) {
 			newParent1.password = "test";
 			newParent1.parent.access = "parent";
 			newParent1.parent.babies.push(babyId);
+			console.log("60", newParent1);
 			newParent1.save(function(err, parent) {
 				if (err) return res.status(500).send(err);
 				parent1Id = parent._id;
