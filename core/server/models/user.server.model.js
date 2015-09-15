@@ -52,10 +52,12 @@ var userSchema = new Schema({
 userSchema.pre('save', function (next) {
    var user = this;
    if (!user.isModified('password')) {
+      console.log('!user');
       return next();
    }
    bcrypt.genSalt(12, function (err, salt) {
       if (err) {
+         console.log('error');
          return next(err);
       }
       bcrypt.hash(user.password, salt, function (err, hash) {
