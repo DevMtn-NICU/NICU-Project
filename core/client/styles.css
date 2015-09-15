@@ -1,0 +1,82 @@
+/*HOME PAGE*/
+body {
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+/*    color: #646464;*/
+}
+
+.redBox {
+    width: 100%;
+    height: 45px;
+    background-color: #A41031;
+}
+
+#logo img {
+    padding: 45px;
+    text-align: center;
+    margin: 70px 0 0 20px;
+    margin-left: 37%;
+}
+
+hr {
+    width: 35%;
+    border: 0;
+    height: 1px;
+    background: #000;
+    opacity: 0.2;
+}
+
+.titles h1  {
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.60);
+}
+
+.titles p {
+    text-align: center;
+}
+
+.nurseLogin {
+    margin-left: 30%;
+    padding: 4%;
+    width: 180px;
+    height: auto;
+}
+
+.md-raised {
+    margin-left: -12%;
+    background-color: #A90F29;
+}
+
+.childLogin {
+    margin-left: 10%;
+    padding: 4%;
+    width: 180px;
+    height: auto;
+}
+
+.blackBox {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #080808;
+    opacity: 0.9;
+    background-color: transparent, #686868; 
+}
+
+.call {
+    color: #ffffff;
+    font-size: 0.85em;
+    padding: 15px;
+    position: relative;
+}
+
+.copyRight {
+    position: relative;
+    left: 36%;
+}
+
+.email {
+    left: 67%;
+}
+
