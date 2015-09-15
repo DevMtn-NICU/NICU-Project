@@ -37,7 +37,7 @@
 										url: '/api/babies/:id'
 									})
 									.then(function(response) {
-										console.log("Data: ", response.data);
+										console.log("Data: ", response.data[0]);
 										return response.data[0];
 									});
 							}

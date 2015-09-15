@@ -20,7 +20,8 @@
         	</md-list>
         	<md-list>
         		<md-list-item>
-        			Parents: Very Likely. (I still need to get parents by id's.)
+        			Parents: <span ng-repeat="parent in theBaby.parents"> {{parent.parent.name}}</span>
+                    <!-- {{theBaby.parents[0].parent.name}} -->
         		</md-list-item>
         	</md-list>
             <md-input-container>
@@ -31,7 +32,7 @@
         </md-content>
     </div>
     <div layout="row">
-        <form ng-submit="addBabyNote()">
+        <form name="babyNote" ng-submit="addBabyNote()">
             <div>
                 <md-content>
                     <div class="md-toolbar-tools">Stats</div>
@@ -65,11 +66,11 @@
                      Bathed:
                 </md-checkbox>
                 <br>
-                <add-stat></add-stat>
+                <!-- Wilson's Directive  goes here -->
                 <br>
-                <div layout="row">
-                    <md-button ui-sref="medical.search">Cancel</md-button>
-                    <md-button type="submit">Submit</md-button>
+                <div layout="row" layout-align="end" layout-padding>
+                    <md-button class="md-raised" flex="20" type="button">Cancel</md-button>
+                    <md-button class="md-raised md-warn" flex="40" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
                 </div>
             </div>
         </form>

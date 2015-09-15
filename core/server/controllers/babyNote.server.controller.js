@@ -1,8 +1,11 @@
 //functions for baby notes
 var Note = require('../models/babyNote.server.model.js');
+var mongoose = require('Mongoose');
 
 module.exports = {
   createNote: function(req, res) {
+    var id = mongoose.Types.ObjectId(req.body.baby);
+    req.body.baby = id;
     var newNote = new Note(req.body)
     .exec(function(err, note) {
       if (err) return res.status(500).send(err);

@@ -63,8 +63,8 @@ exports.getBabies = function (req, res) {
 
 exports.getBaby = function (req, res) {
 	Baby.find(req.query)
-	.populate('parents.parent')
-	.populate('notes.note')
+	.populate('parents')
+	.populate('notes')
 	.populate('level1.user')
 	.populate('level2.user')
 	.populate('level3.user')
