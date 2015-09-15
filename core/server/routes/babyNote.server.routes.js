@@ -10,5 +10,5 @@ module.exports = function(app, passport) {
   //get one note
   app.get('/babyNote/:noteId', passport.authenticate('local'), babyNoteCtrl.getOneNote);
   //edit note
-  app.post('/babyNote/:noteId', passport.authenticate('local'), babyNoteCtrl.editNote);
+  app.put('/babyNote/:noteId', passport.authenticate('local'), babyNoteCtrl.editNote);
 };
