@@ -3,6 +3,9 @@ var mongoose = require('mongoose'),
    bcrypt = require('bcrypt-nodejs'),
    Schema = mongoose.Schema;
 
+
+
+
 var userSchema = new Schema({
    roles: [{
       type: String,
@@ -44,6 +47,23 @@ var userSchema = new Schema({
       default: Date.now,
       required: true
    }
+});
+
+userSchema.pre('save', function (next) {
+   var user = this;
+   if (!user.isModified('password')) {
+      return next();
+   }
+   bcrypt.genSalt(12, function (err, salt) {
+      if (err) {
+         return next(err);
+      }
+      bcrypt.hash(user.password, salt, function (err, hash) {
+         console.log(user.password);
+         user.password = hash;
+         return next();
+      });
+   });
 });
 
 //Password encryption methods
