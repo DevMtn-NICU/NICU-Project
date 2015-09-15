@@ -3,9 +3,9 @@ angular.module('app')
    this.validateLogin = function (login) {
       console.log(login)
       var defer = $q.defer();
-      var url = '/URLGOES/HERE';
+      var url = '/user/login';
       $http({
-        method: 'PUT',
+        method: 'POST',
          url: url,
          data: JSON.stringify(login),
       }).then(function (res) {
