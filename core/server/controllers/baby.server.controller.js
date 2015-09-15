@@ -63,12 +63,11 @@ exports.getBabies = function (req, res) {
 
 exports.getBaby = function (req, res) {
 	Baby.find(req.query)
-	.populate('nurses')
-	.populate('parents')
-	.populate('notes')
-	.populate('level1')
-	.populate('level2')
-	.populate('level3')
+	.populate('parents.parent')
+	.populate('notes.note')
+	.populate('level1.user')
+	.populate('level2.user')
+	.populate('level3.user')
 	.exec(function(err, result) {
 		if (err) {
 			return res.status(500).send(err);

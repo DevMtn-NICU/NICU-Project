@@ -29,9 +29,10 @@
 							promised: function($http) {
 								return $http({
 										method: 'GET',
-										url: '/api/babies:id'
+										url: '/api/babies/:id'
 									})
 									.then(function(response) {
+										console.log("Data: ", response.data);
 										return response.data[0];
 									});
 							}
