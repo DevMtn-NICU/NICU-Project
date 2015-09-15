@@ -37,10 +37,10 @@ var userSchema = new Schema({
          type: String,
          enum: ["parent"]
       },
-      baby: {
+      baby: [{
          type: Schema.Types.ObjectId,
          ref: "Baby"
-      }
+      }]
    },
    created_at: {
       type: Date,
