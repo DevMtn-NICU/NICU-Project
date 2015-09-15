@@ -4,7 +4,7 @@ var babyNoteCtrl = require('../controllers/babyNote.server.controller'),
 
 module.exports = function(app, passport) {
   //create note
-  app.post('/babyNote', passport.authenticate('local'), babyNoteCtrl.createNote);
+  app.post('/babyNote', babyNoteCtrl.createNote);
   //get all notes
   app.get('/babyNote', passport.authenticate('local'), babyNoteCtrl.getNotes);
   //get one note

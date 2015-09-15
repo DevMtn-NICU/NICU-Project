@@ -1,10 +1,10 @@
-(function () {
-    "use strict";
+(function() {
+		"use strict";
 
-    angular.module('app')
-        .controller('nurseController', function ($scope) {
-            $scope.test = "test";
-        });
+		angular.module('app')
+			.controller('nurseController', function($scope) {
 
 
-} ());
+        })
+
+}());
