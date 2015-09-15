@@ -23,11 +23,12 @@
         			Parents: Very Likely. (I still need to get parents by id's.)
         		</md-list-item>
         	</md-list>
+            <button fileread></button>
             <md-input-container>
                 <label>Comment</label>
                 <textarea ng-model="note.comment" cols="45" rows="10"></textarea>
             </md-input-container>
-        	<md-button>Upload Image</md-button>
+        	<input type="file" if="other" images="images" accept="image/*" ng-model="imageId"placeholder="UPLOAD IMAGE" fileread>
         </md-content>
     </div>
     <div layout="row">

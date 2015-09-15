@@ -5,6 +5,8 @@ var babyNoteCtrl = require('../controllers/babyNote.server.controller'),
 module.exports = function(app, passport) {
   //create note
   app.post('/babyNote', babyNoteCtrl.createNote);
+  // uplaod image and save location Url
+  app.post('/api/newimage', babyNoteCtrl.saveImage)
   //get all notes
   app.get('/babyNote', passport.authenticate('local'), babyNoteCtrl.getNotes);
   //get one note

@@ -13,7 +13,8 @@
             				baby: $scope.theBaby._id,
                             stats: {heartRate: parseInt($scope.note.stats.heartRate),
 									oxygen: parseInt($scope.note.stats.oxygen)},
-                            comment: $scope.note.comment
+                            comment: $scope.note.comment,
+                            picturesUrl: $scope.note.picturesUrl
             			}
 						NurseService.addBabyNote(details).
 						then(function(response) {
