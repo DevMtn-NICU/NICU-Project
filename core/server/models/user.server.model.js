@@ -7,46 +7,19 @@ var mongoose = require('mongoose'),
 
 
 var userSchema = new Schema({
-   roles: [{
-      type: String,
-      required: true,
-      enum: ["nurse", "parent", "contact"]
-   }],
-   name: {
-      type: String
-   },
-   //match checks for valid emails
-   email: {
-      type: String,
-      match: [/.+\@.+\..+/, "Please fill a valid e-mail address"],
-      required: true,
-      unique: true
-   },
-   password: {
-      type: String,
-      required: true
-   },
-   nurse: {
-      access: {
-         type: String,
-         enum: ["nurse"]
-      }
-   },
-   parent: {
-      access: {
-         type: String,
-         enum: ["parent"]
-      },
-      baby: [{
-         type: Schema.Types.ObjectId,
-         ref: "Baby"
-      }]
-   },
-   created_at: {
-      type: Date,
-      default: Date.now,
-      required: true
-   }
+  roles: [{type: String, required: true, enum: ["nurse", "parent", "contact"]}],
+  name: {type: String},
+  //match checks for valid emails
+  email: {type: String, match: [/.+\@.+\..+/, "Please fill a valid e-mail address"], required: true, unique: true},
+  password: {type: String, required: true},
+  nurse: {
+    access: {type: String, enum: ["nurse"]}
+  },
+  parent: {
+    access: {type: String, enum: ["parent"]},
+    babies: [{type: Schema.Types.ObjectId, ref: "Baby"}]
+  },
+  created_at: {type: Date, default: Date.now, required: true}
 });
 
 userSchema.pre('save', function (next) {
