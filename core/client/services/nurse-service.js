@@ -4,8 +4,9 @@ angular.module('app')
     this.addBabyNote = function(note) {
         var deferred = $q.defer();
 		$http({
-			method: 'GET',
-			url: '/babyNote' + note.id,
+			method: 'POST',
+			url: '/babyNote',
+            data: note
 		}).then(function(response) {
 			var results = response.data;
 			deferred.resolve(results);

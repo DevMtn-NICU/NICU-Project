@@ -27,9 +27,9 @@
 					controller: 'nurseController'
 				})
 				.state('medical.create_note', {
-						url: '/medical/create_note:/id',
+						url: '/medical/create_note/:id',
 						templateUrl: 'components/nurse/create_note.html',
-						controller: 'nurseController',
+						controller: 'noteController',
 						resolve: {
 							promised: function($http) {
 								return $http({
@@ -37,7 +37,7 @@
 										url: '/api/babies:id'
 									})
 									.then(function(response) {
-										console.log(response);
+										return response.data[0];
 									});
 							}
 					}

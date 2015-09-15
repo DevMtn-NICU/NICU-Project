@@ -5,68 +5,73 @@
         	<div class="md-toolbar-tools">Nurse Baby Note</div>
         	<md-list>
         		<md-list-item>
-        			Patient Number:
+        			Patient Number: {{ theBaby.patientNumber}}
         		</md-list-item>
         	</md-list>
         	<md-list>
         		<md-list-item>
-        			Patient Name:
+        			Patient Name: {{ theBaby.firstName}} {{ theBaby.lastName}}
         		</md-list-item>
         	</md-list>
         	<md-list>
         		<md-list-item>
-        			Gender:
+        			Gender: {{ theBaby.gender }}
         		</md-list-item>
         	</md-list>
         	<md-list>
         		<md-list-item>
-        			Parents:
+        			Parents: Very Likely. (I still need to get parents by id's.)
         		</md-list-item>
         	</md-list>
+            <md-input-container>
+                <label>Comment</label>
+                <textarea ng-model="note.comment" cols="45" rows="10"></textarea>
+            </md-input-container>
         	<md-button>Upload Image</md-button>
         </md-content>
     </div>
     <div layout="row">
-        <div>
-            <md-content>
-                <div class="md-toolbar-tools">Stats</div>
-                <md-input-container>
-                	<label>Blood Pressure</label>
-                	<input type="text" ng-model="note.stats.bloodPressure">
-                </md-input-container>
-                <md-input-container>
-                	<label>Oxygen</label>
-                	<input type="text" ng-model="note.stats.oxygen">
-                </md-input-container>
-                <md-input-container>
-                	<label>Heart Rate</label>
-                	<input type="text" ng-model="note.stats.heartRate">
-                </md-input-container>
-                <md-input-container>
-                    <label>Weight</label>
-                    <input type="text" ng-model="note.stats.weight">
-                </md-input-container>
-            </md-content>
-        </div>
-        <div >
-            <div class="md-toolbar-tools"></div>
-            <md-checkbox ng-model="note.fed" aria-label="Fed">
-                 Fed:
-            </md-checkbox>
-            <md-checkbox ng-model="note.changed" aria-label="Changed">
-                 Changed:
-            </md-checkbox>
-            <md-checkbox ng-model="note.bathed" aria-label="Bathed">
-                 Bathed:
-            </md-checkbox>
-            <br>
-            Wilson's directive goes here.
-            <br>
-            <div layout="row">
-                <md-button ui-sref="medical.search">Cancel</md-button>
-                <md-button >Submit</md-button>
+        <form ng-submit="addBabyNote()">
+            <div>
+                <md-content>
+                    <div class="md-toolbar-tools">Stats</div>
+                    <md-input-container>
+                    	<label>Blood Pressure</label>
+                    	<input type="text" ng-model="note.stats.bloodPressure">
+                    </md-input-container>
+                    <md-input-container>
+                    	<label>Oxygen</label>
+                    	<input type="text" ng-model="note.stats.oxygen">
+                    </md-input-container>
+                    <md-input-container>
+                    	<label>Heart Rate</label>
+                    	<input type="text" ng-model="note.stats.heartRate">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Weight</label>
+                        <input type="text" ng-model="note.stats.weight">
+                    </md-input-container>
+                </md-content>
             </div>
-        </div>
-
+            <div >
+                <div class="md-toolbar-tools"></div>
+                <md-checkbox ng-model="note.fed" aria-label="Fed">
+                     Fed:
+                </md-checkbox>
+                <md-checkbox ng-model="note.changed" aria-label="Changed">
+                     Changed:
+                </md-checkbox>
+                <md-checkbox ng-model="note.bathed" aria-label="Bathed">
+                     Bathed:
+                </md-checkbox>
+                <br>
+                <add-stat></add-stat>
+                <br>
+                <div layout="row">
+                    <md-button ui-sref="medical.search">Cancel</md-button>
+                    <md-button type="submit">Submit</md-button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
