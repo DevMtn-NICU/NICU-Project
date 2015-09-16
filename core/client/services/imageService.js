@@ -1,6 +1,6 @@
 (function() {
 	"use strict";
-	angular.module("app").service('imageService', function($http) {
+	angular.module("app").factory('imageService', function($http) {
 	var service = {}
 
 	service.storeImage = function(imageData, filename) {
@@ -19,7 +19,5 @@
 	}
 	return service;
 	});
-});
+}());
 
-// app.use(bodyParser.json({limit: '50mb'}));
-// app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))

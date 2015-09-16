@@ -10,8 +10,7 @@
       $scope.images = [];
 
 
-      $scope.addBabyNote = function(imageId) {
-          console.log(imageId);
+      $scope.addBabyNote = function() {
         var details = {
           baby: promised._id,
           stats: {
@@ -21,7 +20,7 @@
             weight: $scope.note.stats.weight
           },
           comment: $scope.note.comment,
-          picturesUrl: imageId
+          picturesUrl: $scope.imageId
         }
         console.log("details: ", details);
         NurseService.addBabyNote(details).

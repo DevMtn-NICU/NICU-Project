@@ -51,7 +51,7 @@ module.exports = {
 
 
   		saveImage: function(req, res) {
-    		buf = newBuffer(req.body.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+    		buf = new Buffer(req.body.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
     		var bucketName = 'nicuproject/' + req.body.userEmail;
     		var params = {

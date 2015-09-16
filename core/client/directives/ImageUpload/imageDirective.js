@@ -14,13 +14,19 @@
 					var tempArray = elem[0].value.split('\\');
 					// why is this 0 instead of what the tutorial has as 'context'
 					var fileName = tempArray[tempArray.length - 1];
-				}
 
-				// scope.images.unshift(result.data);
-				
-			})
-		reader.readAsSataURL(changeEvent.target.files[0]);
+		imageService.storeImage(fileread, fileName)
+          .then(function (result) {
+            scope.imageId = result.data.Location;
+            console.log(result.data)
+            scope.images.unshift(result.data);
+          }).catch(function (err) {
+            console.log(err);
+          })
+	    }
+		reader.readAsDataURL(changeEvent.target.files[0]);
+				})
 		}
 	}
  })
-})
+}());

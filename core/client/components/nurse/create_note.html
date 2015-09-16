@@ -28,10 +28,11 @@
                 <textarea ng-model="note.comment" cols="45" rows="10"></textarea>
             </md-input-container>
         	<input type="file" images="images" accept="image/*" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread>
+            {{imageId}}
         </md-content>
     </div>
     <div layout="row">
-        <form name="babyNote" ng-submit="addBabyNote(imageId)">
+        <form name="babyNote" ng-submit="addBabyNote()">
             <div>
                 <md-content>
                     <div class="md-toolbar-tools">Stats</div>
