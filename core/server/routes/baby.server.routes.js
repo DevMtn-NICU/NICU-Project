@@ -13,4 +13,5 @@ module.exports = function (app, passport) {
 
   	app.route('/api/babies/:id')
         .get(babiesController.getBaby);
+    
 };
