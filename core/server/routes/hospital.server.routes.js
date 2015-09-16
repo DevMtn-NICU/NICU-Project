@@ -9,19 +9,19 @@ module.exports = function (app) {
 
 	app.route('/api/hospitals:id')
 		.get(hospitalsController.getHospital);
-
+  //get all staff
   app.route('/api/staff')
     .get(hospitalsController.getAllStaff);
-
+  //create nurse
   app.route('/api/staff')
     .post(hospitalsController.createStaff);
-
+  //get one nurse
   app.route('/api/staff/:id')
     .get(hospitalsController.getOneStaff);
-
+  //edit nurse
   app.route('/api/staff/:id')
     .put(hospitalsController.editStaff);
-
+  //delete nurse
   app.route('/api/staff/:id')
     .delete(hospitalsController.deleteStaff);
 };
