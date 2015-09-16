@@ -42,16 +42,10 @@
 						templateUrl: 'components/nurse/create_note.html',
 						controller: 'noteController',
 						resolve: {
-							promised: function($http) {
-								return $http({
-										method: 'GET',
-										url: '/api/babies/?_id=' + id
-									})
-									.then(function(response) {
-										console.log(response.data);
-										return response.data;
-									});
-							}
+							promised: function(NurseService, $stateParams){
+								var id = $stateParams.id;
+		                        return NurseService.getBabyById(id);
+	                        }
 						}
 				})
 	            .state('medical.create_account', {

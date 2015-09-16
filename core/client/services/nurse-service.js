@@ -26,12 +26,13 @@
 
 
 		this.getBabyById = function(id) {
-			console.log(id);
+			console.log("id: ", id);
 			var deferred = $q.defer();
 			$http({
 				method: 'GET',
-				url: '/api/babies/?_id =' + id,
+				url: '/api/babies/' + id,
 			}).then(function(response) {
+				console.log("response: ", response.data);
 				var results = response.data;
 				deferred.resolve(results);
 			});
