@@ -49,6 +49,7 @@
 						controller: 'noteController',
 						resolve: {
 							promised: function($http) {
+								console.log(id);
 								return $http({
 										method: 'GET',
 										url: '/api/babies/:id'
