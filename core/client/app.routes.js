@@ -21,16 +21,10 @@
                     templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
                     controller: 'editController',
 					resolve: {
-						promised: function($http) {
-							return $http({
-									method: 'GET',
-									url: '/api/babies/:id'
-								})
-								.then(function(response) {
-									console.log(response.data[0]);
-									return response.data[0];
-								});
-						}
+						promised: function(NurseService, $stateParams){
+							var id = $stateParams.id;
+	                        return NurseService.getBabyById(id);
+                        }
 					}
                 })
 				.state('medical.search', {
@@ -51,14 +45,14 @@
 							promised: function($http) {
 								return $http({
 										method: 'GET',
-										url: '/api/babies/:id'
+										url: '/api/babies/?_id=' + id
 									})
 									.then(function(response) {
-										console.log(response.data[0]);
-										return response.data[0];
+										console.log(response.data);
+										return response.data;
 									});
 							}
-					}
+						}
 				})
 	            .state('medical.create_account', {
 	               url: '/account',

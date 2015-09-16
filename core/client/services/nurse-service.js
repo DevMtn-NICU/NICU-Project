@@ -23,5 +23,20 @@
 				})
 			};
 
-		})
+
+
+		this.getBabyById = function(id) {
+			console.log(id);
+			var deferred = $q.defer();
+			$http({
+				method: 'GET',
+				url: '/api/babies/?_id =' + id,
+			}).then(function(response) {
+				var results = response.data;
+				deferred.resolve(results);
+			});
+			return deferred.promise;
+		}
+
+	});
 } ());
