@@ -1,12 +1,9 @@
 (function () {
   "use strict";
-<<<<<<< HEAD
-  angular.module('app').controller('makeBabyCtrl', function ($scope, makeBabySvc) {
-      $scope.showAdd = true;
-=======
-  angular.module('app').controller('makeBabyCtrl', function ($scope, makeBabySvc, $mdDialog) {
 
->>>>>>> master
+  angular.module('app').controller('makeBabyCtrl', function ($scope, makeBabySvc, $mdDialog) {
+      $scope.showAdd = true;
+
     $scope.makeBaby = function() {
       makeBabySvc.makeBaby($scope.baby, $scope.parent1, $scope.parent2)
       .then(function(response) {
