@@ -3,13 +3,12 @@
 	<input type="text" ng-model="babySearch">
 </md-input-container>
 <!--header-->
-<!-- <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch">
-	<span layout="column" flex id="searchCellPatient"><a href="#/medical/create_note/{{ baby._id }}">{{ baby.patientNumber }}</a></span> &nbsp &nbsp &nbsp
-	<span layout="column" flex id="searchCellName">{{ baby.lastName }}, {{ baby.firstName }}</span>
-	<span layout="column" flex id="searchCellGender">{{ baby.gender }}</span>
-	<span layout="column" flex id="searchCellBirth">{{ baby.birthDate }}</span>
-	<span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span>
-</div> -->
+<div flex layout="space-around center" >
+	<span layout="column" flex id="searchCellPatient">Patient ID</span>
+	<span layout="column" flex id="searchCellName">Name</span>
+	<span layout="column" flex id="searchCellGender">Gender</span>
+	<span layout="column" flex id="searchCellBirth">Date of Birth</span>
+</div>
 <!--search field-->
 <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch">
 	<span layout="column" flex id="searchCellPatient"><a href="#/medical/create_note/{{ baby._id }}">{{ baby.patientNumber }}</a></span> &nbsp &nbsp &nbsp

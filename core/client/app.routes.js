@@ -1,8 +1,8 @@
-(function() {
+(function () {
 	"use strict";
 
 	angular.module('app')
-		.config(function($stateProvider, $urlRouterProvider) {
+		.config(function ($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/');
 
 			$stateProvider
@@ -21,9 +21,9 @@
                     templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
                     controller: 'editController',
 					resolve: {
-						promised: function(NurseService, $stateParams){
+						promised: function (NurseService, $stateParams) {
 							var id = $stateParams.id;
-	                        return NurseService.getBabyById(id);
+							return NurseService.getBabyById(id);
                         }
 					}
                 })
@@ -32,27 +32,27 @@
 					templateUrl: 'components/nurse/search_baby.html',
 					controller: 'nurseSearchCtrl',
 					resolve: {
-                        getBabies: function(NurseService){
+                        getBabies: function (NurseService) {
                             return NurseService.getBabies();
                         }
                     }
 				})
 				.state('medical.create_note', {
-						url: '/create_note/:id',
-						templateUrl: 'components/nurse/create_note.html',
-						controller: 'noteController',
-						resolve: {
-							promised: function(NurseService, $stateParams){
-								var id = $stateParams.id;
-		                        return NurseService.getBabyById(id);
-	                        }
+					url: '/create_note/:id',
+					templateUrl: 'components/nurse/create_note.html',
+					controller: 'noteController',
+					resolve: {
+						promised: function (NurseService, $stateParams) {
+							var id = $stateParams.id;
+							return NurseService.getBabyById(id);
 						}
+					}
 				})
-	            .state('medical.create_account', {
-	               url: '/account',
-	               templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
-	               controller: 'makeBabyCtrl'
-	            })
+				.state('medical.create_account', {
+					url: '/account',
+					templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
+					controller: 'makeBabyCtrl'
+				})
       .state('hospital', {
         url: '/hospital',
         templateUrl: 'components/hospital/hospital_view.html',
@@ -74,4 +74,4 @@
       });
 		});
 
-}());
+} ());
