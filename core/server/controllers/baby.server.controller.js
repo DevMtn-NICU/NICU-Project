@@ -135,7 +135,7 @@ exports.getBabies = function (req, res) {
 };
 
 exports.getBaby = function (req, res) {
-	Baby.findById(req.params.id)
+	Baby.find(req.query)
 	.populate('parents')
 	.populate('notes')
 	.populate('level1.user')
