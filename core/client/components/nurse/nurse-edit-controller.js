@@ -2,9 +2,9 @@
 		"use strict";
 
 		angular.module('app')
-			.controller('editController', function($scope) {
+			.controller('editController', function($scope, promised) {
 
-
+			$scope.baby = promised;
         })
 
 }());
