@@ -10,7 +10,7 @@ var babySchema = new Schema({
     gender: { type: String, enum: ["Male", "Female"], required: true },
     patientNumber: {type: Number, required: true},
 
-	  parents: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+	parents: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     notes: [{ type: Schema.Types.ObjectId, ref: 'Note' }],
 
     level1: [{ type: Schema.Types.ObjectId, ref: 'User' }],

@@ -5,7 +5,7 @@ var noteSchema = new Schema({
   baby: {type: Schema.Types.ObjectId, ref: "Baby", required: true},
   picturesUrl: {type: String},
   stats: {
-    bloodPressure: {type: Number},
+    bloodPressure: {type: String},
     heartRate: {type: Number, min: 0},
     oxygen: {type: Number, min: 0},
     weight: {type: String},
