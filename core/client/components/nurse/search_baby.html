@@ -15,5 +15,6 @@
 	<span layout="column" flex id="searchCellName">{{ baby.lastName }}, {{ baby.firstName }}</span>
 	<span layout="column" flex id="searchCellGender">{{ baby.gender }}</span>
 	<span layout="column" flex id="searchCellBirth">{{ baby.birthDate }}</span>
-	<span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span>
+	<span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span> /
+	<span><a href="#/medical/create_note/{{ baby._id }}">Create Note</a></span>
 </div>

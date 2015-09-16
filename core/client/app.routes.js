@@ -1,8 +1,8 @@
-(function() {
+(function () {
 	"use strict";
 
 	angular.module('app')
-		.config(function($stateProvider, $urlRouterProvider) {
+		.config(function ($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/');
 
 			$stateProvider
@@ -21,16 +21,10 @@
                     templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
                     controller: 'editController',
 					resolve: {
-						promised: function($http) {
-							return $http({
-									method: 'GET',
-									url: '/api/babies/:id'
-								})
-								.then(function(response) {
-									console.log(response.data[0]);
-									return response.data[0];
-								});
-						}
+						promised: function (NurseService, $stateParams) {
+							var id = $stateParams.id;
+							return NurseService.getBabyById(id);
+                        }
 					}
                 })
 				.state('medical.search', {
@@ -38,34 +32,27 @@
 					templateUrl: 'components/nurse/search_baby.html',
 					controller: 'nurseSearchCtrl',
 					resolve: {
-                        getBabies: function(NurseService){
+                        getBabies: function (NurseService) {
                             return NurseService.getBabies();
                         }
                     }
 				})
 				.state('medical.create_note', {
-						url: '/create_note/:id',
-						templateUrl: 'components/nurse/create_note.html',
-						controller: 'noteController',
-						resolve: {
-							promised: function($http) {
-								console.log(id);
-								return $http({
-										method: 'GET',
-										url: '/api/babies/:id'
-									})
-									.then(function(response) {
-										console.log(response.data[0]);
-										return response.data[0];
-									});
-							}
+					url: '/create_note/:id',
+					templateUrl: 'components/nurse/create_note.html',
+					controller: 'noteController',
+					resolve: {
+						promised: function (NurseService, $stateParams) {
+							var id = $stateParams.id;
+							return NurseService.getBabyById(id);
+						}
 					}
 				})
-	            .state('medical.create_account', {
-	               url: '/account',
-	               templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
-	               controller: 'makeBabyCtrl'
-	            })
+				.state('medical.create_account', {
+					url: '/account',
+					templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
+					controller: 'makeBabyCtrl'
+				})
 		});
 
-}());
+} ());
