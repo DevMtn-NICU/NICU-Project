@@ -11,6 +11,6 @@ module.exports = function (app, passport) {
         //passport.authenticate('local'), 
       babiesController.getBabies);
 
-  	app.route('/api/babies:id')
+  	app.route('/api/babies/:id')
         .get(babiesController.getBaby);
 };

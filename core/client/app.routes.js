@@ -16,6 +16,23 @@
 					templateUrl: 'components/nurse/nurse-template.html',
 					controller: 'nurseController'
 				})
+                .state('medical.edit', {
+                    url: '/edit/:id',
+                    templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
+                    controller: 'editController',
+					resolve: {
+						promised: function($http) {
+							return $http({
+									method: 'GET',
+									url: '/api/babies/:id'
+								})
+								.then(function(response) {
+									console.log(response.data[0]);
+									return response.data[0];
+								});
+						}
+					}
+                })
 				.state('medical.search', {
 					url: '/search',
 					templateUrl: 'components/nurse/search_baby.html',
@@ -34,9 +51,10 @@
 							promised: function($http) {
 								return $http({
 										method: 'GET',
-										url: '/api/babies:id'
+										url: '/api/babies/:id'
 									})
 									.then(function(response) {
+										console.log(response.data[0]);
 										return response.data[0];
 									});
 							}
