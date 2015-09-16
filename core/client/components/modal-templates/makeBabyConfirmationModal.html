@@ -1,0 +1,13 @@
+<md-dialog>
+   <md-dialog-content layout="row" layout-padding>
+      <h2 flex>Patient was successfully added!</h2>
+   </md-dialog-content>
+   <md-dialog-content layout="row" layout-padding>
+     <md-subheader>What would you like to do next?</md-subheader>
+   </md-dialog-content>
+   <md-dialog-content layout="row" layout-padding>
+     <md-button type="button" class="md-raised" ng-click="close('medical.create_account')">Add another patient</md-button>
+     <md-button type="button" class="md-raised" ng-click="close('medical.create_note({id: baby._id})')">Add a note for this patient</md-button>
+     <md-button type="button" class="md-raised" ng-click="close('medical.search')">Go back to search</md-button>
+   </md-dialog-content>
+</md-dialog>
