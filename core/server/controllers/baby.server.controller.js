@@ -123,7 +123,7 @@ exports.getBabies = function (req, res) {
 };
 
 exports.getBaby = function (req, res) {
-	Baby.find(req.query)
+	Baby.find(req.params.id)
 	.populate('parents')
 	.populate('notes')
 	.populate('level1.user')

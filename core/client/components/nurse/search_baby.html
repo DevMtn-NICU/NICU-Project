@@ -3,9 +3,10 @@
 	<input type="text" ng-model="babySearch">
 </md-input-container>
 <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch">
-	<span>Patient Number: <a href="#/medical/create_note/{{ baby._id }}">{{ baby.patientNumber }}</a></span> &nbsp &nbsp &nbsp
+	<span>Patient Number: {{ baby.patientNumber }}</span> &nbsp &nbsp &nbsp
 	<span>name: {{ baby.lastName }},</span>
 	<span>{{ baby.firstName }}</span> &nbsp &nbsp &nbsp
-	<span>DOB: {{ baby.birthDate }}</span>
-	<span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span>
+	<span>DOB: {{ baby.birthDate }}</span> &nbsp &nbsp &nbsp
+	<span><a href="#/medical/edit/{{ baby._id }}">Edit Account</a></span>&nbsp / &nbsp
+	<span><a href="#/medical/create_note/{{ baby._id }}">Create Note</a></span>
 </div>
