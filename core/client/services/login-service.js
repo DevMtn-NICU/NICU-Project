@@ -1,5 +1,5 @@
 angular.module('app')
-   .service('LoginService', function ($http, $q) {
+   .service('LoginService', function ($http, $q, $state) {
       this.validateLogin = function (login) {
          console.log(login)
          var defer = $q.defer();
@@ -9,7 +9,11 @@ angular.module('app')
             url: url,
             data: JSON.stringify(login),
          }).then(function (res) {
-            console.log('response', res);
+            console.log('.then is responding');
+            console.log('response', res.data);
+            if (res) {
+               $state.go('medical');
+            };
          })
       }
    });
