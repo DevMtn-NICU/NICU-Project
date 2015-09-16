@@ -49,27 +49,27 @@ var userSchema = new Schema({
    }
 });
 
-//userSchema.pre('save', function (next) {
-//   console.log('presave loaded');
-//   console.log(next);
-//   var user = this;
-//   if (!user.isModified('password')) {
-//      console.log('!user');
-//      return next();
-//   }
-//   bcrypt.genSalt(8, function (err, salt) {
-//      console.log('bcrypt.genSalt');
-//      if (err) {
-//         console.log('error');
-//         return next(err);
-//      }
-//      bcrypt.hash(user.password, salt, null, function (err, hash) {
-//         console.log(user.password);
-//         user.password = hash;
-//         return next();
-//      });
-//   });
-//});
+userSchema.pre('save', function (next) {
+  console.log('presave loaded');
+  console.log(next);
+  var user = this;
+  if (!user.isModified('password')) {
+     console.log('!user');
+     return next();
+  }
+  bcrypt.genSalt(8, function (err, salt) {
+     console.log('bcrypt.genSalt');
+     if (err) {
+        console.log('error');
+        return next(err);
+     }
+     bcrypt.hash(user.password, salt, null, function (err, hash) {
+        console.log(user.password);
+        user.password = hash;
+        return next();
+     });
+  });
+});
 
 //Password encryption methods
 userSchema.methods.generateHash = function (password) {
