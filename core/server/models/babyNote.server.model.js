@@ -12,7 +12,10 @@ var noteSchema = new Schema({
     other: [{
       stat: {type: String},
       value: {type: String}
-    }]
+    }],
+    fed: {type: Boolean, default: false},
+    changed: {type: Boolean, default: false},
+    bathed: {type: Boolean, default: false}
   },
   comment: {type: String},
   created_at: {type: Date, default: Date.now, required: true},
