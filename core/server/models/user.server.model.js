@@ -22,24 +22,24 @@ var userSchema = new Schema({
   created_at: {type: Date, default: Date.now, required: true}
 });
 
-userSchema.pre('save', function (next) {
-   var user = this;
-   if (!user.isModified('password')) {
-      console.log('!user');
-      return next();
-   }
-   bcrypt.genSalt(12, function (err, salt) {
-      if (err) {
-         console.log('error');
-         return next(err);
-      }
-      bcrypt.hash(user.password, salt, function (err, hash) {
-         console.log(user.password);
-         user.password = hash;
-         return next();
-      });
-   });
-});
+// userSchema.pre('save', function (next) {
+//    var user = this;
+//    if (!user.isModified('password')) {
+//       console.log('!user');
+//       return next();
+//    }
+//    bcrypt.genSalt(12, function (err, salt) {
+//       if (err) {
+//          console.log('error');
+//          return next(err);
+//       }
+//       bcrypt.hash(user.password, salt, function (err, hash) {
+//          console.log(user.password);
+//          user.password = hash;
+//          return next();
+//       });
+//    });
+// });
 
 //Password encryption methods
 userSchema.methods.generateHash = function (password) {

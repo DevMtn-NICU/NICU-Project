@@ -4,7 +4,6 @@
     $scope.baby = baby;
 
     $scope.close = function(route) {
-      $state.transitionTo(route);
       $mdDialog.hide({});
     };
   });
