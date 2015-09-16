@@ -4,6 +4,7 @@ var User = require("../models/user.server.model.js");
 var Q = require('q');
 
 exports.makeBaby = function (req, res) {
+	console.log(req.body);
 	var babyId, parent1Id, parent2Id;
 	var newBaby = new Baby(req.body.baby);
 	(function findParent() {
@@ -15,22 +16,29 @@ exports.makeBaby = function (req, res) {
 				newBaby.parents.push(parent1Id);
 				deferred.resolve();
 			} else {
+				console.log("19");
 				deferred.resolve();
 			}
 		});
 		return deferred.promise;
 	}()).then(function() {
+		console.log("25");
 		var deferred = Q.defer();
-		User.findOne({email: req.body.parent2.email}, function(err, parent) {
-			if (parent) {
-				parent2Id = parent._id;
-				console.log("27", parent2Id);
-				newBaby.parents.push(parent2Id);
-				deferred.resolve();
-			} else {
-				deferred.resolve();
-			}
-		});
+		if(req.body.parent2) {
+			User.findOne({email: req.body.parent2.email}, function(err, parent) {
+				if (parent) {
+					parent2Id = parent._id;
+					console.log("27", parent2Id);
+					newBaby.parents.push(parent2Id);
+					deferred.resolve();
+				} else {
+					console.log("33");
+					deferred.resolve();
+				}
+			});
+		} else {
+			deferred.resolve();
+		}
 		return deferred.promise;
 	}).then(function() {
 		var deferred = Q.defer();
@@ -63,7 +71,7 @@ exports.makeBaby = function (req, res) {
 			newParent1.save(function(err, parent) {
 				if (err) return res.status(500).send(err);
 				parent1Id = parent._id;
-				console.log("63", parent1Id);
+				console.log("6	3", parent1Id);
 				Baby.findByIdAndUpdate(babyId, {$push: {'parents': parent1Id}}, function(err, baby) {
 					if (err) return res.status(500).send(err);
 					console.log("66", baby);
@@ -81,23 +89,27 @@ exports.makeBaby = function (req, res) {
 				deferred.resolve();
 			});
 		} else {
-			var newParent2 = new User();
-			newParent2.roles.push("parent");
-			newParent2.name = req.body.parent2.name;
-			newParent2.email = req.body.parent2.email;
-			newParent2.password = "test";
-			newParent2.parent.access = "parent";
-			newParent2.parent.babies.push(babyId);
-			newParent2.save(function(err, parent) {
-				if (err) return res.status(500).send(err);
-				parent2Id = parent._id;
-				console.log("91", parent2Id);
-				Baby.findByIdAndUpdate(babyId, {$push: {'parents': parent2Id}}, function(err, baby) {
-					if (err) res.status(500).send(err);
-					console.log("94", baby);
-					deferred.resolve();
+			if(req.body.parent2) {
+				var newParent2 = new User();
+				newParent2.roles.push("parent");
+				newParent2.name = req.body.parent2.name;
+				newParent2.email = req.body.parent2.email;
+				newParent2.password = "test";
+				newParent2.parent.access = "parent";
+				newParent2.parent.babies.push(babyId);
+				newParent2.save(function(err, parent) {
+					if (err) return res.status(500).send(err);
+					parent2Id = parent._id;
+					console.log("91", parent2Id);
+					Baby.findByIdAndUpdate(babyId, {$push: {'parents': parent2Id}}, function(err, baby) {
+						if (err) res.status(500).send(err);
+						console.log("94", baby);
+						deferred.resolve();
+					});
 				});
-			});
+			} else {
+				deferred.resolve();
+			}
 		}
 		return deferred.promise;
 	}).then(function() {
@@ -123,7 +135,7 @@ exports.getBabies = function (req, res) {
 };
 
 exports.getBaby = function (req, res) {
-	Baby.find(req.params.id)
+	Baby.findById(req.params.id)
 	.populate('parents')
 	.populate('notes')
 	.populate('level1.user')
@@ -135,5 +147,12 @@ exports.getBaby = function (req, res) {
 		}
 		console.log(result);
 		res.send(result);
+	});
+};
+
+exports.editBaby = function(req, res) {
+	Baby.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, baby) {
+		if (err) return res.status(500).send(err);
+		res.send(baby);
 	});
 };
