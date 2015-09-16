@@ -6,12 +6,16 @@ module.exports = function (app, passport) {
    app.post('/user/createParent', usersController.createParent);
    app.post('/user/createContact', usersController.createContact);
    app.post('/user/createNurse', usersController.createNurse);
-   app.post('/user/login', passport.authenticate('local',
-      function (req, res, msg) {
-         //console.log('users.server.routes.js: ', req);
-         //console.log(res);
-         //console.log(msg);
-      }));
+   app.post('/user/login', passport.authenticate('local'),
+      function (req, res) {
+         var frontEndUser = req.user.toObject();
+         delete frontEndUser.password;
+         //         frontEndUser.password = "wouldn't you like to know what the password is";
+         console.log('req.user', frontEndUser);
+         res.status(200).send('user: ', frontEndUser);
+      }
+   );
+
    app.get('/user/:userId', usersController.getUser);
    app.post('/user/edit/:userId', usersController.editUser);
    app.get('/user/logout', function (req, res) {
