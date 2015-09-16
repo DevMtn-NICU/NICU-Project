@@ -4,8 +4,8 @@
 		angular.module('app')
 			.controller('noteController', function($scope, promised, NurseService) {
 
-					$scope.notes = {};
-					$scope.notes.stats = {};
+					$scope.note = {};
+					$scope.note.stats = {};
 					$scope.theBaby = promised;
 
 					$scope.addBabyNote = function() {
