@@ -65,6 +65,25 @@
 	               templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
 	               controller: 'makeBabyCtrl'
 	            })
+      .state('hospital', {
+        url: '/hospital',
+        templateUrl: 'components/hospital/hospital_view.html',
+      })
+      .state('hospital.search', {
+        url: '/search',
+        templateUrl: 'components/hospital/hospital_search.html',
+        controller: 'hospitalSearchCtrl'
+      })
+      .state('hospital.add_nurse', {
+        url: '/add_nurse',
+        templateUrl: 'components/hospital/hospital_add_nurse.html',
+        controller: 'hospitalAddNurseCtrl'
+      })
+      .state('hospital.edit_nurse', {
+        url: '/edit_nurse/:id',
+        templateUrl: 'components/hospital/hospital_add_nurse.html',
+        controller: 'hospitalEditNurseCtrl'
+      });
 		});
 
 }());

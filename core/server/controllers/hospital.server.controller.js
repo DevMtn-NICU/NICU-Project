@@ -1,5 +1,6 @@
 //Controller for Hospital management
-var Hospital = require("../models/hospital.server.model.js")
+var Hospital = require("../models/hospital.server.model.js");
+var User = require('../models/user.server.model.js');
 
 exports.createHospital = function (req, res) {
 	var newHospital = new Hospital(req.body);
