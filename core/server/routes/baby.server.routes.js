@@ -8,10 +8,12 @@ module.exports = function (app, passport) {
 
     app.route('/api/babies')
       .get(
-        //passport.authenticate('local'), 
+        //passport.authenticate('local'),
       babiesController.getBabies);
 
   	app.route('/api/babies/:id')
         .get(babiesController.getBaby);
-    
+
+    app.route('/api/babies/:id')
+        .put(babiesController.editBaby);
 };
