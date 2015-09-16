@@ -4,6 +4,8 @@ logs
 npm-debug.log*
 .DStore
 
+keys.js
+
 # Runtime data
 pids
 *.pid
