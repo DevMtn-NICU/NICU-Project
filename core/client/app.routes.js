@@ -16,6 +16,11 @@
 					templateUrl: 'components/nurse/nurse-template.html',
 					controller: 'nurseController'
 				})
+                .state('edit', {
+                    url: '/edit',
+                    templateUrl: 'components/nurse/nurse-edit-page.html',
+                    controller: 'editController'
+                })
 				.state('medical.search', {
 					url: '/search',
 					templateUrl: 'components/nurse/search_baby.html',
@@ -34,7 +39,7 @@
 							promised: function($http) {
 								return $http({
 										method: 'GET',
-										url: '/api/babies:id'
+										url: '/api/babies/:id'
 									})
 									.then(function(response) {
 										return response.data[0];

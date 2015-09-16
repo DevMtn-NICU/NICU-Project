@@ -1,4 +1,6 @@
-app.directive('fileread', function (imageService) {
+(function() {
+	"use strict";
+	angular.module("app").directive('fileread', function (imageService) {
 	return {
 		restrict: 'A',
 		link: function (scope, elem, attrs) {
@@ -6,17 +8,19 @@ app.directive('fileread', function (imageService) {
 			elem.bind("change", function (changeEvent) {
 
 				var reader = new FileReader();
-				reader.onloadend = function (loadEvent) {
+				reader.onload = function (loadEvent) {
 					var fileread = loadEvent.target.result;
 
 					var tempArray = elem[0].value.split('\\');
+					// why is this 0 instead of what the tutorial has as 'context'
 					var fileName = tempArray[tempArray.length - 1];
 				}
 
-				scope.images.unshift(result.data);
+				// scope.images.unshift(result.data);
 				
 			})
 		reader.readAsSataURL(changeEvent.target.files[0]);
-		};
+		}
 	}
+ })
 })
