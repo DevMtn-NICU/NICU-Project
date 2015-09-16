@@ -1,6 +1,5 @@
 (function () {
   "use strict";
-
   angular.module('app').controller('makeBabyCtrl', function ($scope, makeBabySvc, $mdDialog) {
       $scope.showAdd = true;
 
