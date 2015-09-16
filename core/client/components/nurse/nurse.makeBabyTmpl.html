@@ -1,72 +1,72 @@
-<h1>Add Patient</h1>
+<h1><span ng-show="showAdd">Add</span><span ng-hide="showAdd">Edit</span> Patient</h1>
 <form name="babyForm" ng-submit="makeBaby()">
-   <md-content layout="row" layout-padding>
-      <md-input-container flex>
-         <label>Patient Number</label>
-         <input type="number" name="patientNumber" ng-model="baby.patientNumber" required>
-      </md-input-container>
-      <md-datepicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="10" required></md-datepicker>
-      <md-datepicker ng-model="baby.deathDate" md-placeholder="Date of Death" flex></md-datepicker>
-      <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date" flex></md-datepicker>
-   </md-content>
-   <md-content layout="row" layout-padding layout-align="space-around">
-      <md-input-container flex>
-         <label>First Name</label>
-         <input type="text" name="firstName" ng-model="baby.firstName" required />
-      </md-input-container>
-      <md-input-container flex>
-         <label>Middle Name</label>
-         <input type="text" name="middleName" ng-model="baby.middleName" />
-      </md-input-container>
-      <md-input-container flex>
-         <label>Last Name</label>
-         <input type="text" name="lastName" ng-model="baby.lastName" required />
-      </md-input-container>
-   </md-content>
-   <md-content layout="row" layout-padding>
-      <md-input-container flex="20">
-         <label>Gender</label>
-         <md-select ng-model="baby.gender" required>
-            <md-option value="Male">Male</md-option>
-            <md-option value="Female">Female</md-option>
-         </md-select>
-      </md-input-container>
-   </md-content>
-   <md-content layout="row" layout-padding layout-align="space-around">
-      <md-input-container flex>
-         <label>Birth Length</label>
-         <input type="text" name="length" ng-model="baby.birthLength" required />
-      </md-input-container>
-      <md-input-container flex>
-         <label>Birth Weight</label>
-         <input type="text" name="weight" ng-model="baby.birthWeight" required />
-      </md-input-container>
-   </md-content>
-   <br>
-   <md-content layout="row" layout-padding layout-align="space-around">
-      <md-input-container flex>
-         <label>Parent 1 Name</label>
-         <input type="text" name="parent1Name" ng-model="parent1.name" required />
-         </div>
-      </md-input-container>
-      <md-input-container flex>
-         <label>Parent 1 Email</label>
-         <input type="text" name="parent1email" ng-model="parent1.email" required />
-      </md-input-container>
-   </md-content>
-   <md-content layout="row" layout-padding layout-align="space-around">
-      <md-input-container flex>
-         <label>Parent 2 Name</label>
-         <input type="text" name="parent2Name" ng-model="parent2.name" />
-      </md-input-container>
-      <md-input-container flex>
-         <label>Parent 2 Email</label>
-         <input type="text" name="parent2email" ng-model="parent2.email" />
-      </md-input-container>
-   </md-content>
-   <br>
-   <md-content layout="row" layout-align="end" layout-padding>
-      <md-button class="md-raised" flex="10" type="button">Cancel</md-button>
-      <md-button class="md-raised md-warn" flex="10" type="Submit" ng-disabled="babyForm.$invalid">Submit</md-button>
-   </md-content>
+  <md-content layout="row" layout-padding>
+    <md-input-container flex>
+      <label>Patient Number</label>
+      <input type="number" name="patientNumber" ng-model="baby.patientNumber" required>
+    </md-input-container>
+    <md-datepicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="10" required></md-datepicker>
+    <md-datepicker ng-model="baby.deathDate" md-placeholder="Date of Death" flex></md-datepicker>
+    <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date" flex></md-datepicker>
+  </md-content>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
+      <label>First Name</label>
+      <input type="text" name="firstName" ng-model="baby.firstName" required />
+    </md-input-container>
+    <md-input-container flex>
+      <label>Middle Name</label>
+      <input type="text" name="middleName" ng-model="baby.middleName" />
+    </md-input-container>
+    <md-input-container flex>
+      <label>Last Name</label>
+      <input type="text" name="lastName" ng-model="baby.lastName" required />
+    </md-input-container>
+  </md-content>
+  <md-content layout="row" layout-padding>
+    <md-input-container flex="20">
+      <label>Gender</label>
+      <md-select ng-model="baby.gender" required>
+        <md-option value="Male">Male</md-option>
+        <md-option value="Female">Female</md-option>
+      </md-select>
+    </md-input-container>
+  </md-content>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
+      <label>Birth Length</label>
+      <input type="text" name="length" ng-model="baby.birthLength" required />
+    </md-input-container>
+    <md-input-container flex>
+      <label>Birth Weight</label>
+      <input type="text" name="weight" ng-model="baby.birthWeight" required />
+    </md-input-container>
+  </md-content>
+  <br>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
+      <label>Parent 1 Name</label>
+      <input type="text" name="parent1Name" ng-model="parent1.name" required />
+      </div>
+    </md-input-container>
+    <md-input-container flex>
+      <label>Parent 1 Email</label>
+      <input type="text" name="parent1email" ng-model="parent1.email" required />
+    </md-input-container>
+  </md-content>
+  <md-content layout="row" layout-padding layout-align="space-around">
+    <md-input-container flex>
+      <label>Parent 2 Name</label>
+      <input type="text" name="parent2Name" ng-model="parent2.name" />
+    </md-input-container>
+    <md-input-container flex>
+      <label>Parent 2 Email</label>
+      <input type="text" name="parent2email" ng-model="parent2.email" />
+    </md-input-container>
+  </md-content>
+  <br>
+  <md-content layout="row" layout-align="end" layout-padding>
+    <md-button class="md-raised" flex="10" type="button">Cancel</md-button>
+    <md-button class="md-raised md-warn" flex="10" type="Submit">Submit</md-button>
+  </md-content>
 </form>
