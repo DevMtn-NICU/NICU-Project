@@ -7,10 +7,10 @@
       $scope.note = {};
       $scope.note.stats = {};
       $scope.theBaby = promised;
+      $scope.images = [];
+
 
       $scope.addBabyNote = function() {
-          console.log(promised._id);
-          console.log(typeof promised._id);
         var details = {
           baby: promised._id,
           stats: {
@@ -19,12 +19,14 @@
             oxygen: parseInt($scope.note.stats.oxygen),
             weight: $scope.note.stats.weight
           },
-          comment: $scope.note.comment
+          comment: $scope.note.comment,
+          picturesUrl: $scope.imageId
         }
         console.log("details: ", details);
         NurseService.addBabyNote(details).
         then(function(response) {})
       };
     })
+
 
 }());
