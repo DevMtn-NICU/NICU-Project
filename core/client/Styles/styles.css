@@ -125,3 +125,35 @@ hr {
 
 /*END OF MAIN NURSE TEMPLATE PAGE*/
 
+/*Search Page*/
+#babyRow {
+    padding: 20px;
+    height: 30px;
+    /*width: 100%;*/
+    border-bottom: solid 1px lightgrey;
+    cursor: pointer;
+}
+
+#babyRow:hover {
+    background-color: lightgrey;
+}
+
+#searchCellPatient {
+    width: 25%;
+    padding-bottom: 20px;
+}
+
+#searchCellName {
+    width: 25%;
+    padding-bottom: 20px;
+}
+
+#searchCellGender {
+    width: 25%;
+    padding-bottom: 20px;
+}
+
+#searchCellBirth {
+    width: 15%;
+    padding-bottom: 20px;
+}
