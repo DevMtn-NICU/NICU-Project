@@ -4,7 +4,7 @@
 	angular.module('app')
 		.service('parentService', function ($http, $q) {
 
-			this.addBabyNote = function (note) {
+			this.addBabyNote = function (note) {  //this is a repeat from the nurse service, we might want to refactor
 				var deferred = $q.defer();
 				$http({
 					method: 'POST',
@@ -17,7 +17,7 @@
 				return deferred.promise;
 			};
 
-			this.getBabyById = function(id) {
+			this.getBabyById = function(id) {  //this is a repeat from the nurse service, we might want to refactor
 				console.log("id: ", id);
 				var deferred = $q.defer();
 				$http({
@@ -29,10 +29,6 @@
 					deferred.resolve(results);
 				});
 				return deferred.promise;
-			}
-
-			this.getBabyNotes = function(){
-				
 			}
 
 	});
