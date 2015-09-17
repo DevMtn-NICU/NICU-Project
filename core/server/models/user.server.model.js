@@ -61,40 +61,35 @@ userSchema.pre('save', function (next) {
    bcryptPasswordChecker(user, next);
 });
 
-userSchema.pre('update', function (next) {
-   console.log('update');
-});
-
 
 userSchema.methods.validPassword = function (password) {
+   console.log(password);
    var newPass = this.generateHash(password);
-   //console.log(newPass);
+   console.log(bcrypt.compareSync(password, this.password));
    return bcrypt.compareSync(password, this.password);
 };
 
 
-
-
 //Password encryption methods
 userSchema.methods.generateHash = function (password) {
+   console.log('bcrypt hash');
    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-//userSchema.methods.comparePassword = function (newPassword, cb) {
-//   bcrypt.compareSync(newPassword, this.password, function (err, isMatch) {
-//      if (err) console.log('error in user server model');
-//      cb(null, isMatch);
-//   })
-//};
 
-
+bcrypt.genSalt(8, function (err, salt) {
+   console.log('bcrypt.genSalt');
+   if (err) {
+      console.log('error');
+      return next(err);
+   }
+});
 
 var bcryptPasswordChecker = function (user, next) {
-   if (!user.isModified('password')) {
-      console.log('!user');
+   if (!user.isModified) {
+      console.log('error password is the same');
       return next();
    }
-
 
    bcrypt.genSalt(8, function (err, salt) {
       console.log('bcrypt.genSalt');
@@ -105,13 +100,22 @@ var bcryptPasswordChecker = function (user, next) {
 
 
       bcrypt.hash(user.password, salt, null, function (err, hash) {
-         console.log("user pasword = ", user.password);
          if (err) return next(err);
          user.password = hash;
+         console.log(user.password);
          next();
       });
    });
 };
+
+
+//userSchema.methods.comparePassword = function (newPassword, cb) {
+//   bcrypt.compareSync(newPassword, this.password, function (err, isMatch) {
+//      if (err) console.log('error in user server model');
+//      cb(null, isMatch);
+//   })
+//};
+
 
 
 module.exports = mongoose.model('User', userSchema);

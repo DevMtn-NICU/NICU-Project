@@ -88,14 +88,14 @@ exports.editStaff = function (req, res) {
 exports.editPassword = function (req, res) {
    User.findById(req.params.id, function (err, nurse) {
       if (err) return res.status(500).send(err);
-
-      nurse.password = nurse.generateHash('test');
+      nurse.password = req.body.password;
       nurse.save(function (err) {
          if (err) console.log('error');
-         console.log('success');
+         console.log(nurse);
+         res.status(200).send('success');
       });
-      res.status(200).send('success');
    })
+
 };
 
 exports.deleteStaff = function (req, res) {

@@ -4,21 +4,38 @@
    angular.module('app')
       .controller('homeController', function ($scope, $mdDialog, LoginService) {
 
-         $scope.userLogin = function () {
+         $scope.userLogin = function (ev) {
             $mdDialog.show({
                templateUrl: 'components/modal-templates/user-login-modal.html',
                locals: {
                   closeDialog: $scope.closeDialog
                },
-               controller: 'homeController'
+               controller: 'homeController',
+               targetEvent: ev,
+               clickOutsideToClose: true
             });
 
          };
          $scope.login = {};
-         $scope.closeDialog = function () {
+         $scope.submitDialog = function () {
             $mdDialog.hide({})
             console.log($scope.login);
             LoginService.validateLogin($scope.login);
          };
+         $scope.closeDialog = function () {
+            // Easily hides most recent dialog shown...
+            // no specific instance reference is needed.
+            $mdDialog.hide();
+         };
       });
 }());
+
+
+//$scope.showAdvanced = function(ev) {
+//    $mdDialog.show({
+//      controller: DialogController,
+//      templateUrl: 'dialog1.tmpl.html',
+//      parent: angular.element(document.body),
+//      targetEvent: ev,
+//      clickOutsideToClose:true
+//    })
