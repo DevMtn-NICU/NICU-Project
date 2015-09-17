@@ -6,9 +6,10 @@
       </md-input-container>
       <md-input-container>
          <label>Password</label>
-         <input ng-enter="closeDialog()" type="password" ng-model="login.password" required />
+         <input ng-enter="submitDialog()" type="password" ng-model="login.password" required />
       </md-input-container>
 
-      <md-button id='submit' ng-click="closeDialog()">ok!</md-button>
+      <md-button id='submit' ng-click="submitDialog()">ok!</md-button>
+      <md-button id='close' ng-click="closeDialog()">Cancel</md-button>
    </md-dialog-content>
 </md-dialog>
