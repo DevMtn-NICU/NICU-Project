@@ -58,42 +58,25 @@ var userSchema = new Schema({
 userSchema.pre('save', function (next) {
    console.log('presave loaded');
    var user = this;
-   bcryptPasswordChecker(user, next);
-});
 
-userSchema.pre('update', function (next) {
-   console.log('update');
-});
+   userSchema.pre('update', function (next) {
+      console.log('update');
+   });
 
 
-userSchema.methods.validPassword = function (password) {
-   var newPass = this.generateHash(password);
-   //console.log(newPass);
-   return bcrypt.compareSync(password, this.password);
-};
+   userSchema.methods.validPassword = function (password) {
+      console.log(password);
+      var newPass = this.generateHash(password);
+      console.log(bcrypt.compareSync(password, this.password));
+      return bcrypt.compareSync(password, this.password);
+   };
 
 
-
-
-//Password encryption methods
-userSchema.methods.generateHash = function (password) {
-   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-//userSchema.methods.comparePassword = function (newPassword, cb) {
-//   bcrypt.compareSync(newPassword, this.password, function (err, isMatch) {
-//      if (err) console.log('error in user server model');
-//      cb(null, isMatch);
-//   })
-//};
-
-
-
-var bcryptPasswordChecker = function (user, next) {
-   if (!user.isModified('password')) {
-      console.log('!user');
-      return next();
-   }
+   //Password encryption methods
+   userSchema.methods.generateHash = function (password) {
+      console.log('bcrypt hash');
+      return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+   };
 
 
    bcrypt.genSalt(8, function (err, salt) {
@@ -105,13 +88,12 @@ var bcryptPasswordChecker = function (user, next) {
 
 
       bcrypt.hash(user.password, salt, null, function (err, hash) {
-         console.log("user pasword = ", user.password);
          if (err) return next(err);
          user.password = hash;
-         next();
+         return next();
       });
    });
-};
+});
 
 
 module.exports = mongoose.model('User', userSchema);
