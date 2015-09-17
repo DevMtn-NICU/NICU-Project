@@ -11,7 +11,9 @@
                templateUrl: 'components/home/home-template.html',
                controller: 'homeController'
             })
-            .state('medical', {
+
+         ////////////   medical /////////////////////////
+         .state('medical', {
                url: '/medical',
                templateUrl: 'components/nurse/nurse-template.html',
                controller: 'nurseController'
@@ -53,7 +55,9 @@
                templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
                controller: 'makeBabyCtrl'
             })
-            .state('hospital', {
+
+         ////////////   HOSPITAL /////////////////////////
+         .state('hospital', {
                url: '/hospital',
                templateUrl: 'components/hospital/hospital_view.html',
             })
@@ -71,14 +75,16 @@
                url: '/edit/:id',
                templateUrl: 'components/hospital/hospital_add_nurse.html',
                controller: 'hospitalEditNurseCtrl',
-							 resolve: {
+               resolve: {
                   promised: function (hospitalSvc, $stateParams) {
                      var id = $stateParams.id;
                      return hospitalSvc.getOneStaff(id);
                   }
                }
             })
-            .state('parent', {
+
+         ////////////   parent /////////////////////////
+         .state('parent', {
                url: '/parent',
                templateUrl: 'components/parent/parent/parentView.html',
                controller: 'parentViewCtrl'
