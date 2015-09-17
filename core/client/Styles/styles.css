@@ -138,7 +138,7 @@ hr {
 }
 
 #babyRow {
-    background-color: #444444;
+/*    background-color: #444444;*/
 }
 
 #searchCellPatient {
@@ -169,7 +169,7 @@ hr {
 .container {
     width: 95%;
     height: 80%;
-    background-color: lightgray;
+    background-color: #EEEEEE;
     padding: 30px;
     border: 1px solid black;
     box-shadow: 0 0 1px 1px;
@@ -183,7 +183,6 @@ hr {
 }
 
 #babyRow {
-    background-color: white;
     border: 0px solid black;
     box-shadow: 0 0 1px 1px;
 }
@@ -196,7 +195,7 @@ hr {
 
 .birth {
     position: relative;
-    left: 4.5%;
+    left: 5.1%;
 /*    margin-left: 10%;*/
 }
 
@@ -213,6 +212,51 @@ a {
     color: red;
     text-decoration: none;
 }
+
+md-input-container .md-input{
+    border-color: red !important;
+}
+
+.grid {
+  width: 95%;
+  height: 80%;
+}
+
+.my-custom-menu {
+  position: absolute;
+}
+
+.my-custom-menu .ui-grid-menu {
+  padding: 0px;
+}
+
+.my-custom-menu .ui-grid-menu-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.rotated {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+
+.oddColor:nth-child(odd) {background-color: white;}
+
+/*.oddColor:nth-child(odd) {background-color: blue;}*/
+
+
+
+/*
+label {
+    color: red !important;
+}
+*/
+
+
 
 
 /*END SEARCH PAGE*/
