@@ -81,7 +81,7 @@
             .state('parent', {
                url: '/parent',
                templateUrl: 'components/parent/parentView.html',
-               // controller: 'parentViewCtrl'
+               controller: 'parentViewCtrl'
             })
             .state('parent.settings', {
                url: '/settings',
