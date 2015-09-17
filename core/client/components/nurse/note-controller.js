@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('app')
-    .controller('noteController', function ($scope, promised, NurseService) {
+    .controller('noteController', function ($scope, promised, NurseService, $mdDialog) {
 
       $scope.note = {};
       $scope.note.stats = {};
@@ -10,21 +10,23 @@
       $scope.images = [];
       $scope.showNote = false;
 
-      $scope.addBabyNote = function () {
-        // console.log(promised._id);
-        // console.log(typeof promised._id);
+      $scope.addBabyNote = function (ev) {
         $scope.note.baby = promised._id;
         $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
         $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
         $scope.note.picturesUrl = $scope.imageId;
-        console.log("Notes: ", $scope.note);
         NurseService.addBabyNote($scope.note).
           then(function (response) {
-              $scope.returnedNote = response;
-              console.log(response);
-              $scope.clearFields();
-              $scope.showNote = true;
-              $scope.showReturnedNote = true;
+              $mdDialog.show({
+                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
+                locals: {
+                  baby: response,
+                  theBaby: $scope.theBaby
+                },
+                controller: "addNoteConfirmationModalCtrl",
+                targetEvent: ev,
+                clickOutsideToClose: true
+              });
           })
 
       };

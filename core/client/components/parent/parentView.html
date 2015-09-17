@@ -1,1 +1,24 @@
-parentView.html
+<div>
+	
+	<div class="parentNavBar">
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.settings">Settings</md-button>
+	</div>
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.timeline">Timeline</md-button>
+	</div>
+	<div>
+		Baby Name
+	</div>
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note">Add a Note</md-button>
+	</div>
+	<div>
+		Other Babies
+	</div>
+	
+</div>
+<div class="break"></div>
+<div class="parentViewContainer">	
+	<div ui-view></div>
+</div>

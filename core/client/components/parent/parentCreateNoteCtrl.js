@@ -1,1 +1,1 @@
-parentCreteNoteCtrl.js
+parentCreateNoteCtrl.js
