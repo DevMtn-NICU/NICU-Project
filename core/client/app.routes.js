@@ -71,7 +71,27 @@
                url: '/edit_nurse/:id',
                templateUrl: 'components/hospital/hospital_add_nurse.html',
                controller: 'hospitalEditNurseCtrl'
-            });
+            })
+            .state('parent', {
+               url: '/parent',
+               templateUrl: 'components/parent/parent/parentView.html',
+               controller: 'parentViewCtrl'
+            })
+            .state('parent.settings', {
+               url: '/settings',
+               templateUrl: 'components/parent/parentSettings.html',
+               controller: 'parentSettingsCtrl'
+            })
+            .state('parent.create.note', {
+               url: '/create_note',
+               templateUrl: 'components/parent/parentCreateNote.html',
+               controller: 'parentCreateNoteCtrl'
+            })
+            .state('parent.timeline' {
+               url: '/timeline',
+               templateUrl: 'components/parent/parentTimeline.html',
+               controller: 'parentTimelineCtrl'
+            })
       });
 
 }());
