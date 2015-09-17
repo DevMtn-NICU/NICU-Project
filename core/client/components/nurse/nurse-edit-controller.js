@@ -8,7 +8,10 @@
 
          $scope.baby = promised;
 
-         if ($scope.baby.parents.length > 0) {
+         if(!$scope.baby.parents) {
+             console.log(error);
+         }
+         else if ($scope.baby.parents.length > 0) {
              $scope.parent1 = {};
              $scope.parent2 = {};
              $scope.parent1.name = promised.parents[0].name;
