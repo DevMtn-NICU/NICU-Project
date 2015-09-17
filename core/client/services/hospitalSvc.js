@@ -23,5 +23,39 @@
       });
       return deferred.promise;
     };
+
+    this.getOneStaff = function(id) {
+      var deferred = $q.defer();
+      $http({
+        method: "GET",
+        url: "/api/staff/" + id
+      }).then(function(response) {
+        deferred.resolve(response.data);
+      });
+      return deferred.promise;
+    };
+
+    this.editStaff = function(nurse) {
+      var deferred = $q.defer();
+      $http({
+        method: "PUT",
+        url: "/api/staff/" + nurse._id,
+        data: nurse
+      }).then(function(response) {
+        deferred.resolve(response.data);
+      });
+      return deferred.promise;
+    };
+
+    this.removeStaff = function(id) {
+      var deferred = $q.defer();
+      $http({
+        method: "DELETE",
+        url: "/api/staff/" + id
+      }).then(function(response) {
+        deferred.resolve(response.data);
+      });
+      return deferred.promise;
+    };
   });
 } ());

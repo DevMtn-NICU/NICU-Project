@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  angular.module('app').controller('makeBabyCtrl', function ($scope, makeBabySvc, $mdDialog) {
+  angular.module('app').controller('makeBabyCtrl', function ($scope, makeBabySvc, $mdDialog, $state) {
       $scope.showAdd = true;
 
     $scope.makeBaby = function() {
@@ -18,5 +18,10 @@
         $scope.parent2 = {};
       });
     };
+
+      $scope.clearFields = function() {
+          $scope.note = {};
+            $state.go('medical.search');
+      }
   });
 } ());

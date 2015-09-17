@@ -75,24 +75,27 @@ exports.getOneStaff = function (req, res) {
 
 exports.editStaff = function (req, res) {
    User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      upsert: true
    }, function (err, nurse) {
-      console.log(nurse);
       if (err) return res.status(500).send(err);
+      console.log(nurse);
+      console.log(req.body);
+      console.log('update was successful');
+      return res.send(nurse);
    });
 };
 
 exports.editPassword = function (req, res) {
    User.findById(req.params.id, function (err, nurse) {
       if (err) return res.status(500).send(err);
-
-      nurse.password = nurse.generateHash('test');
+      nurse.password = req.body.password;
       nurse.save(function (err) {
          if (err) console.log('error');
-         console.log('success');
+         console.log(nurse);
+         res.status(200).send('success');
       });
-      res.status(200).send('success');
    })
+
 };
 
 exports.deleteStaff = function (req, res) {
