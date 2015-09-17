@@ -20,7 +20,7 @@ module.exports = function (app) {
       .get(hospitalsController.getOneStaff);
    //edit nurse
    app.route('/api/staff/:id')
-      .post(hospitalsController.editStaff);
+      .put(hospitalsController.editStaff);
    //edit nurse password
    app.route('/api/staff/password-change/:id')
       .post(hospitalsController.editPassword);
