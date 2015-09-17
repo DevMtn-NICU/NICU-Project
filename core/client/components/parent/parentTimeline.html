@@ -1,12 +1,28 @@
 <md-tabs>
 	
-	<md-tab label="">
+	<md-tab label="Comments">
+		<div class="tlcomments" ng-repeat="note in theBaby.notes">
+			{{ note.comment }}
+		</div>	
 	</md-tab>
 	
-	<md-tab label="">
+	<md-tab label="Statistics">
+		<div class="tlstats" ng-repeat="note in theBaby.notes">
+			{{ note.stats.bloodPressure }}
+			{{ note.stats.heartRate }}
+			{{ note.stats.oxygen }}
+			{{ note.stats.weight }}
+			<!--{{ note.stats.other }}-->
+			{{ note.stats.fed }}
+			{{ note.stats.changed }}
+			{{ note.stats.bathed }}
+		</div>	
 	</md-tab>
 	
-	<md-tab label="">
+	<md-tab label="Pictures">
+		<div class="tlpictures" ng-repeat="note in theBaby.notes">
+			<img src={{note.picturesUrl}}>
+		</div>	
 	</md-tab>
 
 </md-tabs>
