@@ -24,7 +24,10 @@
              $scope.baby.deathDate = new Date($scope.baby.deathDate);
         }
 
-
+        $scope.clearFields = function() {
+          $scope.note = {};
+            $state.go('medical.search');
+      }
 
          $scope.makeBaby = function () {
              console.log('This is what we are sending: ', $scope.baby);
