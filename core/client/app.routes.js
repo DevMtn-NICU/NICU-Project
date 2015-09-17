@@ -87,7 +87,7 @@
                templateUrl: 'components/parent/parentCreateNote.html',
                controller: 'parentCreateNoteCtrl'
             })
-            .state('parent.timeline' {
+            .state('parent.timeline', {
                url: '/timeline',
                templateUrl: 'components/parent/parentTimeline.html',
                controller: 'parentTimelineCtrl'

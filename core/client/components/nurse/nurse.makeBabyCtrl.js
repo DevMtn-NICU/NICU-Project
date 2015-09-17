@@ -18,5 +18,14 @@
         $scope.parent2 = {};
       });
     };
+
+    $scope.clearFields = function() {
+        $scope.baby = {};
+        $scope.parent1 = {};
+        $scope.parent2 = {};
+    }
+
+
+
   });
 } ());
