@@ -61,7 +61,7 @@ userSchema.pre('save', function (next) {
    bcryptPasswordChecker(user, next);
 });
 
-
+//methods for the user schema
 userSchema.methods.validPassword = function (password) {
    console.log(password);
    var newPass = this.generateHash(password);
