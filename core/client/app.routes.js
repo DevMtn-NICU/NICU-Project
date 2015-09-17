@@ -80,15 +80,15 @@
             })
             .state('parent', {
                url: '/parent',
-               templateUrl: 'components/parent/parent/parentView.html',
+               templateUrl: 'components/parent/parentView.html',
                controller: 'parentViewCtrl'
             })
             .state('parent.settings', {
                url: '/settings',
                templateUrl: 'components/parent/parentSettings.html',
-               controller: 'parentSettingsCtrl'
+               // controller: 'parentSettingsCtrl'
             })
-            .state('parent.create.note', {
+            .state('parent.create_note', {
                url: '/create_note',
                templateUrl: 'components/parent/parentCreateNote.html',
                controller: 'parentCreateNoteCtrl'
