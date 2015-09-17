@@ -80,7 +80,7 @@
             })
             .state('parent', {
                url: '/parent',
-               templateUrl: 'components/parent/parent/parentView.html',
+               templateUrl: 'components/parent/parentView.html',
                controller: 'parentViewCtrl'
             })
             .state('parent.settings', {
