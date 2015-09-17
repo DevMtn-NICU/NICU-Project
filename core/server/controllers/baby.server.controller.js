@@ -135,6 +135,7 @@ exports.getBabies = function (req, res) {
 };
 
 exports.getBaby = function (req, res) {
+	console.log('This is the baby id: ', req.params.id);
 	Baby.findById(req.params.id)
 	.populate('parents')
 	.populate('notes')

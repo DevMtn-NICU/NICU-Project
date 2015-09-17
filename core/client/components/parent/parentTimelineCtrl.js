@@ -2,10 +2,10 @@
   "use strict";
 
   angular.module('app')
-    .controller('noteController', function ($scope, promised, NurseService) {
+    .controller('noteController', function ($scope, promised, parentService) {
 
-      $scope.note = {};
-      $scope.note.stats = {};
       $scope.theBaby = promised;
+
+    })
 
 } ());
