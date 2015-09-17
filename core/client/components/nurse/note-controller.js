@@ -8,6 +8,7 @@
       $scope.note.stats = {};
       $scope.theBaby = promised;
       $scope.images = [];
+      $scope.showNote = false;
 
       $scope.addBabyNote = function () {
         // console.log(promised._id);
@@ -18,9 +19,22 @@
         $scope.note.picturesUrl = $scope.imageId;
         console.log("Notes: ", $scope.note);
         NurseService.addBabyNote($scope.note).
-          then(function (response) { })
+          then(function (response) {
+              $scope.returnedNote = response;
+              console.log(response);
+              $scope.clearFields();
+              $scope.showNote = true;
+              $scope.showReturnedNote = true;
+          })
+
       };
+
+      $scope.clearFields = function() {
+          $scope.note = {};
+      }
+
+
+
     })
 
 } ());
-

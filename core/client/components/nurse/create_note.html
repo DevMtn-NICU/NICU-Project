@@ -1,7 +1,7 @@
 <div layout="row" layout-align="space-around center">
-    <div>
+    <div ng-hide="showNote">
         <md-content>
-            <div class="md-toolbar-tools">Nurse Baby Note</div>
+            <div class="md-toolbar-tools">Create Baby Note</div>
             <md-list>
                 <md-list-item>
                     Patient Number: {{ theBaby.patientNumber}}
@@ -29,7 +29,7 @@
             <input type="file" images="images" accept="image/*" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread> {{imageId}}
         </md-content>
     </div>
-    <div layout="row">
+    <div layout="row" ng-hide="showNote">
         <form name="babyNote" ng-submit="addBabyNote()">
             <div>
                 <md-content>
@@ -68,10 +68,25 @@
                 </md-checkbox>
                 <!--Moved the directive-->
                 <div layout="row">
-                    <md-button flex="20" type="button">Cancel</md-button>
+                    <md-button flex="20" type="button" ng-click="clearFields()">Cancel</md-button>
                     <md-button flex="10" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
                 </div>
             </div>
         </form>
     </div>
-</div>
+    <div layout="row" layout-align="space-around center" ng-show="showNote">
+            {{ theBaby.patientNumber}}<br>
+            {{ theBaby.firstName}} {{ theBaby.lastName}}<br>
+            Parents: {{parent.name}}{{$last ? '' : ',&nbsp;'}}<br>
+            <br>
+
+            Comment: {{returnedNote.comment}}<br>
+            Blood Pressure: {{ returnedNote.stats.bloodPressure}}<br>
+            Heart Rate: {{ returnedNote.stats.heartRate}}<br>
+            Oxygen: {{ returnedNote.stats.oxygen}}<br>
+            Weight: {{ returnedNote.stats.weight}}<br>
+            Other: {{ returnedNote.stats.other.stat}} {{ returnedNote.stats.other.value}}<br>
+            <br>
+            This is an edit button.
+    </div>
+<div>
