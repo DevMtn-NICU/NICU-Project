@@ -11,9 +11,9 @@
       <label>Staff Email</label>
       <input type="text" ng-model="nurse.email" required />
     </md-input-container>
-    <md-input-container flex>
+    <md-input-container flex ng-show="showAdd">
       <label>Account Password</label>
-      <input type="password" ng-model="nurse.password" required />
+      <input type="password" ng-model="nurse.password" required="showAdd" />
     </md-input-container>
   </md-content>
   <br>

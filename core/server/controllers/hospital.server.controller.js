@@ -79,6 +79,7 @@ exports.editStaff = function (req, res) {
    }, function (err, nurse) {
       console.log(nurse);
       if (err) return res.status(500).send(err);
+      res.send(nurse);
    });
 };
 
@@ -92,7 +93,7 @@ exports.editPassword = function (req, res) {
          console.log('success');
       });
       res.status(200).send('success');
-   })
+   });
 };
 
 exports.deleteStaff = function (req, res) {
