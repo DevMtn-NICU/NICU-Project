@@ -135,7 +135,7 @@ exports.getBabies = function (req, res) {
 };
 
 exports.getBaby = function (req, res) {
-	Baby.find(req.query)
+	Baby.findById(req.params.id)
 	.populate('parents')
 	.populate('notes')
 	.populate('level1.user')
@@ -156,4 +156,3 @@ exports.editBaby = function(req, res) {
 		res.send(baby);
 	});
 };
-
