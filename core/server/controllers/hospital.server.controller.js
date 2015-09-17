@@ -75,11 +75,13 @@ exports.getOneStaff = function (req, res) {
 
 exports.editStaff = function (req, res) {
    User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      upsert: true
    }, function (err, nurse) {
-      console.log(nurse);
       if (err) return res.status(500).send(err);
-      res.send(nurse);
+      console.log(nurse);
+      console.log(req.body);
+      console.log('update was successful');
+      return res.send(nurse);
    });
 };
 
