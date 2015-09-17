@@ -18,7 +18,7 @@
         $scope.parent2 = {};
       });
     };
-      
+
       $scope.clearFields = function() {
           $scope.note = {};
             $state.go('medical.search');
