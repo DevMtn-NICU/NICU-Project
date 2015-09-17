@@ -13,7 +13,8 @@ var userSchema = new Schema({
       enum: ["nurse", "parent", "contact"]
    }],
    name: {
-      type: String
+      type: String,
+      required: true
    },
    //match checks for valid emails
    email: {
@@ -50,37 +51,61 @@ var userSchema = new Schema({
    }
 });
 
+
+
+
+
 userSchema.pre('save', function (next) {
    console.log('presave loaded');
-   console.log(next);
    var user = this;
-   if (!user.isModified('password')) {
-      console.log('!user');
-      return next();
-   }
-   bcrypt.genSalt(8, function (err, salt) {
-      console.log('bcrypt.genSalt');
-      if (err) {
-         console.log('error');
-         return next(err);
-      }
-      bcrypt.hash(user.password, salt, null, function (err, hash) {
-         console.log("user pasword = ", user.password);
-         user.password = hash;
-         return next();
-      });
-   });
+   bcryptPasswordChecker(user, next);
 });
+
+userSchema.pre('update', function (next) {
+   console.log('update');
+});
+
+
+
+
 
 //Password encryption methods
 userSchema.methods.generateHash = function (password) {
    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-userSchema.methods.validPassword = function (password) {
-   var newPass = this.generateHash(password);
-   //console.log(newPass);
-   return bcrypt.compareSync(password, this.password);
+//userSchema.methods.comparePassword = function (newPassword, cb) {
+//   bcrypt.compareSync(newPassword, this.password, function (err, isMatch) {
+//      if (err) console.log('error in user server model');
+//      cb(null, isMatch);
+//   })
+//};
+
+
+
+var bcryptPasswordChecker = function (user, next) {
+   if (!user.isModified('password')) {
+      console.log('!user');
+      return next();
+   }
+
+
+   bcrypt.genSalt(8, function (err, salt) {
+      console.log('bcrypt.genSalt');
+      if (err) {
+         console.log('error');
+         return next(err);
+      }
+
+
+      bcrypt.hash(user.password, salt, null, function (err, hash) {
+         console.log("user pasword = ", user.password);
+         if (err) return next(err);
+         user.password = hash;
+         next();
+      });
+   });
 };
+
 
 module.exports = mongoose.model('User', userSchema);
