@@ -80,7 +80,7 @@
                         })
                         .state('parent', {
                               url: '/parent',
-                              templateUrl: 'components/parent/parent/parentView.html',
+                              templateUrl: 'components/parent/parentView.html',
                               controller: 'parentViewCtrl'
                         })
                         .state('parent.settings', {
@@ -98,9 +98,9 @@
                               templateUrl: 'components/parent/parentTimeline.html',
                               controller: 'parentTimelineCtrl',
                               resolve: {
-                                    promised: function (NurseService, $stateParams) {
+                                    promised: function (parentService, $stateParams) {
                                           var id = $stateParams.id;
-                                          return NurseService.getBabyById(id);
+                                          return parentService.getBabyById(id);
                                     }
                               }
                         })
