@@ -5,8 +5,8 @@
       <label>Patient Number</label>
       <input type="number" name="patientNumber" ng-model="baby.patientNumber" required>
     </md-input-container>
-    <md-datepicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="10" required></md-datepicker>
-    <md-datepicker ng-model="baby.deathDate" md-placeholder="Date of Death" flex></md-datepicker>
+    <md-DatePicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="10" required></md-DatePicker>
+    <md-DatePicker ng-model="baby.deathDate" md-placeholder="Date of Death" flex></md-DatePicker>
     <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date" flex></md-datepicker>
   </md-content>
   <md-content layout="row" layout-padding layout-align="space-around">
@@ -66,7 +66,7 @@
   </md-content>
   <br>
   <md-content layout="row" layout-align="end" layout-padding>
-    <md-button class="md-raised" flex="10" type="button">Cancel</md-button>
+    <md-button class="md-raised" flex="10" type="button" ng-click="clearFields()">Cancel</md-button>
     <md-button class="md-warn md-raised md-hue-2" flex="10" type="Submit">Submit</md-button>
   </md-content>
 </form>
