@@ -1,8 +1,8 @@
 (function () {
- "use strict";
+   "use strict";
 
- angular.module('app')
-  .controller('hospitalSearchCtrl', function ($scope, hospitalSvc) {
+   angular.module('app')
+      .controller('hospitalAddNurseCtrl', function ($scope, hospitalSvc) {
 
-  });
+      });
 }());
