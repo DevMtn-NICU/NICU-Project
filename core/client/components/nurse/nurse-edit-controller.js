@@ -7,6 +7,7 @@
          $scope.showAdd = false;
 
          $scope.baby = promised;
+
          if ($scope.baby.parents.length > 0) {
              $scope.parent1 = {};
              $scope.parent2 = {};
@@ -22,6 +23,7 @@
          if ($scope.baby.deathDate) {
              $scope.baby.deathDate = new Date($scope.baby.deathDate);
         }
+
 
 
          $scope.makeBaby = function () {
