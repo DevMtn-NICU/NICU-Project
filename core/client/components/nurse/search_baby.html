@@ -1,11 +1,8 @@
 <md-input-container flex>
 
+    <label class="test"><span style="color: black;">Search for Baby by ID or Name</span></label>
 
-    <label class="test">Search for Baby by ID or Name</label>
-
-	<label class="test">Filter Results</label>
 	<input type="text" ng-model="babySearch" autofocus>
-
 
 </md-input-container>
 
@@ -19,12 +16,17 @@
             <span layout="column" flex id="searchCellBirth">Date of Birth</span>
         </div>
         <!--search field-->
-        <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch">
+        <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch" class="oddColor">
+            
+            
             <span layout="column" flex id="searchCellPatient" class="numbers"><a href="#/medical/create_note/{{ baby._id }}">{{ baby.patientNumber }}</a></span> &nbsp &nbsp &nbsp
+            
+            
+            
             <span layout="column" flex id="searchCellName">{{ baby.lastName }}, {{ baby.firstName }}</span>
             <span layout="column" flex id="searchCellGender" class="gender">{{ baby.gender }}</span>
             <span layout="column" flex id="searchCellBirth" class="birth">{{ baby.birthDate }}</span>
-            <span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span> |
+            <span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span> &nbsp | &nbsp
             <span><a href="#/medical/create_note/{{ baby._id }}">Create Note</a></span>
         </div>
     </table>
