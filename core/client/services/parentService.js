@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular.module('app')
-		.service('NurseService', function ($http, $q) {
+		.service('parentService', function ($http, $q) {
 
 			this.addBabyNote = function (note) {
 				var deferred = $q.defer();
