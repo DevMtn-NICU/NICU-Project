@@ -66,6 +66,12 @@ userSchema.pre('update', function (next) {
 });
 
 
+userSchema.methods.validPassword = function (password) {
+   var newPass = this.generateHash(password);
+   //console.log(newPass);
+   return bcrypt.compareSync(password, this.password);
+};
+
 
 
 
