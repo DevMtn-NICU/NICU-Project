@@ -54,7 +54,7 @@ var userSchema = new Schema({
 
 
 
-
+//this only runs on user.save() it won't work work with user.update()
 userSchema.pre('save', function (next) {
    console.log('presave loaded');
    var user = this;
