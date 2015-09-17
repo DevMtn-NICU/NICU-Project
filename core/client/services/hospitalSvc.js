@@ -11,5 +11,17 @@
       });
       return deferred.promise;
     };
+
+    this.createNurse = function(nurse) {
+      var deferred = $q.defer();
+      $http({
+        url: "/api/staff",
+        method: "POST",
+        data: nurse
+      }).then(function(response) {
+        deferred.resolve(response.data);
+      });
+      return deferred.promise;
+    };
   });
 } ());
