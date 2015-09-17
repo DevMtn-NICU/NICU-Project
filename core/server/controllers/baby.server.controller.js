@@ -156,4 +156,3 @@ exports.editBaby = function(req, res) {
 		res.send(baby);
 	});
 };
-

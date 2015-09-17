@@ -9,8 +9,7 @@
         $mdDialog.show({
           templateUrl: "./components/modal-templates/makeBabyConfirmationModal.html",
           locals: {
-            baby: response,
-            close: $scope.closeModal
+            baby: response
           },
           controller: "makeBabyConfirmationModalCtrl"
         });

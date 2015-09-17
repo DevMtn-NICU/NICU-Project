@@ -13,7 +13,8 @@ var userSchema = new Schema({
       enum: ["nurse", "parent", "contact"]
    }],
    name: {
-      type: String
+      type: String,
+      required: true
    },
    //match checks for valid emails
    email: {
@@ -50,37 +51,47 @@ var userSchema = new Schema({
    }
 });
 
+
+
+
+
 userSchema.pre('save', function (next) {
    console.log('presave loaded');
-   console.log(next);
    var user = this;
-   if (!user.isModified('password')) {
-      console.log('!user');
+   bcrypt.hash(user.password, salt, null, function (err, hash) {
+      if (err) return next(err);
+      user.password = hash;
       return next();
-   }
-   bcrypt.genSalt(8, function (err, salt) {
-      console.log('bcrypt.genSalt');
-      if (err) {
-         console.log('error');
-         return next(err);
-      }
-      bcrypt.hash(user.password, salt, null, function (err, hash) {
-         console.log("user pasword = ", user.password);
-         user.password = hash;
-         return next();
-      });
    });
 });
 
+
+userSchema.methods.validPassword = function (password) {
+   console.log(password);
+   var newPass = this.generateHash(password);
+   console.log(bcrypt.compareSync(password, this.password));
+   return bcrypt.compareSync(password, this.password);
+};
+
+
 //Password encryption methods
 userSchema.methods.generateHash = function (password) {
+   console.log('bcrypt hash');
    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-userSchema.methods.validPassword = function (password) {
-   var newPass = this.generateHash(password);
-   //console.log(newPass);
-   return bcrypt.compareSync(password, this.password);
-};
+
+bcrypt.genSalt(8, function (err, salt) {
+   console.log('bcrypt.genSalt');
+   if (err) {
+      console.log('error');
+      return next(err);
+   }
+
+
+
+});
+
+
 
 module.exports = mongoose.model('User', userSchema);
