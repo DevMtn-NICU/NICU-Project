@@ -46,5 +46,16 @@
       });
       return deferred.promise;
     };
+
+    this.removeStaff = function(id) {
+      var deferred = $q.defer();
+      $http({
+        method: "DELETE",
+        url: "/api/staff/" + id
+      }).then(function(response) {
+        deferred.resolve(response.data);
+      });
+      return deferred.promise;
+    };
   });
 } ());

@@ -9,8 +9,8 @@
 </div>
 
 <div flex layout="space-around center" id="babyRow" ng-repeat="person in staff | filter:staffSearch">
-	<span layout="column" flex id="searchCellPatient">{{ person.name }}</span> &nbsp &nbsp &nbsp
+	<span layout="column" flex id="searchCellPatient">{{ person.name }}</span> &nbsp; &nbsp; &nbsp;
 	<span layout="column" flex id="searchCellName">{{person.email}}</span>
-	<span><a href="#/hospital/edit/{{ person._id }}">Edit</a></span>
-	<md-button type="button" class="md-raised md-warn" ng-click="removeStaff(person._id)" style="position: relative; bottom: 20px;">Remove</md-button>
+	<span><md-button type="button" class="md-raised" href="#/hospital/edit/{{ person._id }}" style="position: relative; bottom: 24px;">Edit</md-button></span> &nbsp;&nbsp;&nbsp;
+	<span><md-button type="button" class="md-raised" ng-click="removeStaff(person._id)" style="position: relative; bottom: 24px;">Remove</md-button></span>
 </div>

@@ -10,5 +10,12 @@
     };
 
     $scope.getStaff();
+
+    $scope.removeStaff = function(id) {
+      hospitalSvc.removeStaff(id)
+      .then(function(response) {
+        $scope.getStaff();
+      });
+    };
   });
 }());
