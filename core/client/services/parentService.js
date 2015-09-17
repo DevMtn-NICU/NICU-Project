@@ -31,9 +31,12 @@
 				return deferred.promise;
 			}
 
-			this.getBabyNotes = function(){
+			this.babyNotes = function(){
 				
 			}
 
 	});
 } ());
+
+//	app.route('/api/babies/:id')
+        // .get(babiesController.getBaby);
