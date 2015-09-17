@@ -157,6 +157,9 @@ hr {
     padding-right: 5%;
 /*    padding-bottom: 20px;*/
 }
+.pointer {
+    cursor: pointer;
+}
 
 /*NURSE SEARCH PAGE*/
 .container {
