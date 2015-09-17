@@ -12,4 +12,5 @@
 	<span layout="column" flex id="searchCellPatient">{{ person.name }}</span> &nbsp &nbsp &nbsp
 	<span layout="column" flex id="searchCellName">{{person.email}}</span>
 	<span><a href="#/hospital/edit/{{ person._id }}">Edit</a></span>
+	<md-button type="button" class="md-raised md-warn" ng-click="removeStaff(person._id)" style="position: relative; bottom: 20px;">Remove</md-button>
 </div>
