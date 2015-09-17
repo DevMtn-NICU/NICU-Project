@@ -133,8 +133,12 @@ hr {
     cursor: pointer;
 }
 
-#babyRow:hover {
-    background-color: lightgrey;
+#babyRow:visited {
+    background-color: #fff;
+}
+
+#babyRow {
+    background-color: #444444;
 }
 
 #searchCellPatient {
@@ -157,6 +161,9 @@ hr {
     padding-right: 5%;
 /*    padding-bottom: 20px;*/
 }
+
+
+
 
 /*NURSE SEARCH PAGE*/
 .container {
