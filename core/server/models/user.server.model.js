@@ -58,11 +58,7 @@ var userSchema = new Schema({
 userSchema.pre('save', function (next) {
    console.log('presave loaded');
    var user = this;
-   bcrypt.hash(user.password, salt, null, function (err, hash) {
-      if (err) return next(err);
-      user.password = hash;
-      return next();
-   });
+   bcryptPasswordChecker(user, next);
 });
 
 
@@ -87,10 +83,38 @@ bcrypt.genSalt(8, function (err, salt) {
       console.log('error');
       return next(err);
    }
-
-
-
 });
+
+var bcryptPasswordChecker = function (user, next) {
+   if (!user.isModified) {
+      console.log('error password is the same');
+      return next();
+   }
+
+   bcrypt.genSalt(8, function (err, salt) {
+      console.log('bcrypt.genSalt');
+      if (err) {
+         console.log('error');
+         return next(err);
+      }
+
+
+      bcrypt.hash(user.password, salt, null, function (err, hash) {
+         if (err) return next(err);
+         user.password = hash;
+         console.log(user.password);
+         next();
+      });
+   });
+};
+
+
+//userSchema.methods.comparePassword = function (newPassword, cb) {
+//   bcrypt.compareSync(newPassword, this.password, function (err, isMatch) {
+//      if (err) console.log('error in user server model');
+//      cb(null, isMatch);
+//   })
+//};
 
 
 

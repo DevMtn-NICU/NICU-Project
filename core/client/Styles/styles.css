@@ -139,20 +139,73 @@ hr {
 
 #searchCellPatient {
     width: 25%;
-    padding-bottom: 20px;
+/*    padding-bottom: 20px;*/
 }
 
 #searchCellName {
     width: 25%;
-    padding-bottom: 20px;
+/*    padding-bottom: 20px;*/
 }
 
 #searchCellGender {
     width: 25%;
-    padding-bottom: 20px;
+/*    padding-bottom: 20px;*/
 }
 
 #searchCellBirth {
     width: 15%;
-    padding-bottom: 20px;
+    padding-right: 5%;
+/*    padding-bottom: 20px;*/
 }
+
+/*NURSE SEARCH PAGE*/
+.container {
+    width: 95%;
+    height: 80%;
+    background-color: lightgray;
+    padding: 30px;
+    border: 1px solid black;
+    box-shadow: 0 0 1px 1px;
+}
+
+#babyColumn {
+    background-color: white;
+    border: 0px solid black;
+    padding: 30px;
+    box-shadow: 0 0 1px 1px;
+}
+
+#babyRow {
+    background-color: white;
+    border: 0px solid black;
+    box-shadow: 0 0 1px 1px;
+}
+
+.gender {
+    position: relative;
+    left: 3.5%;
+/*    margin-left: 10%;*/
+}
+
+.birth {
+    position: relative;
+    left: 4.5%;
+/*    margin-left: 10%;*/
+}
+
+.numbers {
+    position: relative;
+    left: 0.5%;
+}
+
+.test {
+    color: black;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+
+/*END SEARCH PAGE*/
