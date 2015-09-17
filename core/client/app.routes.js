@@ -68,9 +68,15 @@
                controller: 'hospitalAddNurseCtrl'
             })
             .state('hospital.edit_nurse', {
-               url: '/edit_nurse/:id',
+               url: '/edit/:id',
                templateUrl: 'components/hospital/hospital_add_nurse.html',
-               controller: 'hospitalEditNurseCtrl'
+               controller: 'hospitalEditNurseCtrl',
+							 resolve: {
+                  promised: function (hospitalSvc, $stateParams) {
+                     var id = $stateParams.id;
+                     return hospitalSvc.getOneStaff(id);
+                  }
+               }
             })
             .state('parent', {
                url: '/parent',
@@ -87,11 +93,11 @@
                templateUrl: 'components/parent/parentCreateNote.html',
                controller: 'parentCreateNoteCtrl'
             })
-            .state('parent.timeline' {
+            .state('parent.timeline', {
                url: '/timeline',
                templateUrl: 'components/parent/parentTimeline.html',
                controller: 'parentTimelineCtrl'
-            })
+            });
       });
 
 }());

@@ -95,7 +95,7 @@ exports.editPassword = function (req, res) {
          console.log('success');
       });
       res.status(200).send('success');
-   })
+   });
 };
 
 exports.deleteStaff = function (req, res) {
