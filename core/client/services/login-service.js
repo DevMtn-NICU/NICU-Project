@@ -16,7 +16,11 @@ angular.module('app')
             if (role[0] === 'nurse') {
                $state.go('medical');
             } else if (role[0] === 'parent') {
-               $state.go('parent', [res.data]);
+               console.log(res.data._id);
+               var userId = res.data._id;
+               $state.go('parent', {
+                  'userId': userId
+               });
             }
          })
       }
