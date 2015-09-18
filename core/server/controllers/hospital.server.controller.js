@@ -73,6 +73,7 @@ exports.getOneStaff = function (req, res) {
    });
 };
 
+//this is the api to hit if you don't need to update a password
 exports.editStaff = function (req, res) {
    User.findByIdAndUpdate(req.params.id, req.body, {
       upsert: true
@@ -85,6 +86,8 @@ exports.editStaff = function (req, res) {
    });
 };
 
+
+//hit this one for password editing
 exports.editPassword = function (req, res) {
    User.findById(req.params.id, function (err, nurse) {
       if (err) return res.status(500).send(err);
