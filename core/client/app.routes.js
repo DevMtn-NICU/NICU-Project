@@ -11,6 +11,7 @@
                               templateUrl: 'components/home/home-template.html',
                               controller: 'homeController'
                         })
+                  ////////////   medical /////////////////////////
                         .state('medical', {
                               url: '/medical',
                               templateUrl: 'components/nurse/nurse-template.html',
@@ -53,6 +54,8 @@
                               templateUrl: 'components/nurse/nurse.makeBabyTmpl.html',
                               controller: 'makeBabyCtrl'
                         })
+
+                  ////////////   HOSPITAL /////////////////////////
                         .state('hospital', {
                               url: '/hospital',
                               templateUrl: 'components/hospital/hospital_view.html',
@@ -78,6 +81,8 @@
                                     }
                               }
                         })
+
+                  ////////////   parent /////////////////////////
                         .state('parent', {
                               url: '/parent',
                               templateUrl: 'components/parent/parentView.html',
@@ -86,15 +91,10 @@
                         .state('parent.settings', {
                               url: '/settings',
                               templateUrl: 'components/parent/parentSettings.html',
-                              // controller: 'parentSettingsCtrl'
-                        })
-                        .state('parent.create.note', {
-                              url: '/create_note',
-                              templateUrl: 'components/parent/parentCreateNote.html',
-                              controller: 'parentCreateNoteCtrl'
+                              controller: 'parentSettingsCtrl'
                         })
                         .state('parent.timeline', {
-                              url: '/timeline/:id',
+                              url: '/timeline',
                               templateUrl: 'components/parent/parentTimeline.html',
                               controller: 'parentTimelineCtrl',
                               resolve: {
@@ -104,6 +104,16 @@
                                     }
                               }
                         })
-
+                        .state('parent.create_note', {
+                              url: '/create_note/:id',
+                              templateUrl: 'components/parent/parentCreateNote.html',
+                              controller: 'parentNoteController',
+                              resolve: {
+                                    promised: function (NurseService, $stateParams) {
+                                          var id = $stateParams.id;
+                                          return NurseService.getBabyById(id);
+                                    }
+                              }
+                        })
             })
 } ());
