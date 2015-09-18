@@ -107,11 +107,11 @@
                         .state('parent.create_note', {
                               url: '/create_note/:id',
                               templateUrl: 'components/parent/parentCreateNote.html',
-                              controller: 'parentNoteController',
+                              controller: 'parentCreateNoteCtrl',
                               resolve: {
-                                    promised: function (NurseService, $stateParams) {
+                                    promised: function (parentService, $stateParams) {
                                           var id = $stateParams.id;
-                                          return NurseService.getBabyById(id);
+                                          return parentService.getBabyById(id);
                                     }
                               }
                         })
