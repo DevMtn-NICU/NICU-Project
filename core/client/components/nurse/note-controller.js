@@ -8,7 +8,6 @@
       $scope.note.stats = {};
       $scope.theBaby = promised;
       $scope.images = [];
-      $scope.showNote = false;
 
       $scope.addBabyNote = function () {
         $scope.note.baby = promised._id;
