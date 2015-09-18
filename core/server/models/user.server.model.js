@@ -54,14 +54,14 @@ var userSchema = new Schema({
 
 
 
-
+//this only runs on user.save() it won't work work with user.update()
 userSchema.pre('save', function (next) {
    console.log('presave loaded');
    var user = this;
    bcryptPasswordChecker(user, next);
 });
 
-
+//methods for the user schema
 userSchema.methods.validPassword = function (password) {
    console.log(password);
    var newPass = this.generateHash(password);
