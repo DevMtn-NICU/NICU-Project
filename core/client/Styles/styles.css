@@ -1,3 +1,26 @@
+/*PRODUCT PAGE*/
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff;
+}
+
+section, img{
+    width: 100%;
+    height: 876px;
+    background-size: cover;
+}
+
+.share {
+    width: 15%;
+    height: 60px;
+    padding: 1%;
+    margin-left: 5%; 
+}
+
+/*END OF PRODCUCT PAGE*/
+
+
 /*HOME PAGE*/
 body {
     margin: 0;
@@ -85,6 +108,8 @@ hr {
 .email {
     left: 67%;
 }
+
+/*END OF HOME PAGE*/
 
 /*Styling for Main Nurse template Page*/
 .nurseHeader {
