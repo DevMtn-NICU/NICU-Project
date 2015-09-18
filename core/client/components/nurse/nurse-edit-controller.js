@@ -8,17 +8,9 @@
 
          $scope.baby = promised;
 
-         if(!$scope.baby.parents) {
-             console.log(error);
-         }
-         else if ($scope.baby.parents.length > 0) {
-             $scope.parent1 = {};
-             $scope.parent2 = {};
-             $scope.parent1.name = promised.parents[0].name;
-             $scope.parent2.name = promised.parents[1].name;
-             $scope.parent1.email = promised.parents[0].email;
-             $scope.parent2.email = promised.parents[1].email;
-         }
+         $scope.parent1 = $scope.baby.parents[0];
+         $scope.parent2 = $scope.baby.parents[1];
+
          $scope.baby.birthDate = new Date($scope.baby.birthDate);
          if ($scope.baby.dischargeDate) {
              $scope.baby.dischargeDate = new Date($scope.baby.dischargeDate);
@@ -30,7 +22,7 @@
         $scope.clearFields = function() {
           $scope.note = {};
             $state.go('medical.search');
-      }
+      };
 
          $scope.makeBaby = function () {
              console.log('This is what we are sending: ', $scope.baby);
@@ -42,5 +34,5 @@
                 $state.go('medical.search');
                });
          };
-      })
+      });
 }());
