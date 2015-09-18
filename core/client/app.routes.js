@@ -92,7 +92,14 @@
                controller: 'parentViewCtrl',
                params: {
                   'user': null
-               }
+               },
+               abstract: true,
+            })
+            .state('parent.landing', {
+               url: '',
+               templateUrl: 'components/parent/babyLanding.html',
+               controller: 'babyLanding',
+
             })
             .state('parent.settings', {
                url: '/settings',
@@ -113,7 +120,7 @@
             .state('parent.create_note', {
                url: '/create_note/:id',
                templateUrl: 'components/parent/parentCreateNote.html',
-               controller: 'parentNoteController',
+               controller: 'parentCreateNoteCtrl',
                resolve: {
                   promised: function (NurseService, $stateParams) {
                      var id = $stateParams.id;
