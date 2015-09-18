@@ -8,9 +8,8 @@
       $scope.note.stats = {};
       $scope.theBaby = promised;
       $scope.images = [];
-      $scope.showNote = false;
 
-      $scope.addBabyNote = function (ev) {
+      $scope.addBabyNote = function () {
         $scope.note.baby = promised._id;
         $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
         $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
@@ -24,8 +23,6 @@
                   theBaby: $scope.theBaby
                 },
                 controller: "addNoteConfirmationModalCtrl",
-                targetEvent: ev,
-                clickOutsideToClose: true
               });
           })
 
