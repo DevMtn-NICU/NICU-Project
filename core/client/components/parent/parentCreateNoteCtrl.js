@@ -4,14 +4,12 @@
    angular.module('app')
       .controller('parentCreateNoteCtrl', function ($scope, promised, parentService, $mdDialog) {
 
-
-
          $scope.note = {};
          $scope.note.stats = {};
          $scope.theBaby = promised;
          $scope.images = [];
-         
-      $scope.floatTheModal() {
+
+      $scope.floatTheModal = function() {
           $mdDialog.show({
             templateUrl: "./components/modal-templates/parentAddNoteConfirmationModal.html",
             locals: {
