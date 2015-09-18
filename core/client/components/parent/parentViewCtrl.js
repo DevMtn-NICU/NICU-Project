@@ -4,18 +4,14 @@
    angular.module('app')
       .controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state) {
 
-         console.log('parentViewCtrl');
-         console.log('state params', $stateParams.user);
-
          var user = $stateParams.user;
-         var baby = testUser.babies[1];
-         console.log('baby', baby);
+         var baby = testUser.parent.babies[1];
+         $scope.user = testUser;
          $scope.baby;
 
          var getBaby = function () {
             parentService.getBabyById(baby)
                .then(function (response) {
-                  console.log('response', response);
                   return $scope.baby = response;
                });
             return $scope.baby;
@@ -31,11 +27,11 @@
       name: "test",
       parent: {
          access: "parent",
+         babies: [
+            "55f882ec9f20e18029a3a830",
+            "55f883299f20e18029a3a833"
+         ],
       },
-      babies: [
-         "55f882ec9f20e18029a3a830",
-         "55f883299f20e18029a3a833"
-      ],
    };
 
 
