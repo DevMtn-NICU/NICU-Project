@@ -10,7 +10,6 @@
       $scope.images = [];
 
       $scope.addBabyNote = function () {
-        console.log("this is happening");
         $scope.note.baby = promised._id;
         $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
         $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
