@@ -2,9 +2,11 @@
    "use strict";
 
    angular.module('app')
-      .controller('parentViewCtrl', function ($scope, parentService) {
+      .controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state) {
 
-
+         console.log('parentViewCtrl');
+         console.log('state params', $stateParams.userId);
+         console.log($state.params.userId);
          // 	$scope.getBabyById = function() {
          // 		parentService.getBabyById($scope.baby)
          // 		.then(function(response) {
