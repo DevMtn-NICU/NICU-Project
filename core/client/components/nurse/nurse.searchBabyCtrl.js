@@ -6,12 +6,12 @@
             $scope.getBabies = function() {
             NurseService.getBabies().then(function(res) {
             	$scope.babies = res;
-            	console.log($scope.babies);
-                 });	
+            	// console.log($scope.babies);
+                 });
         };
         $scope.getBabies();
-        
-        
+
+
     });
 
 
