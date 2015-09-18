@@ -1,5 +1,5 @@
 <div layout="row" layout-align="space-around center">
-    <div ng-hide="showNote">
+    <div>
         <md-content>
             <div class="md-toolbar-tools">Create Baby Note</div>
             <md-list>
@@ -29,7 +29,7 @@
             <input type="file" images="images" accept="image/*" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread> {{imageId}}
         </md-content>
     </div>
-    <div layout="row" ng-hide="showNote">
+    <div layout="row">
         <form name="babyNote" ng-submit="addBabyNote()">
             <div>
                 <md-content>
@@ -73,20 +73,5 @@
                 </div>
             </div>
         </form>
-    </div>
-    <div layout="row" layout-align="space-around center" ng-show="showNote">
-            {{ theBaby.patientNumber}}<br>
-            {{ theBaby.firstName}} {{ theBaby.lastName}}<br>
-            Parents: {{parent.name}}{{$last ? '' : ',&nbsp;'}}<br>
-            <br>
-
-            Comment: {{returnedNote.comment}}<br>
-            Blood Pressure: {{ returnedNote.stats.bloodPressure}}<br>
-            Heart Rate: {{ returnedNote.stats.heartRate}}<br>
-            Oxygen: {{ returnedNote.stats.oxygen}}<br>
-            Weight: {{ returnedNote.stats.weight}}<br>
-            Other: {{ returnedNote.stats.other.stat}} {{ returnedNote.stats.other.value}}<br>
-            <br>
-            This is an edit button.
     </div>
 <div>
