@@ -6,7 +6,9 @@
 
          console.log('parentViewCtrl');
          console.log('state params', $stateParams.userId);
-         console.log($state.params.userId);
+         console.log($state.params);
+
+
          // 	$scope.getBabyById = function() {
          // 		parentService.getBabyById($scope.baby)
          // 		.then(function(response) {
