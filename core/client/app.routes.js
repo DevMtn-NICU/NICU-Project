@@ -101,6 +101,11 @@
                   'user': null
                }
             })
+						.state('parent.main', {
+							url: '/main',
+							templateUrl: 'components/parent/parentMain.html',
+							controller: 'parentMainCtrl'
+						})
             .state('parent.settings', {
                url: '/settings',
                templateUrl: 'components/parent/parentSettings.html',
