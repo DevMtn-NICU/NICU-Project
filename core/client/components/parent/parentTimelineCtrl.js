@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('app')
-    .controller('parentTimelineCtrl', function ($scope, promised, parentService) {
+    .controller('parentTimelineCtrl', function ($scope, parentService) {
 
       $scope.theBaby = promised;
 
