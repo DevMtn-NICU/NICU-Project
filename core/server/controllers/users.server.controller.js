@@ -26,6 +26,8 @@ module.exports = {
     newUser.roles.push("contact");
     newUser.email = req.body.email;
     newUser.password = newUser.generateHash(req.body.password);
+    newUser.roles = req.body.roles;
+    newUser.name = req.body.name;
     newUser.save(function(err, user) {
       if (err) return res.status(500).send(err);
       else {
