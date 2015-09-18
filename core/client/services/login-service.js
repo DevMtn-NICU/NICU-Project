@@ -11,9 +11,20 @@ angular.module('app')
          }).then(function (res) {
             console.log('.then is responding');
             console.log('response', res.data);
-            if (res) {
+            var role = res.data.roles;
+            console.log('role', role[0]);
+            if (role[0] === 'nurse') {
                $state.go('medical');
-            };
+
+            } else if (role[0] === 'parent') {
+               console.log(res.data._id);
+
+               var user = res.data;
+
+               $state.go('parent', {
+                  'user': user
+               });
+            }
          })
       }
    });
