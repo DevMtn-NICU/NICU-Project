@@ -1,1 +1,38 @@
-parentSettings.html
+<div class="form">
+<div class"addFamilyUser">
+	<h3>Add a Family Member or Friend To Recieve Notifictions</h3>
+	<md-input-container class="enterFamilyAuth" flex>
+		<label>Name</label>
+		<input type="text">
+	</md-input-container>
+	<md-input-container  class="enterFamilyAuth" flex>
+		<label>Email</label>
+		<input type="text">
+	</md-input-container>
+	<md-checkbox flex label="Assign Level 1 Security">Assign Level 1 Security
+	</md-checkbox>
+	<md-checkbox flex label="Assign Level 2 Security">Assign Level 2 Security
+	</md-checkbox>
+</div>
+<!--header-->
+<div class="showAllUsers" flex layout="space-around center" >
+	<span layout="column" flex id="searchCellPatient">Name</span>
+	<span layout="column" flex id="searchCellName">Email</span>
+	<span layout="column" flex id="searchCellName">Security</span>
+</div>
+</div>
+
+
+<!--search field-->
+<!-- <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch">
+	<span layout="column" flex id="searchCellPatient"><a href="#/medical/create_note/{{ baby._id }}">{{ baby.patientNumber }}</a></span> &nbsp &nbsp &nbsp
+	<span layout="column" flex id="searchCellName">{{ baby.lastName }}, {{ baby.firstName }}</span>
+	<span layout="column" flex id="searchCellGender">{{ baby.gender }}</span>
+	<span layout="column" flex id="searchCellBirth">{{ baby.birthDate }}</span>
+	<span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span> /
+	<span><a href="#/medical/create_note/{{ baby._id }}">Create Note</a></span>
+</div> -->
+
+<div>
+
+</div>
