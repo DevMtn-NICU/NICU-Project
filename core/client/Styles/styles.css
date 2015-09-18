@@ -312,7 +312,7 @@ label {
     display: block;
     margin: auto;
     margin-top: 25px;
-   
+
 }
 
 /*Parent Settings Page*/
@@ -328,18 +328,12 @@ label {
     border: 5px black solid;
     padding: 25px;
 }
-
-.addFamilyUsers {
-   margin-top: 10px;
-   width: 40%;
+.clear {
+	clear: both;
 }
-
-
-.showAllUsers {
-    margin-top: 10px;
-    margin-left: 100px;
-    width: 50%;
-}
+/** {
+    outline: 1px solid red;
+}*/
 /*br {
  border-width: 10px;
  border-style: inset;
@@ -347,4 +341,3 @@ label {
  vertical-align: center;
  color: black;
 }*/
-
