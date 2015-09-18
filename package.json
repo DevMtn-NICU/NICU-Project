@@ -1,39 +1,39 @@
 {
-   "name": "nicu-group-project",
-   "version": "1.0.0",
-   "description": "This will be a fully wired  MEAN stack sample app.",
-   "main": "server.js",
-   "dependencies": {
-      "angular": "^1.4.5",
-      "angular-animate": "^1.4.5",
-      "angular-aria": "^1.4.5",
-      "angular-material": "^0.11.0",
-      "aws-sdk": "^2.2.0",
-      "bcrypt-nodejs": "0.0.3",
-      "body-parser": "^1.13.3",
-      "cors": "^2.7.1",
-      "express": "^4.13.3",
-      "express-session": "^1.11.3",
-      "jquery": "^2.1.4",
-      "method-override": "^2.3.5",
-      "mongoose": "^4.1.1",
-      "passport": "^0.2.2",
-      "passport-local": "^1.0.0",
-      "q": "^1.4.1"
-   },
-   "devDependencies": {},
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Ladrillo/mean-boilerplate.git"
-   },
-   "author": "",
-   "license": "ISC",
-   "bugs": {
-      "url": "https://github.com/Ladrillo/mean-boilerplate/issues"
-   },
-   "homepage": "https://github.com/Ladrillo/mean-boilerplate#readme"
+  "name": "nicu-group-project",
+  "version": "1.0.0",
+  "description": "This will be a fully wired  MEAN stack sample app.",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.4.6",
+    "angular-animate": "^1.4.6",
+    "angular-aria": "^1.4.6",
+    "angular-material": "^0.11.0",
+    "aws-sdk": "^2.2.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "jquery": "^2.1.4",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.7",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ladrillo/mean-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ladrillo/mean-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Ladrillo/mean-boilerplate#readme"
 }
