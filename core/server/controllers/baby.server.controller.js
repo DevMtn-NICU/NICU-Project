@@ -152,8 +152,60 @@ exports.getBaby = function (req, res) {
 };
 
 exports.editBaby = function(req, res) {
-	Baby.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, baby) {
-		if (err) return res.status(500).send(err);
-		res.send(baby);
+	var parent1, parent2, baby;
+	(function findBaby() {
+		var deferred = Q.defer();
+		Baby.findById(req.body.baby._id)
+		.populate('parents')
+		.exec(function(err, response) {
+			if (err) return res.status(500).send(err);
+			baby = response;
+			deferred.resolve();
+		});
+	}()).then(function() {
+		var deferred = Q.defer();
+		if (baby.parents[0] === req.body.parent1) {
+			if (baby.parents[1] === req.body.parent2) {
+				Baby.findByIdAndUpdate(baby._id, req.body.baby, {new: true}, function(err, newBaby) {
+					if (err) return res.status(500).send(err);
+					res.send(newBaby);
+					deferred.resolve();
+				});
+			}
+		} else {
+			var updateParent1 = function() {
+				var deferredness = Q.defer();
+				if (!req.body.parent1.email && !req.body.parent1.name) {
+					baby.parents.pull(baby.parents[0]);
+					User.findByIdAndUpdate(baby.parents[0]._id, {$pull: {'parent.babies': {_id: baby._id}}}, {new: true}, function(err, result) {
+						if (err) return res.status(500).send(err);
+						deferredness.resolve();
+					});
+				} else {
+					User.findByIdAndUpdate(baby.parents[0]._id, req.body.parent1, {new: true}, function(err, result) {
+						if (err) return res.status(500).send(err);
+						parent1 = result;
+						deferredness.resolve();
+					});
+				}
+			};
+			if (baby) {
+
+			}
+		}
 	});
+};
+
+var updateParent2 = function() {
+	if (!req.body.parent2.email && !req.body.parent2.name) {
+		baby.parents.pull(baby.parents[1]);
+		User.findByIdAndUpdate(baby.parents[1]._id, {$pull: {'parent.babies': {_id: baby._id}}}, {new: true}, function(err, result) {
+			if (err) return res.status(500).send(err);
+		});
+	} else {
+		User.findByIdAndUpdate(baby.parents[1]._id, req.body.parent2, {new: true}, function(err, result) {
+			if (err) return res.status(500).send(err);
+			parent2 = result;
+		});
+	}
 };
