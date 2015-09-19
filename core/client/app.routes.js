@@ -6,8 +6,15 @@
          $urlRouterProvider.otherwise('/');
 
          $stateProvider
+
             .state('home', {
                url: '/',
+               templateUrl: 'components/product/product-page.html',
+               controller: 'productController'
+            })
+            ////////////   LOGIN /////////////////////////
+             .state('login', {
+               url: '/login',
                templateUrl: 'components/home/home-template.html',
                controller: 'homeController'
             })
@@ -91,7 +98,14 @@
                controller: 'parentViewCtrl',
                params: {
                   'user': null
-               }
+               },
+               abstract: true,
+            })
+            .state('parent.landing', {
+               url: '',
+               templateUrl: 'components/parent/babyLanding.html',
+               controller: 'babyLanding',
+
             })
 						.state('parent.main', {
 							url: '/main',
