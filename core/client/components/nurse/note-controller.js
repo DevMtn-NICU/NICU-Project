@@ -7,25 +7,18 @@
       $scope.note = {};
       $scope.note.stats = {};
       $scope.theBaby = promised;
+    //   $scope.theBaby._id = promised._id;
       $scope.images = [];
 
-      $scope.addBabyNote = function () {
-        $scope.note.baby = promised._id;
-        $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
-        $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
-        $scope.note.picturesUrl = $scope.imageId;
-        NurseService.addBabyNote($scope.note).
-          then(function (response) {
-              $mdDialog.show({
-                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
-                locals: {
-                  baby: response,
-                  theBaby: $scope.theBaby
-                },
-                controller: "addNoteConfirmationModalCtrl",
-              });
-          })
-
+      $scope.floatTheModal =function() {
+          $mdDialog.show({
+            templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
+            locals: {
+              theBaby: $scope.theBaby,
+              note: $scope.note
+            },
+            controller: "addNoteConfirmationModalCtrl",
+        })
       };
 
       $scope.clearFields = function() {
