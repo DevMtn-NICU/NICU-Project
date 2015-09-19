@@ -6,7 +6,7 @@
          $urlRouterProvider.otherwise('/');
 
          $stateProvider
-
+         
             .state('home', {
                url: '/',
                templateUrl: 'components/product/product-page.html',
