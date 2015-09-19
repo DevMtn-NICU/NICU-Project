@@ -6,8 +6,15 @@
          $urlRouterProvider.otherwise('/');
 
          $stateProvider
+         
             .state('home', {
                url: '/',
+               templateUrl: 'components/product/product-page.html',
+               controller: 'productController'
+            })
+            ////////////   LOGIN /////////////////////////
+             .state('login', {
+               url: '/login',
                templateUrl: 'components/home/home-template.html',
                controller: 'homeController'
             })
