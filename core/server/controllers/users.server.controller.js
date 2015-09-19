@@ -20,7 +20,7 @@ module.exports = {
       }
     });
   },
-
+// called from parent Settings page. Receives a "level" param from front end; needs to populate levels array in baby doc.
   createContact: function(req, res) {
     var newUser = new User();
     newUser.roles.push("contact");

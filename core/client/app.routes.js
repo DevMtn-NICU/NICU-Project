@@ -6,7 +6,7 @@
          $urlRouterProvider.otherwise('/');
 
          $stateProvider
-         
+
             .state('home', {
                url: '/',
                templateUrl: 'components/product/product-page.html',
@@ -127,7 +127,7 @@
                      return parentService.getBabyById(id);
                   }
                }
-            })
+            })  
             .state('parent.create_note', {
                   url: '/create_note/:id',
                   templateUrl: 'components/parent/parentCreateNote.html',

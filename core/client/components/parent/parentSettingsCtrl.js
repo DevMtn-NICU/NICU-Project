@@ -8,8 +8,7 @@
 			  $scope.auth.email = '';
 	      };
 
-
-          // remove this most likely when retrieving contacts properly from baby
+          // remove this empty array and push call below when retrieving contacts properly from baby...just wanted it for testing
           $scope.contacts = [];
 		  $scope.authLevel = function() {
 			  $scope.auth.roles = "contact";
@@ -22,8 +21,6 @@
 
 			  });
 		  };
-
-
 
 
       })
