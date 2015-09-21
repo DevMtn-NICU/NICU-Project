@@ -6,7 +6,7 @@
          $urlRouterProvider.otherwise('/');
 
          $stateProvider
-         
+
             .state('home', {
                url: '/',
                templateUrl: 'components/product/product-page.html',
@@ -91,7 +91,6 @@
                }
             })
 
-
          ////////////   parent /////////////////////////
          .state('parent', {
                url: '/parent',
@@ -128,17 +127,17 @@
                      return parentService.getBabyById(id);
                   }
                }
-            })
+            })  
             .state('parent.create_note', {
-               url: '/create_note/:id',
-               templateUrl: 'components/parent/parentCreateNote.html',
-               controller: 'parentCreateNoteCtrl',
-               resolve: {
-                  promised: function (NurseService, $stateParams) {
-                     var id = $stateParams.id;
-                     return NurseService.getBabyById(id);
+                  url: '/create_note/:id',
+                  templateUrl: 'components/parent/parentCreateNote.html',
+                  controller: 'parentCreateNoteCtrl',
+                  resolve: {
+                        promised: function (parentService, $stateParams) {
+                              var id = $stateParams.id;
+                              return parentService.getBabyById(id);
+                        }
                   }
-               }
             })
       })
 }());
