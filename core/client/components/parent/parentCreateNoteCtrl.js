@@ -15,18 +15,18 @@
          }
 
          // open modal
-         $scope.floatTheModal = function() {
-             $mdDialog.show({
-                 templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
-                 scope: $scope,
-                 preserveScope: true
-             });
-         }
-         // close modal
-         $scope.hideModal = function() {
-             $mdDialog.hide();
-         }
-         // make Baby note
+         $scope.floatTheModal = function () {
+               $mdDialog.show({
+                  templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
+                  scope: $scope,
+                  preserveScope: true
+               });
+            }
+            // close modal
+         $scope.hideModal = function () {
+               $mdDialog.hide();
+            }
+            // make Baby note
          $scope.addBabyNote = function () {
             $scope.note.baby = promised._id;
             $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
@@ -34,8 +34,8 @@
             $scope.note.picturesUrl = $scope.imageId;
             parentService.addBabyNote($scope.note).
             then(function (response) {
-                $scope.hideModal();
-                $state.go('parent.settings')
+               $scope.hideModal();
+               $state.go('parent.settings')
             })
          };
 
