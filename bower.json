@@ -1,0 +1,22 @@
+{
+  "name": "NICU-Project",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DevMtn-NICU/NICU-Project",
+  "authors": [
+    "Wilson Parrish <wilsonparrishmk2@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-charts": "~0.2.7"
+  }
+}
