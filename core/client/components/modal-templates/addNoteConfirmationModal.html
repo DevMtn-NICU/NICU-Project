@@ -1,0 +1,28 @@
+<md-dialog>
+   <md-dialog-content layout="row" layout-padding>
+      <h2 flex>Review Your Baby Note Before Submitting</h2>
+   </md-dialog-content>
+   <md-dialog-content layout="row" layout-padding>
+     <md-subheader>
+         Baby: {{ theBaby.firstName }} {{ theBaby.lastName }}<br>
+         Picture: {{ note.picturesUrl}}<br>
+         Blood Pressure: {{ note.stats.bloodPressure}}<br>
+         Heart Rate: {{ note.stats.heartRate}}<br>
+         Oxygen: {{ note.stats.oxygen}}<br>
+         Weight: {{ note.stats.weight}}<br>
+         Other Stat: {{ note.stats.other.stat}} {{ note.stats.other.value}}<br>
+         Fed: {{ note.stats.fed}}<br>
+         Bathed: {{ note.stats.bathed}}<br>
+         Changed: {{ note.stats.changed}}<br>
+         Comment: {{ note.comment}}<br>
+         Time created: {{ note.created_at}}<br>
+         Note creator: {{ note.creator}}<br>
+
+     </md-subheader>
+   </md-dialog-content>
+   <md-dialog-content layout="row" layout-padding>
+     <!-- <md-button type="button" class="md-raised" href="/#/medical/create_note/{{baby._id}}" ng-click="close()">Add a note for this patient</md-button> -->
+     <md-button type="button" class="md-raised pointer" ng-click="hideModal()">Edit</md-button>
+     <md-button type="button" class="md-raised pointer" ng-click="addBabyNote()">Submit Baby Note</md-button>
+   </md-dialog-content>
+</md-dialog>
