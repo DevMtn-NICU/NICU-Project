@@ -113,15 +113,9 @@
                               controller: 'parentMainCtrl'
                         })
                         .state('parent.settings', {
-                              url: '/settings/:id',
+                              url: '/settings',
                               templateUrl: 'components/parent/parentSettings.html',
-                              controller: 'parentSettingsCtrl',
-                              resolve: {
-                                    promised: function (parentService, $stateParams) {
-                                          var id = $stateParams.id;
-                                          return parentService.getBabyById(id);
-                                    }
-                              }
+                              controller: 'parentSettingsCtrl'
                         })
                         .state('parent.timeline', {
                               url: '/timeline/:id',
@@ -131,15 +125,9 @@
 
 
                         .state('parent.create_note', {
-                              url: '/create_note/:id',
+                              url: '/create_note',
                               templateUrl: 'components/parent/parentCreateNote.html',
-                              controller: 'parentCreateNoteCtrl',
-                              resolve: {
-                                    promised: function (parentService, $stateParams) {
-                                          var id = $stateParams.id;
-                                          return parentService.getBabyById(id);
-                                    }
-                              }
-                        })
-            })
+                              controller: 'parentCreateNoteCtrl'
+                        });
+            });
 } ());
