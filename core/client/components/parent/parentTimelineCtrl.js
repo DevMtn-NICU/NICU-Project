@@ -4,10 +4,22 @@
   angular.module('app')
     .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
 
+      $scope.baby = {};
+
       $scope.$on('babyChanged', function (e) {
         if ($scope.$parent.currentBaby) {
           $scope.baby = $scope.$parent.currentBaby;
           console.log($scope.baby);
+          (function configureChartData() {
+            for (var i = 0; i < 5; i++) {
+              var note = $scope.baby.notes[i];
+              $scope.data.data.push({
+                x: new Date(note.created_at).toDateString(),
+                y: [note.stats.heartRate, note.stats.oxygen]
+              });
+            }
+            console.log($scope.data.data);
+          } ());
         }
       });
 
@@ -42,17 +54,6 @@
       };
 
       console.log($scope.baby);
-
-      (function configureChartData() {
-        for (var i = 0; i < 5; i++) {
-          var note = $scope.baby.notes[i];
-          $scope.data.data.push({
-            x: new Date(note.created_at).toDateString(),
-            y: [note.stats.heartRate, note.stats.oxygen]
-          });
-        }
-        console.log($scope.data.data);
-      } ());
 
     })
 } ());
