@@ -14,7 +14,7 @@ angular.module('app')
             var role = res.data.roles;
             console.log('role', role[0]);
             if (role[0] === 'nurse') {
-               $state.go('medical');
+               $state.go('medical.search');
 
             } else if (role[0] === 'parent') {
                console.log(res.data._id);
@@ -24,7 +24,7 @@ angular.module('app')
                $state.go('parent.landing', {
                   'user': user
                });
-            }
+            };
          })
-      }
+      };
    });
