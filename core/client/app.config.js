@@ -2,92 +2,160 @@
 	"use strict";
 	angular.module("app")
 		.config(function($mdThemingProvider) {
-			$mdThemingProvider.theme('neutral')
-				.primaryPalette('brown', {
-					'default': '300',
-					'hue-1': '100',
-					'hue-2': '500',
-					'hue-3': '400'
-				})
-				.accentPalette('brown', {
-					'default': '900',
-					'hue-1': '700'
-				})
-				.warnPalette('grey', {
-					'default': '400',
+
+			var soRealItsScary = $mdThemingProvider.extendPalette('green', {
+				'900': '84BAF9',
+				'600': '84F9D8',
+				'500': '9AEB6C',
+				'200': 'D4F984'
+			});
+			var pink3 = $mdThemingProvider.extendPalette('pink', {
+				'200': 'F984F2'
 			});
 
-	angular.module("app")
-		.config(function($mdThemingProvider) {
-			$mdThemingProvider.theme('yellowTheme')
-			.primaryPalette('yellow', {
-				'default': '300',
-				'hue-1': '100',
-				'hue-2': '400',
-				'hue-3': 'A100'
+			$mdThemingProvider.definePalette('green', soRealItsScary);
+			$mdThemingProvider.definePalette('pink', pink3);
+  			
+			$mdThemingProvider.theme('mixedPastel')
+				.primaryPalette('green', {
+					'default': '500',
+					'hue-1': '200',
+					'hue-2': '600'
+				})
+				.accentPalette('pink', {
+					'default': '200'
+				})
+				.warnPalette('green', {
+					'default': '900'
 			})
-			.accentPalette('yellow', {
-				'default': '800',
-				'hue-1': '700',
-			})
-			.warnPalette('yellow', {
-				'default': '900',
-			})
-
-	angular.module("app")
-		.config(function($mdThemingProvider) {
-			$mdThemingProvider.theme('pinkTheme')
-			.primaryPalette('pink', {
-				'default': '200',
-				'hue-1': '50',
-				'hue-2': '400',
-				'hue-3': 'A100'
-			})
-			.accentPalette('pink', {
-				'default': '900',
-				'hue-1': '700',
-			})
-			.warnPalette('purple', {
-				'default': '900',
-			})
-
-	angular.module("app")
-		.config(function($mdThemingProvider) {
-			$mdThemingProvider.theme('blueTheme')
-			.primaryPalette('light-blue', {
-				'default': '400',
-				'hue-1': '100',
-				'hue-2': '600',
-				'hue-3': 'A100'
-			})
-			.accentPalette('light-blue', {
-				'default': '700',
-				'hue-1': 'A400',
-			})
-			.warnPalette('blue', {
-				'default': '900',
-			})
-
-	angular.module("app")
-		.config(function($mdThemingProvider) {
-			$mdThemingProvider.theme('greenTheme')
-			.primaryPalette('green', {
-				'default': '400',
-				'hue-1': '100',
-				'hue-2': '600',
-				'hue-3': 'A100'
-			})
-			.accentPalette('green', {
-				'default': 'A400',
-				'hue-1': 'A700',
-			})
-			.warnPalette('green', {
-				'default': '900',
-			})
-			
 
 		$mdThemingProvider.alwaysWatchTheme(true);
 
-		$mdThemingProvider.setDefaultTheme('neutral');
-	})
-} ());
+		$mdThemingProvider.setDefaultTheme('mixedPastel');
+
+		});
+
+	angular.module("app")
+		.config(function($mdThemingProvider) {
+
+			var roseCupcake = $mdThemingProvider.extendPalette('pink', {
+				'900': 'FA90A4',
+				'600': 'ED205E',
+				'500': 'FFCED2',
+				'200': 'F5DBE6'
+			});
+			var oceanPearlRose = $mdThemingProvider.extendPalette('brown', {
+				'200': 'EFE5D7'
+			});
+
+			$mdThemingProvider.definePalette('pink', roseCupcake);
+			$mdThemingProvider.definePalette('brown', oceanPearlRose);
+  
+			$mdThemingProvider.theme('pink')
+			.primaryPalette('pink', {
+				'default': '500',
+				'hue-1': '200',
+				'hue-2': '600'
+			})
+			.accentPalette('brown', {
+				'default': '200'
+			})
+			.warnPalette('pink', {
+				'default': '900'
+			})
+		});
+
+	angular.module("app")
+		.config(function($mdThemingProvider) {
+
+			var puffyPurplePigs = $mdThemingProvider.extendPalette('purple', {
+				'900': 'BB94E7',
+				'600': 'C39AF8',
+				'500': 'D1ABF6',
+				'200': 'F8D6FF'
+			});
+			var softWhite = $mdThemingProvider.extendPalette('brown', {
+				'200': 'F8DCD0'
+			});
+
+			$mdThemingProvider.definePalette('purple', puffyPurplePigs);
+			$mdThemingProvider.definePalette('brown', softWhite);
+
+			$mdThemingProvider.theme('purple')
+			.primaryPalette('purple', {
+				'default': '500',
+				'hue-1': '200',
+				'hue-2': '600'
+			})
+			.accentPalette('brown', {
+				'default': '200'
+			})
+			.warnPalette('purple', {
+				'default': '900'
+			})
+		});
+
+	angular.module("app")
+		.config(function($mdThemingProvider) {
+
+			var babyShowerBenjamin = $mdThemingProvider.extendPalette('light-blue', {
+				'900': 'BDCFE8',
+				'600': 'D6D6D6',
+				'500': 'DBEAFF',
+				'200': 'ECF3F7'
+			});
+			var her = $mdThemingProvider.extendPalette('brown', {
+				'200': 'FFFDF2'
+			});
+
+			$mdThemingProvider.definePalette('light-blue', babyShowerBenjamin);
+			$mdThemingProvider.definePalette('brown', her);
+
+			$mdThemingProvider.theme('light-blue')
+			.primaryPalette('light-blue', {
+				'default': '500',
+				'hue-1': '200',
+				'hue-2': '600'
+			})
+			.accentPalette('brown', {
+				'default': '100'
+			})
+			.warnPalette('light-blue', {
+				'default': '900'
+			})
+		});
+
+	angular.module("app")
+		.config(function($mdThemingProvider) {
+
+			var watchYourTone = $mdThemingProvider.extendPalette('green', {
+				'900': '849E5D',
+				'600': '606437',
+				'500': '83894D',
+				'200': 'A8B063'
+			});
+			var slurringYourSpeech = $mdThemingProvider.extendPalette('light-green', {
+				'200': 'CDD678'
+			});
+
+			$mdThemingProvider.definePalette('green', watchYourTone);
+			$mdThemingProvider.definePalette('light-green', slurringYourSpeech);
+    	
+			$mdThemingProvider.theme('green')
+			.primaryPalette('green', {
+				'default': '500',
+				'hue-1': '200',
+				'hue-2': '600'
+			})
+			.accentPalette('light-green', {
+				'default': '200'
+			})
+			.warnPalette('green', {
+				'default': '900'
+			})
+		});
+			
+
+	
+
+})();

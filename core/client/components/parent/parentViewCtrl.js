@@ -5,19 +5,15 @@
    angular.module('app')
       .controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state) {
 
-<<<<<<< HEAD
-         console.log('parentViewCtrl');
-         console.log('state params', $stateParams.userId);
-         console.log($state.params);
 
          $scope.theme = "";
 
-=======
+
          var user = $stateParams.user;
          var baby = testUser.parent.babies[1];
          $scope.user = testUser;
          $scope.baby;
->>>>>>> master
+
 
          var getBaby = function () {
             parentService.getBabyById(baby)
