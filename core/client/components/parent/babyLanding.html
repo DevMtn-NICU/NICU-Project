@@ -1,36 +1,60 @@
 <div>
+
+
+
    <div class="scroll">
-      <div id="stats" ng-repeat="note in notes | orderBy:'created_at':true">
+      <div id="stats" ng-show="note.stats.heartRate" ng-repeat="note in notes | orderBy:'created_at':true | limitTo:5 ">
          HR: {{note.stats.heartRate}}
-         <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}
-         <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}
-         <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}
+         <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}</span>
+         <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}</span>
+         <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}</span>
+         <!--
+<hr />
+<span>{{note._id}}</span>
+-->
          <br />
-         <hr />
+         <br />
          <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
-          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
-          <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
+         <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
+         <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
          {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
          <hr />
 
       </div>
    </div>
+
+
+
+
    <div class="scroll">
-      <div id="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}} <br />
-      {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+      <div id="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
+         <br /> {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
          <hr />
       </div>
    </div>
+
+
+
+
    <div class="scroll">
-      <div id="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}} <br />
-      {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+      <div id="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
+         <br /> {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
          <hr />
       </div>
    </div>
+
+
+
+
    <div class="scroll">
-      <div id="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.baby.gender">div4{{note.baby.gender}} <br />
-      {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+      <div id="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
+         <img src="{{note.picturesUrl}}" />
+         <br /> {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
          <hr />
       </div>
    </div>
+
+
+
+
 </div>
