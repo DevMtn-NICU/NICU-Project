@@ -8,6 +8,8 @@
          console.log('state params', $stateParams.userId);
          console.log($state.params);
 
+         $scope.theme = "";
+
 
          // 	$scope.getBabyById = function() {
          // 		parentService.getBabyById($scope.baby)
