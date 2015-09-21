@@ -31,20 +31,22 @@
         waitForHeightAndWidth: false // if true, it will not throw an error when the height or width are not defined (e.g. while creating a modal form), and it will be keep watching for valid height and width values
       };
 
-      $scope.acData = {
+      $scope.data = {
         series: ["Heart Rate", "Oxygen"],
         data: []  //being populated by the function below
       };
-
+      
+      console.log($scope.baby);
+      
       (function configureChartData () {
         for (var i = 0; i < 5; i++) {
           var note = $scope.baby.notes[i];
-          $scope.acData.data.push({
-            x: note.created_at,
+          $scope.data.data.push({
+            x: new Date(note.created_at).toDateString(),
             y: [note.stats.heartRate, note.stats.oxygen]
           });
         }
-        console.log($scope.acData.data);
+        console.log($scope.data.data);
       }());
 
     })
