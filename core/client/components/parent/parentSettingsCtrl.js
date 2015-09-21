@@ -1,5 +1,5 @@
 (function () {
-   "use strict";
+  "use strict";
 
    angular.module('app').controller('parentSettingsCtrl', function ($scope, parentService, $stateParams, $state) {
      //watches for dropdown in parent scope to change

@@ -1,5 +1,18 @@
 .scroll {
    height: 300px;
    overflow: scroll;
-   width: 35%;
+   width: 45%;
+}
+.flexBox {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+img {
+/*
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+*/
+   max-width: 100%;
 }
