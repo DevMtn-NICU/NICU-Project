@@ -1,5 +1,5 @@
 angular.module('app')
-   .service('LoginService', function ($http, $q, $state) {
+   .service('LoginService', function ($http, $q, $state, $cookies) {
       this.validateLogin = function (login) {
          console.log(login)
          var defer = $q.defer();
@@ -20,6 +20,11 @@ angular.module('app')
                console.log(res.data._id);
 
                var user = res.data;
+               $cookies.putObject("userId", user._id);
+               $cookies.putObject("userRoles", user.roles);
+               $cookies.putObject("userEmail", user.email);
+               $cookies.putObject("parentObj", user.parent);
+               $cookies.putObject("contactObj", user.contact);
 
                $state.go('parent.landing', {
                   'user': user
