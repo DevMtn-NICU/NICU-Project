@@ -38,7 +38,6 @@
                url: '/babyNote/' + id,
             }).then(function (res) {
                var results = res.data;
-               console.log(results);
                deferred.resolve(results);
             });
             return deferred.promise;
