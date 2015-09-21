@@ -10,8 +10,13 @@
                if ($scope.$parent.currentBaby) {
                   $scope.baby = $scope.$parent.currentBaby;
                   $scope.getBaby($scope.baby._id);
+                  
+                  $cookies.putObject("babyId", $scope.baby._id);
                }
             });
+      
+      $scope.cookieBabies = $cookies.getObject("parentObj").babies;
+    $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
 
             $scope.getBaby = function (babyId) {
                parentService.getBabyById(babyId)
