@@ -15,7 +15,6 @@ var babySchema = new Schema({
 
     level1: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     level2: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    level3: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 
     birthWeight: { type: String, required: true },
     birthLength: { type: String, required: true },
