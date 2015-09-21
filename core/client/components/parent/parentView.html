@@ -1,12 +1,10 @@
 <div>
-
-
    <div class="parentNavBar">
       <div>
          <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.settings({id: baby._id})">Settings</md-button>
       </div>
       <div>
-         <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.timeline">Timeline</md-button>
+         <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.timeline({id: baby._id})">Timeline</md-button>
       </div>
       <div>
          <span>{{baby.firstName}} </span><span>{{baby.middleName}} </span><span>{{baby.lastName}}</span>

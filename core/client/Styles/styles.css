@@ -376,6 +376,24 @@ md-input-container .md-input{
 .clear {
 	clear: both;
 }
+
+.statisticsTab {
+    outline: 1px solid red;
+}
+/* Parent Timeline Page (for testing only) */
+.repeatNote {
+    padding: 10px;
+    outline: 1px solid black;
+    width: 23%;
+    margin: 10px;
+    float: left;
+}
+.repeateNoteContainer {
+    width: 97%;
+    height: 100%;
+    outline: 1px solid green;
+}
+
 /** {
     outline: 1px solid red;
 }*/
