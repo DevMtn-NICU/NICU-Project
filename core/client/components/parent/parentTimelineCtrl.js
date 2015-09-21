@@ -2,9 +2,26 @@
   "use strict";
 
   angular.module('app')
-    .controller('parentTimelineCtrl', function ($scope, parentService, $stateParams) {
+    .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
 
-      $scope.baby = $scope.$parent.baby;
+      $scope.baby = {};
+
+      $scope.$on('babyChanged', function (e) {
+        if ($scope.$parent.currentBaby) {
+          $scope.baby = $scope.$parent.currentBaby;
+          console.log($scope.baby);
+          (function configureChartData() {
+            for (var i = 0; i < 5; i++) {
+              var note = $scope.baby.notes[i];
+              $scope.data.data.push({
+                x: new Date(note.created_at).toDateString(),
+                y: [note.stats.heartRate, note.stats.oxygen]
+              });
+            }
+            console.log($scope.data.data);
+          } ());
+        }
+      });
 
       $scope.config = {
         title: 'Stats Over Time', // chart title. If this is false, no title element will be created.
@@ -31,21 +48,12 @@
         waitForHeightAndWidth: false // if true, it will not throw an error when the height or width are not defined (e.g. while creating a modal form), and it will be keep watching for valid height and width values
       };
 
-      $scope.acData = {
+      $scope.data = {
         series: ["Heart Rate", "Oxygen"],
         data: []  //being populated by the function below
       };
 
-      (function configureChartData () {
-        for (var i = 0; i < 5; i++) {
-          var note = $scope.baby.notes[i];
-          $scope.acData.data.push({
-            x: note.created_at,
-            y: [note.stats.heartRate, note.stats.oxygen]
-          });
-        }
-        console.log($scope.acData.data);
-      }());
+      console.log($scope.baby);
 
     })
 } ());
