@@ -1,6 +1,36 @@
 <div>
-   <div id="stats">div1 {{}}</div>
-   <div id="comments">div2 {{note.comment}}</div>
-   <div id="journal">div3 {{note.stats.bloodPressure}}</div>
-   <div id="images">div4{{baby.gender}}</div>
+   <div class="scroll">
+      <div id="stats" ng-repeat="note in notes | orderBy:'created_at':true">
+         HR: {{note.stats.heartRate}}
+         <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}
+         <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}
+         <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}
+         <br />
+         <hr />
+         <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
+          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
+          <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
+         {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <hr />
+
+      </div>
+   </div>
+   <div class="scroll">
+      <div id="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}} <br />
+      {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <hr />
+      </div>
+   </div>
+   <div class="scroll">
+      <div id="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}} <br />
+      {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <hr />
+      </div>
+   </div>
+   <div class="scroll">
+      <div id="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.baby.gender">div4{{note.baby.gender}} <br />
+      {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <hr />
+      </div>
+   </div>
 </div>
