@@ -124,15 +124,9 @@
                               }
                         })
                         .state('parent.timeline', {
-                              url: '/timeline/:id',
+                              url: '/timeline',
                               templateUrl: 'components/parent/parentTimeline.html',
-                              controller: 'parentTimelineCtrl',
-                              resolve: {
-                                    promised: function (parentService, $stateParams) {
-                                          var id = $stateParams.id;
-                                          return parentService.getBabyById(id);
-                                    }
-                              }
+                              controller: 'parentTimelineCtrl'
                         })
 
 
