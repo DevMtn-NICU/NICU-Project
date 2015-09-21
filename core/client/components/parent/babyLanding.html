@@ -1,6 +1,26 @@
 <div>
-   <div id="stats">div1 {{}}</div>
-   <div id="comments">div2 {{comment}}</div>
-   <div id="journal">div3 {{stats.bloodPressure}}</div>
-   <div id="images">div4{{baby.gender}}</div>
+   <div class="scroll">
+      <div id="stats" ng-repeat="note in notes">
+         HR: {{note.stats.heartRate}}
+         <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}
+         <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}
+         <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}
+
+         <br />
+         <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
+          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
+          <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
+         <hr />
+
+      </div>
+   </div>
+   <div class="scroll">
+      <div id="comments" ng-repeat="note in notes">{{note.comment}}</div>
+   </div>
+   <div class="scroll">
+      <div id="journal" ng-repeat="note in notes">{{note.journal}}</div>
+   </div>
+   <div class="scroll">
+      <div id="images" ng-repeat="note in notes">div4{{note.baby.gender}} </div>
+   </div>
 </div>
