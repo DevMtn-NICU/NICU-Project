@@ -44,12 +44,16 @@ var userSchema = new Schema({
          ref: "Baby"
       }]
    },
-   contact: {
-     babies: [{
+   contact: [{
+     baby: {
        type: Schema.Types.ObjectId,
        ref: "Baby"
-     }]
-   },
+     },
+     level: {
+       type: String,
+       enum: ["level1", "level2"]
+     }
+   }],
    created_at: {
       type: Date,
       default: Date.now,

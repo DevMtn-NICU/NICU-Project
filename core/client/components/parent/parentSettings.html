@@ -4,14 +4,14 @@
 			<h3>Add a Family Member or Friend To Receive Information</h3>
 			<md-input-container flex>
 				<label>Name</label>
-				<input type="text" ng-model="auth.name">
+				<input type="text" ng-model="auth.name" required>
 			</md-input-container>
 			<md-input-container flex>
 				<label>Email</label>
-				<input type="email" ng-model="auth.email">
+				<input type="email" ng-model="auth.email" required>
 			</md-input-container>
 			<label>Assign the Level of Information for this Person: </label>
-		    <md-radio-group ng-model="auth.level">
+		    <md-radio-group ng-model="auth.level" required>
 		      <md-radio-button value="level1" class="md-primary" label="Assign Level 1 Information">Level 1.<br>These users will receive medical information<br>(stats and tests), pictures, and comments.</md-radio-button>
 		      <md-radio-button value="level2" label="Assign Level 2 Information">Level 2.<br>These users will receive pictures and comments. </md-radio-button>
 		    </md-radio-group>
@@ -27,14 +27,12 @@
 			<span id="searchCellName">Email</span>
 			<span id="searchCellName">Information Level</span>
 			<span id="searchCellName"></span>
-			<span id="searchCellName"></span>
 		</div>
 		<div ng-repeat="contact in contacts">
 			<span id="searchCellPatient">{{contact.name}}</span>
 			<span id="searchCellName">{{contact.email}}</span>
 			<span id="searchCellName">{{contact.level}}</span>
-			<span id="searchCellName"><a ng-click="editPerson(person)">Edit</a></span>
-			<span id="searchCellName"><a ng-click="removePerson(person)">Remove</a></span>
+			<span id="searchCellName"><a ng-click="removePerson(contact)">Remove</a></span>
 		</div>
 	</div>
 </div>
