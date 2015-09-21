@@ -124,7 +124,7 @@
                               }
                         })
                         .state('parent.timeline', {
-                              url: '/timeline/:id',
+                              url: '/timeline',
                               templateUrl: 'components/parent/parentTimeline.html',
                               controller: 'parentTimelineCtrl'
                         })

@@ -2,9 +2,14 @@
   "use strict";
 
   angular.module('app')
-    .controller('parentTimelineCtrl', function ($scope, parentService, $stateParams) {
+    .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
 
-      $scope.baby = $scope.$parent.baby;
+      $scope.$on('babyChanged', function (e) {
+        if ($scope.$parent.currentBaby) {
+          $scope.baby = $scope.$parent.currentBaby;
+          console.log($scope.baby);
+        }
+      });
 
       $scope.config = {
         title: 'Stats Over Time', // chart title. If this is false, no title element will be created.
@@ -35,10 +40,10 @@
         series: ["Heart Rate", "Oxygen"],
         data: []  //being populated by the function below
       };
-      
+
       console.log($scope.baby);
-      
-      (function configureChartData () {
+
+      (function configureChartData() {
         for (var i = 0; i < 5; i++) {
           var note = $scope.baby.notes[i];
           $scope.data.data.push({
@@ -47,7 +52,7 @@
           });
         }
         console.log($scope.data.data);
-      }());
+      } ());
 
     })
 } ());
