@@ -1,10 +1,9 @@
 (function () {
    "use strict";
 
-   << << << < HEAD
    angular.module('app')
       .controller('babyLanding',
-         function ($scope, parentService, $mdDialog, $stateParams) {
+         function ($scope, parentService, $mdDialog, $stateParams, $cookies) {
 
             $scope.babies = $cookies.getObject("parentObj").babies;
 
@@ -32,4 +31,4 @@
             //            $scope.comment = $scope.note.comment;
 
          });
-}()); >>> >>> > master
+}());
