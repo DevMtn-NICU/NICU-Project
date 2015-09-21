@@ -31,11 +31,13 @@
 
          this.getBabyNote = function (id) {
             var deferred = $q.defer();
+            console.log('parent service getBabyNote: ');
             $http({
                method: 'GET',
-               url: '/babyNote/55f9a43cc70eca503372d5e4',
+               url: '/babyNote/' + id,
             }).then(function (res) {
                var results = res.data;
+               console.log(results);
                deferred.resolve(results);
             });
             return deferred.promise;

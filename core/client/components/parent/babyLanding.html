@@ -1,6 +1,6 @@
 <div>
-   <div id="stats">div1 {{}}</div>
-   <div id="comments">div2 {{comment}}</div>
-   <div id="journal">div3 {{stats.bloodPressure}}</div>
-   <div id="images">div4{{baby.gender}}</div>
+   <div id="stats" ng-repeat="note in notes">div1 {{}}</div>
+   <div id="comments" ng-repeat="note in notes">div2 {{note.comment}}</div>
+   <div id="journal" ng-repeat="note in notes">div3 {{stats.bloodPressure}}</div>
+   <div id="images" ng-repeat="note in notes">div4{{note.baby.gender}}</div>
 </div>
