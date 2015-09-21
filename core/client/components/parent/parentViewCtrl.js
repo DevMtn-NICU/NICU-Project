@@ -1,44 +1,29 @@
 (function () {
 
-   "use strict";
+  "use strict";
 
-   angular.module('app')
-      .controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state) {
+  angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
+    $scope.babies = [];
+    $scope.cookieBabies = $cookies.getObject("parentObj").babies;
+    $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
+    $scope.theme = "";
 
+    $scope.getBabyById = function(babyId) {
+      parentService.getBabyById($scope.cookieBabies[i])
+      .then(function(response) {
+        $scope.babies.push(response);
+        $scope.currentBaby = $scope.babies[0];
+      });
+    };
 
-         $scope.theme = "";
+    for (var i = 0; i < $scope.cookieBabies.length; i++) {
+      $scope.getBabyById($scope.cookieBabies[i]);
+    }
 
-
-         var user = $stateParams.user;
-         var baby = testUser.parent.babies[1];
-         $scope.user = testUser;
-         $scope.baby;
-
-
-         var getBaby = function () {
-            parentService.getBabyById(baby)
-               .then(function (response) {
-                  return $scope.baby = response;
-               });
-            return $scope.baby;
-         }();
-      })
-
-
-   var testUser = {
-      __v: 0,
-      _id: "55f882ed9f20e18029a3a831",
-      created_at: "2015-09-15T20:43:25.282Z",
-      email: "dontDeleteMeEver@gmail.com",
-      name: "test",
-      parent: {
-         access: "parent",
-         babies: [
-            "55f882ec9f20e18029a3a830",
-            "55f883299f20e18029a3a833"
-         ],
-      },
-   };
-
+    $scope.$watch('currentBaby', function() {
+      $scope.$broadcast('babyChanged');
+      console.log("baby changed");
+    });
+  });
 
 }());
