@@ -17,7 +17,7 @@ module.exports = function (app, passport) {
    );
 
    app.get('/user/:userId', usersController.getUser);
-   app.post('/user/edit/:userId', usersController.editUser);
+   app.put('/user/edit/:userId', usersController.editUser);
    app.get('/user/logout', function (req, res) {
       req.logout();
       res.end();
