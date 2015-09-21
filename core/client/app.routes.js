@@ -6,8 +6,15 @@
          $urlRouterProvider.otherwise('/');
 
          $stateProvider
+
             .state('home', {
                url: '/',
+               templateUrl: 'components/product/product-page.html',
+               controller: 'productController'
+            })
+            ////////////   LOGIN /////////////////////////
+             .state('login', {
+               url: '/login',
                templateUrl: 'components/home/home-template.html',
                controller: 'homeController'
             })
@@ -84,7 +91,6 @@
                }
             })
 
-
          ////////////   parent /////////////////////////
          .state('parent', {
                url: '/parent',
@@ -92,34 +98,41 @@
                controller: 'parentViewCtrl',
                params: {
                   'user': null
-               }
+               },
+               abstract: true,
             })
+            .state('parent.landing', {
+               url: '',
+               templateUrl: 'components/parent/babyLanding.html',
+               controller: 'babyLanding',
+
+            })
+						.state('parent.main', {
+							url: '/main',
+							templateUrl: 'components/parent/parentMain.html',
+							controller: 'parentMainCtrl'
+						})
             .state('parent.settings', {
                url: '/settings',
                templateUrl: 'components/parent/parentSettings.html',
                controller: 'parentSettingsCtrl'
             })
             .state('parent.timeline', {
-               url: '/timeline',
+               url: '/timeline/:id',
                templateUrl: 'components/parent/parentTimeline.html',
-               controller: 'parentTimelineCtrl',
-               resolve: {
-                  promised: function (parentService, $stateParams) {
-                     var id = $stateParams.id;
-                     return parentService.getBabyById(id);
-                  }
-               }
+               controller: 'parentTimelineCtrl'
             })
+
             .state('parent.create_note', {
-               url: '/create_note/:id',
-               templateUrl: 'components/parent/parentCreateNote.html',
-               controller: 'parentNoteController',
-               resolve: {
-                  promised: function (NurseService, $stateParams) {
-                     var id = $stateParams.id;
-                     return NurseService.getBabyById(id);
+                  url: '/create_note/:id',
+                  templateUrl: 'components/parent/parentCreateNote.html',
+                  controller: 'parentCreateNoteCtrl',
+                  resolve: {
+                        promised: function (parentService, $stateParams) {
+                              var id = $stateParams.id;
+                              return parentService.getBabyById(id);
+                        }
                   }
-               }
             })
       })
 }());

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <div md-theme="{{theme}}">
 	
+=======
+<div>
+
+>>>>>>> master
 	<div class="parentNavBar">
 	<div>
 		<md-button class="md-primary md-raised md-button" ui-sref="parent.settings">Settings</md-button>
@@ -7,20 +12,26 @@
 	<div>
 		<md-button class="md-accent md-raised md-hue-3 md-button" ui-sref="parent.timeline">Timeline</md-button>
 	</div>
+<<<<<<< HEAD
 	<div class="md-warn">
 		<span>{{baby.firstName}} </span><span>{{baby.middleName}} </span><span>{{baby.lastName</span>
 	</div>
 	<div>
 		<md-button class="md-accent md-hue-2 md-raised md-button" ui-sref="parent.create_note">Add a Note</md-button>
+=======
+	<div>
+		<span>{{baby.firstName}} </span><span>{{baby.middleName}} </span><span>{{baby.lastName}}</span>
+	</div>
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note({id: baby._id})">Add a Note</md-button>
+>>>>>>> master
 	</div>
 	<div>
 		Other Babies
 	</div>
-	
+
 </div>
 <div class="break"></div>
-<div class="parentViewContainer">	
+<div class="parentViewContainer">
 	<div ui-view></div>
 </div>
-
-   

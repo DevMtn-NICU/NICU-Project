@@ -20,12 +20,14 @@ module.exports = {
       }
     });
   },
-
+// called from parent Settings page. Receives a "level" param from front end; needs to populate levels array in baby doc.
   createContact: function(req, res) {
     var newUser = new User();
     newUser.roles.push("contact");
     newUser.email = req.body.email;
     newUser.password = newUser.generateHash(req.body.password);
+    newUser.roles = req.body.roles;
+    newUser.name = req.body.name;
     newUser.save(function(err, user) {
       if (err) return res.status(500).send(err);
       else {

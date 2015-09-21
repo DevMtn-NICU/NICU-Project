@@ -18,6 +18,7 @@ var noteSchema = new Schema({
     bathed: {type: Boolean, default: false}
   },
   comment: {type: String},
+  journal: {type: String},
   created_at: {type: Date, default: Date.now, required: true},
   creator: {type: Schema.Types.ObjectId, ref: "User" }
 });

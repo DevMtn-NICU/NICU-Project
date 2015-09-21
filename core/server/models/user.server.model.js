@@ -44,6 +44,12 @@ var userSchema = new Schema({
          ref: "Baby"
       }]
    },
+   contact: {
+     babies: [{
+       type: Schema.Types.ObjectId,
+       ref: "Baby"
+     }]
+   },
    created_at: {
       type: Date,
       default: Date.now,
