@@ -21,7 +21,7 @@ angular.module('app')
 
                var user = res.data;
 
-               $state.go('parent', {
+               $state.go('parent.landing', {
                   'user': user
                });
             }
