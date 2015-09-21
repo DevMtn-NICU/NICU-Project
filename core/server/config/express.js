@@ -50,6 +50,7 @@ module.exports = function () {
     // needs to come after setting the rendering engine
     // the route to link to static resources from our
     // website will start at 'assets'; see index.ejs
+    app.use(express.static('./bower_components'));
     app.use(express.static('./node_modules'));
     app.use(express.static('./core/client'));
 
