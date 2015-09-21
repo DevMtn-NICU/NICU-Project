@@ -1,4 +1,4 @@
-<div>
+<div class="flexBox">
 
 
 
@@ -17,7 +17,7 @@
          <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
          <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
-         {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
 
       </div>
@@ -28,7 +28,7 @@
 
    <div class="scroll">
       <div id="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
-         <br /> {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
    </div>
@@ -38,7 +38,7 @@
 
    <div class="scroll">
       <div id="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
-         <br /> {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
    </div>
@@ -49,7 +49,7 @@
    <div class="scroll">
       <div id="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
          <img src="{{note.picturesUrl}}" />
-         <br /> {{note.created_at | date:'MMM-dd-yyyy h:mm a' }}
+         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
    </div>
