@@ -3,32 +3,22 @@
 
    angular.module('app')
       .controller('babyLanding',
-         function ($scope, parentService, $mdDialog, $stateParams, $cookies) {
+         function ($scope, parentService, $mdDialog, $stateParams, $cookies, $rootScope) {
+           $scope.baby = {};
+           //watches for dropdown in parent scope to change
+           $scope.$on('babyChanged', function(e) {
+             if ($scope.$parent.currentBaby) {
+               $scope.baby = $scope.$parent.currentBaby;
+               $scope.getBaby($scope.baby._id);
+             }
+           });
 
-            $scope.babies = $cookies.getObject("parentObj").babies;
-            console.log($scope.babies);
-            $scope.notes = [];
-            parentService.getBabyById($scope.babies[1])
-               .then(function (baby) {
-                  for (var i = (baby.notes.length - 1); i >= 0; i--) {
-                     var noteId = baby.notes[i]._id;
-
-                     parentService.getBabyNote(noteId)
-                        .then(function (note) {
-                           $scope.notes.push(note);
-                           console.log('babyLandingCtrl $scope.notes[0]: ', $scope.notes[0]);
-                        })
-
-                  }
-
-
-
-               });
-
-
-            //            $scope.stats = $scope.note.stats;
-            //            $scope.baby = $scope.note.baby;
-            //            $scope.comment = $scope.note.comment;
-
+           $scope.getBaby = function(babyId) {
+             parentService.getBabyById(babyId)
+              .then(function (baby) {
+                  $scope.baby = baby;
+                  $scope.notes = baby.notes;
+              });
+            };
          });
 }());

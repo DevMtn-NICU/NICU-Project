@@ -1,22 +1,25 @@
 <div>
 
-
-   <div class="parentNavBar">
-      <div>
-         <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.settings({id: baby._id})">Settings</md-button>
-      </div>
-      <div>
-         <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.timeline">Timeline</md-button>
-      </div>
-      <div>
-         <span>{{baby.firstName}} </span><span>{{baby.middleName}} </span><span>{{baby.lastName}}</span>
-      </div>
-      <div>
-         <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note({id: baby._id})">Add a Note</md-button>
-      </div>
-      <div>
-         Other Babies
-      </div>
+	<div class="parentNavBar">
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.settings({id: currentBaby._id})">Settings</md-button>
+	</div>
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.timeline">Timeline</md-button>
+	</div>
+	<div>
+		<h1>{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
+	</div>
+	<div>
+		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note({id: currentBaby._id})">Add a Note</md-button>
+	</div>
+	<div>
+		<md-input-container>
+			<md-select ng-model="currentBaby">
+				<md-option ng-repeat="baby in babies" ng-value="baby">{{baby.firstName}} {{baby.lastName}}</md-option>
+			</md-select>
+		</md-input-container>
+	</div>
 
    </div>
    <div class="break"></div>
