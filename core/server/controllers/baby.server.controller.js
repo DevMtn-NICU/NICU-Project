@@ -121,9 +121,9 @@ exports.getBaby = function (req, res) {
 	Baby.findById(req.params.id)
 	.populate('parents')
 	.populate('notes')
-	.populate('level1.user')
-	.populate('level2.user')
-	.populate('level3.user')
+	.populate('level1')
+	.populate('level2')
+	.populate('level3')
 	.exec(function(err, result) {
 		if (err) {
 			return res.status(500).send(err);
