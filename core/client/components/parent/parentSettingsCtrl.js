@@ -13,8 +13,6 @@
 		  $scope.authLevel = function() {
 			  $scope.auth.roles = "contact";
               $scope.auth.password = "scrumptious"
-			  console.log("peep being authed: ", $scope.auth);
-
 			  parentService.authLevel($scope.auth).
 			  then(function(response){
                   $scope.contacts.push(response);

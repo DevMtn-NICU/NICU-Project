@@ -4,6 +4,8 @@
    angular.module('app')
       .controller('parentCreateNoteCtrl', function ($scope, promised, parentService, $mdDialog, $state) {
 
+         $scope.showForParent = "true";
+
          $scope.note = {};
          $scope.note.stats = {};
          $scope.theBaby = promised;

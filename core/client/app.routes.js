@@ -113,15 +113,22 @@
                               controller: 'parentMainCtrl'
                         })
                         .state('parent.settings', {
-                              url: '/settings',
+                              url: '/settings/:id',
                               templateUrl: 'components/parent/parentSettings.html',
-                              controller: 'parentSettingsCtrl'
+                              controller: 'parentSettingsCtrl',
+                              resolve: {
+                                    promised: function (parentService, $stateParams) {
+                                          var id = $stateParams.id;
+                                          return parentService.getBabyById(id);
+                                    }
+                              }
                         })
                         .state('parent.timeline', {
                               url: '/timeline/:id',
                               templateUrl: 'components/parent/parentTimeline.html',
                               controller: 'parentTimelineCtrl'
                         })
+
 
                         .state('parent.create_note', {
                               url: '/create_note/:id',
