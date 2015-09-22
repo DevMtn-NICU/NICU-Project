@@ -131,6 +131,29 @@
             url: '/create_note',
             templateUrl: 'components/parent/parentCreateNote.html',
             controller: 'parentCreateNoteCtrl'
-         });
+         })
+
+         //////// contacts ////////////////////
+         .state('contact', {
+               url: '/contact',
+               templateUrl: 'components/contact/contactView/contactView.html',
+               controller: 'parentViewCtrl',
+               abstract: true,
+            })
+            .state('contact.landing', {
+               url: '',
+               templateUrl: 'components/contact/contactLanding/contactLanding.html',
+               controller: 'babyLanding',
+            })
+            .state('contact.settings', {
+               url: '/contact/settings',
+               templateUrl: 'components/contact/contactSettings/contactSetting.html',
+               controller: 'contactSettingsCtrl'
+            })
+            .state('contact.timeline', {
+               url: 'contact/timeline',
+               templateUrl: 'components/contact/contactTimeline/contactTimeline.html',
+               controller: 'contactTimelineCtrl'
+            })
       });
 }());
