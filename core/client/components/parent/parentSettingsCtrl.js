@@ -56,6 +56,7 @@
             $scope.getContacts($scope.babyId);
          });
       };
+      console.log($scope.auth);
 
       $scope.removeContact = function (contactId, level) {
          var babyAuth = {
