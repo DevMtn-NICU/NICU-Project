@@ -29,7 +29,18 @@ angular.module('app')
                $state.go('parent.landing', {
                   'user': user
                });
-            };
+            } else if (role[0] === 'contact') {
+               $cookies.putObject("userId", user._id);
+               $cookies.putObject("userRoles", user.roles);
+               $cookies.putObject("userEmail", user.email);
+               $cookies.putObject("parentObj", user.parent);
+               $cookies.putObject("contactObj", user.contact);
+
+               $state.go('parent.landing', {
+                  'user': user
+               });
+
+            }
          })
       };
    });
