@@ -1,4 +1,8 @@
-<div md-theme="{{theme}}">
+<div md-theme="{{ theme }}">
+	
+
+
+
    <div>
 
 
@@ -12,12 +16,6 @@
             <md-button class="md-primary md-raised md-button" ui-sref="parent.settings">Settings</md-button>
          </div>
          <div>
-            <md-button class="md-primary md-hue-2 md-raised md-button">Test</md-button>
-         </div>
-         <div>
-            <md-button class="md-primary md-hue-3 md-raised med-button">Test</md-button>
-         </div>
-         <div>
             <md-button class="md-accent md-raised md-button" ui-sref="parent.timeline">Timeline</md-button>
          </div>
          <div class="" ui-sref="parent.landing">
@@ -28,6 +26,15 @@
             <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note">Add a Note</md-button>
 
          </div>
+
+         <div class="themeBox">
+
+	<md-content>
+        <md-select ng-model="theme" placeholder="Select a theme">
+          <md-option ng-value="themeName" ng-repeat="themeName in themeList" ng-selected="themeName == theme">{{ themeName }}</md-option>
+        </md-select>
+    </md-content>
+ 	</div>
          <div>
            <md-button class="md-raised mdbutton" type="button" ng-click="logout()">Logout</md-button>
          </div>
@@ -47,3 +54,5 @@
       </div>
    </div>
 </div>
+</div>
+
