@@ -24,7 +24,6 @@
 
       $scope.$watch('currentBaby', function () {
          $scope.$broadcast('babyChanged');
-         console.log("baby changed");
       });
    });
 
