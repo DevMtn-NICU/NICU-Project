@@ -65,7 +65,7 @@ var userSchema = new Schema({
 
 
 //this only runs on user.save() it won't work work with user.update()
-userSchema.pre('save', function (next) {
+userSchema.pre('save',function (next) {
    console.log('presave loaded');
    var user = this;
    bcryptPasswordChecker(user, next);
@@ -75,6 +75,7 @@ userSchema.pre('save', function (next) {
 userSchema.methods.validPassword = function (password) {
    console.log(password);
    var newPass = this.generateHash(password);
+   console.log('bcrypt compare');
    console.log(bcrypt.compareSync(password, this.password));
    return bcrypt.compareSync(password, this.password);
 };

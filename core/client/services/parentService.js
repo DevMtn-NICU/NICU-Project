@@ -88,6 +88,20 @@
             return deferred.promise;
          };
 
+         this.changeTheme = function (theme, id) {
+            var deferred = $q.defer();
+            $http({
+               method: "PUT",
+               url: "/api/babies/theme/" + id,
+               data: {
+                  theme: theme
+               }
+            }).then(function (response) {
+               deferred.resolve(response.data);
+            });
+            return deferred.promise;
+         };
+
          this.logout = function() {
    				var deferred = $q.defer();
    				$http({
@@ -104,6 +118,7 @@
    				});
    				return deferred.promise;
    			};
+
 
       });
 }());
