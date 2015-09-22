@@ -148,7 +148,7 @@ hr {
 }
 
 .childLogin {
-    margin-left: 2%;
+    margin-left: 42%;
     padding: 4%;
     width: 180px;
     height: auto;
@@ -156,7 +156,7 @@ hr {
 
 #loginChildBtn {
     position: relative;
-    right: 13%;
+    right: 11%;
 }
 
 .blackBox {
