@@ -1,31 +1,30 @@
 (function() {
 	"use strict"
-	angular.module('app')
-		.config(function($mdThemingProvider) {
+	// angular.module('app')
+	// 	.config(function($mdThemingProvider) {
 
-			var themes = ThemeService();
-    			for (var index = 0; index < themes.length; ++index) {
-      			console.log(themes[index] + '-theme');
+	// 		var themes = ThemeService();
+ //    			for (var index = 0; index < themes.length; ++index) {
+ //      			console.log(themes[index] + '-theme');
       
-      		$mdThemingProvider.theme(themes[index] + '-theme')
-        		.primaryPalette(themes[index]);
-    		}
+ //      		$mdThemingProvider.theme(themes[index] + '-theme')
+ //        		.primaryPalette(themes[index]);
+ //    		}
     
-    		$mdThemingProvider.alwaysWatchTheme(true);
-    		$mdThemingProvider.setDefaultTheme('myDefault');
-    
-  		};
 
-  			function ThemeService() {
-    			var themes = [
-      				'camoGreen',
-      				'showerBlue',
-      				'puffyPurple',
-      				'rosePink'
-    			];
     
-    		return themes;
-  			}
+ //  		});
+
+ //  			function ThemeService() {
+ //    			var themes = [
+ //      				'camoGreen',
+ //      				'showerBlue',
+ //      				'puffyPurple',
+ //      				'rosePink'
+ //    			];
+    
+ //    		return themes;
+ //  			}
 
 	angular.module("app")
 		.config(function($mdThemingProvider) {
@@ -56,7 +55,8 @@
 					'default': '900'
 				})
 
-		
+			$mdThemingProvider.alwaysWatchTheme(true);
+    		$mdThemingProvider.setDefaultTheme('myDefault');
 
 		});
 

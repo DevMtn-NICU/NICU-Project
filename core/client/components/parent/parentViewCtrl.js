@@ -1,56 +1,66 @@
 (function () {
 
-  "use strict";
+  "use strict";    
 
-  angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
-   
-    $scope.babies = [];
-    $scope.cookieBabies = $cookies.getObject("parentObj").babies;
-    $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
-    
-    $scope.theme = "myDefault";
-    $scope.themeList = ThemeService();
-    
-    console.log('Current Theme', $scope.theme, $scope.themeList);
-    
-    $scope.$watch('selectedTheme', function(value) {
-      if (value != undefined) {
-        $scope.theme = value + '-theme';
-        console.log('Changed theme', $scope.theme, value);
-        //$scope.$apply();
-        //$scope.$digest();
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
+      $scope.babies = [];
+      $scope.cookieBabies = $cookies.getObject("parentObj").babies;
+      $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
+
+
+
+      $scope.getBabyById = function (babyId) {
+         parentService.getBabyById($scope.cookieBabies[i])
+            .then(function (response) {
+               $scope.babies.push(response);
+               $scope.currentBaby = $scope.babies[0];
+            });
+      };
+
+      for (var i = 0; i < $scope.cookieBabies.length; i++) {
+         $scope.getBabyById($scope.cookieBabies[i]);
       }
-    });
 
-    $scope.getBabyById = function(babyId) {
-      parentService.getBabyById($scope.cookieBabies[i])
-      .then(function(response) {
-        $scope.babies.push(response);
-        $scope.currentBaby = $scope.babies[0];
+
+      $scope.$watch('currentBaby', function () {
+         $scope.$broadcast('babyChanged');
+          if($scope.currentBaby) {
+            $scope.theme = $scope.currentBaby.theme;
+          }
       });
-    };
 
-    for (var i = 0; i < $scope.cookieBabies.length; i++) {
-      $scope.getBabyById($scope.cookieBabies[i]);
+      $scope.$on('babyChanged', function (e) {
+         console.log('babychanged $scope', $scope.currentBaby._id);
+         parentService.setBabyId($scope.currentBaby._id);
+      });
+
+      if ($scope.currentBaby) {
+        $scope.theme = $scope.currentBaby.theme || 'myDefault';
+      }
+
+      $scope.themeList = [
+              'myDefault',
+              'camoGreen',
+              'showerBlue',
+              'puffyPurple',
+              'rosePink'
+          ];
+
+    $scope.changeTheme = function () {
+      if($scope.currentBaby) {
+        parentService.changeTheme($scope.theme, $scope.currentBaby._id)
+        .then(function (response) {
+          $scope.theme = response.theme;
+
+        })
+      }
     }
 
-    $scope.$watch('currentBaby', function() {
-      $scope.$broadcast('babyChanged');
-      console.log("baby changed");
+    $scope.$watch('theme', function() {
+      $scope.changeTheme();
     });
-  });
 
-    // $scope.user = null;
-    // $scope.users = null;
-    //  $scope.loadUsers = function() {
-    // // Use timeout to simulate a 650ms request.
-    // return $timeout(function() {
-    //   $scope.users =  $scope.users  || [
-    //     { id: 1, name: 'Scooby Doo' },
-    //     { id: 2, name: 'Shaggy Rodgers' },
-    //     { id: 3, name: 'Fred Jones' },
-    //     { id: 4, name: 'Daphne Blake' },
-    //     { id: 5, name: 'Velma Dinkley' }
-    //   ];
+   });
+
 
 }());

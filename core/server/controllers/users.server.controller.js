@@ -24,31 +24,23 @@ module.exports = {
   },
 // called from parent Settings page. Receives a "level" param from front end; needs to populate levels array in baby doc.
   createContact: function(req, res) {
-    console.log(req.body);
     var existingUserId, level, userExists;
     level = req.body.level;
     (function findExistingUser() {
       var deferred = Q.defer();
       User.findOne({'email': req.body.email}, function(err, existingUser) {
-        console.log(33);
         if (err) return res.status(500).send(err);
         else if (existingUser) {
-          console.log(36);
           existingUserId = existingUser._id;
-          User.findByIdAndUpdate(existingUserId, {$push: {'contact.babies': {baby: req.body.babyId, level: level}}}, {new: true}, function(err, user) {
-            console.log(39);
+          User.findByIdAndUpdate(existingUserId, {$push: {'contact': {baby: req.body.babyId, level: level}}}, {new: true}, function(err, user) {
             if (err) return res.status(500).send(err);
             if (user.roles.indexOf("contact") === -1) {
-              console.log(42);
               User.findByIdAndUpdate(existingUserId, {$push: {'roles': 'contact'}}, function(err) {
-                console.log(42);
                 if (err) return res.status(500).send(err);
               });
             }
             if(level === "level2"){
-              console.log(49);
               Baby.findByIdAndUpdate(req.body.babyId, {$push: {'level2': existingUserId}}, function(err, baby) {
-                console.log(51);
                 if (err) return res.status(500).send(err);
                 res.send(user);
                 userExists = true;
@@ -56,7 +48,6 @@ module.exports = {
               });
             } else if (level === "level1") {
               Baby.findByIdAndUpdate(req.body.babyId, {$push: {'level1': existingUserId}}, function(err, baby) {
-                console.log(59);
                 if (err) return res.status(500).send(err);
                 res.send(user);
                 userExists = true;
@@ -65,14 +56,12 @@ module.exports = {
             }
           });
         } else {
-          console.log(68);
           deferred.resolve();
         }
       });
       return deferred.promise;
     }()).then(function() {
       if(!userExists) {
-        console.log(75);
         var newUser = new User();
         newUser.roles.push("contact");
         newUser.email = req.body.email;
@@ -83,7 +72,6 @@ module.exports = {
           level: req.body.level
         });
         newUser.save(function(err, user) {
-          console.log(83, user);
           if (err) return res.status(500).send(err);
           else {
             if(level === "level2"){
@@ -101,6 +89,30 @@ module.exports = {
         });
       }
     });
+  },
+
+  removeContact: function(req, res) {
+    if (req.body.babyAuth.level === 1) {
+      User.findByIdAndUpdate(req.params.id, {$pull: {"contact": {baby: req.body.babyAuth.id, level: "level1"}}}, function(err, user) {
+        if (err) return res.status(500).send(err);
+        else {
+          Baby.findByIdAndUpdate(req.body.babyAuth.id, {$pull: {"level1": req.params.id}}, {new: true}, function(err, baby) {
+            if (err) return res.status(500).send(err);
+            res.end();
+          });
+        }
+      });
+    } else if (req.body.babyAuth.level === 2) {
+      User.findByIdAndUpdate(req.params.id, {$pull: {"contact": {baby: req.body.babyAuth.id, level: "level2"}}}, function(err, user) {
+        if (err) return res.status(500).send(err);
+        else {
+          Baby.findByIdAndUpdate(req.body.babyAuth.id, {$pull: {"level2": req.params.id}}, {new: true}, function(err, baby) {
+            if (err) return res.status(500).send(err);
+            res.end();
+          });
+        }
+      });
+    }
   },
 
   createNurse: function(req, res) {
@@ -136,5 +148,28 @@ module.exports = {
       if (err) return res.status(500).send(err);
       else res.send(user);
     });
+  },
+
+  getFeed: function(req, res) {
+    console.log(req.params);
+    if(req.params.level === '1') {
+      console.log(155);
+      Baby.findById(req.params.babyId)
+      .populate("notes")
+      .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes")
+      .exec(function(err, baby) {
+        if (err) return res.status(500).send(err);
+        res.send(baby);
+      });
+    } else if (req.params.level === '2') {
+      console.log(164);
+      Baby.findById(req.params.babyId)
+      .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes")
+      .populate("notes", "picturesUrl comment")
+      .exec(function(err, baby) {
+        if (err) return res.status(500).send(err);
+        res.send(baby);
+      });
+    }
   }
 };

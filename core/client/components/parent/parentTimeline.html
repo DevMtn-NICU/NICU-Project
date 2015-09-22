@@ -1,25 +1,32 @@
 <div style="border:5px black solid; width:95%; margin:0 auto 20px auto; padding:25px; box-sizing:border-box">
 	<md-tabs md-dynamic-height>
 
-		<md-tab label="Comments">
-			<div class="tlcomments" style="margin:5px; border:1px black solid" ng-repeat="note in baby.notes">
-				{{ note.comment }}
+		<md-tab label="Journal">
+			<div class="tljournal" style="margin:5px; border:1px black solid" ng-repeat="note in baby.notes">
+				{{ note.journal }}
 			</div>
 		</md-tab>
 
 		<md-tab label="Statistics">
-			<div class="tlstats" style="display:inline-block; margin:5px; padding:4px; border:1px black solid" ng-repeat="note in baby.notes">
-				Blood Pr.: {{ note.stats.bloodPressure }}
-				<br> Heart Rate: {{ note.stats.heartRate }}
-				<br> Oxygen: {{ note.stats.oxygen }}
-				<br> Weight: {{ note.stats.weight }}
-				<!--{{ note.stats.other }}-->
-				<br> Fed: {{ note.stats.fed }}
-				<br> Changed: {{ note.stats.changed }}
-				<br> Bathed: {{ note.stats.bathed }}
-				<br> Time: {{ note.created_at }}
-			</div>
 			<div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart' style='margin:20px auto; width:1200px; height:500px'></div>
+			<br>
+			<div class="statbar" style="white-space: nowrap; overflow-y: hidden; overflow-x: scroll">
+				<div class="tlstats" style="display:inline-block; margin:5px; padding:4px; border:1px black solid; height: 100%" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+					Blood Pressure: {{ note.stats.bloodPressure }}<br>
+					Heart Rate: {{ note.stats.heartRate }}<br>
+					Oxygen: {{ note.stats.oxygen }}<br>
+					Weight: {{ note.stats.weight }}<br>
+					<span ng-repeat="other in note.stats.other">
+						<span ng-if="note.stats.other">
+							{{ other.stat }}: {{ other.value }}
+						</span><br>
+					</span>
+					Fed: {{ note.stats.fed }}<br>
+					Changed: {{ note.stats.changed }}<br>
+					Bathed: {{ note.stats.bathed }}<br>
+					{{ note.created_at }}<br>
+				</div>
+			</div>
 		</md-tab>
 
 		<md-tab label="Pictures">

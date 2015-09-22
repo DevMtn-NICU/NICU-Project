@@ -3,7 +3,6 @@ var mongoose = require('mongoose'),
 
 var noteSchema = new Schema({
   baby: {type: Schema.Types.ObjectId, ref: "Baby", required: true},
-  theme: {type: String, enum: ["pink", "purple", "light-blue", "green"]},
   picturesUrl: {type: String},
   stats: {
     bloodPressure: {type: String},

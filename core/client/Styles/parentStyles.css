@@ -7,11 +7,7 @@ html, body {
 
 /*******************************Parent View Template Page**************************/
 .themeBox {
-	margin-top: 5px;
-	width: 80%;
-	height: 3%;
-	vertical-align: center;
-	margin: auto;
+	display: flex;
 }
 
 
