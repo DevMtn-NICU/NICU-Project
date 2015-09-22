@@ -2,8 +2,12 @@
 	<md-tabs md-dynamic-height>
 
 		<md-tab label="Journal">
-			<div class="tljournal" style="margin:5px; border:1px black solid" ng-repeat="note in baby.notes">
-				{{ note.journal }}
+			<div class="tljournal" ng-repeat="note in baby.notes">
+				<div ng-if="note" >
+					<div style="margin:5px; border:1px black solid">
+						{{ note.journal }}
+					</div>
+				</div>
 			</div>
 		</md-tab>
 
@@ -17,9 +21,10 @@
 					Oxygen: {{ note.stats.oxygen }}<br>
 					Weight: {{ note.stats.weight }}<br>
 					<span ng-repeat="other in note.stats.other">
-						<span ng-if="note.stats.other">
+						<!-- <span ng-if="note.stats.other"> -->
 							{{ other.stat }}: {{ other.value }}
-						</span><br>
+						<!-- </span> -->
+						<br>
 					</span>
 					Fed: {{ note.stats.fed }}<br>
 					Changed: {{ note.stats.changed }}<br>
