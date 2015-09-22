@@ -2,7 +2,7 @@
    "use strict";
 
    angular.module('app')
-      .service('parentService', function ($http, $q) {
+      .service('parentService', function ($http, $q, $cookies) {
          var babyId;
 
          this.addBabyNote = function (note) { //this is a repeat from the nurse service, we might want to refactor
@@ -33,19 +33,19 @@
                return deferred.promise;
             }
             if (!id) {
-               console.log('no id given')
+               console.log('no id given');
             }
          };
 
          this.sendBabyId = function () {
             return babyId;
-         }
+         };
 
          this.setBabyId = function (id) {
             babyId = id;
             console.log('baby id', babyId);
             return babyId;
-         }
+         };
 
 
          this.getBabyNote = function (id) {
@@ -87,6 +87,23 @@
             });
             return deferred.promise;
          };
+
+         this.logout = function() {
+   				var deferred = $q.defer();
+   				$http({
+   					method: 'GET',
+   					url: '/logout'
+   				}).then(function() {
+            $cookies.remove("userId");
+            $cookies.remove("userRoles");
+            $cookies.remove("userEmail");
+            $cookies.remove("parentObj");
+            $cookies.remove("contactObj");
+            $cookies.remove("nurseObj");
+   					deferred.resolve();
+   				});
+   				return deferred.promise;
+   			};
 
       });
 }());

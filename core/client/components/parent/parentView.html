@@ -25,6 +25,9 @@
 
          </div>
          <div>
+           <md-button class="md-raised mdbutton" type="button" ng-click="logout()">Logout</md-button>
+         </div>
+         <div>
             <md-input-container>
                <md-select ng-model="currentBaby">
                   <md-option ng-repeat="baby in babies" ng-value="baby">{{baby.firstName}} {{baby.lastName}}</md-option>
