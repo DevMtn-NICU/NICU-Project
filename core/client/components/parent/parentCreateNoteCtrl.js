@@ -2,19 +2,28 @@
    "use strict";
 
    angular.module('app')
-      .controller('parentCreateNoteCtrl', function ($scope, promised, parentService, $mdDialog, $state) {
+      .controller('parentCreateNoteCtrl', function ($scope, parentService, $mdDialog, $state) {
+
+        $scope.$on('babyChanged', function(e) {
+          if ($scope.$parent.currentBaby) {
+            $scope.theBaby = $scope.$parent.currentBaby;
+            $scope.getContacts($scope.babyId);
+          }
+        });
 
          $scope.showForParent = "true";
 
          $scope.note = {};
          $scope.note.stats = {};
-         $scope.theBaby = promised;
+         if ($scope.$parent.currentBaby) {
+           $scope.theBaby = $scope.$parent.currentBaby;
+         }
          $scope.images = [];
 
          // clear the note
          $scope.clearFields = function () {
             $scope.note = {};
-         }
+         };
 
          // open modal
          $scope.floatTheModal = function () {
@@ -23,24 +32,24 @@
                   scope: $scope,
                   preserveScope: true
                });
-            }
+            };
             // close modal
          $scope.hideModal = function () {
                $mdDialog.hide();
-            }
+            };
             // make Baby note
          $scope.addBabyNote = function () {
-            $scope.note.baby = promised._id;
+            $scope.note.baby = $scope.theBaby._id;
             $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
             $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
-            $scope.note.picturesUrl = $scope.imageId;
+            // $scope.note.picturesUrl = $scope.imageId;
             parentService.addBabyNote($scope.note).
             then(function (response) {
                $scope.hideModal();
-               $state.go('parent.settings')
+               $state.go('parent.landing')
             })
          };
 
-      })
+      });
 
 }());

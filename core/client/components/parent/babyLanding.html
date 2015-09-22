@@ -1,3 +1,4 @@
+
 <div class="flexBox">
 
 
@@ -18,6 +19,7 @@
          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
          <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
          {{note.created_at | date:'M-dd-yy h:mm a' }}
+
          <hr />
 
       </div>
@@ -28,6 +30,7 @@
 
    <div class="scroll">
       <div id="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
+         <br /> {{note._id}}
          <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
@@ -54,7 +57,5 @@
       </div>
    </div>
 
-
-
-
+</div>
 </div>
