@@ -3,7 +3,7 @@
 
 		<md-tab label="Journal">
 			<div class="tljournal" ng-repeat="note in baby.notes">
-				<div ng-if="note" >
+				<div ng-show="note.journal" >
 					<div style="margin:5px; border:1px black solid">
 						{{ note.journal }}
 					</div>

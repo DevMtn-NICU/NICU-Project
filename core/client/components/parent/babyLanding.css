@@ -1,7 +1,10 @@
 .scroll {
    height: 300px;
-   overflow: scroll;
-   width: 45%;
+   overflow: auto;
+   width: 44%;
+   margin: 2%;
+   outline: 1px solid #ccc;
+   position: relative;
 }
 .flexBox {
    display: flex;
@@ -15,4 +18,19 @@ img {
    flex-wrap: wrap;
 */
    max-width: 100%;
+}
+
+.journal, .stats, .comments, .images {
+	box-sizing: border-box;
+	width: 95%;
+	margin: auto;
+    position: relative;
+}
+.fixed {
+    position: fixed;
+}
+
+.landingContainer {
+    width: 90%;
+    margin: auto;
 }
