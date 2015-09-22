@@ -27,8 +27,9 @@
       });
 
       $scope.$on('babyChanged', function (e) {
-         console.log('babychanged $scope', $scope.currentBaby._id);
-         parentService.setBabyId($scope.currentBaby._id);
+         if ($scope.currentBaby) {
+            parentService.setBabyId($scope.currentBaby._id);
+         }
       });
 
    });
