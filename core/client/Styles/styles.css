@@ -259,7 +259,7 @@ hr {
 /******************************NURSE SEARCH PAGE**********************/
 .container {
     width: 95%;
-    height: 80%;
+    height: auto;
     background-color: #EEEEEE;
     padding: 30px;
     border: 1px solid black;
