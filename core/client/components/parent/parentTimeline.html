@@ -1,5 +1,5 @@
 <div style="border:1px black solid; width:95%; margin:0 auto; height:900px">
-	<md-tabs>
+	<md-tabs md-dynamic-height>
 
 		<md-tab label="Comments">
 			<div class="tlcomments" style="margin:5px; border:1px black solid" ng-repeat="note in baby.notes">
@@ -7,25 +7,32 @@
 			</div>
 		</md-tab>
 
-		<md-tab label="Statistics" class="statisticsTab">
-			<div class="repeatNote" ng-repeat="note in baby.notes">
-				Blood Pressure: {{ note.stats.bloodPressure }}<br>
-				Heart Rate: {{ note.stats.heartRate }}<br>
-				Oxygyen Saturation: {{ note.stats.oxygen }}<br>
-				Weight: {{ note.stats.weight }}<br>
-				<!--{{ note.stats.other }}-->
-				Fed: {{ note.stats.fed }}<br>
-				Changed: {{ note.stats.changed }}<br>
-				Bathed: {{ note.stats.bathed }}<br>
-				Comments: {{note.comment}}<br><br>
-				Created At: {{ note.created_at | date:"yyyy-MM-dd 'at' HH:mma"}}<br>
+		<md-tab label="Statistics">
+			<div class="repeatNoteContainer">
+				<div class="repeatNote" ng-repeat="note in baby.notes">
+					Blood Pressure: {{ note.stats.bloodPressure }}<br>
+					Heart Rate: {{ note.stats.heartRate }}<br>
+					Oxygyen Saturation: {{ note.stats.oxygen }}<br>
+					Weight: {{ note.stats.weight }}<br>
+					{{ note.stats.other}}<br>
+					<span ng-repeat="other in note.stats.other">
+						<span ng-if="note.stats.other">
+							{{ note.stats.other.stat }}: {{ note.stats.other.value }}
+						</span><br>
+					</span>
+					Fed: {{ note.stats.fed }}<br>
+					Changed: {{ note.stats.changed }}<br>
+					Bathed: {{ note.stats.bathed }}<br>
+					Comments: {{note.comment}}<br><br>
+					Created At: {{ note.created_at | date:"yyyy-MM-dd 'at' HH:mma"}}<br>
+				</div>
 			</div>
-			<div ac-chart="line" ac-data="acData" ac-config="config" id='chart' class='chart' style='border:1px solid red; width:95%; height:100%'></div>
+			<!--<div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart' style='margin:0 auto; border:1px solid red; width:95%; height:300px'></div>-->
 		</md-tab>
 
 		<md-tab label="Pictures">
-			<div class="tlpictures" style="display:inline-block; margin:5px; border:1px black solid" ng-repeat="note in baby.notes">
-				<img src={{note.picturesUrl}}><br>
+			<div class="tlpictures" style="display:inline-block; margin:5px" ng-repeat="note in baby.notes">
+				<img src={{note.picturesUrl}}>
 			</div>
 		</md-tab>
 
