@@ -12,6 +12,7 @@
           console.log($scope.baby);
           for (var j = 0; j < $scope.baby.notes.length; j++) {  //date parsing
             $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
+            console.log($scope.baby.notes);
           }
           (function configureChartData() {
             $scope.data.data = [];
