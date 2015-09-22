@@ -10,6 +10,10 @@
        }
      });
 
+     if ($scope.$parent.currentBaby) {
+       $scope.babyId = $scope.$parent.currentBaby._id;
+     }
+
      $scope.contacts = [];
 
      $scope.getContacts = function(babyId) {
