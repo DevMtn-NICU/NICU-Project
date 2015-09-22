@@ -41,7 +41,7 @@
                deferred.resolve(results);
             });
             return deferred.promise;
-         }
+         };
 
          this.authLevel = function (auth) {
             var deferred = $q.defer();
@@ -54,9 +54,21 @@
                deferred.resolve(results);
             });
             return deferred.promise;
-         }
+         };
 
-
+         this.removeContact = function(contactId, babyAuth) {
+           var deferred = $q.defer();
+           $http({
+             method: "PUT",
+             url: "/user/removeContact/" + contactId,
+             data: {
+               babyAuth: babyAuth
+             }
+           }).then(function(response) {
+             deferred.resolve(response.data);
+           });
+           return deferred.promise;
+         };
 
       });
 }());
