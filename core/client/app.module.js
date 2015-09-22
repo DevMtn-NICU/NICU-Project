@@ -5,7 +5,8 @@
     angular.module('app', [
         'ui.router',
         'ngMaterial',
-        'ngCookies'
+        'ngCookies',
+        'angularCharts'        
     ]);
 
 
