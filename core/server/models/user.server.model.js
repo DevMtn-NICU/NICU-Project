@@ -45,14 +45,14 @@ var userSchema = new Schema({
       }]
    },
    contact: [{
-     baby: {
-       type: Schema.Types.ObjectId,
-       ref: "Baby"
-     },
-     level: {
-       type: String,
-       enum: ["level1", "level2"]
-     }
+      baby: {
+         type: Schema.Types.ObjectId,
+         ref: "Baby"
+      },
+      level: {
+         type: String,
+         enum: ["level1", "level2"]
+      }
    }],
    created_at: {
       type: Date,
@@ -86,14 +86,13 @@ userSchema.methods.generateHash = function (password) {
    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-
-bcrypt.genSalt(8, function (err, salt) {
-   console.log('bcrypt.genSalt');
-   if (err) {
-      console.log('error');
-      return next(err);
-   }
-});
+//
+//bcrypt.genSalt(8, function (err, salt) {
+//   if (err) {
+//      console.log('error');
+//      return next(err);
+//   }
+//});
 
 var bcryptPasswordChecker = function (user, next) {
    if (!user.isModified) {
@@ -111,6 +110,7 @@ var bcryptPasswordChecker = function (user, next) {
 
       bcrypt.hash(user.password, salt, null, function (err, hash) {
          if (err) return next(err);
+         console.log('my password: ', user.password);
          user.password = hash;
          console.log(user.password);
          next();
