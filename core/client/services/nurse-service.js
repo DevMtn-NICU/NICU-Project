@@ -20,7 +20,7 @@
 			this.getBabies = function () {
 				return $http.get("/api/babies").error(function (err) {
 					return err;
-				})
+				});
 			};
 
 			this.getBabyById = function(id) {
@@ -33,7 +33,18 @@
 					deferred.resolve(results);
 				});
 				return deferred.promise;
-			}
+			};
+
+			this.logout = function() {
+				var deferred = $q.defer();
+				$http({
+					method: 'GET',
+					url: '/logout'
+				}).then(function() {
+					deferred.resolve();
+				});
+				return deferred.promise;
+			};
 
 	});
 } ());
