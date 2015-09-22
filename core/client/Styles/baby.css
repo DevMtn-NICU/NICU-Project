@@ -5,6 +5,7 @@
    margin: 2%;
    outline: 1px solid #ccc;
    position: relative;
+   background-color: #fff;
 }
 .flexBox {
    display: flex;
@@ -25,12 +26,14 @@ img {
 	width: 95%;
 	margin: auto;
     position: relative;
+    background-color: #fff;
 }
+
 .fixed {
     position: fixed;
 }
 
 .landingContainer {
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
