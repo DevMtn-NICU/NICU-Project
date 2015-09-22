@@ -2,10 +2,12 @@
 
    "use strict";
 
+
    angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
       $scope.babies = [];
       $scope.cookieBabies = $cookies.getObject("parentObj").babies;
       $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
+      $scope.theme = "";
 
       $scope.getBabyById = function (babyId) {
          parentService.getBabyById($scope.cookieBabies[i])
@@ -19,9 +21,12 @@
          $scope.getBabyById($scope.cookieBabies[i]);
       }
 
+
       $scope.$watch('currentBaby', function () {
          $scope.$broadcast('babyChanged');
          console.log("baby changed");
       });
    });
+
+
 }());
