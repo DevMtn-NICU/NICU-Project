@@ -16,7 +16,7 @@
 			$mdThemingProvider.definePalette('green', soRealItsScary);
 			$mdThemingProvider.definePalette('pink', pink3);
   			
-			$mdThemingProvider.theme('mixedPastel')
+			$mdThemingProvider.theme('default')
 				.primaryPalette('green', {
 					'default': '500',
 					'hue-1': '200',
@@ -27,11 +27,11 @@
 				})
 				.warnPalette('green', {
 					'default': '900'
-			})
+				})
 
 		$mdThemingProvider.alwaysWatchTheme(true);
 
-		$mdThemingProvider.setDefaultTheme('mixedPastel');
+		$mdThemingProvider.setDefaultTheme('green');
 
 		});
 

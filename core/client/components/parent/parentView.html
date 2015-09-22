@@ -1,18 +1,20 @@
-
-<div md-theme="{{theme}}">
 	
-<div>
+<div md-theme="pink" md-theme-watch>
+
+<div class="theme">
+  
+	<md-select placeholder="Select Page Theme" ng-model="theme" md-on-open="changeTheme()">
+<!--       <md-option ng-value="theme"</md-option>
+    </md-select>
+  <!   <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p>  -->
+  		</div>
 
 	<div class="parentNavBar">
 
+	
+
 	<div>
 		<md-button class="md-primary md-raised md-button" ui-sref="parent.settings">Settings</md-button>
-	</div>
-	<div>
-		<md-button class="md-primary md-hue-2 md-raised md-button">Test</md-button>
-	</div>
-	<div>
-		<md-button class="md-primary md-hue-3 md-raised med-button">Test</md-button>
 	</div>
 	<div>
 		<md-button class="md-accent md-raised md-button" ui-sref="parent.timeline">Timeline</md-button>
@@ -21,12 +23,7 @@
 		<h1>{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
 	</div>
 	<div>
-<<<<<<< HEAD
 		<md-button class="md-warn md-raised md-button" ui-sref="parent.create_note({id: baby._id})">Add a Note</md-button>
-
-=======
-		<md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note">Add a Note</md-button>
->>>>>>> master
 	</div>
 	<div>
 		<md-input-container>
@@ -35,18 +32,10 @@
 			</md-select>
 		</md-input-container>
 	</div>
-
-<<<<<<< HEAD
 </div>
 <div class="break"></div>
 <div class="parentViewContainer">
 	<div ui-view></div>
 </div>
-</div>
-=======
-   </div>
-   <div class="break"></div>
-   <div class="parentViewContainer">
-      <div ui-view></div>
-   </div>
->>>>>>> master
+
+

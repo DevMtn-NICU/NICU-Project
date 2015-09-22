@@ -375,76 +375,7 @@ md-input-container .md-input{
 .oddColor:nth-child(odd) {background-color: white;}
 
 
-
-
-
 /********************************END SEARCH PAGE***********************************/
-
-/*******************************Parent View Template Page**************************/
-.parentNavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    float: center;
-    margin-top: 25px;
-}
-
-.parentViewContainer {
-    width: 100%;
-    height: 85%;
-    margin: auto;
-    margin-top: 25px;
-
-}
-
-.break {
-    width: 80%;
-    height: 10px;
-    border-radius: 25px;
-    background-color: gray;
-    display: block;
-    margin: auto;
-    margin-top: 25px;
-
-}
-
-/*******************************Parent Settings Page*******************************/
-
-.form {
-    height: 85%;
-    width: 90%;
-    display: flex;
-    float: center;
-    align-items: left;
-    flex-direction: row;
-    margin: auto;
-    border: 5px black solid;
-    padding: 25px;
-}
-.clear {
-	clear: both;
-}
-/** {
-    outline: 1px solid red;
-}*/
-/*br {
- border-width: 10px;
- border-style: inset;
- display: block;
- vertical-align: center;
- color: black;
-}*/
-
-/*
-* {
-    border: 1px solid red;
-}
-*/
-<<<<<<< HEAD
-
-
-/*******************************END Parent Settings Page**************************/
-
 
 
 
@@ -495,5 +426,3 @@ md-input-container .md-input{
     
 }
 
-=======
->>>>>>> master
