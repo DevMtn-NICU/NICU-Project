@@ -5,6 +5,7 @@ var usersController = require('../controllers/users.server.controller'),
 module.exports = function (app, passport) {
    app.post('/user/createParent', usersController.createParent);
    app.post('/user/createContact', usersController.createContact);
+   app.put('/user/removeContact/:id', usersController.removeContact);
    app.post('/user/createNurse', usersController.createNurse);
    app.post('/user/login', passport.authenticate('local'),
       function (req, res) {

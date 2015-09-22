@@ -51,5 +51,16 @@
           $scope.getContacts($scope.babyId);
 			  });
 		  };
+
+      $scope.removeContact = function(contactId, level) {
+        var babyAuth = {
+          id: $scope.babyId,
+          level: level
+        };
+        parentService.removeContact(contactId, babyAuth)
+        .then(function(response) {
+          $scope.getContacts($scope.babyId);
+        });
+      };
     });
 }());
