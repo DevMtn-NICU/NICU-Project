@@ -75,6 +75,7 @@ userSchema.pre('save', function (next) {
 userSchema.methods.validPassword = function (password) {
    console.log(password);
    var newPass = this.generateHash(password);
+   console.log('bcrypt compare');
    console.log(bcrypt.compareSync(password, this.password));
    return bcrypt.compareSync(password, this.password);
 };
