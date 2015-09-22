@@ -1,7 +1,7 @@
-<div layout="row" layout-align="space-around center">
-    <div>
+<div layout="row" layout-align="space-around center" class="container">
+    <div id="noteContainer">
         <md-content>
-            <div class="md-toolbar-tools">Create Baby Note</div>
+            <div id="text" class="md-toolbar-tools">Create Baby Note</div>
             <md-list>
                 <md-list-item>
                     Patient Number: {{ theBaby.patientNumber}}
@@ -23,37 +23,38 @@
                 </md-list-item>
             </md-list>
             <md-input-container>
-                <label>Comment</label>
-                <textarea ng-model="note.comment" cols="45" rows="10"></textarea>
+                <label id="comment"><span style="color: black;">Comments</span></label>
+                <textarea id="comment" class="container" ng-model="note.comment" cols="45" rows="10"></textarea>
             </md-input-container>
             <input type="file" images="images" accept="image/*" ng-model="note.picturesUrl" placeholder="UPLOAD IMAGE" fileread> {{note.picturesUrl}}
         </md-content>
     </div>
-    <div layout="row">
+    <div layout="row" id="statContainer">
         <form name="babyNote" ng-submit="floatTheModal(note.baby)">
             <div>
                 <md-content>
-                    <div class="md-toolbar-tools">Stats</div>
+                    <div id="text" class="md-toolbar-tools">Stats</div>
                     <md-input-container>
-                        <label>Blood Pressure</label>
+                        <label><span style="color: black;">Blood Pressure</span></label>
                         <input type="text" ng-model="note.stats.bloodPressure">
                     </md-input-container>
                     <md-input-container>
-                        <label>Oxygen</label>
+                        <label><span style="color: black;">Oxygen</span></label>
                         <input type="text" ng-model="note.stats.oxygen">
                     </md-input-container>
                     <md-input-container>
-                        <label>Heart Rate</label>
+                        <label><span style="color: black;">Heart Rate</span></label>
                         <input type="text" ng-model="note.stats.heartRate">
                     </md-input-container>
                     <md-input-container>
-                        <label>Weight</label>
+                        <label><span style="color: black;">Weight</span></label>
                         <input type="text" ng-model="note.stats.weight">
                     </md-input-container>
                 </md-content>
             </div>
             <br>
-            <add-stat></add-stat>
+            <p>
+            <button type="button" id="statBtn"><add-stat></add-stat></button>
             <br>
             <div>
                 <div class="md-toolbar-tools"></div>
@@ -76,10 +77,9 @@
 
                 <!-- end parents view only -->
                 <div layout="row">
-                    <md-button flex="20" type="button" ng-click="clearFields()" class="pointer">Cancel</md-button>
-                    <md-button flex="10" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
+                    <md-button id="createNoteBtn" flex="20" type="button" ng-click="clearFields()" class="pointer md-raised">Cancel</md-button>
+                    <md-button class="md-raised" id="createNoteBtn" flex="10" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
                 </div>
             </div>
         </form>
     </div>
-<div>

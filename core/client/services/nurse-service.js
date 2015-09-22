@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular.module('app')
-		.service('NurseService', function ($http, $q) {
+		.service('NurseService', function ($http, $q, $cookies) {
 
 			this.addBabyNote = function (note) {
 				var deferred = $q.defer();
@@ -20,7 +20,7 @@
 			this.getBabies = function () {
 				return $http.get("/api/babies").error(function (err) {
 					return err;
-				})
+				});
 			};
 
 			this.getBabyById = function(id) {
@@ -33,7 +33,24 @@
 					deferred.resolve(results);
 				});
 				return deferred.promise;
-			}
+			};
+
+			this.logout = function() {
+				var deferred = $q.defer();
+				$http({
+					method: 'GET',
+					url: '/logout'
+				}).then(function() {
+					$cookies.remove("userId");
+					$cookies.remove("userRoles");
+					$cookies.remove("userEmail");
+					$cookies.remove("parentObj");
+					$cookies.remove("contactObj");
+					$cookies.remove("nurseObj");
+					deferred.resolve();
+				});
+				return deferred.promise;
+			};
 
 	});
 } ());

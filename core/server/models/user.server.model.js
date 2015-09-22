@@ -45,14 +45,14 @@ var userSchema = new Schema({
       }]
    },
    contact: [{
-     baby: {
-       type: Schema.Types.ObjectId,
-       ref: "Baby"
-     },
-     level: {
-       type: String,
-       enum: ["level1", "level2"]
-     }
+      baby: {
+         type: Schema.Types.ObjectId,
+         ref: "Baby"
+      },
+      level: {
+         type: String,
+         enum: ["level1", "level2"]
+      }
    }],
    created_at: {
       type: Date,
@@ -65,7 +65,7 @@ var userSchema = new Schema({
 
 
 //this only runs on user.save() it won't work work with user.update()
-userSchema.pre('save', function (next) {
+userSchema.pre('save',function (next) {
    console.log('presave loaded');
    var user = this;
    bcryptPasswordChecker(user, next);
@@ -75,6 +75,7 @@ userSchema.pre('save', function (next) {
 userSchema.methods.validPassword = function (password) {
    console.log(password);
    var newPass = this.generateHash(password);
+   console.log('bcrypt compare');
    console.log(bcrypt.compareSync(password, this.password));
    return bcrypt.compareSync(password, this.password);
 };
@@ -86,14 +87,13 @@ userSchema.methods.generateHash = function (password) {
    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-
-bcrypt.genSalt(8, function (err, salt) {
-   console.log('bcrypt.genSalt');
-   if (err) {
-      console.log('error');
-      return next(err);
-   }
-});
+//
+//bcrypt.genSalt(8, function (err, salt) {
+//   if (err) {
+//      console.log('error');
+//      return next(err);
+//   }
+//});
 
 var bcryptPasswordChecker = function (user, next) {
    if (!user.isModified) {
@@ -111,6 +111,7 @@ var bcryptPasswordChecker = function (user, next) {
 
       bcrypt.hash(user.password, salt, null, function (err, hash) {
          if (err) return next(err);
+         console.log('my password: ', user.password);
          user.password = hash;
          console.log(user.password);
          next();
