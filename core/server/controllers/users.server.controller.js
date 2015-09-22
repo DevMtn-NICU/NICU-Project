@@ -35,7 +35,7 @@ module.exports = {
         else if (existingUser) {
           console.log(36);
           existingUserId = existingUser._id;
-          User.findByIdAndUpdate(existingUserId, {$push: {'contact.babies': {baby: req.body.babyId, level: level}}}, {new: true}, function(err, user) {
+          User.findByIdAndUpdate(existingUserId, {$push: {'contact': {baby: req.body.babyId, level: level}}}, {new: true}, function(err, user) {
             console.log(39);
             if (err) return res.status(500).send(err);
             if (user.roles.indexOf("contact") === -1) {
