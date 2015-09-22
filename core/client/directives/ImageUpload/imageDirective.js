@@ -4,7 +4,6 @@
 	return {
 		restrict: 'A',
 		link: function (scope, elem, attrs) {
-			console.log(scope, elem, attrs);
 			elem.bind("change", function (changeEvent) {
 
 				var reader = new FileReader();
@@ -17,11 +16,10 @@
 
 		imageService.storeImage(fileread, fileName)
           .then(function (result) {
-            scope.imageId = result.data.Location;
-            console.log(result.data)
+            scope.note.picturesUrl = result.data.Location;
             scope.images.unshift(result.data);
           }).catch(function (err) {
-            console.log(err);
+			scope.note.picturesUrl = "Selected image is too large to upload.";
           })
 	    }
 		reader.readAsDataURL(changeEvent.target.files[0]);
