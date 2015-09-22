@@ -76,7 +76,7 @@ module.exports = {
       };
 
       s3.upload(params, function (err, data) {
-         console.log(err, data);
+         console.log("s3 upload err and data", err, data);
          if (err) return res.status(500).send(err);
          res.json(data);
       });

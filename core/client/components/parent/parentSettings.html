@@ -32,7 +32,7 @@
 			<span id="searchCellPatient">{{contact.name}}</span>
 			<span id="searchCellName">{{contact.email}}</span>
 			<span id="searchCellName">{{contact.level}}</span>
-			<span id="searchCellName"><a ng-click="removePerson(contact)">Remove</a></span>
+			<span id="searchCellName"><a ng-click="removeContact(contact._id, contact.level)" style="cursor: pointer;">Remove</a></span>
 		</div>
 	</div>
 </div>
