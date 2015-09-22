@@ -148,5 +148,28 @@ module.exports = {
       if (err) return res.status(500).send(err);
       else res.send(user);
     });
+  },
+
+  getFeed: function(req, res) {
+    console.log(req.params);
+    if(req.params.level === '1') {
+      console.log(155);
+      Baby.findById(req.params.babyId)
+      .populate("notes")
+      .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes")
+      .exec(function(err, baby) {
+        if (err) return res.status(500).send(err);
+        res.send(baby);
+      });
+    } else if (req.params.level === '2') {
+      console.log(164);
+      Baby.findById(req.params.babyId)
+      .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes")
+      .populate("notes", "picturesUrl comment")
+      .exec(function(err, baby) {
+        if (err) return res.status(500).send(err);
+        res.send(baby);
+      });
+    }
   }
 };
