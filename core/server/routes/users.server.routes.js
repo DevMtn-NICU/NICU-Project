@@ -19,7 +19,8 @@ module.exports = function (app, passport) {
    app.get('/feed/:babyId/:level', usersController.getFeed);
    app.get('/user/:userId', usersController.getUser);
    app.put('/user/edit/:userId', usersController.editUser);
-   app.get('/user/logout', function (req, res) {
+   app.get('/logout', function (req, res) {
+     console.log("23");
       req.logout();
       res.end();
    });

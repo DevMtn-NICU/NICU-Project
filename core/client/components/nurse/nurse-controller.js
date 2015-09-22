@@ -1,10 +1,16 @@
 (function() {
-		"use strict";
+	"use strict";
 
-		angular.module('app')
-			.controller('nurseController', function($scope) {
-
-
-        })
-
+	angular.module('app')
+		.controller('nurseController', function($scope, NurseService, $state, $cookies) {
+			if(!$cookies.get("nurseObj") || $cookies.getObject("nurseObj").access !== "nurse") {
+				$state.go('login');
+			}
+			$scope.logout = function() {
+				NurseService.logout()
+				.then(function() {
+					$state.go('login');
+				});
+			};
+    });
 }());
