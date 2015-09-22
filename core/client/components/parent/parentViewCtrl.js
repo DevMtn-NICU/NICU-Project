@@ -6,6 +6,7 @@
     $scope.babies = [];
     $scope.cookieBabies = $cookies.getObject("parentObj").babies;
     $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
+    $scope.theme = "";
 
     $scope.getBabyById = function(babyId) {
       parentService.getBabyById($scope.cookieBabies[i])
@@ -24,4 +25,5 @@
       console.log("baby changed");
     });
   });
+
 }());
