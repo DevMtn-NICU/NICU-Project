@@ -1,15 +1,13 @@
 	
-<div md-theme="pink" md-theme-watch>
+<div class="themeBox">
 
-<div class="theme">
-  
-	<md-select placeholder="Select Page Theme" ng-model="theme" md-on-open="changeTheme()">
-<!--       <md-option ng-value="theme"</md-option>
-    </md-select>
-  <!   <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p>  -->
-  		</div>
+	<md-content>
+        <md-select ng-model="selectedTheme" placeholder="Select a theme">
+          <md-option ng-value="themeName" ng-repeat="themeName in themeList" ng-selected="themeName == theme">{{ themeName }}</md-option>
+        </md-select>
+    </md-content>
 
-	<div class="parentNavBar">
+<div class="parentNavBar">
 
 	
 
@@ -37,5 +35,7 @@
 <div class="parentViewContainer">
 	<div ui-view></div>
 </div>
+</div>
+
 
 

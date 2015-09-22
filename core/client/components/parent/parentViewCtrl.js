@@ -3,14 +3,24 @@
   "use strict";
 
   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
+   
     $scope.babies = [];
     $scope.cookieBabies = $cookies.getObject("parentObj").babies;
     $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
-    $scope.theme = "";
-
-    // $scope.changeTheme = function() {
-    //   $scope
-    // }
+    
+    $scope.theme = "myDefault";
+    $scope.themeList = ThemeService();
+    
+    console.log('Current Theme', $scope.theme, $scope.themeList);
+    
+    $scope.$watch('selectedTheme', function(value) {
+      if (value != undefined) {
+        $scope.theme = value + '-theme';
+        console.log('Changed theme', $scope.theme, value);
+        //$scope.$apply();
+        //$scope.$digest();
+      }
+    });
 
     $scope.getBabyById = function(babyId) {
       parentService.getBabyById($scope.cookieBabies[i])
