@@ -1,27 +1,27 @@
 (function () {
 
-  "use strict";
+   "use strict";
 
-  angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
-    $scope.babies = [];
-    $scope.cookieBabies = $cookies.getObject("parentObj").babies;
-    $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
+      $scope.babies = [];
+      $scope.cookieBabies = $cookies.getObject("parentObj").babies;
+      $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
 
-    $scope.getBabyById = function(babyId) {
-      parentService.getBabyById($scope.cookieBabies[i])
-      .then(function(response) {
-        $scope.babies.push(response);
-        $scope.currentBaby = $scope.babies[0];
+      $scope.getBabyById = function (babyId) {
+         parentService.getBabyById($scope.cookieBabies[i])
+            .then(function (response) {
+               $scope.babies.push(response);
+               $scope.currentBaby = $scope.babies[0];
+            });
+      };
+
+      for (var i = 0; i < $scope.cookieBabies.length; i++) {
+         $scope.getBabyById($scope.cookieBabies[i]);
+      }
+
+      $scope.$watch('currentBaby', function () {
+         $scope.$broadcast('babyChanged');
+         console.log("baby changed");
       });
-    };
-
-    for (var i = 0; i < $scope.cookieBabies.length; i++) {
-      $scope.getBabyById($scope.cookieBabies[i]);
-    }
-
-    $scope.$watch('currentBaby', function() {
-      $scope.$broadcast('babyChanged');
-      console.log("baby changed");
-    });
-  });
+   });
 }());
