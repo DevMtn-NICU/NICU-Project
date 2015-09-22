@@ -25,6 +25,12 @@
       $scope.$watch('currentBaby', function () {
          $scope.$broadcast('babyChanged');
       });
+
+      $scope.$on('babyChanged', function (e) {
+         console.log('babychanged $scope', $scope.currentBaby._id);
+         parentService.setBabyId($scope.currentBaby._id);
+      });
+
    });
 
 

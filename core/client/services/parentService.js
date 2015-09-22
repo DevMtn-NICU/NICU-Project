@@ -41,6 +41,12 @@
             return babyId;
          }
 
+         this.setBabyId = function (id) {
+            babyId = id;
+            console.log('baby id', babyId);
+            return babyId;
+         }
+
 
          this.getBabyNote = function (id) {
             var deferred = $q.defer();
@@ -68,18 +74,18 @@
             return deferred.promise;
          };
 
-         this.removeContact = function(contactId, babyAuth) {
-           var deferred = $q.defer();
-           $http({
-             method: "PUT",
-             url: "/user/removeContact/" + contactId,
-             data: {
-               babyAuth: babyAuth
-             }
-           }).then(function(response) {
-             deferred.resolve(response.data);
-           });
-           return deferred.promise;
+         this.removeContact = function (contactId, babyAuth) {
+            var deferred = $q.defer();
+            $http({
+               method: "PUT",
+               url: "/user/removeContact/" + contactId,
+               data: {
+                  babyAuth: babyAuth
+               }
+            }).then(function (response) {
+               deferred.resolve(response.data);
+            });
+            return deferred.promise;
          };
 
       });
