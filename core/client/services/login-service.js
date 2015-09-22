@@ -29,6 +29,12 @@ angular.module('app')
                $state.go('parent.landing', {
                   'user': user
                });
+            } else if (role[0] === 'contact') {
+
+               $state.go('parent.landing', {
+                  'user': user
+               });
+
             }
          });
       };
