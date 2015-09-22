@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular.module('app')
-		.service('NurseService', function ($http, $q) {
+		.service('NurseService', function ($http, $q, $cookies) {
 
 			this.addBabyNote = function (note) {
 				var deferred = $q.defer();
@@ -41,6 +41,12 @@
 					method: 'GET',
 					url: '/logout'
 				}).then(function() {
+					$cookies.remove("userId");
+					$cookies.remove("userRoles");
+					$cookies.remove("userEmail");
+					$cookies.remove("parentObj");
+					$cookies.remove("contactObj");
+					$cookies.remove("nurseObj");
 					deferred.resolve();
 				});
 				return deferred.promise;

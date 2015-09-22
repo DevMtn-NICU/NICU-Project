@@ -99,6 +99,7 @@
             $cookies.remove("userEmail");
             $cookies.remove("parentObj");
             $cookies.remove("contactObj");
+            $cookies.remove("nurseObj");
    					deferred.resolve();
    				});
    				return deferred.promise;
