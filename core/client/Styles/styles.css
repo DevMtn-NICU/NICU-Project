@@ -256,12 +256,47 @@ hr {
     cursor: pointer;
 }
 
+/******************************NURSE CREATE NOTE PAGE**********************/
+
+#createNoteBtn {
+    position: relative;
+    right: -180%;
+}
+
+#comment {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#text {
+   margin-left: 25%;
+   text-decoration-line: underline;
+}
+
+#noteContainer {
+    margin-left: -5%;
+}
+
+#statContainer {
+    position: relative;
+    left: -10%;
+}
+
+/*
+* {
+    border: 1px solid red;
+}
+*/
+
+/******************************END CREATE NOTE PAGE**********************/
+
+
 /******************************NURSE SEARCH PAGE**********************/
 .container {
     width: 95%;
-    height: 80%;
+    height: auto;
     background-color: #EEEEEE;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid black;
     box-shadow: 0 0 1px 1px;
 }
