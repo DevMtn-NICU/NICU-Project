@@ -4,6 +4,9 @@
 
 
    angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
+     if(!$cookies.getObject("userId")) {
+       $state.go('login');
+     }
       $scope.babies = [];
       $scope.cookieBabies = $cookies.getObject("parentObj").babies;
       $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
@@ -30,6 +33,13 @@
          console.log('babychanged $scope', $scope.currentBaby._id);
          parentService.setBabyId($scope.currentBaby._id);
       });
+
+      $scope.logout = function() {
+				parentService.logout()
+				.then(function() {
+					$state.go('login');
+				});
+			};
 
    });
 
