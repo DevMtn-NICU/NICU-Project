@@ -1,8 +1,4 @@
 <div md-theme="{{ theme }}">
-
-
-
-
    <div>
       <div class="parentNavBar">
          <div>
@@ -20,11 +16,8 @@
          </div>
          <div>
             <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note">Add a Note</md-button>
-
          </div>
-
          <div class="themeBox">
-
 	<md-content>
         <md-select ng-model="theme" placeholder="Select a theme">
           <md-option ng-value="themeName" ng-repeat="themeName in themeList" ng-selected="themeName == theme">{{ themeName }}</md-option>
