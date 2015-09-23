@@ -1,103 +1,120 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0;
-    font-family: 'PT Sans', sans-serif;
-
+* {
+   margin: 0;
 }
-
+html,
+body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+}
+body {
+   margin: 0;
+   padding: 0;
+   font-family: 'PT Sans', sans-serif;
+   /*background-image: url('../../images/cars_bckgrnd.png');
+    position: fixed;*/
+}
 .fullPage {
-    height: 100%;
-    width: 100%;
+   position: relative;
+   width: 100%;
+   clear: left;
+   min-height: 100%;
+   margin-bottom: -60px;
+}
+.fullPage:after {
+   content: "";
+   display: block;
+   height: 60px;
 }
 
 /*THESE RULES APPLY TO THE HIGH REZ DISPLAY, AND CASCADE DOWN TO THE MEDIUM AND LOW REZ DISPLAYS*/
 
+.blackText {
+   color: #BDBDBD;
+}
+.medicalFormInnerContainer {
+   margin: 0 2%;
+   padding-bottom: 35px;
+}
 
+/** {
+    outline: 1px solid red;
+}*/
 
 
 /**********************PRODUCT PAGE***********************/
 
-
 .header1 {
-    width: 100%;
-    height: 10%;
-    background-color: #fff;
+   width: 100%;
+   height: 10%;
+   background-color: #fff;
 }
-
 .productLogo {
-    width: 7%;
-    margin: 10px 20px 20px 20px;
+   width: 7%;
+   margin: 10px 20px 20px 20px;
 }
-
 .shareImg {
-    width: 15%;
-    height: 60px;
-    margin-left: 5%;
-    margin-bottom: 1.5%;
+   width: 15%;
+   height: 60px;
+   margin-left: 5%;
+   margin-bottom: 1.5%;
 }
-
 #background {
-    background: url('../images/455237505-630x210.jpg') no-repeat 100% 100%;
-    background-size: cover;
-    width: 100%;
-    height: 90%;
+   background: url('../images/455237505-630x210.jpg') no-repeat 100% 100%;
+   background-size: cover;
+   width: 100%;
+   height: 90%;
 }
-
 .headerOne {
-    position: absolute;
-    top: 35%;
-    left: 27%;
-    font-size: 250%;
-    color: #fff;
+   position: absolute;
+   top: 35%;
+   left: 27%;
+   font-size: 250%;
+   color: #fff;
 }
-
 .subtitleP {
-    position: absolute;
-    left: 15%;
-    margin-top: 15%;
-    font-size: 1.5em;
-    color: black;
-    margin-left: 40%;
-    margin-right: 5%;
+   position: absolute;
+   left: 15%;
+   margin-top: 15%;
+   font-size: 1.5em;
+   color: black;
+   margin-left: 40%;
+   margin-right: 5%;
 }
-
 .call {
-    color: #ffffff;
-    font-size: 0.85em;
-    margin-top: 1%;
+   color: #ffffff;
+   font-size: 0.85em;
+   margin-top: 1%;
 }
-
 .blackBox2 {
-    position: relative;
-    margin-top: -3.6%;
-    height: 49px;
-    width: 100%;
-    background-color: #080808;
-    opacity: 0.9;
-    background-color: transparent, #686868;
+   position: relative;
+   margin-top: -3.6%;
+   height: 49px;
+   width: 100%;
+   background-color: #080808;
+   opacity: 0.9;
+   background-color: transparent, #686868;
 }
-
 #showBtn {
-    position: absolute;
-    top: 62%;
-    color: #ffffff;
-    background: transparent;
-    border-radius: 20px;
-    padding: 8px;
-    border: 1px solid #fff;
-    margin-left: 32%;
-    margin-top: -5%;
+   position: absolute;
+   top: 62%;
+   color: #ffffff;
+   background: transparent;
+   border-radius: 20px;
+   padding: 8px;
+   border: 1px solid #fff;
+   margin-left: 32%;
+   margin-top: -5%;
 }
-
+.greyOutline {
+   outline: 1px solid #eee;
+}
 
 /*
 * {
     border: 1px solid red;
-}
-*/
-
+}*/
 
 
 /*************************END OF PRODCUCT PAGE************************/
@@ -106,16 +123,38 @@ html, body {
 /*LOGIN PAGE*/
 
 .redBox {
-    width: 100%;
-    height: 45px;
-    background-color: #A41031;
+   /*width: 100%;
+    height: 45px;*/
+   background-color: #A41031;
+}
+.outerHome {
+   width: 385px;
+   margin: 45px auto 60px;
+   position: relative;
+}
+.outerHome img {
+   float: center;
+}
+.outerHome h3 {
+   text-align: center;
+}
+.homeIcon {
+   float: center;
+   margin: auto;
+}
+.marginAuto {
+   margin: 10px auto;
+   width: 100px;
+   float: center;
 }
 
-#logo img {
-    padding: 45px;
-    text-align: center;
-    margin: 70px 0 0 20px;
-    margin-left: 37%;
+/** {
+    outline: 1px solid red;
+}*/
+
+
+/*#logo {
+    margin: 25px auto;
 }
 
 hr {
@@ -133,9 +172,10 @@ hr {
 
 .titles p {
     text-align: center;
-}
+}*/
 
-.nurseLogin {
+
+/*.nurseLogin {
     margin-left: 27%;
     padding: 4%;
     width: 180px;
@@ -157,117 +197,110 @@ hr {
 #loginChildBtn {
     position: relative;
     right: 11%;
+}*/
+
+footer {
+   /*
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+*/
+   height: 60px;
+   background-color: black;
+   position: relative;
+   opacity: .6;
+}
+.footerText {
+   color: white;
+   font-size: 1.2em;
+   font-weight: bold;
+   padding: 4px 15px;
+   display: inline-block;
 }
 
-.blackBox {
-    position: relative;
-    margin-top: 3.2%;
-/*    margin-bottom: -3%;*/
-/*    bottom: 0;*/
-    height: 50px;
-    width: 100%;
-    background-color: #080808;
-    opacity: 0.9;
-    background-color: transparent, #686868;
-}
-
+/*
 .nurseFooter {
     position: relative;
     top: 12.5%;
-}
-
-
+}*/
 
 
 /****************************END OF HOME PAGE*****************************/
 
+
 /*Styling for Main Nurse template Page*/
+
 .nurseHeader {
-	width: 100%;
-	height: 15%;
+   width: 100%;
+   height: 15%;
 }
-
 .logo {
-	margin-left: 2%;
-	height: 115px;
-	width: 100px;
+   margin-left: 2%;
+   height: 115px;
+   width: 100px;
 }
-
 .mdbutton {
-	width: 90%;
+   width: 90%;
 }
-
 .nurseContainer {
-	width:100%;
-	height: 85%;
-	display: flex;
-	flex-direction: row;
+   width: 100%;
+   height: 85%;
+   display: flex;
+   flex-direction: row;
 }
-
 .nurseNav {
-	width: 15%;
-	height: 85%;
-	margin-top: 5%;
-	padding: 5px;
+   width: 15%;
+   height: 85%;
+   margin-top: 5%;
+   padding: 5px;
 }
-
 .nurseViewContainer {
-	width: 85%;
-	height: 85%;
-	padding: 15px;
+   width: 85%;
+   height: 85%;
+   padding: 15px;
 }
 
 /***************************END OF MAIN NURSE TEMPLATE PAGE************************/
 
+
 /*Search Page*/
-#babyRow {
-    padding: 20px;
-    height: 30px;
-    /*width: 100%;*/
-    border-bottom: solid 1px lightgrey;
-    cursor: pointer;
-}
 
-#babyRow:visited {
-    background-color: #fff;
+.babyRow {
+   padding: 1%;
 }
-
-#babyRow {
-/*    background-color: #444444;*/
-}
-
-#searchCellPatient {
-    width: 25%;
-/*    padding-bottom: 20px;*/
-}
-
-#searchCellName {
-    width: 25%;
-/*    padding-bottom: 20px;*/
-}
-
+#searchCellPatient,
+#searchCellBirth,
+#searchCellName,
 #searchCellGender {
-    width: 25%;
-/*    padding-bottom: 20px;*/
+   width: 25%;
+   /*    padding-bottom: 20px;*/
 }
-
 #searchCellBirth {
-    width: 15%;
-    padding-right: 5%;
-/*    padding-bottom: 20px;*/
+   width: 15%;
+   padding-right: 5%;
+   /*    padding-bottom: 20px;*/
 }
-
 .pointer {
-    cursor: pointer;
+   cursor: pointer;
+}
+.paddingLeft {
+   padding-left: 2px;
 }
 
 /******************************NURSE CREATE NOTE PAGE**********************/
 
+.alignRight {
+   padding-right: 135px;
+   ;
+   float: right;
+}
 #createNoteBtn {
-    position: relative;
-    right: -180%;
+   position: relative;
+   right: -180%;
 }
 
+/*
 #comment {
     margin-left: auto;
     margin-right: auto;
@@ -286,6 +319,10 @@ hr {
     position: relative;
     left: -10%;
 }
+.textAreaContainer {
+    outline: 1px solid #eee;
+}*/
+
 
 /*
 * {
@@ -293,158 +330,145 @@ hr {
 }
 */
 
+
 /******************************END CREATE NOTE PAGE**********************/
 
 
 /******************************NURSE SEARCH PAGE**********************/
+
 .container {
-    width: 95%;
-    height: auto;
-    background-color: #EEEEEE;
-    padding: 20px;
-    border: 1px solid black;
-    box-shadow: 0 0 1px 1px;
+   width: 85%;
+   margin: auto;
+   outline: 1px solid #eee;
+   /*background-color: #EEEEEE;*/
+   /*padding: 20px;*/
+   /*box-shadow: 0 0 1px 1px;*/
 }
-
-#babyColumn {
-    background-color: white;
-    border: 0px solid black;
-    padding: 30px;
-    box-shadow: 0 0 1px 1px;
-}
-
-#babyRow {
-    border: 0px solid black;
-    box-shadow: 0 0 1px 1px;
-}
-
 .gender {
-    position: relative;
-    left: 3.5%;
-/*    margin-left: 10%;*/
+   position: relative;
+   left: 3.5%;
+   /*    margin-left: 10%;*/
 }
+
+/** {
+    outline: 1px
+}*/
 
 .birth {
-    position: relative;
-    left: 5.1%;
-/*    margin-left: 10%;*/
+   position: relative;
+   left: 5.1%;
+   /*    margin-left: 10%;*/
 }
-
 .numbers {
-    position: relative;
-    left: 0.5%;
+   position: relative;
+   left: 0.5%;
 }
-
-.test {
-    color: black;
-}
-
 a {
-    color: red;
-    text-decoration: none;
+   color: #A41031;
+   text-decoration: none;
 }
-
-md-input-container .md-input{
-    border-color: red !important;
+md-input-container .md-input {
+   border-color: 68041A;
 }
-
 .grid {
-  width: 95%;
-  height: 80%;
+   width: 95%;
+   height: 80%;
 }
-
 .my-custom-menu {
-  position: absolute;
+   position: absolute;
 }
-
 .my-custom-menu .ui-grid-menu {
-  padding: 0px;
+   padding: 0px;
 }
-
 .my-custom-menu .ui-grid-menu-inner {
-  -webkit-box-shadow: none;
-  box-shadow: none;
+   -webkit-box-shadow: none;
+   box-shadow: none;
 }
-
 .rotated {
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
+   transform: rotate(180deg);
+   -webkit-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+   -o-transform: rotate(180deg);
 }
-
-
-.oddColor:nth-child(odd) {background-color: white;}
-
-
-
-
-
-/********************************END SEARCH PAGE***********************************/
-
-/*******************************Parent View Template Page**************************/
-.parentNavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    float: center;
-    margin-top: 25px;
+.rowColor:nth-child(even) {
+   background-color: #fff;
 }
-
-.parentViewContainer {
-    width: 100%;
-    height: 85%;
-    margin: auto;
-    margin-top: 25px;
-
-}
-
-.break {
-    width: 80%;
-    height: 10px;
-    border-radius: 25px;
-    background-color: gray;
-    display: block;
-    margin: auto;
-    margin-top: 25px;
-
-}
-
-/*******************************Parent Settings Page*******************************/
-
-.form {
-    height: 85%;
-    width: 90%;
-    display: flex;
-    float: center;
-    align-items: left;
-    flex-direction: row;
-    margin: auto;
-    border: 5px black solid;
-    padding: 25px;
-}
-.clear {
-	clear: both;
-}
-
-/* Parent Timeline Page (for testing only) */
-.repeatNote {
-    padding: 10px;
-    outline: 1px solid black;
-    width: 23%;
-    margin: 10px;
-    float: left;
-}
-.repeateNoteContainer {
-    width: 97%;
-    height: 450px;
-    overflow: auto;
+.rowColor:nth-child(odd) {
+   background-color: #eee;
 }
 
 /** {
     outline: 1px solid red;
 }*/
+
+
+/*******************************Parent View Template Page**************************/
+
+.parentNavBar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   float: center;
+   margin-top: 25px;
+}
+.parentViewContainer {
+   width: 100%;
+   height: 85%;
+   margin: auto;
+   /*margin-top: 25px;*/
+}
+.break {
+   width: 80%;
+   height: 10px;
+   border-radius: 25px;
+   background-color: gray;
+   display: block;
+   margin: auto;
+   margin-top: 25px;
+}
+.md-sidenav-backdrop {
+   height: 100%;
+   position: fixed;
+}
+
+/*******************************Parent Settings Page*******************************/
+
+.form {
+   height: 85%;
+   width: 90%;
+   display: flex;
+   float: center;
+   align-items: left;
+   flex-direction: row;
+   margin: auto;
+   /*border: 5px black solid;*/
+   padding: 25px;
+}
+.clear {
+   clear: both;
+}
+
+/* Parent Timeline Page (for testing only) */
+
+.repeatNote {
+   padding: 10px;
+   outline: 1px solid black;
+   width: 23%;
+   margin: 10px;
+   float: left;
+}
+.repeateNoteContainer {
+   width: 97%;
+   height: 450px;
+   overflow: auto;
+}
+
+/** {
+    outline: 1px solid red;
+}*/
+
+
 /*br {
  border-width: 10px;
  border-style: inset;
@@ -452,6 +476,7 @@ md-input-container .md-input{
  vertical-align: center;
  color: black;
 }*/
+
 
 /*
 * {
@@ -462,38 +487,8 @@ md-input-container .md-input{
 
 
 /*******************************END Parent Settings Page**************************/
-.frame {
-    min-height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid red;
-    height: 100%;
-    width: 100%;
-}
 
 
-.bgimage {
-    text-align:right;
-    color:white;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 100%;
-    background-position: center center;
-}
-ul[rn-carousel] {
-    width:400px;
-    height:200px;
-    margin: 0 auto;
-}
-.frame ul[rn-carousel-transition="hexagon"] {
-  margin-left: 200px;
-}
-
-.carousel3 li {
-    width:100%;
-    height:100%;
-    font-size:30px;
-    background-color: #ccc;
-}
 
 
+/*******************************END Parent Settings Page**************************/

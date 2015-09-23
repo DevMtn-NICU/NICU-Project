@@ -1,33 +1,31 @@
-<md-input-container flex>
-
-    <label class="test"><span style="color: black;">Search for Baby by ID or Name</span></label>
-
-	<input type="text" ng-model="babySearch" autofocus>
-
-</md-input-container>
 
 <div class="container">
-    <table>
-        <!--header-->
-        <div flex layout="space-around center" id="babyColumn">
-            <span layout="column" flex id="searchCellPatient">Patient ID</span>
-            <span layout="column" flex id="searchCellName">Name</span>
-            <span layout="column" flex id="searchCellGender">Gender</span>
-            <span layout="column" flex id="searchCellBirth">Date of Birth</span>
+    <md-toolbar class="md-primary">
+        <div flex="5" layout="center">
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex> &nbsp;Patient ID</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex>&nbsp;Name</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex>Gender</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex>Date of Birth</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex> </span>
         </div>
-        <!--search field-->
-        <div flex layout="space-around center" id="babyRow" ng-repeat="baby in babies | filter:babySearch" class="oddColor">
-            
-            
-            <span layout="column" flex id="searchCellPatient" class="numbers"><a href="#/medical/create_note/{{ baby._id }}">{{ baby.patientNumber }}</a></span> &nbsp &nbsp &nbsp
-            
-            
-            
-            <span layout="column" flex id="searchCellName">{{ baby.lastName }}, {{ baby.firstName }}</span>
-            <span layout="column" flex id="searchCellGender" class="gender">{{ baby.gender }}</span>
-            <span layout="column" flex id="searchCellBirth" class="birth">{{ baby.birthDate }}</span>
-            <span><a href="#/medical/edit/{{ baby._id }}">Edit</a></span> &nbsp | &nbsp
-            <span><a href="#/medical/create_note/{{ baby._id }}">Create Note</a></span>
-        </div>
-    </table>
+    </md-toolbar>
+    <md-input-container class="md-highlight md-primary md-hue-1">
+        <label>Search for Baby by ID or Name</label>
+    	<input type="text" ng-model="babySearch" autofocus>
+    </md-input-container>
+
+    <!--search field-->
+    <div flex="5" layout="center" ng-repeat="baby in babies | filter:babySearch" class="rowColor babyRow">
+        <span layout="row" flex>
+            {{ baby.patientNumber }}
+        </span>
+        <span layout="row" flex>{{ baby.lastName }}, {{ baby.firstName }}</span>
+        <span layout="row" flex>{{ baby.gender }}</span>
+        <span layout="row" flex>{{ baby.birthDate }}</span>
+        <span layout="row" flex>
+            <a href="#/medical/edit/{{ baby._id }}">Edit Patient</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="#/medical/create_note/{{ baby._id }}">Create Note</a>
+        </span>
+    </div>
 </div>
+

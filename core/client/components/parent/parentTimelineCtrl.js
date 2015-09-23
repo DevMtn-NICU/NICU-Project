@@ -62,7 +62,7 @@
             // legend config
             legend: {
                display: true, // can be either 'left' or 'right'.
-               position: 'left',
+               position: 'right',
                // you can have html in series name
                htmlEnabled: false
             },

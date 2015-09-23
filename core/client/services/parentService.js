@@ -6,6 +6,8 @@
          var babyId;
 
          this.addBabyNote = function (note) { //this is a repeat from the nurse service, we might want to refactor
+            var userId = $cookies.getObject("userId");
+            note.creator = userId;
             var deferred = $q.defer();
             $http({
                method: 'POST',
@@ -88,6 +90,20 @@
             return deferred.promise;
          };
 
+         this.changeTheme = function (theme, id) {
+            var deferred = $q.defer();
+            $http({
+               method: "PUT",
+               url: "/api/babies/theme/" + id,
+               data: {
+                  theme: theme
+               }
+            }).then(function (response) {
+               deferred.resolve(response.data);
+            });
+            return deferred.promise;
+         };
+
          this.logout = function() {
    				var deferred = $q.defer();
    				$http({
@@ -95,6 +111,7 @@
    					url: '/logout'
    				}).then(function() {
             $cookies.remove("userId");
+            $cookies.remove("userName");
             $cookies.remove("userRoles");
             $cookies.remove("userEmail");
             $cookies.remove("parentObj");
@@ -104,6 +121,7 @@
    				});
    				return deferred.promise;
    			};
+
 
       });
 }());

@@ -1,49 +1,45 @@
-<div md-theme="{{theme}}">
+<div md-theme="{{ theme }}">
    <div>
 
-
-      <div class="parentNavBar">
-
-         <div>
-            <md-button class="md-primary md-raised md-button" ui-sref="parent.landing">Home</md-button>
-         </div>
-
-         <div>
-            <md-button class="md-primary md-raised md-button" ui-sref="parent.settings">Settings</md-button>
-         </div>
-         <div>
-            <md-button class="md-primary md-hue-2 md-raised md-button">Test</md-button>
-         </div>
-         <div>
-            <md-button class="md-primary md-hue-3 md-raised med-button">Test</md-button>
-         </div>
-         <div>
-            <md-button class="md-accent md-raised md-button" ui-sref="parent.timeline">Timeline</md-button>
-         </div>
-         <div class="" ui-sref="parent.landing">
-            <h1>{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
-         </div>
-         <div>
-
-            <md-button class="md-warn md-raised md-hue-3 mdbutton" ui-sref="parent.create_note">Add a Note</md-button>
-
-         </div>
-         <div>
-           <md-button class="md-raised mdbutton" type="button" ng-click="logout()">Logout</md-button>
-         </div>
-         <div>
+      <md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
+         <md-toolbar class="md-primary">
+            <h1 class="md-toolbar-tools">Menu</h1>
+         </md-toolbar>
+         <md-content layout="column" layout-padding>
             <md-input-container>
+               <label>Switch Baby</label>
                <md-select ng-model="currentBaby">
                   <md-option ng-repeat="baby in babies" ng-value="baby">{{baby.firstName}} {{baby.lastName}}</md-option>
                </md-select>
             </md-input-container>
+            <md-input-container>
+               <label>Theme for baby</label>
+               <md-select ng-model="theme">
+                  <md-option ng-value="themeName" ng-repeat="themeName in themeList" ng-click="changeTheme(themeName)">{{ themeName }}</md-option>
+               </md-select>
+            </md-input-container>
+            <md-button class="md-primary md-raised md-button" ui-sref="parent.landing" ng-click="toggleSidenav()">Home</md-button>
+            <md-button class="md-primary md-raised md-button" ui-sref="parent.settings" ng-click="toggleSidenav()">Settings</md-button>
+            <md-button class="md-accent md-raised md-button" ui-sref="parent.timeline" ng-click="toggleSidenav()">Timeline</md-button>
+            <md-button class="md-warn md-raised md-hue-3" ui-sref="parent.create_note" ng-click="toggleSidenav()">Add a Note</md-button>
+            <md-button class="md-raised md-primary" ng-click="toggleSidenav()">Close Menu</md-button>
+         </md-content>
+      </md-sidenav>
+      <div class="parentNavBar" layout="row">
+         <div>
+            <md-button type="button" class="md-raised md-primary" ng-click="toggleSidenav()">Menu</md-button>
          </div>
-
-
+         <div ui-sref="parent.landing" style="cursor: pointer;">
+            <h1>{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
+         </div>
+         <div>
+            <md-button class="md-raised mdbutton" type="button" ng-click="logout()">Logout</md-button>
+         </div>
       </div>
-      <div class="break"></div>
+      <!-- <div class="break"></div> -->
       <div class="parentViewContainer">
          <div ui-view></div>
       </div>
    </div>
 </div>
+<!--<div ng-include="'../../footer.html'"></div>-->
