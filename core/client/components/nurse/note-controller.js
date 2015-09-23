@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('app')
-    .controller('noteController', function ($scope, promised, NurseService, $mdDialog, $state) {
+    .controller('noteController', function ($scope, promised, NurseService, $mdDialog, $state, $cookies) {
 
         $scope.note = {};
         $scope.note.stats = {};
@@ -32,6 +32,7 @@
            $scope.note.baby = promised._id;
            $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
            $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
+           $scope.note.creator = $cookies.getObject('name');
         //    $scope.note.picturesUrl = $scope.note.picturesUrl;
            NurseService.addBabyNote($scope.note).
            then(function (response) {

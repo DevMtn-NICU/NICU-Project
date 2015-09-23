@@ -2,6 +2,7 @@
 var Baby = require("../models/baby.server.model.js");
 var User = require("../models/user.server.model.js");
 var Q = require('q');
+var Note = require("../models/baby.server.model.js");
 
 exports.makeBaby = function (req, res) {
 	var babyId, parent1Id, parent2Id;
@@ -125,10 +126,11 @@ exports.getBaby = function (req, res) {
 	.populate('level2')
 	.populate('level3')
 	.exec(function(err, result) {
-		if (err) {
-			return res.status(500).send(err);
-		}
-		res.send(result);
+		if (err) return res.status(500).send(err);
+		Baby.populate(result, {path: 'notes.creator', model: "User"}, function(err) {
+			if (err) return res.status(500).send(err);
+			res.send(result);
+		});
 	});
 };
 
