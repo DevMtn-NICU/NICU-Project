@@ -15,6 +15,7 @@ angular.module('app')
             console.log('role', role[0]);
             var user = res.data;
             $cookies.putObject("userId", user._id);
+            $cookies.putObject("userName", user.name);
             $cookies.putObject("userRoles", user.roles);
             $cookies.putObject("userEmail", user.email);
             $cookies.putObject("parentObj", user.parent);
