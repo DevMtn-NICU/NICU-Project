@@ -273,7 +273,6 @@ hr {
 .headerContainer {
     width: 85%;
     margin: 0 auto;
-    vertical-align: bottom;
 }
 #searchCellPatient, #searchCellBirth, #searchCellName, #searchCellGender {
     width: 25%;
@@ -362,12 +361,15 @@ hr {
 }
 
 a {
-    color: red;
+    color: #A41031;
+    text-decoration: none;
+}
+a:visited {
+    color: #666;
     text-decoration: none;
 }
 
 md-input-container .md-input{
-    border-color: red !important;
 }
 
 .grid {
