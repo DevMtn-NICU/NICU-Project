@@ -345,3 +345,10 @@ exports.editBaby = function(req, res) {
 		}
 	});
 };
+
+exports.changeTheme = function(req, res) {
+	Baby.findByIdAndUpdate(req.params.id, {"theme": req.body.theme}, {new: true}, function(err, baby) {
+		if (err) return res.status(500).send(err);
+		else res.send(baby);
+	});
+};
