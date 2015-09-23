@@ -364,11 +364,11 @@ footer {
    left: 0.5%;
 }
 a {
-   color: red;
+   color: #A41031;
    text-decoration: none;
 }
 md-input-container .md-input {
-   border-color: red !important;
+   border-color: 68041A;
 }
 .grid {
    width: 95%;
