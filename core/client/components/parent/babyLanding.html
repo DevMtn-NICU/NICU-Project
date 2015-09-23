@@ -24,7 +24,7 @@
       </div>
    </div>
 
-   <!--
+
    <div class="scroll">
        <md-toolbar md-scroll-shrink>
           <div class="md-toolbar-tools">
@@ -43,28 +43,29 @@
       <hr />
    </div>
 </div>
--->
 
-   <md-card flex layout="column">
-      <md-toolbar>
-         <div class="md-toolbar-tools">Comments</div>
-      </md-toolbar>
-      <md-content flex layout="column">
-         <md-list flex>
-            <md-item ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">
-               <md-item-content>
-                  <div class="md-tile-content">
-                     {{note.comment}}
-                     <br /> {{note._id}}
-                     <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-                     <hr />
-                  </div>
-               </md-item-content>
-               <md-divider></md-divider>
-            </md-item>
-         </md-list>
-      </md-content>
-   </md-card>
+
+<!--
+<md-card flex layout="column">
+   <md-toolbar>
+      <div class="md-toolbar-tools">Comments</div>
+   </md-toolbar>
+   <md-content flex layout="column">
+      <md-list flex>
+         <md-item ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">
+            <md-item-content>
+               <div class="md-tile-content">
+                  {{note.comment}}
+                  <br /> {{note._id}}
+                  <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
+                  <hr />
+               </div>
+            </md-item-content>
+            <md-divider></md-divider>
+         </md-item>
+      </md-list>
+   </md-content>
+</md-card>-->
 
 
 
