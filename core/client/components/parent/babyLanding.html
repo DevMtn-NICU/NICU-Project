@@ -24,14 +24,17 @@
       </div>
    </div>
 
-
-
-
    <!--
-<div class="scroll">
-   <md-toolbar md-scroll-shrink>
-      <div class="md-toolbar-tools">
-         Comments
+   <div class="scroll">
+       <md-toolbar md-scroll-shrink>
+          <div class="md-toolbar-tools">
+              Comments
+          </div>
+      </md-toolbar>
+      <div class="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
+         <br /> {{note.creator.name}}
+         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
+         <hr />
       </div>
    </md-toolbar>
    <div class="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
