@@ -1,8 +1,8 @@
 (function () {
 
-  "use strict";    
+  "use strict";
 
-   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies) {
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav) {
      if(!$cookies.getObject("userId")) {
        $state.go('login');
      }
@@ -10,7 +10,9 @@
       $scope.cookieBabies = $cookies.getObject("parentObj").babies;
       $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
 
-
+      $scope.toggleSidenav = function() {
+        $mdSidenav('menu').toggle();
+      };
 
       $scope.getBabyById = function (babyId) {
          parentService.getBabyById($scope.cookieBabies[i])
@@ -27,14 +29,15 @@
 
       $scope.$watch('currentBaby', function () {
          $scope.$broadcast('babyChanged');
-          if($scope.currentBaby) {
-            $scope.theme = $scope.currentBaby.theme;
-          }
       });
 
       $scope.$on('babyChanged', function (e) {
          if ($scope.currentBaby) {
             parentService.setBabyId($scope.currentBaby._id);
+            parentService.getBabyById($scope.currentBaby._id)
+            .then(function(response) {
+              $scope.theme = response.theme;
+            });
          }
       });
 
@@ -51,19 +54,14 @@
               'rosePink'
           ];
 
-    $scope.changeTheme = function () {
+    $scope.changeTheme = function (theme) {
       if($scope.currentBaby) {
-        parentService.changeTheme($scope.theme, $scope.currentBaby._id)
+        parentService.changeTheme(theme, $scope.currentBaby._id)
         .then(function (response) {
           $scope.theme = response.theme;
-
-        })
+        });
       }
-    }
-
-    $scope.$watch('theme', function() {
-      $scope.changeTheme();
-    });
+    };
 
       $scope.logout = function() {
 				parentService.logout()
