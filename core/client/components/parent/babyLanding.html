@@ -45,7 +45,6 @@
        </md-toolbar>
       <div class="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
          <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <br /> {{note.creator.name}}
          <hr />
       </div>
    </div>
