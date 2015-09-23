@@ -361,12 +361,13 @@ hr {
 }
 
 a {
-    color: red;
+    color: #A41031;
     text-decoration: none;
 }
 
-md-input-container .md-input{
-    border-color: red !important;
+md-input-container 
+.md-input{
+    border-color: 68041A;
 }
 
 .grid {
