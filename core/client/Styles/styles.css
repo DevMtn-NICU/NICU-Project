@@ -4,17 +4,24 @@ body {
    padding: 0;
    width: 100%;
    height: 100%;
+   box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+   box-sizing: inherit;
 }
 body {
    margin: 0;
    padding: 0;
    font-family: 'PT Sans', sans-serif;
+   display: flex;
+   flex-direction: column;
    /*background-image: url('../../images/cars_bckgrnd.png');
     position: fixed;*/
 }
 .fullPage {
    position: relative;
-   /*height: 95%;*/
    width: 100%;
    clear: left;
 }
@@ -191,12 +198,14 @@ hr {
 }*/
 
 footer {
+   /*
    position: absolute;
    bottom: 0;
    left: 0;
+   right: 0;
+*/
    margin-top: 45px;
    height: 60px;
-   width: 100%;
    background-color: darkgray;
 }
 .footerText {

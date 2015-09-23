@@ -8,12 +8,17 @@
    <link href='//fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="Styles/styles.css">
    <link rel="stylesheet" href="Styles/baby.css">
+
+   <!--   moved angularjs script up here for ngcloak-->
+   <script src="./scripts/angular/angular.js"></script>
 </head>
 
 <body ng-app="app">
-   <div ui-view class="fullPage"></div>
-   <!-- footer -->
 
+   <div ui-view class="fullPage"></div>
+
+   <!-- footer -->
+   <div ng-include="'./footer.html'"></div>
    <!-- </footer> -->
 
    <!-- Dependencies -->
@@ -25,7 +30,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.js"></script>
     -->
    <!--   DEVELOPMENT DEPENDANCY FILES -->
-   <script src="./scripts/angular/angular.js"></script>
+
    <script src="./scripts/jquery/dist/jquery.js"></script>
    <script src="./scripts/angular-aria/angular-aria.js"></script>
    <script src="./scripts/angular-animate/angular-animate.js"></script>
