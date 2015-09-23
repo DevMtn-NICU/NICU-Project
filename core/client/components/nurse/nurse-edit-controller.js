@@ -4,6 +4,8 @@
    angular.module('app')
       .controller('editController', function ($scope, promised, makeBabySvc, $state) {
 
+         $scope.theme = "nurseViews";
+         
          $scope.showAdd = false;
 
          $scope.baby = promised;

@@ -5,6 +5,8 @@
 		.service('NurseService', function ($http, $q, $cookies) {
 
 			this.addBabyNote = function (note) {
+				var userId = $cookies.getObject("userId");
+				note.creator = userId;
 				var deferred = $q.defer();
 				$http({
 					method: 'POST',
@@ -42,6 +44,7 @@
 					url: '/logout'
 				}).then(function() {
 					$cookies.remove("userId");
+					$cookies.remove("userName");
 					$cookies.remove("userRoles");
 					$cookies.remove("userEmail");
 					$cookies.remove("parentObj");

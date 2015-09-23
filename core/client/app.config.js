@@ -1,30 +1,5 @@
 (function() {
 	"use strict"
-	// angular.module('app')
-	// 	.config(function($mdThemingProvider) {
-
-	// 		var themes = ThemeService();
- //    			for (var index = 0; index < themes.length; ++index) {
- //      			console.log(themes[index] + '-theme');
-      
- //      		$mdThemingProvider.theme(themes[index] + '-theme')
- //        		.primaryPalette(themes[index]);
- //    		}
-    
-
-    
- //  		});
-
- //  			function ThemeService() {
- //    			var themes = [
- //      				'camoGreen',
- //      				'showerBlue',
- //      				'puffyPurple',
- //      				'rosePink'
- //    			];
-    
- //    		return themes;
- //  			}
 
 	angular.module("app")
 		.config(function($mdThemingProvider) {
@@ -179,5 +154,37 @@
 				'default': '900'
 			})
 		});	
+
+		angular.module("app")
+		.config(function($mdThemingProvider) {
+
+			var nursePalette = $mdThemingProvider.extendPalette('red', {
+				'900': '060102',
+				'600': '68041A',
+				'500': 'A41031',
+				'200': '9D999A'
+			});
+			var nursePaletteTwo = $mdThemingProvider.extendPalette('grey', {
+				'200': 'D2CDCE'
+			});
+
+			$mdThemingProvider.definePalette('nurseRed', nursePalette);
+			$mdThemingProvider.definePalette('nurseGrey', nursePaletteTwo);
+    	
+			$mdThemingProvider.theme('nurseViews')
+			.primaryPalette('nurseRed', {
+				'default': '500',
+				'hue-1': '600',
+				'hue-2': '200'
+			})
+			.accentPalette('nurseGrey', {
+				'default': '500'
+			})
+			.warnPalette('nurseRed', {
+				'default': '900'
+			})
+		});	
+
+
 
 })();
