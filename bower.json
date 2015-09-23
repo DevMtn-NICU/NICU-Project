@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
+    "angular-carousel": "~0.3.13",
     "angular-charts": "~0.2.7"
   }
 }
