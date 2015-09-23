@@ -2,7 +2,7 @@
 
 <div class="container greyOutline">
     <md-toolbar>
-            <span class="md-toolbar-tools">Create Baby Note: {{ theBaby.firstName}} {{ theBaby.lastName}}</span>
+            <span class="md-toolbar-tools md-primary">Create Baby Note: {{ theBaby.firstName}} {{ theBaby.lastName}}</span>
     </md-toolbar>
     <div>
     <div class="medicalFormInnerContainer">
@@ -72,7 +72,7 @@
 
                 <div class="alignRight">
                     <md-button type="button" ng-click="clearFields()" class="pointer md-raised">Cancel</md-button>
-                    <md-button class="md-warn md-raised md-hue-2" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
+                    <md-button class="md-primary md-raised" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
                     
                 </div>
                 </form>

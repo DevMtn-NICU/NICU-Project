@@ -364,12 +364,10 @@ a {
     color: #A41031;
     text-decoration: none;
 }
-a:visited {
-    color: #666;
-    text-decoration: none;
-}
 
-md-input-container .md-input{
+md-input-container
+.md-input{
+    border-color: 68041A;
 }
 
 .grid {
