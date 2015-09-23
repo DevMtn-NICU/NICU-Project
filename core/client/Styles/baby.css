@@ -33,7 +33,8 @@ img {
     position: fixed;
 }
 
-.landingContainer {
-    width: 80%;
-    margin: auto;
+.parentContainer {
+        width: 85%;
+        margin: 25px auto;
+
 }
