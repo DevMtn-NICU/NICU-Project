@@ -1,65 +1,20 @@
-<div class="redBox"></div>
-<!-- RED BOX -->
-<!-- END  RED BOX-->
-
-<header>
-   <!-- HEADER -->
-
-   <div id="logo">
-      <!-- LOGO -->
-      <img src="../../images/uuhc_logo_homepage_whole.png">
-      <hr>
-   </div>
-   <!-- END  LOGO-->
-
-</header>
-<!-- END  HEADER-->
-
-<div class="titles">
-   <!-- TITLES -->
-
-   <h1 class="bigTitle">NICU Login Page</h1>
-   <!-- HEADER -->
-   <!-- END  HEADER-->
-   <p class="smallTitle">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
-   <!-- SUBSTILE -->
-   <!-- END  SUBTITLE-->
-   <!--   DUMMY USER -->
-   <p class="smallTitle">dummyUser: dontDeleteMeEver@gmail.com
-      <br /> password: test</p>
-
+<!-- <div class="redBox"></div> -->
+<div layout="column">
+    <md-toolbar>
+        <div class="md-toolbar-tools redBox">
+            Share Heart To Heart (Demo)
+        </div>
+    </md-toolbar>
 </div>
-<!-- END  TITLES-->
-
-
-<div class="login">
-   <!-- LOGIN -->
-
-
-
-   <img class="childLogin" src="../../images/mother_baby.png">
-   <!-- CHILD LOGIN IMG -->
-   <!-- END  CHILD LOGIN IMG-->
-   <md-button id="loginChildBtn" class="md-raised" ng-click="userLogin()">login</md-button>
-   <!-- CHILD BUTTON LOGIN -->
-   <!-- END  CHILD BUTTON LOGIN-->
-
-</div>
-<!-- END  LOGIN-->
-
-
-<footer class="blackBox2 nurseFooter">
-<!--     BLACK FOOTER -->
-
-   <div class="call" layout="row" layout-align="space-between center" layout-margin offset-gt-lg>
-<!--       FOOTER INFO -->
-<!--
-      <div class="call">Call us : 777-777-7777</div>
-      <div class="call copyRight">Copyright © The Brady Bunch 2015</div>
-      <div class="call email">Email Adress : thebradybunch@gmail.com</div>
--->
-
-   </div>
-    
-</footer>
-
+<md-content>
+    <div class="outerHome">
+        <img src="../../images/uuhc_logo_homepage_whole.png">
+        <h3>The Neonatal Intensive Care Unit (NICU)</h3>
+        <div class="marginAuto">
+            <md-button class="md-raised" ng-click="userLogin()">login</md-button><br>
+        </div>
+        <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+        <img src="../../images/mother_baby.png"  class="homeIcon"><br>
+    </div>
+</md-content>
+<div ng-include="'../../footer.html'"></div>

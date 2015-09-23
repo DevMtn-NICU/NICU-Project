@@ -19,7 +19,7 @@
             scope.note.picturesUrl = result.data.Location;
             scope.images.unshift(result.data);
           }).catch(function (err) {
-			scope.note.picturesUrl = "Selected image is too large to upload.";
+			scope.pictureError = "Selected image is too large to upload.";
           })
 	    }
 		reader.readAsDataURL(changeEvent.target.files[0]);
