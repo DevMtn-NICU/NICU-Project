@@ -1,10 +1,12 @@
 
-<div class="flexBox">
-
-
-
+<div class="landingContainer flexBox">
    <div class="scroll">
-      <div id="stats" ng-show="note.stats.heartRate" ng-repeat="note in notes | orderBy:'created_at':true | limitTo:5 ">
+       <md-toolbar>
+           <div class="md-toolbar-tools fixed">
+               Latest Baby Notes
+           </div>
+       </md-toolbar>
+      <div class="stats" ng-show="note.stats.heartRate" ng-repeat="note in notes | orderBy:'created_at':true | limitTo:5 ">
          HR: {{note.stats.heartRate}}
          <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}</span>
          <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}</span>
@@ -19,37 +21,40 @@
          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
          <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
          {{note.created_at | date:'M-dd-yy h:mm a' }}
-
          <hr />
-
       </div>
    </div>
 
-
-
-
    <div class="scroll">
-      <div id="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
+       <md-toolbar md-scroll-shrink>
+          <div class="md-toolbar-tools">
+              Comments
+          </div>
+      </md-toolbar>
+      <div class="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
+         <br /> {{note._id}}
          <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
    </div>
-
-
-
-
    <div class="scroll">
-      <div id="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
+       <md-toolbar>
+           <div class="md-toolbar-tools fixed">
+               Journal
+           </div>
+       </md-toolbar>
+      <div class="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
          <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
    </div>
-
-
-
-
    <div class="scroll">
-      <div id="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
+       <md-toolbar>
+           <div class="md-toolbar-tools fixed">
+               Pictures
+           </div>
+       </md-toolbar>
+      <div class="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
          <img src="{{note.picturesUrl}}" />
          <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
