@@ -1,5 +1,5 @@
 <div md-theme="{{ theme }}">
-	
+
 
 
 
@@ -27,14 +27,6 @@
 
          </div>
 
-         <div class="themeBox">
-
-	<md-content>
-        <md-select ng-model="theme" placeholder="Select a theme">
-          <md-option ng-value="themeName" ng-repeat="themeName in themeList" ng-selected="themeName == theme">{{ themeName }}</md-option>
-        </md-select>
-    </md-content>
- 	</div>
          <div>
            <md-button class="md-raised mdbutton" type="button" ng-click="logout()">Logout</md-button>
          </div>
@@ -45,6 +37,13 @@
                </md-select>
             </md-input-container>
          </div>
+				 <div>
+				 	<md-input-container>
+        		<md-select ng-model="theme">
+          		<md-option ng-value="themeName" ng-repeat="themeName in themeList" ng-selected="themeName == theme">{{ themeName }}</md-option>
+        		</md-select>
+    			</md-input-container>
+				</div>
 
 
       </div>
@@ -55,4 +54,3 @@
    </div>
 </div>
 </div>
-
