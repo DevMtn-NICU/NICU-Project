@@ -5,7 +5,7 @@
 		<md-tab label="Journal">
 			<div class="tljournal md-whiteframe-z3" ng-repeat="note in baby.notes">
 				<div ng-show="note.journal" >
-					<div style="margin:5px; border:1px black solid">
+					<div style="margin:15px 5px; border:1px black solid; padding: 4px">
 						{{ note.journal }}
 					</div>
 				</div>
@@ -16,7 +16,11 @@
 			<div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart' style='margin:20px auto; width:1200px; height:500px'></div>
 			<br>
 			<div class="statbar" style="white-space: nowrap; overflow-y: hidden; overflow-x: scroll">
-				<div class="tlstats md-whiteframe-z3" style="display:inline-block; margin:5px; padding:4px; height: 100%" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+				<div class="tlstats md-whiteframe-z3" style="display:inline-block; border:1px black solid; margin:5px; padding:4px; height: 100%" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+					<md-content class="md-primary">
+					{{ note.created_at }}
+					</md-content>
+					<br>
 					Blood Pressure: {{ note.stats.bloodPressure }}<br>
 					Heart Rate: {{ note.stats.heartRate }}<br>
 					Oxygen: {{ note.stats.oxygen }}<br>
@@ -30,8 +34,9 @@
 					Fed: {{ note.stats.fed }}<br>
 					Changed: {{ note.stats.changed }}<br>
 					Bathed: {{ note.stats.bathed }}<br>
-					{{ note.created_at }}<br>
 				</div>
+				<hr>
+				<span class="float:right">{{ note.creator }}</span>
 			</div>
 		</md-tab>
 
