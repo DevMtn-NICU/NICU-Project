@@ -1,74 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Share Heart to Heart</title>
-        <link rel="stylesheet" href="./scripts/angular-material/angular-material.css">
-        <link href='//fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="Styles/styles.css">
-        <link rel="stylesheet" href="Styles/baby.css">
-    </head>
-    <body ng-app="app">
-       <div ui-view class="fullPage"></div>
-       <!-- footer -->
 
-       <!-- </footer> -->
+<head>
+   <meta charset="UTF-8">
+   <title>Share Heart to Heart</title>
+   <link rel="stylesheet" href="./scripts/angular-material/angular-material.css">
+   <link href='//fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="Styles/styles.css">
+   <link rel="stylesheet" href="Styles/baby.css">
+</head>
 
-       <!-- Dependencies -->
-       <!--  THESE NEED TO BE UPDATED!
+<body ng-app="app">
+   <div ui-view class="fullPage"></div>
+   <!-- footer -->
+
+   <!-- </footer> -->
+
+   <!-- Dependencies -->
+   <!--  THESE NEED TO BE UPDATED!
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.js"></script>
     -->
-       <!--   DEVELOPMENT DEPENDANCY FILES -->
-       <script src="./scripts/angular/angular.js"></script>
-       <script src="./scripts/jquery/dist/jquery.js"></script>
-       <script src="./scripts/angular-aria/angular-aria.js"></script>
-       <script src="./scripts/angular-animate/angular-animate.js"></script>
-       <script src="./scripts/angular-ui-router/build/angular-ui-router.js"></script>
-       <script src="./scripts/angular-material/angular-material.js"></script>
-       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
-       <script src='./scripts/bower_components/d3/d3.js' charset="utf-8"></script>
-       <script src='./scripts/bower_components/angular-charts/dist/angular-charts.js'></script>
+   <!--   DEVELOPMENT DEPENDANCY FILES -->
+   <script src="./scripts/angular/angular.js"></script>
+   <script src="./scripts/jquery/dist/jquery.js"></script>
+   <script src="./scripts/angular-aria/angular-aria.js"></script>
+   <script src="./scripts/angular-animate/angular-animate.js"></script>
+   <script src="./scripts/angular-ui-router/build/angular-ui-router.js"></script>
+   <script src="./scripts/angular-material/angular-material.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
+   <script src='./scripts/bower_components/d3/d3.js' charset="utf-8"></script>
+   <script src='./scripts/bower_components/angular-charts/dist/angular-charts.js'></script>
 
-       <!--   LOCAL FILES   -->
-       <script src="app.module.js"></script>
-       <script src="app.routes.js"></script>
-       <script src="app.config.js"></script>
+   <!--   LOCAL FILES   -->
+   <script src="app.module.js"></script>
+   <script src="app.routes.js"></script>
+   <script src="app.config.js"></script>
 
-       <!--   CONTROLLERS   -->
-       <script src="components/nurse/nurse-edit-controller.js"></script>
-       <script src="components/product/product-controller.js"></script>
-       <script src="components/home/home-controller.js"></script>
-       <script src="components/nurse/nurse-controller.js"></script>
-       <script src="components/nurse/note-controller.js"></script>
-       <script src="components/nurse/nurse.makeBabyCtrl.js"></script>
-       <script src="components/modal-templates/makeBabyConfirmationModalCtrl.js"></script>
-       <script src="components/nurse/nurse-searchCtrl.js"></script>
-       <script src="components/hospital/hospitalAddNurseCtrl.js"></script>
-       <script src="components/hospital/hospitalEditNurseCtrl.js"></script>
-       <script src="components/hospital/hospitalSearchCtrl.js"></script>
-       <script src="components/parent/parentTimelineCtrl.js"></script>
-       <script src="components/parent/parentViewCtrl.js"></script>
-       <script src="components/parent/parentSettingsCtrl.js"></script>
-       <script src="components/parent/parentCreateNoteCtrl.js"></script>
-       <script src="components/parent/parentViewCtrl.js"></script>
-       <script src="components/parent/babyLandingCtrl.js"></script>
+   <!-- CONTROLLERS -->
+   <script src="components/nurse/nurse-edit-controller.js"></script>
+   <script src="components/product/product-controller.js"></script>
+   <script src="components/home/home-controller.js"></script>
+   <script src="components/nurse/nurse-controller.js"></script>
+   <script src="components/nurse/note-controller.js"></script>
+   <script src="components/nurse/nurse.makeBabyCtrl.js"></script>
+   <script src="components/modal-templates/makeBabyConfirmationModalCtrl.js"></script>
+   <script src="components/nurse/nurse-searchCtrl.js"></script>
+   <script src="components/hospital/hospitalAddNurseCtrl.js"></script>
+   <script src="components/hospital/hospitalEditNurseCtrl.js"></script>
+   <script src="components/hospital/hospitalSearchCtrl.js"></script>
+   <script src="components/parent/parentTimelineCtrl.js"></script>
+   <script src="components/parent/parentViewCtrl.js"></script>
+   <script src="components/parent/parentSettingsCtrl.js"></script>
+   <script src="components/parent/parentCreateNoteCtrl.js"></script>
+   <!--<script src="components/modal-templates/addNoteConfirmationModalCtrl.js"></script>-->
+   <script src="components/parent/parentViewCtrl.js"></script>
+   <script src="components/parent/babyLandingCtrl.js"></script>
 
-        <!--   SERVICES   -->
-        <script src="services/login-service.js"></script>
-        <script src="services/nurse-service.js"></script>
-        <script src="./services/makeBabySvc.js"></script>
-        <script src="services/imageService.js"></script>
-        <script src="services/hospitalSvc.js"></script>
-        <script src="services/parentService.js"></script>
 
-       <!--   DIRECTIVES    -->
-       <script src="directives/addStat/addStat.js"></script>
-       <script src="directives/imageUpload/imageDirective.js"></script>
-       <script src="directives/submit-on-enter.js"></script>
+   <!--   SERVICES   -->
+   <script src="services/login-service.js"></script>
+   <script src="services/nurse-service.js"></script>
+   <script src="./services/makeBabySvc.js"></script>
+   <script src="services/imageService.js"></script>
+   <script src="services/hospitalSvc.js"></script>
+   <script src="services/parentService.js"></script>
 
-    </body>
+
+   <!--   CONTROLLERS   -->
+   <script src="components/nurse/nurse-edit-controller.js"></script>
+   <script src="components/product/product-controller.js"></script>
+   <script src="components/home/home-controller.js"></script>
+   <script src="components/nurse/nurse-controller.js"></script>
+   <script src="components/nurse/note-controller.js"></script>
+   <script src="components/nurse/nurse.makeBabyCtrl.js"></script>
+   <script src="components/modal-templates/makeBabyConfirmationModalCtrl.js"></script>
+   <script src="components/nurse/nurse-searchCtrl.js"></script>
+   <script src="components/hospital/hospitalAddNurseCtrl.js"></script>
+   <script src="components/hospital/hospitalEditNurseCtrl.js"></script>
+   <script src="components/hospital/hospitalSearchCtrl.js"></script>
+   <script src="components/parent/parentTimelineCtrl.js"></script>
+   <script src="components/parent/parentViewCtrl.js"></script>
+   <script src="components/parent/parentSettingsCtrl.js"></script>
+   <script src="components/parent/parentCreateNoteCtrl.js"></script>
+   <script src="components/parent/parentViewCtrl.js"></script>
+   <script src="components/parent/babyLandingCtrl.js"></script>
+
+   <!--   DIRECTIVES    -->
+   <script src="directives/addStat/addStat.js"></script>
+   <script src="directives/imageUpload/imageDirective.js"></script>
+   <script src="directives/submit-on-enter.js"></script>
+
+</body>
+
 </html>

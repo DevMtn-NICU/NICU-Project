@@ -19,8 +19,23 @@
          $scope.login = {};
          $scope.submitDialog = function () {
             $mdDialog.hide({})
-            console.log($scope.login);
-            LoginService.validateLogin($scope.login);
+            LoginService.validateLogin($scope.login).then(function (res) {
+               if (res) {
+                  $mdDialog.hide();
+                  $mdDialog.show({
+                     templateUrl: 'components/modal-templates/user-login-modal.html',
+                     locals: {
+                        closeDialog: $scope.closeDialog
+                     },
+                     controller: 'homeController',
+                     clickOutsideToClose: true
+                  });
+               }
+            })
+
+
+
+
          };
          $scope.closeDialog = function () {
             // Easily hides most recent dialog shown...
