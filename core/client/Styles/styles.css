@@ -433,6 +433,11 @@ md-input-container .md-input{
 
 }
 
+.md-sidenav-backdrop {
+  height: 100%;
+  position: fixed;
+}
+
 /*******************************Parent Settings Page*******************************/
 
 .form {
@@ -481,6 +486,7 @@ md-input-container .md-input{
 }
 */
 /* Parent Timeline Page (for testing only) */
+
 
 
 
