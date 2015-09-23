@@ -6,6 +6,8 @@
          var babyId;
 
          this.addBabyNote = function (note) { //this is a repeat from the nurse service, we might want to refactor
+            var userId = $cookies.getObject("userId");
+            note.creator = userId;
             var deferred = $q.defer();
             $http({
                method: 'POST',
@@ -109,6 +111,7 @@
    					url: '/logout'
    				}).then(function() {
             $cookies.remove("userId");
+            $cookies.remove("userName");
             $cookies.remove("userRoles");
             $cookies.remove("userEmail");
             $cookies.remove("parentObj");
