@@ -1,0 +1,40 @@
+.scroll {
+   height: 300px;
+   overflow: auto;
+   width: 44%;
+   margin: 2%;
+   outline: 1px solid #ccc;
+   position: relative;
+   background-color: #fff;
+}
+.flexBox {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+img {
+   /*
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+*/
+   max-width: 100%;
+}
+
+.journal, .stats, .comments, .images {
+	box-sizing: border-box;
+	width: 95%;
+	margin: auto;
+    position: relative;
+    background-color: #fff;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.parentContainer {
+        width: 85%;
+        margin: 25px auto;
+
+}

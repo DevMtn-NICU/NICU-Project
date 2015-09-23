@@ -1,21 +1,34 @@
 html, body {
     width: 100%;
     height: 100%;
-    margin: 0 auto;
+}
+body {
+    margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
-
+    /*background-image: url('../../images/cars_bckgrnd.png');
+    position: fixed;*/
 }
 
 .fullPage {
-    height: 100%;
+    position: relative;
+    /*height: 95%;*/
     width: 100%;
+    clear: left;
 }
 
 /*THESE RULES APPLY TO THE HIGH REZ DISPLAY, AND CASCADE DOWN TO THE MEDIUM AND LOW REZ DISPLAYS*/
 
-
-
+.blackText {
+    color: #BDBDBD;
+}
+.medicalFormInnerContainer {
+    margin: 0 2%;
+    padding-bottom: 35px;
+}
+/** {
+    outline: 1px solid red;
+}*/
 
 /**********************PRODUCT PAGE***********************/
 
@@ -91,12 +104,13 @@ html, body {
     margin-top: -5%;
 }
 
-
+.greyOutline {
+    outline: 1px solid #eee;
+}
 /*
 * {
     border: 1px solid red;
-}
-*/
+}*/
 
 
 
@@ -106,16 +120,36 @@ html, body {
 /*LOGIN PAGE*/
 
 .redBox {
-    width: 100%;
-    height: 45px;
+    /*width: 100%;
+    height: 45px;*/
     background-color: #A41031;
 }
 
-#logo img {
-    padding: 45px;
+.outerHome {
+  width: 385px;
+  margin: 45px auto 60px;
+  position:relative;
+}
+.outerHome img {
+    float: center;
+}
+.outerHome h3 {
     text-align: center;
-    margin: 70px 0 0 20px;
-    margin-left: 37%;
+}
+.homeIcon {
+    float: center;
+    margin: auto;
+}
+.marginAuto {
+    margin: 10px auto;
+    width: 100px;
+    float: center;
+}
+/** {
+    outline: 1px solid red;
+}*/
+/*#logo {
+    margin: 25px auto;
 }
 
 hr {
@@ -133,9 +167,9 @@ hr {
 
 .titles p {
     text-align: center;
-}
+}*/
 
-.nurseLogin {
+/*.nurseLogin {
     margin-left: 27%;
     padding: 4%;
     width: 180px;
@@ -157,24 +191,34 @@ hr {
 #loginChildBtn {
     position: relative;
     right: 11%;
-}
+}*/
 
-.blackBox {
-    position: relative;
-    margin-top: 3.2%;
-/*    margin-bottom: -3%;*/
-/*    bottom: 0;*/
-    height: 50px;
+
+.globalFooter {
+    position:relative;
+    bottom: 0;
+    left: 0;
+    margin: 45px 0 0 0;
+    height: 60px;
     width: 100%;
     background-color: #080808;
-    opacity: 0.9;
-    background-color: transparent, #686868;
+    opacity: 0.8;
+
+    /*background-color: transparent, #686868;*/
+}
+.footerText {
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 15px;
+    display: inline-block;
 }
 
+
+/*
 .nurseFooter {
     position: relative;
     top: 12.5%;
-}
+}*/
 
 
 
@@ -220,33 +264,12 @@ hr {
 /***************************END OF MAIN NURSE TEMPLATE PAGE************************/
 
 /*Search Page*/
-#babyRow {
-    padding: 20px;
-    height: 30px;
-    /*width: 100%;*/
-    border-bottom: solid 1px lightgrey;
-    cursor: pointer;
+.babyRow {
+    padding: 1%;
 }
 
-#babyRow:visited {
-    background-color: #fff;
-}
 
-#babyRow {
-/*    background-color: #444444;*/
-}
-
-#searchCellPatient {
-    width: 25%;
-/*    padding-bottom: 20px;*/
-}
-
-#searchCellName {
-    width: 25%;
-/*    padding-bottom: 20px;*/
-}
-
-#searchCellGender {
+#searchCellPatient, #searchCellBirth, #searchCellName, #searchCellGender {
     width: 25%;
 /*    padding-bottom: 20px;*/
 }
@@ -260,14 +283,22 @@ hr {
 .pointer {
     cursor: pointer;
 }
+.paddingLeft {
+    padding-left: 2px;
+}
+
 
 /******************************NURSE CREATE NOTE PAGE**********************/
 
+.alignRight {
+    padding-right: 135px;;
+    float: right;
+}
 #createNoteBtn {
     position: relative;
     right: -180%;
 }
-
+/*
 #comment {
     margin-left: auto;
     margin-right: auto;
@@ -286,7 +317,9 @@ hr {
     position: relative;
     left: -10%;
 }
-
+.textAreaContainer {
+    outline: 1px solid #eee;
+}*/
 /*
 * {
     border: 1px solid red;
@@ -298,24 +331,13 @@ hr {
 
 /******************************NURSE SEARCH PAGE**********************/
 .container {
-    width: 95%;
-    height: auto;
-    background-color: #EEEEEE;
-    padding: 20px;
-    border: 1px solid black;
-    box-shadow: 0 0 1px 1px;
-}
+    width: 85%;
+    margin: auto;
+    outline: 1px solid #eee;
 
-#babyColumn {
-    background-color: white;
-    border: 0px solid black;
-    padding: 30px;
-    box-shadow: 0 0 1px 1px;
-}
-
-#babyRow {
-    border: 0px solid black;
-    box-shadow: 0 0 1px 1px;
+    /*background-color: #EEEEEE;*/
+    /*padding: 20px;*/
+    /*box-shadow: 0 0 1px 1px;*/
 }
 
 .gender {
@@ -323,6 +345,9 @@ hr {
     left: 3.5%;
 /*    margin-left: 10%;*/
 }
+/** {
+    outline: 1px
+}*/
 
 .birth {
     position: relative;
@@ -333,10 +358,6 @@ hr {
 .numbers {
     position: relative;
     left: 0.5%;
-}
-
-.test {
-    color: black;
 }
 
 a {
@@ -375,15 +396,15 @@ md-input-container .md-input{
 }
 
 
-.oddColor:nth-child(odd) {background-color: white;}
+.rowColor:nth-child(even) {background-color: #fff;}
+
+.rowColor:nth-child(odd) {background-color: #eee;}
+
+/** {
+    outline: 1px solid red;
+}*/
 
 
-/********************************END SEARCH PAGE***********************************/
-
-<<<<<<< HEAD
-
-
-=======
 /*******************************Parent View Template Page**************************/
 .parentNavBar {
     display: flex;
@@ -397,7 +418,7 @@ md-input-container .md-input{
     width: 100%;
     height: 85%;
     margin: auto;
-    margin-top: 25px;
+    /*margin-top: 25px;*/
 
 }
 
@@ -412,6 +433,11 @@ md-input-container .md-input{
 
 }
 
+.md-sidenav-backdrop {
+  height: 100%;
+  position: fixed;
+}
+
 /*******************************Parent Settings Page*******************************/
 
 .form {
@@ -422,7 +448,7 @@ md-input-container .md-input{
     align-items: left;
     flex-direction: row;
     margin: auto;
-    border: 5px black solid;
+    /*border: 5px black solid;*/
     padding: 25px;
 }
 .clear {
@@ -459,11 +485,13 @@ md-input-container .md-input{
     border: 1px solid red;
 }
 */
->>>>>>> master
+/* Parent Timeline Page (for testing only) */
+
+
+
+
+
 
 
 
 /*******************************END Parent Settings Page**************************/
-
-
-
