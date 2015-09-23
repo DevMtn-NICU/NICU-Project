@@ -1,5 +1,6 @@
 <!-- <p>This is the Nurse Template</p>
 <p>Test Data: {{ test }}</p> -->
+<div md-theme="{{ theme }}">
 <div class="nurseHeader">
 	<div>
 		<img class="logo" src="../../images/uuhc_logo_homepage.png">
@@ -9,7 +10,8 @@
 	</div>
 </div>
 
-<div>
-	<div class="nurseViewContainer" ui-view></div>
-</div>
+<div class="nurseViewContainer" ui-view></div>
+
 <div ng-include="'../../footer.html'"></div>
+</div>
+

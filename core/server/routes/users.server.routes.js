@@ -11,7 +11,6 @@ module.exports = function (app, passport) {
       function (req, res) {
          var frontEndUser = req.user.toObject();
          delete frontEndUser.password;
-         //         frontEndUser.password = "wouldn't you like to know what the password is";
          console.log('req.user', frontEndUser);
          res.status(200).send('user: ', frontEndUser);
       }
@@ -20,7 +19,7 @@ module.exports = function (app, passport) {
    app.get('/user/:userId', usersController.getUser);
    app.put('/user/edit/:userId', usersController.editUser);
    app.get('/logout', function (req, res) {
-     console.log("23");
+      console.log("23");
       req.logout();
       res.end();
    });
