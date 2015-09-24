@@ -1,5 +1,82 @@
-<div class="landingContainer flexBox">
-   <div class="scroll">
+<div class="container">
+    <div>
+        <md-toolbar>
+           <div class="md-toolbar-tools">
+              Pictures
+           </div>
+        </md-toolbar>
+        <span class="plTest" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
+           <img src="{{note.picturesUrl}}" />
+           <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
+        </span>
+    </div>
+    <div>
+        <md-toolbar>
+           <div class="md-toolbar-tools">
+              Journal
+           </div>
+        </md-toolbar>
+        <div class="plTest2" ng-repeat="note in notes | orderBy:'created_at':true  | limitTo:4" ng-show="note.journal">{{note.journal}}
+           <br />
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+           {{note.created_at | date:'M-dd-yy h:mm a' }}
+           <!-- <hr /> -->
+        </div>
+    </div>
+
+    <md-toolbar>
+       <div class="md-toolbar-tools">
+          Latest Baby Notes
+       </div>
+    </md-toolbar>
+    <div class="plTest" ng-show="note.stats.heartRate" ng-repeat="note in notes | orderBy:'created_at':true | limitTo:5 ">
+       HR: {{note.stats.heartRate}}
+       <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}</span>
+       <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}</span>
+       <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}</span>
+       <br />
+       <br />
+       <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
+       <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
+       <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
+       {{note.created_at | date:'M-dd-yy h:mm a' }}
+       <hr />
+    </div>
+
+<div>
+    <md-toolbar>
+       <div class="md-toolbar-tools">
+           Comments
+       </div>
+   </md-toolbar>
+   <div class="plTest" ng-repeat="note in notes | orderBy:'created_at':true | limitTo:6" ng-show="note.comment">{{note.comment}}
+      <br /> {{note.creator.name}}
+      <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
+      <hr />
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+   <!-- <div class="scroll">
       <md-toolbar>
          <div class="md-toolbar-tools">
             Latest Baby Notes
@@ -10,10 +87,6 @@
          <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}</span>
          <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}</span>
          <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}</span>
-         <!--
-<hr />
-<span>{{note._id}}</span>
--->
          <br />
          <br />
          <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
@@ -22,10 +95,10 @@
          {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
-   </div>
+   </div> -->
 
 
-   <div class="scroll">
+   <!-- <div class="scroll">
        <md-toolbar md-scroll-shrink>
           <div class="md-toolbar-tools">
               Comments
@@ -42,7 +115,7 @@
       <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
       <hr />
    </div>
-</div>
+</div> -->
 
 
 <!--
@@ -71,7 +144,7 @@
 
 
 
-   <div class="scroll">
+   <!-- <div class="scroll">
       <md-toolbar>
          <div class="md-toolbar-tools">
             Journal
@@ -93,7 +166,7 @@
          <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
          <hr />
       </div>
-   </div>
+   </div> -->
 
-</div>
+<!-- </div> -->
 </div>

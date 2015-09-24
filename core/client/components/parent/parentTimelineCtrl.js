@@ -5,8 +5,8 @@
       .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
 
          $scope.baby = {};
-        $scope.images = [];    
-       
+        $scope.images = [];
+
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
             if (babyId) {
@@ -14,6 +14,7 @@
                   .then(function (baby) {
                      $scope.baby = baby;
                      $scope.notes = baby.notes;
+                     $scope.comments = baby.comments;
                      $scope.$broadcast('babyChanged');
                   })
                return $scope.baby, $scope.notes;
@@ -33,7 +34,7 @@
                   console.log($scope.baby.notes[j].picturesUrl);
                    if ($scope.baby.notes[j].picturesUrl) {
                        $scope.images.push($scope.baby.notes[j].picturesUrl)
-                   } 
+                   }
                }
                (function configureChartData() {
                   $scope.data.data = [];

@@ -133,6 +133,12 @@
             controller: 'parentCreateNoteCtrl'
          })
 
+         .state('parent.journal', {
+            url: '/journal',
+            templateUrl: 'components/parent/journal.html',
+            controller: 'parentCreateNoteCtrl'
+         })
+
          //////// contacts ////////////////////
          .state('contact', {
                url: '/contact',

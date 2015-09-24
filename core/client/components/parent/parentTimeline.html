@@ -1,7 +1,7 @@
-<div style="border:5px black solid; width:95%; margin:0 auto 20px auto; padding:25px; box-sizing:border-box">
-	<md-tabs md-dynamic-height>
+<div class="container">
+	<md-tabs md-dynamic-height class="md-primary">
 
-		<md-tab label="Journal">
+		<md-tab label="Journal" class="md-warn">
 			<div class="tljournal md-whiteframe-z3" ng-repeat="note in baby.notes">
 				<div ng-show="note.journal">
 					<div style="margin:15px 5px; border:1px black solid; padding: 4px">
@@ -44,16 +44,27 @@
 			</div>
 		</md-tab>
 
-        
-        
+
+
 		<md-tab label="Pictures">
-
-        
 			<div class="tlpictures" style="display:inline-block; margin:5px" ng-repeat="note in baby.notes">
-				<img style="max-height:250px"" src={{note.picturesUrl}}>
+				<img style="max-height:250px" src={{note.picturesUrl}}>
 			</div>
-
 		</md-tab>
+
+
+
+
+	    <md-tab>
+	       <div class="md-toolbar-tools">
+	           Comments
+	       </div>
+	   </md-tab>
+	   <div class="plTest" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
+	      <br /> {{note.creator.name}}
+	      <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
+	      <hr />
+	   </div>
 
 	</md-tabs>
 </div>
