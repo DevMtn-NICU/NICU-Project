@@ -2,7 +2,7 @@
 
   "use strict";
 
-   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog) {
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog, initialBaby) {
      if(!$cookies.getObject("userId")) {
        $state.go('login');
      }
@@ -15,10 +15,9 @@
       };
 
       $scope.getBabyById = function (babyId) {
-         parentService.getBabyById($scope.cookieBabies[i])
+         parentService.getBabyById(babyId)
             .then(function (response) {
                $scope.babies.push(response);
-               $scope.currentBaby = $scope.babies[0];
             });
       };
 
@@ -26,6 +25,7 @@
          $scope.getBabyById($scope.cookieBabies[i]);
       }
 
+      $scope.currentBaby = initialBaby;
 
       $scope.$watch('currentBaby', function () {
          $scope.$broadcast('babyChanged');
