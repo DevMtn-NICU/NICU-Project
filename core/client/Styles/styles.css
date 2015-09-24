@@ -1,114 +1,118 @@
-html, body {
-    width: 100%;
-    height: 100%;
+* {
+   margin: 0;
+}
+html,
+body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
 }
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'PT Sans', sans-serif;
-    background-image: url('../../images/cars_bckgrnd.png');
-    position: fixed;
+   margin: 0;
+   padding: 0;
+   font-family: 'PT Sans', sans-serif;
+   /*background-image: url('../../images/cars_bckgrnd.png');
+    position: fixed;*/
 }
-
 .fullPage {
-    position: relative;
-    /*height: 95%;*/
-    width: 100%;
-    clear: left;
+   position: relative;
+   width: 100%;
+   clear: left;
+   min-height: 100%;
+   margin-bottom: -60px;
+}
+.fullPage:after {
+   content: "";
+   display: block;
+   height: 60px;
 }
 
 .blackText {
-    color: #BDBDBD;
+   color: #BDBDBD;
 }
 .medicalFormInnerContainer {
-    padding-bottom: 35px;
+   margin: 0 2%;
+   padding-bottom: 35px;
 }
+
 /** {
     outline: 1px solid red;
 }*/
 
+
 /**********************PRODUCT PAGE***********************/
 
-
 .header1 {
-    width: 100%;
-    height: 10%;
-    background-color: #fff;
+   width: 100%;
+   height: 10%;
+   background-color: #fff;
 }
-
 .productLogo {
-    width: 7%;
-    margin: 10px 20px 20px 20px;
+   width: 7%;
+   margin: 10px 20px 20px 20px;
 }
-
 .shareImg {
-    width: 15%;
-    height: 60px;
-    margin-left: 5%;
-    margin-bottom: 1.5%;
+   width: 15%;
+   height: 60px;
+   margin-left: 5%;
+   margin-bottom: 1.5%;
 }
-
 #background {
-    background: url('../images/455237505-630x210.jpg') no-repeat 100% 100%;
-    background-size: cover;
-    width: 100%;
-    height: 90%;
+   background: url('../images/455237505-630x210.jpg') no-repeat 100% 100%;
+   background-size: cover;
+   width: 100%;
+   height: 90%;
 }
-
 .headerOne {
-    position: absolute;
-    top: 35%;
-    left: 27%;
-    font-size: 250%;
-    color: #fff;
+   position: absolute;
+   top: 35%;
+   left: 27%;
+   font-size: 250%;
+   color: #fff;
 }
-
 .subtitleP {
-    position: absolute;
-    left: 15%;
-    margin-top: 15%;
-    font-size: 1.5em;
-    color: black;
-    margin-left: 40%;
-    margin-right: 5%;
+   position: absolute;
+   left: 15%;
+   margin-top: 15%;
+   font-size: 1.5em;
+   color: black;
+   margin-left: 40%;
+   margin-right: 5%;
 }
-
 .call {
-    color: #ffffff;
-    font-size: 0.85em;
-    margin-top: 1%;
+   color: #ffffff;
+   font-size: 0.85em;
+   margin-top: 1%;
 }
-
 .blackBox2 {
-    position: relative;
-    margin-top: -3.6%;
-    height: 49px;
-    width: 100%;
-    background-color: #080808;
-    opacity: 0.9;
-    background-color: transparent, #686868;
+   position: relative;
+   margin-top: -3.6%;
+   height: 49px;
+   width: 100%;
+   background-color: #080808;
+   opacity: 0.9;
+   background-color: transparent, #686868;
 }
-
 #showBtn {
-    position: absolute;
-    top: 62%;
-    color: #ffffff;
-    background: transparent;
-    border-radius: 20px;
-    padding: 8px;
-    border: 1px solid #fff;
-    margin-left: 32%;
-    margin-top: -5%;
+   position: absolute;
+   top: 62%;
+   color: #ffffff;
+   background: transparent;
+   border-radius: 20px;
+   padding: 8px;
+   border: 1px solid #fff;
+   margin-left: 32%;
+   margin-top: -5%;
+}
+.greyOutline {
+   outline: 1px solid #eee;
 }
 
-.greyOutline {
-    outline: 1px solid #eee;
-}
 /*
 * {
     border: 1px solid red;
 }*/
-
 
 
 /*************************END OF PRODCUCT PAGE************************/
@@ -117,35 +121,36 @@ body {
 /*LOGIN PAGE*/
 
 .redBox {
-    /*width: 100%;
+   /*width: 100%;
     height: 45px;*/
-    background-color: #A41031;
+   background-color: #A41031;
 }
-
 .outerHome {
-  width: 385px;
-  margin: 45px auto 60px;
-  position:relative;
+   width: 385px;
+   margin: 45px auto 60px;
+   position: relative;
 }
 .outerHome img {
-    float: center;
+   float: center;
 }
 .outerHome h3 {
-    text-align: center;
+   text-align: center;
 }
 .homeIcon {
-    float: center;
-    margin: auto;
+   float: center;
+   margin: auto;
 }
 .marginAuto {
-    margin: 10px auto;
-    width: 100px;
-    float: center;
+   margin: 10px auto;
+   width: 100px;
+   float: center;
 }
 
 /** {
     outline: 1px solid red;
 }*/
+
+
 /*#logo {
     margin: 25px auto;
 }
@@ -166,6 +171,7 @@ hr {
 .titles p {
     text-align: center;
 }*/
+
 
 /*.nurseLogin {
     margin-left: 27%;
@@ -191,26 +197,25 @@ hr {
     right: 11%;
 }*/
 
-
-.globalFooter {
-    position:relative;
-    bottom: 0;
-    left: 0;
-    margin: 45px 0 0 0;
-    height: 60px;
-    width: 100%;
-    background-color: #080808;
-    opacity: 0.8;
-
-    /*background-color: transparent, #686868;*/
+footer {
+   /*
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+*/
+   height: 60px;
+   background-color: black;
+   position: relative;
+   opacity: .6;
 }
 .footerText {
-    color: #fff;
-    font-size: 13px;
-    padding: 4px 15px;
-    display: inline-block;
+   color: white;
+   font-size: 1.2em;
+   font-weight: bold;
+   padding: 4px 15px;
+   display: inline-block;
 }
-
 
 /*
 .nurseFooter {
@@ -219,9 +224,8 @@ hr {
 }*/
 
 
-
-
 /****************************END OF HOME PAGE*****************************/
+
 
 /*Styling for Main Nurse template Page*/
 /*.nurseHeader {
@@ -230,27 +234,24 @@ hr {
 }*/
 
 .logo {
-	margin-left: 2%;
-	height: 115px;
-	width: 100px;
+   margin-left: 2%;
+   height: 115px;
+   width: 100px;
 }
-
 .mdbutton {
-	width: 90%;
+   width: 90%;
 }
-
 .nurseContainer {
-	width:100%;
-	height: 85%;
-	display: flex;
-	flex-direction: row;
+   width: 100%;
+   height: 85%;
+   display: flex;
+   flex-direction: row;
 }
-
 .nurseNav {
-	width: 15%;
-	height: 85%;
-	margin-top: 5%;
-	padding: 5px;
+   width: 15%;
+   height: 85%;
+   margin-top: 5%;
+   padding: 5px;
 }
 /*
 .nurseViewContainer {
@@ -278,31 +279,30 @@ hr {
     width: 25%;
 /*    padding-bottom: 20px;*/
 }
-
 #searchCellBirth {
-    width: 15%;
-    padding-right: 5%;
-/*    padding-bottom: 20px;*/
+   width: 15%;
+   padding-right: 5%;
+   /*    padding-bottom: 20px;*/
 }
-
 .pointer {
-    cursor: pointer;
+   cursor: pointer;
 }
 .paddingLeft {
-    padding-left: 2px;
+   padding-left: 2px;
 }
-
 
 /******************************NURSE CREATE NOTE PAGE**********************/
 
 .alignRight {
-    padding-right: 135px;;
-    float: right;
+   padding-right: 135px;
+   ;
+   float: right;
 }
 #createNoteBtn {
-    position: relative;
-    right: -180%;
+   position: relative;
+   right: -180%;
 }
+
 /*
 #comment {
     margin-left: auto;
@@ -325,11 +325,14 @@ hr {
 .textAreaContainer {
     outline: 1px solid #eee;
 }*/
+
+
 /*
 * {
     border: 1px solid red;
 }
 */
+
 
 /******************************END CREATE NOTE PAGE**********************/
 
@@ -339,61 +342,58 @@ hr {
     width: 85%;
     margin: 35px auto;
 }
-
 .gender {
-    position: relative;
-    left: 3.5%;
-/*    margin-left: 10%;*/
+   position: relative;
+   left: 3.5%;
+   /*    margin-left: 10%;*/
 }
+
 /** {
     outline: 1px
 }*/
 
 .birth {
-    position: relative;
-    left: 5.1%;
-/*    margin-left: 10%;*/
+   position: relative;
+   left: 5.1%;
+   /*    margin-left: 10%;*/
 }
-
 .numbers {
-    position: relative;
-    left: 0.5%;
+   position: relative;
+   left: 0.5%;
 }
-
 a {
-    color: #A41031;
-    text-decoration: none;
+   color: #A41031;
+   text-decoration: none;
 }
-
-md-input-container
-.md-input{
-    border-color: 68041A;
+md-input-container .md-input {
+   border-color: 68041A;
 }
-
 .grid {
-  width: 95%;
-  height: 80%;
+   width: 95%;
+   height: 80%;
 }
-
 .my-custom-menu {
-  position: absolute;
+   position: absolute;
 }
-
 .my-custom-menu .ui-grid-menu {
-  padding: 0px;
+   padding: 0px;
 }
-
 .my-custom-menu .ui-grid-menu-inner {
-  -webkit-box-shadow: none;
-  box-shadow: none;
+   -webkit-box-shadow: none;
+   box-shadow: none;
 }
-
 .rotated {
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
+   transform: rotate(180deg);
+   -webkit-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+   -o-transform: rotate(180deg);
+}
+.rowColor:nth-child(even) {
+   background-color: #fff;
+}
+.rowColor:nth-child(odd) {
+   background-color: #eee;
 }
 
 .babyRow {
@@ -409,72 +409,71 @@ md-input-container
 
 
 /*******************************Parent View Template Page**************************/
+
 .parentNavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    float: center;
-    margin-top: 25px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   float: center;
+   margin-top: 25px;
 }
-
 .parentViewContainer {
-    width: 100%;
-    height: 85%;
-    margin: auto;
-    /*margin-top: 25px;*/
-
+   width: 100%;
+   height: 85%;
+   margin: auto;
+   /*margin-top: 25px;*/
 }
-
 .break {
-    width: 80%;
-    height: 10px;
-    border-radius: 25px;
-    background-color: gray;
-    display: block;
-    margin: auto;
-    margin-top: 25px;
-
+   width: 80%;
+   height: 10px;
+   border-radius: 25px;
+   background-color: gray;
+   display: block;
+   margin: auto;
+   margin-top: 25px;
 }
-
 .md-sidenav-backdrop {
-  height: 100%;
-  position: fixed;
+   height: 100%;
+   position: fixed;
 }
 
 /*******************************Parent Settings Page*******************************/
 
 .form {
-    height: 85%;
-    width: 90%;
-    display: flex;
-    float: center;
-    align-items: left;
-    flex-direction: row;
-    margin: auto;
-    /*border: 5px black solid;*/
-    padding: 25px;
+   height: 85%;
+   width: 90%;
+   display: flex;
+   float: center;
+   align-items: left;
+   flex-direction: row;
+   margin: auto;
+   /*border: 5px black solid;*/
+   padding: 25px;
 }
 .clear {
-	clear: both;
+   clear: both;
 }
 
 /* Parent Timeline Page (for testing only) */
+
 .repeatNote {
-    padding: 10px;
-    outline: 1px solid black;
-    width: 23%;
-    margin: 10px;
-    float: left;
+   padding: 10px;
+   outline: 1px solid black;
+   width: 23%;
+   margin: 10px;
+   float: left;
 }
 .repeateNoteContainer {
-    width: 97%;
-    height: 450px;
-    overflow: auto;
+   width: 97%;
+   height: 450px;
+   overflow: auto;
 }
 
 /** {
     outline: 1px solid red;
 }*/
+
+
 /*br {
  border-width: 10px;
  border-style: inset;
@@ -483,16 +482,16 @@ md-input-container
  color: black;
 }*/
 
+
 /*
 * {
     border: 1px solid red;
 }
 */
-/* Parent Timeline Page (for testing only) */
 
 
 
-
+/*******************************END Parent Settings Page**************************/
 
 
 
