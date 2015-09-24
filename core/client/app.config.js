@@ -4,34 +4,34 @@
 	angular.module("app")
 		.config(function($mdThemingProvider) {
   			
-  			var soRealItsScary = $mdThemingProvider.extendPalette('green', {
-				'900': '84BAF9',
-				'600': '84F9D8',
-				'500': '9AEB6C',
-				'200': 'D4F984'
+  			var neutrality = $mdThemingProvider.extendPalette('brown', {
+				'900': 'C0B6A5',
+				'600': 'CCC7B7',
+				'500': 'D9D6D1',
+				'200': 'E2DDD1'
 			});
-			var pink3 = $mdThemingProvider.extendPalette('pink', {
-				'200': 'F984F2'
+			var silkwhite = $mdThemingProvider.extendPalette('grey', {
+				'200': 'FDFAF5'
 			});
 
-			$mdThemingProvider.definePalette('myGreen', soRealItsScary);
-			$mdThemingProvider.definePalette('myPink', pink3);
+			$mdThemingProvider.definePalette('neutralBrown', neutrality);
+			$mdThemingProvider.definePalette('myGrey', silkwhite);
   			
-			$mdThemingProvider.theme('myDefault')
-				.primaryPalette('myGreen', {
+			$mdThemingProvider.theme('Neutral')
+				.primaryPalette('neutralBrown', {
 					'default': '500',
 					'hue-1': '200',
 					'hue-2': '600'
 				})
-				.accentPalette('myPink', {
+				.accentPalette('myGrey', {
 					'default': '200'
 				})
-				.warnPalette('myGreen', {
+				.warnPalette('neutralBrown', {
 					'default': '900'
 				})
 
 			$mdThemingProvider.alwaysWatchTheme(true);
-    		$mdThemingProvider.setDefaultTheme('myDefault');
+    		$mdThemingProvider.setDefaultTheme('Neutral');
 
 		});
 
@@ -51,7 +51,7 @@
 			$mdThemingProvider.definePalette('rosePink', roseCupcake);
 			$mdThemingProvider.definePalette('myBrown', oceanPearlRose);
   
-			$mdThemingProvider.theme('rosePink')
+			$mdThemingProvider.theme('RosePink')
 			.primaryPalette('rosePink', {
 				'default': '500',
 				'hue-1': '200',
@@ -81,7 +81,7 @@
 			$mdThemingProvider.definePalette('puffyPurple', puffyPurplePigs);
 			$mdThemingProvider.definePalette('notBrown', softWhite);
 
-			$mdThemingProvider.theme('puffyPurple')
+			$mdThemingProvider.theme('Purple')
 			.primaryPalette('puffyPurple', {
 				'default': '500',
 				'hue-1': '200',
@@ -111,7 +111,7 @@
 			$mdThemingProvider.definePalette('showerBlue', babyShowerBenjamin);
 			$mdThemingProvider.definePalette('showerBrown', her);
 
-			$mdThemingProvider.theme('showerBlue')
+			$mdThemingProvider.theme('BabyBlue')
 			.primaryPalette('showerBlue', {
 				'default': '500',
 				'hue-1': '200',
@@ -141,7 +141,7 @@
 			$mdThemingProvider.definePalette('camoGreen', watchYourTone);
 			$mdThemingProvider.definePalette('altCamoGreen', slurringYourSpeech);
     	
-			$mdThemingProvider.theme('camoGreen')
+			$mdThemingProvider.theme('CamoGreen')
 			.primaryPalette('camoGreen', {
 				'default': '500',
 				'hue-1': '200',
@@ -185,6 +185,34 @@
 			})
 		});	
 
+			angular.module("app")
+			.config(function($mdThemingProvider) {
 
+				var soRealItsScary = $mdThemingProvider.extendPalette('green', {
+				'900': '84BAF9',
+				'600': '84F9D8',
+				'500': '9AEB6C',
+				'200': 'D4F984'
+			});
+			var pink3 = $mdThemingProvider.extendPalette('pink', {
+				'200': 'F984F2'
+			});
+
+			$mdThemingProvider.definePalette('myGreen', soRealItsScary);
+			$mdThemingProvider.definePalette('myPink', pink3);
+  			
+			$mdThemingProvider.theme('Bright')
+				.primaryPalette('myGreen', {
+					'default': '500',
+					'hue-1': '200',
+					'hue-2': '600'
+				})
+				.accentPalette('myPink', {
+					'default': '200'
+				})
+				.warnPalette('myGreen', {
+					'default': '900'
+				})
+			});
 
 })();

@@ -43,15 +43,16 @@
 
 
       if ($scope.currentBaby) {
-        $scope.theme = $scope.currentBaby.theme || 'myDefault';
+        $scope.theme = $scope.currentBaby.theme || 'Neutral';
       }
 
       $scope.themeList = [
-              'myDefault',
-              'camoGreen',
-              'showerBlue',
-              'puffyPurple',
-              'rosePink'
+              'Neutral',
+              'CamoGreen',
+              'BabyBlue',
+              'Purple',
+              'RosePink',
+              'Bright'
           ];
 
     $scope.changeTheme = function (theme) {
