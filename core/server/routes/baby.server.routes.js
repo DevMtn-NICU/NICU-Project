@@ -19,4 +19,7 @@ module.exports = function (app, passport) {
 
     app.route('/api/babies/theme/:id')
         .put(babiesController.changeTheme);
+
+    app.route('/api/babies/comment/:id')
+        .post(babiesController.addComment);
 };

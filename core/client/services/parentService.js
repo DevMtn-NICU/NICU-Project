@@ -5,6 +5,18 @@
       .service('parentService', function ($http, $q, $cookies) {
          var babyId;
 
+         this.getInitialBaby = function() {
+           var babyToGet = $cookies.getObject("parentObj").babies[0];
+           var deferred = $q.defer();
+           $http({
+             method: "GET",
+             url: "/api/babies/" + babyToGet
+           }).then(function(response) {
+             deferred.resolve(response.data);
+           });
+           return deferred.promise;
+         };
+
          this.addBabyNote = function (note) { //this is a repeat from the nurse service, we might want to refactor
             var userId = $cookies.getObject("userId");
             note.creator = userId;
