@@ -1,6 +1,19 @@
 <div class="landingContainer flexBox">
    <div class="scroll">
-      <md-toolbar>
+
+      <div>
+           <div class="images" ng-repeat="image in recentImages" ng-show="image.picturesUrl">
+         <img src="{{image.picturesUrl}}" />
+         <hr />
+         </div>
+      </div>
+      <div>
+       <div class="journal" ng-repeat="note in notes | orderBy:'created_at':true | limitTo: 0" ng-show="note.journal">{{note.journal}}
+         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
+         <hr />
+      </div>
+      </div>
+      <!-- <md-toolbar>
          <div class="md-toolbar-tools">
             Latest Baby Notes
          </div>
@@ -10,11 +23,11 @@
          <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}</span>
          <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}</span>
          <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}</span>
-         <!--
+         <!-
 <hr />
 <span>{{note._id}}</span>
 -->
-         <br />
+         <!-- <br />
          <br />
          <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
          <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
@@ -42,7 +55,7 @@
       <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
       <hr />
    </div>
-</div>
+</div> -->
 
 
 <!--
@@ -70,17 +83,14 @@
 
 
 
-
+<!-- 
    <div class="scroll">
       <md-toolbar>
          <div class="md-toolbar-tools">
             Journal
          </div>
       </md-toolbar>
-      <div class="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
-         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <hr />
-      </div>
+     
    </div>
    <div class="scroll">
       <md-toolbar>
@@ -88,12 +98,8 @@
             Pictures
          </div>
       </md-toolbar>
-      <div class="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
-         <img src="{{note.picturesUrl}}" />
-         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <hr />
-      </div>
+    
    </div>
-
-</div>
+ -->
+   </div>
 </div>

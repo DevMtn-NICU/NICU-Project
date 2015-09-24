@@ -38,6 +38,22 @@
                   });
             };
 
+            $scope.getImages = function (babyId) {
+               parentService.getBabyById(babyId)
+                  .then(function (baby) {
+                     var recentImages = [];
+                     for (i=baby.notes.length -1; i>=0; i--) {
+                        if (notes[i].picturesUrl) {
+                           recentImages.push(notes[i].picturesUrl);
+                           if (recentImages === 3) {
+                              return recentImages;
+                           }
+                        }
+                        return recentImages;
+                     }
+                  })
+            }
 
+            $scope.recentImages = $scope.getImages($scope.baby._id);
          });
 }());
