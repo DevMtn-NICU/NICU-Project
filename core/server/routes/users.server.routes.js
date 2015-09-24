@@ -15,6 +15,7 @@ module.exports = function (app, passport) {
          res.status(200).send('user: ', frontEndUser);
       }
    );
+   app.put('/user/password/:id', usersController.changePassword);
    app.get('/feed/:babyId/:level', usersController.getFeed);
    app.get('/user/:userId', usersController.getUser);
    app.put('/user/edit/:userId', usersController.editUser);
