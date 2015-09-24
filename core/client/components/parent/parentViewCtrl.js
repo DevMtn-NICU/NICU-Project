@@ -2,7 +2,7 @@
 
   "use strict";
 
-   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav) {
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog) {
      if(!$cookies.getObject("userId")) {
        $state.go('login');
      }
@@ -43,15 +43,16 @@
 
 
       if ($scope.currentBaby) {
-        $scope.theme = $scope.currentBaby.theme || 'myDefault';
+        $scope.theme = $scope.currentBaby.theme || 'Neutral';
       }
 
       $scope.themeList = [
-              'myDefault',
-              'camoGreen',
-              'showerBlue',
-              'puffyPurple',
-              'rosePink'
+              'Neutral',
+              'CamoGreen',
+              'BabyBlue',
+              'Purple',
+              'RosePink',
+              'Bright'
           ];
 
     $scope.changeTheme = function (theme) {
@@ -71,6 +72,15 @@
 			};
 
 
+      $scope.openPasswordModal = function() {
+        $mdDialog.show({
+           templateUrl: "./components/modal-templates/changePasswordModal.html",
+           controller: "changePasswordCtrl",
+           locals: {
+             theme: $scope.theme
+           }
+        });
+      };
    });
 
 

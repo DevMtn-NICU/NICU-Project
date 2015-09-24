@@ -1,7 +1,20 @@
-<div md-theme="{{ theme }}">
-   <div>
+<div class="backgroundImage" md-theme="{{ theme }}">
 
-      <md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
+<!-- <p ng-class="{'CamoGreen' : , bold: important, 'has-error': error}" class="backgroundImage"></p>
+<label>
+   <input type="checkbox" ng-model="deleted">
+   deleted (apply "strike" class)
+</label><br>
+<label>
+   <input type="checkbox" ng-model="important">
+   important (apply "bold" class)
+</label><br>
+<label>
+   <input type="checkbox" ng-model="error">
+   error (apply "has-error" class)
+</label> -->
+   <div>
+  		<md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
          <md-toolbar class="md-primary">
             <h1 class="md-toolbar-tools">Menu</h1>
          </md-toolbar>
@@ -22,6 +35,7 @@
             <md-button class="md-primary md-raised md-button" ui-sref="parent.settings" ng-click="toggleSidenav()">Settings</md-button>
             <md-button class="md-accent md-raised md-button" ui-sref="parent.timeline" ng-click="toggleSidenav()">Timeline</md-button>
             <md-button class="md-warn md-raised md-hue-3" ui-sref="parent.create_note" ng-click="toggleSidenav()">Add a Note</md-button>
+						<md-button class="md-raised md-primary" ng-click="toggleSidenav(); openPasswordModal();">Change Password</md-button>
             <md-button class="md-raised md-primary" ng-click="toggleSidenav()">Close Menu</md-button>
          </md-content>
       </md-sidenav>
@@ -42,4 +56,4 @@
       </div>
    </div>
 </div>
-<div ng-include="'../../footer.html'"></div>
+<!--<div ng-include="'../../footer.html'"></div>-->
