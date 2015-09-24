@@ -6,7 +6,8 @@
         'ui.router',
         'ngMaterial',
         'ngCookies',
-        'angularCharts'        
+        'angularCharts',
+        'angular-carousel'
     ]);
 
 
