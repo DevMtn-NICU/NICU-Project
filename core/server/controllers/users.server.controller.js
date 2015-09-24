@@ -213,7 +213,7 @@ module.exports = {
 
    getFeed: function (req, res) {
       console.log(req.params);
-      if (req.params.level === '1') {
+      if (req.params.level === 'level1') {
          console.log(155);
          Baby.findById(req.params.babyId)
             .populate("notes")
@@ -222,7 +222,7 @@ module.exports = {
                if (err) return res.status(500).send(err);
                res.send(baby);
             });
-      } else if (req.params.level === '2') {
+      } else if (req.params.level === 'level2') {
          console.log(164);
          Baby.findById(req.params.babyId)
             .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes")

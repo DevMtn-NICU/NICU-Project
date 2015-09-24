@@ -100,6 +100,11 @@
                'user': null
             },
             abstract: true,
+            resolve: {
+              initialBaby: function(parentService) {
+                return parentService.getInitialBaby();
+              }
+            }
          })
 
          .state('parent.landing', {
@@ -139,6 +144,11 @@
                templateUrl: 'components/contact/contactView/contactView.html',
                controller: 'parentViewCtrl',
                abstract: true,
+               resolve: {
+                 baby: function(contactService) {
+                   return contactService();
+                 }
+               }
             })
             .state('contact.landing', {
                url: '',
@@ -151,9 +161,9 @@
                controller: 'contactSettingsCtrl'
             })
             .state('contact.timeline', {
-               url: 'contact/timeline',
+               url: '/contact/timeline',
                templateUrl: 'components/contact/contactTimeline/contactTimeline.html',
                controller: 'contactTimelineCtrl'
-            })
+            });
       });
 }());

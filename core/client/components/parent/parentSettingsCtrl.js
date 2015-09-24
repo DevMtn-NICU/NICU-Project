@@ -47,9 +47,12 @@
       // remove this empty array and push call below when retrieving contacts properly from baby...just wanted it for testing
       $scope.contacts = [];
       $scope.authLevel = function () {
-         $scope.auth.password = "scrumptious";
-         console.log('scope auth pass: ', $scope.auth.password);
+         $scope.auth.password = "test";
+         $scope.auth.babies = $scope.$parent.babies;
          $scope.auth.babyId = $scope.$parent.currentBaby._id;
+         console.log('parent scope', $scope.$parent.babies);
+
+         console.log('scope auth pass: ', $scope.auth);
          parentService.authLevel($scope.auth).
          then(function (response) {
             $scope.clearFields();

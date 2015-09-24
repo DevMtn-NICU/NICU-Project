@@ -5,8 +5,8 @@
       .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
 
          $scope.baby = {};
-        $scope.images = [];    
-       
+         $scope.images = [];
+
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
             if (babyId) {
@@ -31,10 +31,13 @@
                for (var j = 0; j < $scope.baby.notes.length; j++) { //date parsing
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   console.log($scope.baby.notes[j].picturesUrl);
-                   if ($scope.baby.notes[j].picturesUrl) {
-                       $scope.images.push($scope.baby.notes[j].picturesUrl)
-                   } 
+                  if ($scope.baby.notes[j].picturesUrl) {
+                     $scope.images.push($scope.baby.notes[j].picturesUrl)
+
+
+                  }
                }
+               $scope.numberOfImages = $scope.images.length;
                (function configureChartData() {
                   $scope.data.data = [];
                   console.log($scope.baby.notes.length);
