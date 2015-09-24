@@ -122,6 +122,18 @@
    				return deferred.promise;
    			};
 
-
+        this.changePassword = function(password) {
+          var deferred = $q.defer();
+          $http({
+            method: "PUT",
+            url: "/user/password/" + $cookies.getObject("userId"),
+            data: {
+              password: password
+            }
+          }).then(function(response) {
+            deferred.resolve(response.data);
+          });
+          return deferred.promise;
+        };
       });
 }());

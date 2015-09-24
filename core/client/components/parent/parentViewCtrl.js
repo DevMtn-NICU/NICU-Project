@@ -2,7 +2,7 @@
 
   "use strict";
 
-   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav) {
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog) {
      if(!$cookies.getObject("userId")) {
        $state.go('login');
      }
@@ -72,6 +72,15 @@
 			};
 
 
+      $scope.openPasswordModal = function() {
+        $mdDialog.show({
+           templateUrl: "./components/modal-templates/changePasswordModal.html",
+           controller: "changePasswordCtrl",
+           locals: {
+             theme: $scope.theme
+           }
+        });
+      };
    });
 
 
