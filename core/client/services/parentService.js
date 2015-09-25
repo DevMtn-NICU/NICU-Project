@@ -75,6 +75,14 @@
             return deferred.promise;
          };
 
+         this.addJournalEntry = function () {
+            var deferred = $q.defer();
+            $http({
+              method: 'POST',
+              url: '/babies/journal/:babyId'
+            })
+         }
+
          this.authLevel = function (auth) {
             var deferred = $q.defer();
             $http({

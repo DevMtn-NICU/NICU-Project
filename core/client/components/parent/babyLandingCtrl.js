@@ -37,21 +37,7 @@
                   })
             }
 
-            // $scope.getJournal = function (babyId) {
-            //    parentService.getBabyById(babyId)
-            //       .then(function (baby) {
-            //          for (var i=baby.notes.length -1; i>=0; i--) {
-            //             if (baby.notes[i].journal) {
-            //                console.log(baby.notes[i].journal);
-            //                recentJournal.push(baby.notes[i].journal);
-            //                if (recentJournal.length === 2) {
-            //                   $scope.recentJournal = recentJournal;
-            //                }
-            //             }
-            //          }
-            //          $scope.recentJournal = recentJournal;
-            //       })
-            // }
+            $scope
 
             //watches for dropdown in parent scope to change
             $scope.$on('babyChanged', function (e) {

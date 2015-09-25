@@ -355,7 +355,7 @@ exports.changeTheme = function(req, res) {
 	});
 };
 
-exports.addComment = function(req, res) {
+exports.addJournal = function(req, res) {
 	Baby.findByIdAndUpdate(req.params.id, {$push: {comments: req.body.comment}}, {new: true}, function(err, baby) {
 		if(err) return res.status(500).send(err);
 		else res.send(baby);
