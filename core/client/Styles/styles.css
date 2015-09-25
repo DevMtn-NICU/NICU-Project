@@ -398,19 +398,38 @@ md-input-container .md-input {
    background-color: #eee;
 }
 
-/** {
-    outline: 1px solid red;
+/*{
+  outline: 1px solid red;
 }*/
 
 
 /*******************************Parent View Template Page**************************/
+.BabyBlue{
+  background-image: url('../images/babyBlue.png');
+  background-repeat: repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.parentFont {
+  font-family: Georgia;
+}
+
+.specialFont {
+  font-size: 60px;
+}
 
 .parentNavBar {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
    float: center;
-   margin-top: 25px;
+   margin-top: 5%;
+   margin-bottom: 3%;
 }
 .parentViewContainer {
    width: 100%;
@@ -425,7 +444,7 @@ md-input-container .md-input {
    background-color: gray;
    display: block;
    margin: auto;
-   margin-top: 25px;
+   margin-top: 5%;
 }
 .md-sidenav-backdrop {
    height: 100%;

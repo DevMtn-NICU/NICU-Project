@@ -46,6 +46,7 @@
         $scope.theme = $scope.currentBaby.theme || 'Neutral';
       }
 
+
       $scope.themeList = [
               'Neutral',
               'CamoGreen',
@@ -54,6 +55,8 @@
               'RosePink',
               'Bright'
           ];
+
+      $('BabyBlue').css({"background-image":"showerCars.png"});
 
     $scope.changeTheme = function (theme) {
       if($scope.currentBaby) {

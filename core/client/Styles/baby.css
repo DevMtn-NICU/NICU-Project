@@ -1,4 +1,4 @@
-.scroll {
+/*.scroll {
    height: 300px;
    overflow: auto;
    width: 44%;
@@ -6,30 +6,42 @@
    outline: 1px solid #ccc;
    position: relative;
    background-color: #fff;
-}
-.flexBox {
+/*}*/
+/*.flexBox {
    display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: center;
+   float: center;
+   width: 90%;
+}*/
+/*img {*/
+   /*display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-}
-img {
-   /*
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-*/
    max-width: 100%;
-}
+/*  position: relative;
+  padding: 3%;
+}*/
 
-.journal, .stats, .comments, .images {
-	box-sizing: border-box;
-	width: 95%;
-	margin: auto;
-    position: relative;
-    background-color: #fff;
-}
+/*.journal, .images {*/
+/*	box-sizing: border-box;*/
+/*	width: 90%;
+	margin: auto;*/
+   /* position: absolute;*/
+    /*background-color: #fff;*/
+   /* display: flex;
+   flex-direction: row;*/
+   /*flex-wrap: wrap;
+*/  /* border: 10px black solid;
 
-.fixed {
+   align-content: center;
+   justify-content: center;
+   float: center;
+}**//*/
+
+/*.fixed {
     position: fixed;
 }
 
@@ -37,4 +49,32 @@ img {
         width: 85%;
         margin: 25px auto;
 
+}*/
+
+
+.landing {
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  border: 5px solid black;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  float: center;
+}
+
+.image1 {
+  height: 100%;
+  width: 100%;
+  margin-top: 400px;
+  margin: auto;
+  float: center;
+  background: url(https://s3-us-west-2.amazonaws.com/nicuproject/sarahmaetennessee%40gmail.com/showerCars.png);
+  background-size: cover;
+}
+
+.image2 {
+  /*margin-top: 500px;
+  margin-right: 300px;*/
+  
 }
