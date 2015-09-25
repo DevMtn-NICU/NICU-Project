@@ -1,99 +1,25 @@
-<div class="landingContainer flexBox">
-   <div class="scroll">
-      <md-toolbar>
-         <div class="md-toolbar-tools">
-            Latest Baby Notes
-         </div>
-      </md-toolbar>
-      <div class="stats" ng-show="note.stats.heartRate" ng-repeat="note in notes | orderBy:'created_at':true | limitTo:5 ">
-         HR: {{note.stats.heartRate}}
-         <br /> <span ng-show="note.stats.bloodPressure">BP: {{note.stats.bloodPressure}}</span>
-         <br /> <span ng-show="note.stats.oxygen">OXY: {{note.stats.oxygen}}</span>
-         <br /> <span ng-show="note.stats.weight">WEIGHT:{{note.stats.weight}}</span>
-         <!--
-<hr />
-<span>{{note._id}}</span>
--->
-         <br />
-         <br />
-         <md-checkbox ng-disabled="true" ng-model="note.stats.fed" ng-show="note.stats.fed"> Fed </md-checkbox>
-         <md-checkbox ng-disabled="true" ng-model="note.stats.bathed" ng-show="note.stats.bathed">Bathed</md-checkbox>
-         <md-checkbox ng-disabled="true" ng-model="note.stats.changed" ng-show="note.stats.changed">Changed</md-checkbox>
-         {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <hr />
+<div class="landingContainer">
+   <div class="landing">
+   
+      <h1 class="specialFont">A Special Baby</h1>
+      <div>My Journal</div>
+
+      <div>
+         
       </div>
-   </div>
 
-
-   <div class="scroll">
-       <md-toolbar md-scroll-shrink>
-          <div class="md-toolbar-tools">
-              Comments
-          </div>
-      </md-toolbar>
-      <div class="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
-         <br /> {{note.creator.name}}
-         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <hr />
+   
+      <div class="image1">
+         <img src="{{recentImages[0]}}">
       </div>
-   </md-toolbar>
-   <div class="comments" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">{{note.comment}}
-      <br /> {{note._id}}
-      <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-      <hr />
-   </div>
-</div>
+    
 
-
-<!--
-<md-card flex layout="column">
-   <md-toolbar>
-      <div class="md-toolbar-tools">Comments</div>
-   </md-toolbar>
-   <md-content flex layout="column">
-      <md-list flex>
-         <md-item ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.comment">
-            <md-item-content>
-               <div class="md-tile-content">
-                  {{note.comment}}
-                  <br /> {{note._id}}
-                  <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-                  <hr />
-               </div>
-            </md-item-content>
-            <md-divider></md-divider>
-         </md-item>
-      </md-list>
-   </md-content>
-</md-card>-->
-
-
-
-
-
-   <div class="scroll">
-      <md-toolbar>
-         <div class="md-toolbar-tools">
-            Journal
-         </div>
-      </md-toolbar>
-      <div class="journal" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.journal">{{note.journal}}
-         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <hr />
+      <div class="image2">
+         <img src="{{recentImages[1]}}">
       </div>
-   </div>
-   <div class="scroll">
-      <md-toolbar>
-         <div class="md-toolbar-tools">
-            Pictures
-         </div>
-      </md-toolbar>
-      <div class="images" ng-repeat="note in notes | orderBy:'created_at':true" ng-show="note.picturesUrl">
-         <img src="{{note.picturesUrl}}" />
-         <br /> {{note.created_at | date:'M-dd-yy h:mm a' }}
-         <hr />
+      <div class="image3">
+         <img src="{{recentImages[2]}}">
       </div>
+   
    </div>
-
-</div>
 </div>

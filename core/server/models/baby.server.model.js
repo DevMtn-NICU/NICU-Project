@@ -12,7 +12,7 @@ var babySchema = new Schema({
 
 	parents: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     notes: [{ type: Schema.Types.ObjectId, ref: 'Note' }],
-    theme: {type: String, enum: ['camoGreen', 'showerBlue', 'puffyPurple', 'rosePink']},
+    theme: {type: String, enum: [ 'Neutral', 'CamoGreen', 'BabyBlue', 'Purple', 'RosePink', 'Bright']},
 
     level1: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     level2: [{ type: Schema.Types.ObjectId, ref: 'User' }],
