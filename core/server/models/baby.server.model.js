@@ -8,7 +8,7 @@ var babySchema = new Schema({
     lastName: { type: String, required: true },
 
     gender: { type: String, enum: ["Male", "Female", "Unassigned"], required: true },
-    patientNumber: {type: Number, required: true},
+    patientNumber: {type: Number, required: true, unique: true},
 
 	parents: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     notes: [{ type: Schema.Types.ObjectId, ref: 'Note' }],

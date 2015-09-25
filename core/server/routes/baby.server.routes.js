@@ -21,5 +21,5 @@ module.exports = function (app, passport) {
         .put(babiesController.changeTheme);
 
     app.route('/api/babies/journal/:id')
-        .post(babiesController.addComment);
+        .post(babiesController.addJournal);
 };

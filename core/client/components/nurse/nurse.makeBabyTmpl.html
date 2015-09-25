@@ -8,65 +8,66 @@
     <div class="medicalFormInnerContainer">
         <form name="babyForm" ng-submit="makeBaby()">
           <md-content layout="row" layout-padding>
-            <md-input-container flex>
-                <label><span class="blackText">Patient Number</span></label>
+            <md-input-container flex=>
+                <label><span>Patient Number</span></label>
               <input type="number" name="patientNumber" ng-model="baby.patientNumber" required>
             </md-input-container>
-            <md-DatePicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="10" required></md-DatePicker>
-            <md-DatePicker ng-model="baby.deathDate" md-placeholder="Date of Death" flex></md-DatePicker>
-            <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date" flex></md-datepicker>
+            <md-DatePicker ng-model="baby.birthDate" md-placeholder="Date of Birth" flex offset="5" required></md-DatePicker>
+            <md-DatePicker ng-model="baby.deathDate" md-placeholder="Date of Death" ng-hide="showAdd" flex></md-DatePicker>
+            <md-datepicker ng-model="baby.dischargeDate" md-placeholder="Discharge Date" ng-hide="showAdd" flex></md-datepicker>
           </md-content>
           <md-content layout="row" layout-padding>
             <md-input-container flex>
-                <label><span class="blackText">First Name</span></label>
+                <label><span>First Name</span></label>
               <input type="text" name="firstName" ng-model="baby.firstName" required />
             </md-input-container>
             <md-input-container flex>
-                <label><span class="blackText">Middle Name</span></label>
+                <label><span>Middle Name</span></label>
               <input type="text" name="middleName" ng-model="baby.middleName" />
             </md-input-container>
             <md-input-container flex>
-                <label><span class="blackText">Last Name</span></label>
+                <label><span>Last Name</span></label>
               <input type="text" name="lastName" ng-model="baby.lastName" required />
             </md-input-container>
           </md-content>
           <md-content layout="row" layout-padding>
             <md-input-container flex="20">
-                <label><span class="blackText">Gender</span></label>
+                <label><span>Gender</span></label>
               <md-select ng-model="baby.gender" required>
                   <md-option value="Male"><span>Male</span></md-option>
                   <md-option value="Female"><span>Female</span></md-option>
+                  <md-option value="Unassigned"><span>Unassigned</span></md-option>
               </md-select>
             </md-input-container>
           </md-content>
           <md-content layout="row" layout-padding>
             <md-input-container flex>
-                <label><span class="blackText">Birth Length</span></label>
+                <label><span>Birth Length (inches)</span></label>
               <input type="text" name="length" ng-model="baby.birthLength" required />
             </md-input-container>
             <md-input-container flex>
-                <label><span class="blackText">Birth Weight</span></label>
+                <label><span>Birth Weight (grams)</span></label>
               <input type="text" name="weight" ng-model="baby.birthWeight" required />
             </md-input-container>
           </md-content>
           <br>
           <md-content layout="row" layout-padding>
             <md-input-container flex>
-                <label><span class="blackText">Parent 1 Name</span></label>
+                <label><span>Parent 1 Name</span></label>
               <input type="text" name="parent1Name" ng-model="parent1.name" ng-required="showAdd" />
             </md-input-container>
             <md-input-container flex>
-                <label><span class="blackText">Parent 1 Email</span></label>
+                <label><span>Parent 1 Email</span></label>
               <input type="text" name="parent1email" ng-model="parent1.email" ng-required="showAdd" />
             </md-input-container>
           </md-content>
           <md-content layout="row" layout-padding>
             <md-input-container flex>
-                <label><span class="blackText">Parent 2 Name</span></label>
+                <label><span>Parent 2 Name</span></label>
               <input type="text" name="parent2Name" ng-model="parent2.name" />
             </md-input-container>
             <md-input-container flex>
-                <label><span class="blackText">Parent 2 Email</span></label>
+                <label><span>Parent 2 Email</span></label>
               <input type="text" name="parent2email" ng-model="parent2.email" />
             </md-input-container>
           </md-content>
@@ -78,5 +79,3 @@
         </form>
     </div>
 </div>
-
-
