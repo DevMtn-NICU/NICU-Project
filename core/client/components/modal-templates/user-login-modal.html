@@ -1,15 +1,15 @@
-<md-dialog aria-label="List Dialog">
+<md-dialog aria-label="List Dialog" md-theme="{{ theme }}">
    <md-dialog-content>
       <md-input-container>
-         <label><span style="color: black;">UserName</span></label>
+         <label>UserName</label>
          <input type="text" ng-model="login.username" required />
       </md-input-container>
       <md-input-container>
-         <label><span style="color: black;">Password</span></label>
+         <label>Password</label>
          <input ng-enter="submitDialog()" type="password" ng-model="login.password" required />
       </md-input-container>
 
-      <md-button id='close' ng-click="closeDialog()">Cancel</md-button>
-      <md-button id='submit' ng-click="submitDialog()">ok!</md-button>
+      <md-button id='close' class="md-raised" ng-click="closeDialog()">Cancel</md-button>
+      <md-button id='submit' class="md-raised md-primary" ng-click="submitDialog()">Submit</md-button>
    </md-dialog-content>
 </md-dialog>
