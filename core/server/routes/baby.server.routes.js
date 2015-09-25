@@ -20,6 +20,6 @@ module.exports = function (app, passport) {
     app.route('/api/babies/theme/:id')
         .put(babiesController.changeTheme);
 
-    app.route('/api/babies/comment/:id')
+    app.route('/api/babies/journal/:id')
         .post(babiesController.addComment);
 };
