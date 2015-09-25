@@ -1,6 +1,6 @@
-<div class="backgroundImage" md-theme="{{ theme }}">
+<div class="parentFont {{theme}}" md-theme="{{ theme }}">
 
-<!-- <p ng-class="{'CamoGreen' : , bold: important, 'has-error': error}" class="backgroundImage"></p>
+<!-- <p ng-class="{'BabyBlue' : showerCars, 'CamoGreen': CamoCars, 'RosePink': roseCupcakeHearts"></p>
 <label>
    <input type="checkbox" ng-model="deleted">
    deleted (apply "strike" class)
@@ -44,7 +44,7 @@
             <md-button type="button" class="md-raised md-primary" ng-click="toggleSidenav()">Menu</md-button>
          </div>
          <div ui-sref="parent.landing" style="cursor: pointer;">
-            <h1>{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
+            <h1 class="specialFont">{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
          </div>
          <div>
             <md-button class="md-raised mdbutton" type="button" ng-click="logout()">Logout</md-button>
