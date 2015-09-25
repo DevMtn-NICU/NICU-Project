@@ -146,7 +146,7 @@
                abstract: true,
                resolve: {
                  baby: function(contactService) {
-                   return contactService();
+                   return contactService.getFeed();
                  }
                }
             })
