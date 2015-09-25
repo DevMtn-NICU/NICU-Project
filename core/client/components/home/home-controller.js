@@ -4,6 +4,8 @@
    angular.module('app')
       .controller('homeController', function ($scope, $mdDialog, LoginService) {
 
+         $scope.theme = "nurseViews";
+
          $scope.userLogin = function (ev) {
             $mdDialog.show({
                templateUrl: 'components/modal-templates/user-login-modal.html',
