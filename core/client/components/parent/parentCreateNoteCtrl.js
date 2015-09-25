@@ -20,8 +20,8 @@
          $scope.images = [];
 
          // clear the note
-         $scope.clearFields = function () {
-            $scope.note = {};
+         $scope.cancelFn = function () {
+            $state.go('parent.landing');
          };
 
          // open modal

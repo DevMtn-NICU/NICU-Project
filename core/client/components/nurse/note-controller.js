@@ -9,9 +9,20 @@
         $scope.theBaby = promised;
         $scope.images = [];
 
-        // clear the note
-        $scope.clearFields = function () {
-           $scope.note = {};
+        // set details to load in disabled inputs
+        $scope.theBaby.revisedName = $scope.theBaby.firstName + " " + $scope.theBaby.lastName;
+        var revisedParents = [];
+        $scope.revise = function() {
+            var parents = $scope.theBaby.parents;
+            for (var i=0; i < parents.length; i++) {
+                revisedParents.push(parents[i].name);
+            }
+            $scope.theBaby.revisedParents = revisedParents.join(", ");
+        }();
+
+        // cancel button
+        $scope.cancelFn = function () {
+            $state.go('medical.search')
         }
 
         // open modal
