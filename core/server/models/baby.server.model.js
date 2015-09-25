@@ -50,6 +50,7 @@ var babySchema = new Schema({
       type: String
    }],
 
+
    birthWeight: {
       type: String,
       required: true
