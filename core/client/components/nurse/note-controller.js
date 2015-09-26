@@ -41,23 +41,12 @@
                delete($scope.note.stats.heartRate);
                //console.log('oxy', $scope.note.stats.heartRate);
             }
-            //TODO add note pictures
             var validNote = false;
 
-            //            if ($scope.note.stats.heartRate > 0 || $scope.note.stats.heartRate < 0) {
-            //               console.log('true');
-            //               validNote = true;
-            //            } 
-            //            else
             if ($scope.note.stats.other > 0) {
                console.log('true');
                validNote = true;
-            }
-            //            else if ($scope.note.stats.oxygen > 0 || $scope.note.stats.oxygen < 0) {
-            //               console.log('true');
-            //               validNote = true;
-            //            } 
-            else if ($scope.note.stats.bathed) {
+            } else if ($scope.note.stats.bathed) {
                console.log('true');
                validNote = true;
             } else if ($scope.note.stats.bloodPressure) {
