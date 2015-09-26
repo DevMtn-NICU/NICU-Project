@@ -56,7 +56,7 @@
               'Bright'
           ];
 
-      $('BabyBlue').css({"background-image":"showerCars.png"});
+      
 
     $scope.changeTheme = function (theme) {
       if($scope.currentBaby) {

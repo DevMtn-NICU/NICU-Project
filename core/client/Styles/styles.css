@@ -7,25 +7,30 @@ body {
    padding: 0;
    width: 100%;
    height: 100%;
+
 }
 body {
    margin: 0;
    padding: 0;
    font-family: 'PT Sans', sans-serif;
-   /*   background-image: url('../../images/cars_bckgrnd.png');*/
+   background-color: transparent;
+   z-index: -2;/
+/*   position: relative;*/
+  
 }
-.fullPage {
+/*.fullPage {
+   z-index: -1;
    position: relative;
    width: 100%;
    clear: left;
    min-height: 100%;
    margin-bottom: -60px;
-}
-.fullPage:after {
+}*/
+/*.fullPage:after {
    content: "";
    display: block;
    height: 60px;
-}
+}*/
 
 .blackText {
    color: #BDBDBD;
@@ -406,30 +411,50 @@ md-input-container .md-input {
 
 /*******************************Parent View Template Page**************************/
 .BabyBlue{
-  background-image: url('../images/babyBlue.png');
+  background-image: url('../images/ThemeDocs/babyBlue.png');
+}
+
+/*.Neutral{
+  background-image: url('../images/ThemeDocs/.png');
+}*/
+
+.CamoGreen{
+  background-image: url('../images/ThemeDocs/camoLeaves.png');
+}
+
+.Purple{
+  background-image: url('../images/ThemeDocs/purplePigsCars.png');
+}
+
+.RosePink{
+  background-image: url('../images/ThemeDocs/roseCupcakeHearts.png');
+}
+
+.Bright{
+  background-image: url('../images/ThemeDocs/SoRealTrees.png');
+}
+  
+.backgroundImage {
   background-repeat: repeat;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+ /* background-attachment: fixed;*/
+ background-size: cover;
+  min-height: 100%;
+  position: fixed;
+  min-width: 100%;
+  z-index: -1;
 }
 
 .parentFont {
   font-family: Georgia;
 }
 
-.specialFont {
-  font-size: 60px;
-}
 
 .parentNavBar {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
    float: center;
-   margin-top: 5%;
+   padding: 3%;
    margin-bottom: 3%;
 }
 .parentViewContainer {
@@ -453,36 +478,103 @@ md-input-container .md-input {
 }
 
 /*******************************Parent Landing Page*******************************/
-
+.landingContainer {
+  width: 80%;
+  height: 80%;
+  margin-top: 2%;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  border: 5px solid black;
+}
+ ul {
+  list-style-type: none;
+ }
 .journalBox {
-  border: 2px solid black;
+  border: 5px solid gray;
+  height: auto;
+  width: 900px;
+  background-color: #fff;
+  opacity: 0.6;
+  position: absolute;
+  margin-right: 30px;
+  vertical-align: center;
 }
 
-.landing {
-  height: 400px;
-  width: 400px;
+.journalBox:hover {
+  opacity: 1;
+}
+
+.journalTitle {
+  margin-right: 40px;
+  font-style: italic;
+  font-variant: bold;
+}
+
+.specialFont {
+  font-size: 60px;
+  font-family: Libre-Baskerville;
+  font-size: 40px;
+}
+
+.questions {
+  font-size: 15px;
+  height: 20px;
+  width: 900px;
+  text-align: center;
+}
+
+.entries {
+  height: auto;
+  width: 900px;
+  font-size: 15px;
+  background-color: #fff;
+  opacity: 0.6;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.entries:hover {
+  opacity: 1;
+}
+
+.landingImage {
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
   border: 5px solid black;
   padding: 40px;
   display: flex;
   justify-content: center;
-  float: center;
+  float: left
+  overflow: hidden;
+  position: absolute;
+}
+
+.landingImage img {
+  height: auto;
+  width: 100%;
+  margin: auto;
+  float: center; 
 }
 
 .image1 {
-  height: 100%;
-  width: 100%;
-  margin-top: 400px;
-  margin: auto;
-  float: center;
-  background-size: cover;
+  top: 0px;
+  right: 0px;
 }
 
 .image2 {
-  /*margin-top: 500px;
-  margin-right: 300px;*/
-  
+  top: 0px;
+  left: 0px;
 }
+
+.image3 {
+ bottom: 0px;
+ right: 0px;
+
+}
+
+
 
 /*******************************Parent Settings Page*******************************/
 
@@ -541,19 +633,26 @@ md-input-container .md-input {
 }*/
 
 
-/*
-* {
+
+/** {
     border: 1px solid red;
-}
-*/
+}*/
+
 /*******************************TESTING Parent Landing Page**************************/
 
 .plTest {
     float: left;
     outline: 1px solid #666;
     padding: 5px;
+}
+
+.coolerBackground {
+  opacity: 0.0;
+}
 
 /*******************************END Parent Settings Page**************************/
-
+div[ui-view] {
+ background-color: rgba(0,0,0,0);
+}
 
 /*******************************END Parent Settings Page**************************/
