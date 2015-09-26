@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  angular.module('app').controller('changePasswordCtrl', function ($scope, $mdDialog, parentService, theme) {
+  angular.module('app').controller('changePasswordCtrl', function ($scope, $mdDialog, parentService, theme, $cookies) {
     $scope.passwordsDontMatch = false;
     $scope.success = false;
     $scope.theme = theme;
@@ -21,6 +21,7 @@
           $scope.passwordsDontMatch = false;
           $scope.newPassword = "";
           $scope.verifyPassword = "";
+          $cookies.putObject("pwdChanged", true);
         });
       }
     };
