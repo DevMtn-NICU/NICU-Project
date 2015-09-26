@@ -16,7 +16,7 @@ body {
    background-color: transparent;
    z-index: -2;/
 /*   position: relative;*/
-  
+
 }
 /*.fullPage {
    z-index: -1;
@@ -442,7 +442,7 @@ md-input-container .md-input {
 .Bright{
   background-image: url('../images/ThemeDocs/SoRealTrees.png');
 }
-  
+
 .backgroundImage {
   background-repeat: repeat;
  /* background-attachment: fixed;*/
@@ -488,14 +488,13 @@ md-input-container .md-input {
 /*******************************Parent Landing Page*******************************/
 .landingContainer {
   width: 80%;
-  height: 80%;
-  margin-top: 2%;
-  position: relative;
-  display: inline-block;
+  margin: 2% auto;
+  /*display: inline-block;*/
   text-align: center;
-  border: 5px solid black;
+  background-color: #fff;
+  opacity: .9;
 }
- ul {
+ /*ul {
   list-style-type: none;
  }
 .journalBox {
@@ -507,7 +506,7 @@ md-input-container .md-input {
   position: absolute;
   margin-right: 30px;
   vertical-align: center;
-}
+}*/
 
 .journalBox:hover {
   opacity: 1;
@@ -534,23 +533,26 @@ md-input-container .md-input {
 
 .entries {
   height: auto;
-  width: 900px;
+  /*width: 900px;*/
+  width: 80%;
   font-size: 15px;
   background-color: #fff;
   opacity: 0.6;
-  margin-top: 5px;
-  padding: 5px;
+  /*margin-top: 5px;*/
+  /*padding: 5px;*/
+  padding: 1%;
+  margin: 1% auto;
 }
 
 .entries:hover {
   opacity: 1;
 }
 
-.landingImage {
+/*.landingImage {
   width: 300px;
   height: 300px;
   border-radius: 10px;
-  border: 5px solid black;
+  border: 1px solid #666;
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -563,24 +565,47 @@ md-input-container .md-input {
   height: auto;
   width: 100%;
   margin: auto;
-  float: center; 
-}
+  float: center;
+}*/
 
 .image1 {
-  top: 0px;
-  right: 0px;
+  position: absolute;
+  top: 2%;
+  right: 15%;
+  width: 33%;
+  /*outline: 1px solid red;*/
+  border-radius: 10px;
 }
 
 .image2 {
-  top: 0px;
-  left: 0px;
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    width: 22%;
+    /*outline: 1px solid red;*/
+    border-radius: 10px;
 }
 
 .image3 {
- bottom: 0px;
- right: 0px;
+    position: absolute;
+    top: 32%;
+    left: 35%;
+    width: 40%;
 }
-
+.journalContainer {
+    position: absolute;
+    top: 75%;
+    left: 0;
+    background-color: #fff;
+    opacity: .9;
+}
+.innerLandingContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: .9;
+}
 
 
 /*******************************Parent Settings Page*******************************/
