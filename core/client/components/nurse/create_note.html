@@ -47,7 +47,7 @@
         <form name="babyNote" ng-submit="floatTheModal(note.baby)">
             Upload A Photo of {{ theBaby.firstName}}<span ng-hide="showForParent">&nbsp;{{ theBaby.lastName}}</span> <br>
             <input type="file" images="images" accept="image/*" ng-model="note.picturesUrl" placeholder="UPLOAD IMAGE" fileread><br><br>{{pictureError}}<br>
-            <md-checkbox ng-model="note.stats.fed" aria-label="Fed">
+            <md-checkbox ng-model="note.stats.fed" aria-label="Fed"  class="md-primary">
                 Fed:
             </md-checkbox>
             <md-checkbox ng-model="note.stats.changed" aria-label="Changed" class="md-primary">
@@ -66,11 +66,11 @@
                     </md-input-container>
                     <md-input-container>
                         <label>Oxygen</label>
-                        <input type="text" ng-model="note.stats.oxygen" class="md-primary">
+                        <input type="number" ng-model="note.stats.oxygen" class="md-primary">
                     </md-input-container>
                     <md-input-container>
                         `<label>Heart Rate</label>
-                        <input type="text" ng-model="note.stats.heartRate" class="md-primary">
+                        <input type="number" ng-model="note.stats.heartRate" class="md-primary">
                     </md-input-container>
                     <md-input-container>
                         <label>Weight (grams)</label>

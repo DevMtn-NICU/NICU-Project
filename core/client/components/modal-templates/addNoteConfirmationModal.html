@@ -1,28 +1,100 @@
 <md-dialog>
    <md-dialog-content layout="row" layout-padding>
-      <h2 flex>Review Your Baby Note Before Submitting</h2>
+      <h2 flex>Review Your Note</h2>
    </md-dialog-content>
    <md-dialog-content layout="row" layout-padding>
-     <md-subheader>
-         Baby: {{ theBaby.firstName }} {{ theBaby.lastName }}<br>
-         Picture: {{ note.picturesUrl }}<br>
-         Blood Pressure: {{ note.stats.bloodPressure}}<br>
-         Heart Rate: {{ note.stats.heartRate}}<br>
-         Oxygen: {{ note.stats.oxygen}}<br>
-         Weight: {{ note.stats.weight}}<br>
-         <span ng-repeat="other in note.stats.other">
-             {{ other.stat }}: {{ other.value }}<br>
-         </span>
-         Fed: {{ note.stats.fed}}<br>
-         Bathed: {{ note.stats.bathed}}<br>
-         Changed: {{ note.stats.changed}}<br>
-         Comment: {{ note.comment}}<br>
-         Time created: {{ note.created_at}}<br>
-         Note creator: {{ note.creator}}<br>
-
-     </md-subheader>
+     <md-content>
+         <div layout="row">
+             <div flex="20">
+                Baby:
+             </div>
+             <div flex="80">
+                 {{ theBaby.firstName }} {{ theBaby.lastName }}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Picture:
+             </div>
+             <div flex="80">
+                 {{ note.picturesUrl }}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Blood Pressure:
+            </div>
+             <div flex="80">
+                 {{ note.stats.bloodPressure}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Heart Rate:
+             </div>
+             <div flex="80">
+                 {{ note.stats.heartRate}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Oxygen:
+             </div>
+             <div flex="80">
+                 {{ note.stats.oxygen}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Weight:
+             </div>
+             <div flex="80">
+                 {{ note.stats.weight}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Fed:
+             </div>
+             <div flex="80">
+                 {{ note.stats.fed}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Bathed:
+             </div>
+             <div flex="80">
+                 {{ note.stats.bathed}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Changed:
+             </div>
+             <div flex="80">
+                 {{ note.stats.changed}}<br>
+             </div>
+         </div>
+         <div layout="row">
+             <div flex="20">
+                Comment:
+             </div>
+             <div flex="80">
+                 {{ note.comment}}<br>
+             </div>
+         </div>
+         <div layout="row"  ng-repeat="other in note.stats.other">
+            <div flex="20">
+                 {{ other.stat }}:
+             </div>
+             <div flex="80">
+                 {{ other.value }}<br>
+             </div>
+         </div>
+     </md-content>
    </md-dialog-content>
-   <md-dialog-content layout="row" layout-padding>
+   <md-dialog-content layout="row" flex="100" layout-padding>
      <!-- <md-button type="button" class="md-raised" href="/#/medical/create_note/{{baby._id}}" ng-click="close()">Add a note for this patient</md-button> -->
      <md-button type="button" class="md-raised pointer" ng-click="hideModal()">Edit</md-button>
      <md-button type="button" class="md-raised pointer" ng-click="addBabyNote()">Submit Baby Note</md-button>

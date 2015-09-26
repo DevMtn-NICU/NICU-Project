@@ -39,9 +39,6 @@
          // make Baby note
          $scope.addBabyNote = function () {
             $scope.note.baby = $scope.theBaby._id;
-            $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
-            $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
-            // $scope.note.picturesUrl = $scope.imageId;
             parentService.addBabyNote($scope.note).
             then(function (response) {
                $scope.hideModal();
