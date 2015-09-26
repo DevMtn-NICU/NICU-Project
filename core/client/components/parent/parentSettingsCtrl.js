@@ -45,7 +45,7 @@
       };
 
       // remove this empty array and push call below when retrieving contacts properly from baby...just wanted it for testing
-      $scope.contacts = [];
+      // $scope.contacts = [];
       $scope.authLevel = function () {
          $scope.auth.password = "test";
          $scope.auth.babies = $scope.$parent.babies;

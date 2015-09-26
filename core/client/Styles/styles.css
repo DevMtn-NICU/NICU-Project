@@ -27,8 +27,6 @@ body {
    height: 60px;
 }
 
-/*THESE RULES APPLY TO THE HIGH REZ DISPLAY, AND CASCADE DOWN TO THE MEDIUM AND LOW REZ DISPLAYS*/
-
 .blackText {
    color: #BDBDBD;
 }
@@ -229,15 +227,18 @@ footer {
 
 
 /*Styling for Main Nurse template Page*/
+/*.nurseHeader {
+	width: 100%;
+	height: 15%;
+}*/
 
 .nurseHeader {
-   width: 100%;
-   height: 15%;
+   width: 90%;
+   margin: auto;
 }
 .logo {
-   margin-left: 2%;
-   height: 115px;
-   width: 100px;
+  height: auto;
+  width: auto;
 }
 .mdbutton {
    width: 90%;
@@ -254,26 +255,28 @@ footer {
    margin-top: 5%;
    padding: 5px;
 }
-.nurseViewContainer {
-   width: 85%;
-   height: 85%;
-   padding: 15px;
+.nurseView {
+  margin-bottom: 15px;
 }
 
 /***************************END OF MAIN NURSE TEMPLATE PAGE************************/
+/** {
+    border: 1px solid red;
+}*/
 
-
-/*Search Page*/
-
-.babyRow {
-   padding: 1%;
+.container {
+    width: 85%;
+    margin: 35px auto;
+    /*outline: 1px solid red;*/
 }
-#searchCellPatient,
-#searchCellBirth,
-#searchCellName,
-#searchCellGender {
-   width: 25%;
-   /*    padding-bottom: 20px;*/
+
+.headerContainer {
+    width: 85%;
+    margin: 0 auto;
+}
+#searchCellPatient, #searchCellBirth, #searchCellName, #searchCellGender {
+    width: 25%;
+/*    padding-bottom: 20px;*/
 }
 #searchCellBirth {
    width: 15%;
@@ -334,9 +337,8 @@ footer {
 
 
 /******************************NURSE SEARCH PAGE**********************/
-
 .container {
-   width: 85%;
+   width: 90%;
    margin: auto;
    outline: 1px solid #eee;
    /*background-color: #EEEEEE;*/
@@ -488,7 +490,7 @@ md-input-container .md-input {
    height: 85%;
    width: 90%;
    display: flex;
-   float: center;
+   /*float: center;*/
    align-items: left;
    flex-direction: row;
    margin: auto;
@@ -497,6 +499,17 @@ md-input-container .md-input {
 }
 .clear {
    clear: both;
+}
+.addFrame {
+    /*padding: 4px;*/
+    border: 1px solid rgb(238, 238, 238);
+}
+#spacer {
+    width:5%;
+}
+.shareContainer {
+    width: 60%;
+    border: 1px solid rgb(238, 238, 238);
 }
 
 /* Parent Timeline Page (for testing only) */
@@ -533,7 +546,12 @@ md-input-container .md-input {
     border: 1px solid red;
 }
 */
+/*******************************TESTING Parent Landing Page**************************/
 
+.plTest {
+    float: left;
+    outline: 1px solid #666;
+    padding: 5px;
 
 /*******************************END Parent Settings Page**************************/
 
