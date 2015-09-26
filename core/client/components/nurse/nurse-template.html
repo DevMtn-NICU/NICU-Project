@@ -1,19 +1,22 @@
 <!-- <p>This is the Nurse Template</p>
 <p>Test Data: {{ test }}</p> -->
 <div md-theme="{{ theme }}">
-<div class="nurseHeader">
-	<div>
-		<img class="logo" src="../../images/uuhc_logo_homepage.png">
-		<md-button class="md-primary md-raised" ui-sref="medical.search" style="position: absolute; top: 25px; left: 250px">Search for Baby</md-button>
-		<md-button class="md-primary md-raised" ui-sref="medical.create_account" style="position: absolute; top: 25px; left: 400px">Create Baby</md-button>
-		<md-button class="md-raised md-accent" type="button" ng-click="logout()" style="position: absolute; top: 25px; right: 25px">Logout</md-button>
-	</div>
+<div class="nurseHeader" layout="row" layout-padding>
+		<div flex layout="row" layout-align="start center" layout-padding>
+			<md-button class="md-primary md-raised" ui-sref="medical.search" >Search for Patient</md-button>
+			<md-button class="md-primary md-raised" ui-sref="medical.create_account" >Create Patient</md-button>
+		</div>
+		<div flex layout="row" layout-align="center">
+			<img class="logo" src="../../images/Logos/uuhc_logo_homepage_whole.png">
+		</div>
+		<div flex layout="row" layout-align="end center" layout-padding>
+			<md-button class="md-raised" type="button" ng-click="logout()">Logout</md-button>
+		</div>
 </div>
 
-<div class="nurseViewContainer" ui-view></div>
+<div class="nurseView" ui-view></div>
 <!--
 <div ng-include="'../../footer.html'">
 </div>
 -->
 </div>
-

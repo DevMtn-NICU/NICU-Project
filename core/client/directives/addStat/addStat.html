@@ -1,5 +1,6 @@
+<md-button type="button" class="pointer" md-no-ink ng-click="addStat()"> Add A Stat (Not Seen Below)</md-button>
 <div ng-repeat="(idx, newStat) in note.stats.other">
-  <md-input-container flex>
+  <md-input-container flex  md-no-ink>
     <label>Stat Name</label>
     <input type="text" ng-model="newStat.stat">
   </md-input-container>
@@ -8,4 +9,3 @@
     <input type="text" ng-model="newStat.value">
   </md-input-container>
 </div>
-<md-button type="button" style="cursor:pointer" ng-click="addStat()"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add A Stat (Not Seen Below)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</md-button>

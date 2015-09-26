@@ -20,12 +20,17 @@
          $scope.images = [];
 
          // clear the note
-         $scope.clearFields = function () {
-            $scope.note = {};
+         $scope.cancelFn = function () {
+            $state.go('parent.landing');
          };
 
          // open modal
          $scope.floatTheModal = function () {
+             if ($scope.note.picturesUrl) {
+                 $scope.shortUrl = $scope.note.picturesUrl;
+                 $scope.shortUrl = $scope.shortUrl.split('/');
+                 $scope.shortUrl = $scope.shortUrl[$scope.shortUrl.length -1];
+             };
             $mdDialog.show({
                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
                scope: $scope,
@@ -39,14 +44,12 @@
          // make Baby note
          $scope.addBabyNote = function () {
             $scope.note.baby = $scope.theBaby._id;
-            $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
-            $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
-            // $scope.note.picturesUrl = $scope.imageId;
             parentService.addBabyNote($scope.note).
             then(function (response) {
                $scope.hideModal();
-               $state.go('parent.landing')
-            })
+               $state.go('parent.landing');
+               $scope.$emit("addedNote");
+            });
          };
 
       });
