@@ -452,6 +452,10 @@ md-input-container .md-input {
 
 /*******************************Parent Landing Page*******************************/
 
+.journalBox {
+  border: 2px solid black;
+}
+
 .landing {
   height: 400px;
   width: 400px;

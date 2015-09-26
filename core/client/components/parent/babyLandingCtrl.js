@@ -37,7 +37,13 @@
                   })
             }
 
-            $scope
+            $scope.addJournalEntry = function() {
+               parentService.addJournalEntry($scope.baby._id, $scope.journalEntry)
+               .then(function (baby) {
+                  $scope.baby.journal = baby.journal;
+                  $scope.journalEntry = "";
+               })
+            }
 
             //watches for dropdown in parent scope to change
             $scope.$on('babyChanged', function (e) {

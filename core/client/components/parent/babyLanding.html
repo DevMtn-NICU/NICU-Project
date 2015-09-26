@@ -1,14 +1,24 @@
 <div class="landingContainer">
-   <div class="landing">
+   <!-- <div class="landing"> -->
    
       <h1 class="specialFont">A Special Baby</h1>
-      <div>My Journal</div>
+     
 
       <div>
-         
+            <label>My Journal</label>
+            <label>What are your thoughts today? How do you feel today? What special moment have you had today?</label>
+         <md-input-container class="journalBox">
+            <label>Description</label>
+            <textarea ng-model="journalEntry"></textarea>
+         </md-input-container>
+         <md-button class="md-primary md-raised" type="Submit" ng-click="addJournalEntry()">Submit</md-button>
       </div>
 
-   
+      <div ng-repeat="entry in baby.journal">
+         <div>{{entry}}</div>
+      </div>
+
+ <!--   
       <div class="image1">
          <img src="{{recentImages[0]}}">
       </div>
@@ -19,7 +29,7 @@
       </div>
       <div class="image3">
          <img src="{{recentImages[2]}}">
-      </div>
+      </div> -->
    
-   </div>
+  <!--  </div> -->
 </div>

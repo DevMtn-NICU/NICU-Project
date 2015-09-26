@@ -14,7 +14,6 @@ var babySchema = new Schema({
       type: String,
       required: true
    },
-
    gender: {
       type: String,
       enum: ["Male", "Female", "Unassigned"],
@@ -22,9 +21,9 @@ var babySchema = new Schema({
    },
    patientNumber: {
       type: Number,
-      required: true
+      required: true,
+      unique: true
    },
-
    parents: [{
       type: Schema.Types.ObjectId,
       ref: 'User'
@@ -47,7 +46,7 @@ var babySchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User'
    }],
-   comments: [{
+   journal: [{
       type: String
    }],
 
