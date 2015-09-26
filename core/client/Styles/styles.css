@@ -12,8 +12,7 @@ body {
    margin: 0;
    padding: 0;
    font-family: 'PT Sans', sans-serif;
-   /*background-image: url('../../images/cars_bckgrnd.png');
-    position: fixed;*/
+   /*   background-image: url('../../images/cars_bckgrnd.png');*/
 }
 .fullPage {
    position: relative;
@@ -232,13 +231,12 @@ footer {
 /*Styling for Main Nurse template Page*/
 
 .nurseHeader {
-   width: 100%;
-   height: 15%;
+   width: 90%;
+   margin: auto;
 }
 .logo {
-   margin-left: 2%;
-   height: 115px;
-   width: 100px;
+  height: auto;
+  width: auto;
 }
 .mdbutton {
    width: 90%;
@@ -255,10 +253,8 @@ footer {
    margin-top: 5%;
    padding: 5px;
 }
-.nurseViewContainer {
-   width: 85%;
-   height: 85%;
-   padding: 15px;
+.nurseView {
+  margin-bottom: 15px;
 }
 
 /***************************END OF MAIN NURSE TEMPLATE PAGE************************/
@@ -337,7 +333,7 @@ footer {
 /******************************NURSE SEARCH PAGE**********************/
 
 .container {
-   width: 85%;
+   width: 90%;
    margin: auto;
    outline: 1px solid #eee;
    /*background-color: #EEEEEE;*/
@@ -398,19 +394,38 @@ md-input-container .md-input {
    background-color: #eee;
 }
 
-/** {
-    outline: 1px solid red;
+/*{
+  outline: 1px solid red;
 }*/
 
 
 /*******************************Parent View Template Page**************************/
+.BabyBlue{
+  background-image: url('../images/babyBlue.png');
+  background-repeat: repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.parentFont {
+  font-family: Georgia;
+}
+
+.specialFont {
+  font-size: 60px;
+}
 
 .parentNavBar {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
    float: center;
-   margin-top: 25px;
+   margin-top: 5%;
+   margin-bottom: 3%;
 }
 .parentViewContainer {
    width: 100%;
@@ -425,7 +440,7 @@ md-input-container .md-input {
    background-color: gray;
    display: block;
    margin: auto;
-   margin-top: 25px;
+   margin-top: 5%;
 }
 .md-sidenav-backdrop {
    height: 100%;
@@ -496,10 +511,7 @@ md-input-container .md-input {
 */
 
 
-
 /*******************************END Parent Settings Page**************************/
-
-
 
 
 /*******************************END Parent Settings Page**************************/
