@@ -27,6 +27,10 @@
 
         // open modal
         $scope.floatTheModal = function() {
+            $scope.shortUrl = $scope.note.picturesUrl;
+            $scope.shortUrl = $scope.shortUrl.split('/');
+            $scope.shortUrl = $scope.shortUrl[$scope.shortUrl.length -1];
+
             $mdDialog.show({
                 templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
                 scope: $scope,
