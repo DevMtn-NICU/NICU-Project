@@ -1,59 +1,94 @@
 (function () {
-  "use strict";
+   "use strict";
 
-  angular.module('app')
-    .controller('noteController', function ($scope, promised, NurseService, $mdDialog, $state, $cookies) {
+   angular.module('app')
+      .controller('noteController', function ($scope, promised, NurseService, $mdDialog, $state, $cookies) {
 
-        $scope.note = {};
-        $scope.note.stats = {};
-        $scope.theBaby = promised;
-        $scope.images = [];
+         $scope.note = {};
+         $scope.note.stats = {};
+         $scope.theBaby = promised;
+         $scope.images = [];
 
-        // set details to load in disabled inputs
-        $scope.theBaby.revisedName = $scope.theBaby.firstName + " " + $scope.theBaby.lastName;
-        var revisedParents = [];
-        $scope.revise = function() {
-            var parents = $scope.theBaby.parents;
-            for (var i=0; i < parents.length; i++) {
-                revisedParents.push(parents[i].name);
+         // clear the note
+         $scope.clearFields = function () {
+            $scope.note = {};
+         }
+
+         // open modal
+         $scope.floatTheModal = function () {
+               $mdDialog.show({
+                  templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
+                  scope: $scope,
+                  preserveScope: true
+               });
             }
-            $scope.theBaby.revisedParents = revisedParents.join(", ");
-        }();
+            // close modal
+         $scope.hideModal = function () {
+               $mdDialog.hide();
+            }
+            // make Baby note
+         $scope.addBabyNote = function () {
+            console.log("note: ", $scope.note);
+            $scope.note.baby = promised._id;
+            $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
+            $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
+            $scope.note.creator = $cookies.getObject('name');
+            if (!$scope.note.stats.oxygen) {
+               delete($scope.note.stats.oxygen);
+            }
+            if (!$scope.note.stats.heartRate) {
+               console.log('number');
+               delete($scope.note.stats.heartRate);
+               //console.log('oxy', $scope.note.stats.heartRate);
+            }
+            var validNote = false;
 
-        // cancel button
-        $scope.cancelFn = function () {
-            $state.go('medical.search')
-        }
+            if ($scope.note.stats.other > 0) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.stats.bathed) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.stats.bloodPressure) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.stats.changed) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.stats.fed) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.stats.weight) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.picturesUrl) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.comment) {
+               console.log('true');
+               validNote = true;
+            } else if ($scope.note.stats.heartRate) {
+               validNote = true;
+            } else if ($scope.note.stats.oxygen) {
+               validNote = true;
+            } else {
+               validNote = false;
+            }
 
-        // open modal
-        $scope.floatTheModal = function() {
-            if ($scope.note.picturesUrl) {
-                $scope.shortUrl = $scope.note.picturesUrl;
-                $scope.shortUrl = $scope.shortUrl.split('/');
-                $scope.shortUrl = $scope.shortUrl[$scope.shortUrl.length -1];
-            };
+            if (validNote) {
+               NurseService.addBabyNote($scope.note).
+               then(function (response) {
+                  $scope.hideModal();
+                  $state.go('medical.search')
+               })
+            } else {
+               console.log('failed');
+            }
 
-            $mdDialog.show({
-                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
-                scope: $scope,
-                preserveScope: true
-            });
-        }
-        // close modal
-        $scope.hideModal = function() {
-            $mdDialog.hide();
-        }
-        // make Baby note
-        $scope.addBabyNote = function () {
-           $scope.note.baby = promised._id;
-           $scope.note.creator = $cookies.getObject('name');
-           NurseService.addBabyNote($scope.note).
-           then(function (response) {
-               $scope.hideModal();
-               $state.go('medical.search')
-           })
-        };
 
-     })
 
-} ());
+         };
+
+      })
+
+}());
