@@ -14,6 +14,7 @@
                   .then(function (baby) {
                      $scope.baby = baby;
                      $scope.notes = baby.notes;
+                     $scope.comments = baby.comments;
                      $scope.$broadcast('babyChanged');
                   })
                return $scope.baby, $scope.notes;

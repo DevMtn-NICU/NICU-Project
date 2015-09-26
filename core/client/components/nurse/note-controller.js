@@ -9,9 +9,20 @@
         $scope.theBaby = promised;
         $scope.images = [];
 
-        // clear the note
-        $scope.clearFields = function () {
-           $scope.note = {};
+        // set details to load in disabled inputs
+        $scope.theBaby.revisedName = $scope.theBaby.firstName + " " + $scope.theBaby.lastName;
+        var revisedParents = [];
+        $scope.revise = function() {
+            var parents = $scope.theBaby.parents;
+            for (var i=0; i < parents.length; i++) {
+                revisedParents.push(parents[i].name);
+            }
+            $scope.theBaby.revisedParents = revisedParents.join(", ");
+        }();
+
+        // cancel button
+        $scope.cancelFn = function () {
+            $state.go('medical.search')
         }
 
         // open modal
@@ -28,12 +39,8 @@
         }
         // make Baby note
         $scope.addBabyNote = function () {
-            console.log("note: ", $scope.note);
            $scope.note.baby = promised._id;
-           $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
-           $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
            $scope.note.creator = $cookies.getObject('name');
-        //    $scope.note.picturesUrl = $scope.note.picturesUrl;
            NurseService.addBabyNote($scope.note).
            then(function (response) {
                $scope.hideModal();
