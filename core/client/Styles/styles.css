@@ -472,6 +472,9 @@ md-input-container .md-input {
     /*padding: 4px;*/
     border: 1px solid rgb(238, 238, 238);
 }
+#contactInfo {
+    padding: 4px;
+}
 #spacer {
     width:5%;
 }
