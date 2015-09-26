@@ -101,9 +101,9 @@
             },
             abstract: true,
             resolve: {
-              initialBaby: function(parentService) {
-                return parentService.getInitialBaby();
-              }
+               initialBaby: function (parentService) {
+                  return parentService.getInitialBaby();
+               }
             }
          })
 
@@ -148,18 +148,18 @@
          .state('contact', {
                url: '/contact',
                templateUrl: 'components/contact/contactView/contactView.html',
-               controller: 'parentViewCtrl',
+               controller: 'contactViewCtrl',
                abstract: true,
                resolve: {
-                 baby: function(contactService) {
-                   return contactService();
-                 }
+                  baby: function (contactService) {
+                     return contactService.getFeed();
+                  }
                }
             })
             .state('contact.landing', {
                url: '',
                templateUrl: 'components/contact/contactLanding/contactLanding.html',
-               controller: 'babyLanding',
+               controller: 'contactLandingCtrl',
             })
             .state('contact.settings', {
                url: '/contact/settings',

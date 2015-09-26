@@ -18,6 +18,7 @@
           .then(function (result) {
             scope.note.picturesUrl = result.data.Location;
             scope.images.unshift(result.data);
+			scope.pictureError = null;  //here is my addition
           }).catch(function (err) {
 			scope.pictureError = "Selected image is too large to upload.";
           })
