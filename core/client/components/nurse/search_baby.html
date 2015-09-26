@@ -14,7 +14,7 @@
     </md-input-container>
 
     <!--search field-->
-    <div flex="5" layout="center" ng-repeat="baby in babies | filter:babySearch" class="rowColor babyRow">
+    <div flex="5" layout="center" ng-repeat="baby in babies | filter:babySearch" class="rowColor">
         <span layout="row" flex>{{ baby.patientNumber }}</span>
         <span layout="row" flex>{{ baby.lastName }}, {{ baby.firstName }}</span>
         <span layout="row" flex>{{ baby.gender }}</span>
