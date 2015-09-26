@@ -118,7 +118,6 @@ exports.getBabies = function (req, res) {
 };
 
 exports.getBaby = function (req, res) {
-	console.log('This is the baby id: ', req.params.id);
 	Baby.findById(req.params.id)
 	.populate('parents')
 	.populate('notes')
@@ -173,13 +172,11 @@ exports.editBaby = function(req, res) {
 		}
 		return deferred.promise;
 	}).then(function() {
-		console.log(174, baby.parents[0]);
 		//Parent1 Stuff
 		var deferred = Q.defer();
 		if (baby.parents[0] && req.body.parent1.email && req.body.parent1.name && baby.parents[0].email === req.body.parent1.email && baby.parents[0].name === req.body.parent1.name) {
 			deferred.resolve();
 		} else if (req.body.parent1) {
-			console.log(181);
 			if (req.body.parent1.email && req.body.parent1.name && !baby.parents[0])  {
 				//Creating new Parent
 				User.findOne({email: req.body.parent1.email}, function(err, parent) {
@@ -195,7 +192,6 @@ exports.editBaby = function(req, res) {
 						});
 					} else {
 						//Create user
-						console.log(196);
 						var newParent1 = new User();
 						newParent1.roles.push("parent");
 						newParent1.name = req.body.parent1.name;
@@ -204,11 +200,9 @@ exports.editBaby = function(req, res) {
 						newParent1.parent.access = "parent";
 						newParent1.parent.babies.push(baby._id);
 						newParent1.save(function(err, parent) {
-							console.log(204);
 							if (err) return res.status(500).send(err);
 							parent1Id = parent._id;
 							Baby.findByIdAndUpdate(baby._id, {$push: {"parents": parent1Id}}, function(err) {
-								console.log(208);
 								if (err) return res.status(500).send(err);
 								deferred.resolve();
 							});
@@ -217,7 +211,6 @@ exports.editBaby = function(req, res) {
 				});
 			}
 			else if (!req.body.parent1.email && !req.body.parent1.name && baby.parents[0]) {
-				console.log(218);
 				//Parent1 is deleted
 				(function babyUpdate() {
 					var deferred2 = Q.defer();
@@ -237,7 +230,6 @@ exports.editBaby = function(req, res) {
 				});
 			} else if(req.body.parent1) {
 				//Parent1 Changed
-				console.log(238);
 				User.findByIdAndUpdate(baby.parents[0]._id, req.body.parent1, {new: true}, function(err, result) {
 					if (err) return res.status(500).send(err);
 					deferred.resolve();
@@ -248,13 +240,11 @@ exports.editBaby = function(req, res) {
 		}
 		return deferred.promise;
 	}).then(function() {
-		console.log(249, req.body.parent2, baby.parents);
 		//Parent2 Stuff
 		var deferred = Q.defer();
 		if (baby.parents[1] && req.body.parent2.email && req.body.parent2.name && baby.parents[1].email === req.body.parent2.email && baby.parents[1].name === req.body.parent2.name) {
 			deferred.resolve();
 		} else if (req.body.parent2) {
-			console.log(257);
 			if (req.body.parent2.email && req.body.parent2.name && !baby.parents[1])  {
 				//Creating new Parent
 				User.findOne({email: req.body.parent2.email}, function(err, parent) {
@@ -270,7 +260,6 @@ exports.editBaby = function(req, res) {
 						});
 					} else {
 						//Create user
-						console.log(196);
 						var newParent2 = new User();
 						newParent2.roles.push("parent");
 						newParent2.name = req.body.parent2.name;
@@ -279,11 +268,9 @@ exports.editBaby = function(req, res) {
 						newParent2.parent.access = "parent";
 						newParent2.parent.babies.push(baby._id);
 						newParent2.save(function(err, parent) {
-							console.log(204);
 							if (err) return res.status(500).send(err);
 							parent2Id = parent._id;
 							Baby.findByIdAndUpdate(baby._id, {$push: {"parents": parent2Id}}, function(err) {
-								console.log(208);
 								if (err) return res.status(500).send(err);
 								deferred.resolve();
 							});
@@ -292,12 +279,10 @@ exports.editBaby = function(req, res) {
 				});
 			}
 			else if (req.body.parent2.email === "" && req.body.parent2.name === "" && baby.parents[1]) {
-				console.log(301);
 				//Parent2 is deleted
 				(function babyUpdate() {
 					var deferred2 = Q.defer();
 					Baby.findByIdAndUpdate(baby._id, {$pull: {'parents': baby.parents[1]}}, {new: true}, function(err, result) {
-						console.log(result);
 						if (err) return res.status(500).send(err);
 						deferred2.resolve();
 					});
@@ -312,7 +297,6 @@ exports.editBaby = function(req, res) {
 					deferred.resolve();
 				});
 			} else if (req.body.parent2) {
-				console.log(321);
 				//Parent2 Changed
 				User.findByIdAndUpdate(baby.parents[1]._id, req.body.parent2, {new: true}, function(err, result) {
 					if (err) return res.status(500).send(err);
@@ -320,12 +304,10 @@ exports.editBaby = function(req, res) {
 				});
 			}
 		} else {
-			console.log(328);
 			deferred.resolve();
 		}
 		return deferred.promise;
 	}).then(function() {
-		console.log(326);
 		//Update and return Baby
 		if(!babyUpdated) {
 			var editedBaby = {
