@@ -42,8 +42,9 @@
             parentService.addBabyNote($scope.note).
             then(function (response) {
                $scope.hideModal();
-               $state.go('parent.landing')
-            })
+               $state.go('parent.landing');
+               $scope.$emit("addedNote");
+            });
          };
 
       });

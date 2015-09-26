@@ -84,6 +84,14 @@
            }
         });
       };
+
+      $scope.$on("addedNote", function(e) {
+        parentService.getBabyById($scope.currentBaby._id)
+        .then(function(baby) {
+          $scope.currentBaby = baby;
+          $scope.$broadcast("babyChanged");
+        });
+      });
    });
 
 
