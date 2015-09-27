@@ -416,8 +416,8 @@ md-input-container .md-input {
 
 /*******************************Parent View Template Page**************************/
 .parentContainer {
-    width: 90%;
-    margin: 35px auto;
+    width: 80%;
+    margin: auto;
 }
 .BabyBlue{
   background-image: url('../images/ThemeDocs/babyBlue.png');
@@ -491,8 +491,7 @@ md-input-container .md-input {
   margin: 2% auto;
   /*display: inline-block;*/
   text-align: center;
-  background-color: #fff;
-  opacity: .9;
+
 }
  /*ul {
   list-style-type: none;
@@ -573,8 +572,8 @@ md-input-container .md-input {
   top: 2%;
   right: 15%;
   width: 33%;
-  /*outline: 1px solid red;*/
   border-radius: 10px;
+  out
 }
 
 .image2 {
@@ -582,7 +581,6 @@ md-input-container .md-input {
     top: 12%;
     left: 15%;
     width: 22%;
-    /*outline: 1px solid red;*/
     border-radius: 10px;
 }
 
@@ -590,7 +588,7 @@ md-input-container .md-input {
     position: absolute;
     top: 32%;
     left: 35%;
-    width: 40%;
+    width: 30%;
 }
 .journalContainer {
     position: absolute;
@@ -600,13 +598,11 @@ md-input-container .md-input {
     opacity: .9;
 }
 .innerLandingContainer {
-    position: relative;
+    position: absolute;
+    top: 140px;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: #fff;
-    opacity: .9;
 }
-
 
 /*******************************Parent Settings Page*******************************/
 
@@ -651,14 +647,64 @@ md-input-container .md-input {
    overflow: auto;
 }
 
-.tlComments {
-    margin:5px 55px;
-    /*padding: 4px;*/
+.tlContainer {
+    margin:8px;
+    background-color: #fff;
+    opacity: .9;
+    /*padding: 14px;*/
+    width: 95%;
+    height: 100%;
 }
 .tlCommentsCreator {
     padding-left: 10px;
     font-weight: bold;
     font-size: 12px;
+}
+.tlNoteText {
+    font-weight: bold;
+    font-size: 12px;
+}
+.tlNoteLog {
+    margin-top: 4%;
+    background-color: #fff;
+    opacity: .9;
+}
+.statbar {
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background-color: #fff;
+    /*opacity: .9;*/
+    margin-bottom: 100px;
+}
+.tlstats {
+    vertical-align:center;
+    display:inline-block;
+    border:1px #ccc solid;
+    margin:5px;
+    padding:4px;
+    min-height: 100%;
+}
+.imgContainer {
+    width: 125px;
+    height: 125px;
+    overflow: hidden;
+    margin: 10px;
+    float: left;
+    outline: 1px solid #ccc;
+    background-color: #fff;
+    opacity: .9;
+}
+.imgContainer img {
+    width: 100%;
+}
+
+.chart {
+    margin:20px auto;
+    width:1200px;
+    height:520px;
+    background-color: #fff;
+    opacity: .9;
 }
 /** {
     outline: 1px solid red;
