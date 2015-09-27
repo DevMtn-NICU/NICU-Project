@@ -143,6 +143,7 @@
             $cookies.remove("parentObj");
             $cookies.remove("contactObj");
             $cookies.remove("nurseObj");
+            $cookies.remove("pwdChanged");
    					deferred.resolve();
    				});
    				return deferred.promise;

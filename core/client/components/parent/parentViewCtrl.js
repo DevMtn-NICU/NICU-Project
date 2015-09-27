@@ -2,9 +2,12 @@
 
   "use strict";
 
-   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog, initialBaby) {
+   angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog, initialBaby, $mdToast) {
      if(!$cookies.getObject("userId")) {
        $state.go('login');
+     }
+     if($cookies.getObject("pwdChanged") === false) {
+       $mdToast.show($mdToast.simple().content("Please change your password").position("top left"));
      }
       $scope.babies = [];
       $scope.cookieBabies = $cookies.getObject("parentObj").babies;
@@ -56,7 +59,7 @@
               'Bright'
           ];
 
-      
+
 
     $scope.changeTheme = function (theme) {
       if($scope.currentBaby) {
