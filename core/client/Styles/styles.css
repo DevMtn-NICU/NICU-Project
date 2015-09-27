@@ -7,25 +7,30 @@ body {
    padding: 0;
    width: 100%;
    height: 100%;
+
 }
 body {
    margin: 0;
    padding: 0;
    font-family: 'PT Sans', sans-serif;
-   /*   background-image: url('../../images/cars_bckgrnd.png');*/
+   background-color: transparent;
+   z-index: -2;/
+/*   position: relative;*/
+
 }
-.fullPage {
+/*.fullPage {
+   z-index: -1;
    position: relative;
    width: 100%;
    clear: left;
    min-height: 100%;
    margin-bottom: -60px;
-}
-.fullPage:after {
+}*/
+/*.fullPage:after {
    content: "";
    display: block;
    height: 60px;
-}
+}*/
 
 .blackText {
    color: #BDBDBD;
@@ -292,6 +297,10 @@ footer {
 
 /******************************NURSE CREATE NOTE PAGE**********************/
 
+.modal {
+    min-width: 45%;
+}
+
 .alignRight {
    padding-right: 135px;
    ;
@@ -301,7 +310,6 @@ footer {
    position: relative;
    right: -180%;
 }
-
 /*
 #comment {
     margin-left: auto;
@@ -407,32 +415,55 @@ md-input-container .md-input {
 
 
 /*******************************Parent View Template Page**************************/
+.parentContainer {
+    width: 80%;
+    margin: auto;
+}
 .BabyBlue{
-  background-image: url('../images/babyBlue.png');
+  background-image: url('../images/ThemeDocs/babyBlue.png');
+}
+
+/*.Neutral{
+  background-image: url('../images/ThemeDocs/.png');
+}*/
+
+.CamoGreen{
+  background-image: url('../images/ThemeDocs/camoLeaves.png');
+}
+
+.Purple{
+  background-image: url('../images/ThemeDocs/purplePigsCars.png');
+}
+
+.RosePink{
+  background-image: url('../images/ThemeDocs/roseCupcakeHearts.png');
+}
+
+.Bright{
+  background-image: url('../images/ThemeDocs/SoRealTrees.png');
+}
+
+.backgroundImage {
   background-repeat: repeat;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+ /* background-attachment: fixed;*/
+ background-size: cover;
+  min-height: 100%;
+  position: fixed;
+  min-width: 100%;
+  z-index: -1;
 }
 
 .parentFont {
   font-family: Georgia;
 }
 
-.specialFont {
-  font-size: 60px;
-}
 
 .parentNavBar {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
    float: center;
-   margin-top: 5%;
-   margin-bottom: 3%;
+   padding: 3%;
 }
 .parentViewContainer {
    width: 100%;
@@ -455,35 +486,122 @@ md-input-container .md-input {
 }
 
 /*******************************Parent Landing Page*******************************/
+.landingContainer {
+  width: 80%;
+  margin: 2% auto;
+  /*display: inline-block;*/
+  text-align: center;
 
+}
+ /*ul {
+  list-style-type: none;
+ }
 .journalBox {
-  border: 2px solid black;
+  border: 5px solid gray;
+  height: auto;
+  width: 900px;
+  background-color: #fff;
+  opacity: 0.6;
+  position: absolute;
+  margin-right: 30px;
+  vertical-align: center;
+}*/
+
+.journalBox:hover {
+  opacity: 1;
 }
 
-.landing {
-  height: 400px;
-  width: 400px;
+.journalTitle {
+  margin-right: 40px;
+  font-style: italic;
+  font-variant: bold;
+}
+
+.specialFont {
+  font-size: 60px;
+  font-family: Libre-Baskerville;
+  font-size: 40px;
+}
+
+.questions {
+  font-size: 15px;
+  height: 20px;
+  width: 900px;
+  text-align: center;
+}
+
+.entries {
+  height: auto;
+  /*width: 900px;*/
+  width: 80%;
+  font-size: 15px;
+  background-color: #fff;
+  opacity: 0.6;
+  /*margin-top: 5px;*/
+  /*padding: 5px;*/
+  padding: 1%;
+  margin: 1% auto;
+}
+
+.entries:hover {
+  opacity: 1;
+}
+
+/*.landingImage {
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
-  border: 5px solid black;
+  border: 1px solid #666;
   padding: 40px;
   display: flex;
   justify-content: center;
-  float: center;
+  float: left
+  overflow: hidden;
+  position: absolute;
 }
 
-.image1 {
-  height: 100%;
+.landingImage img {
+  height: auto;
   width: 100%;
-  margin-top: 400px;
   margin: auto;
   float: center;
-  background-size: cover;
+}*/
+
+.image1 {
+  position: absolute;
+  top: 2%;
+  right: 15%;
+  width: 33%;
+  border-radius: 10px;
+  out
 }
 
 .image2 {
-  /*margin-top: 500px;
-  margin-right: 300px;*/
-  
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    width: 22%;
+    border-radius: 10px;
+}
+
+.image3 {
+    position: absolute;
+    top: 32%;
+    left: 35%;
+    width: 30%;
+}
+.journalContainer {
+    position: absolute;
+    top: 75%;
+    left: 0;
+    background-color: #fff;
+    opacity: .9;
+}
+.innerLandingContainer {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    width: 100%;
 }
 
 /*******************************Parent Settings Page*******************************/
@@ -536,6 +654,65 @@ md-input-container .md-input {
    overflow: auto;
 }
 
+.tlContainer {
+    margin:8px;
+    background-color: #fff;
+    opacity: .9;
+    /*padding: 14px;*/
+    width: 95%;
+    height: 100%;
+}
+.tlCommentsCreator {
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.tlNoteText {
+    font-weight: bold;
+    font-size: 12px;
+}
+.tlNoteLog {
+    margin-top: 4%;
+    background-color: #fff;
+    opacity: .9;
+}
+.statbar {
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background-color: #fff;
+    /*opacity: .9;*/
+    margin-bottom: 100px;
+}
+.tlstats {
+    vertical-align:center;
+    display:inline-block;
+    border:1px #ccc solid;
+    margin:5px;
+    padding:4px;
+    min-height: 100%;
+}
+.imgContainer {
+    width: 125px;
+    height: 125px;
+    overflow: hidden;
+    margin: 10px;
+    float: left;
+    outline: 1px solid #ccc;
+    background-color: #fff;
+    opacity: .9;
+}
+.imgContainer img {
+    width: 100%;
+}
+
+.chart {
+    margin:20px auto;
+    width:1200px;
+    height:520px;
+    background-color: #fff;
+    opacity: .9;
+}
 /** {
     outline: 1px solid red;
 }*/
@@ -550,19 +727,26 @@ md-input-container .md-input {
 }*/
 
 
-/*
-* {
+
+/** {
     border: 1px solid red;
-}
-*/
+}*/
+
 /*******************************TESTING Parent Landing Page**************************/
 
 .plTest {
     float: left;
     outline: 1px solid #666;
     padding: 5px;
+}
+
+.coolerBackground {
+  opacity: 0.0;
+}
 
 /*******************************END Parent Settings Page**************************/
-
+div[ui-view] {
+ background-color: rgba(0,0,0,0);
+}
 
 /*******************************END Parent Settings Page**************************/

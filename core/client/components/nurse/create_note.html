@@ -1,93 +1,89 @@
-
-
-<div class="container greyOutline">
-    <md-toolbar>
-            <span class="md-toolbar-tools md-primary"><span ng-hide="showForParent">Create Patient Note: {{ theBaby.firstName}} {{ theBaby.lastName}}</span><span ng-show="showForParent">Create Baby Note for {{ theBaby.firstName}}</span></span>
-    </md-toolbar>
-    <div>
-    <div class="medicalFormInnerContainer">
-    <br>
-    <br>
-    <md-content layout="row" flex layout-wrap>
-        <md-content layout="column" flex="45" layout-padding>
-            <!-- will only show for parents view -->
-            <div ng-hide="showForParent">
-                <md-input-container>
-                    <label>Patient Number</label>
-                    <input type="text" ng-model="theBaby.patientNumber"  disabled="disabled">
-                </md-input-container>
-                <md-input-container>
-                    <label>Gender</label>
-                    <input type="text" ng-model="theBaby.gender" disabled="disabled">
-                </md-input-container>
-                <md-input-container>
-                    <label>Patient</label>
-                    <input type="text" ng-model="theBaby.revisedName" disabled="disabled">
-                </md-input-container>
-                <md-input-container>
-                    <label>Parent(s)</label>
-                    <input type="text" ng-model="theBaby.revisedParents"  disabled="disabled">
-                </md-input-container>
-            </div>
-            <md-input-container>
-                <label>&nbsp;&nbsp;Comments</label>
-                <textarea class="textAreaContainer md-primary greyOutline " ng-model="note.comment" cols="50" rows="10"></textarea>
-            </md-input-container>
-            <!-- will only show for parents view -->
-            <div ng-show="showForParent">
-                <md-input-container>
-                    <label>&nbsp;&nbsp;Journal</label>
-                    <textarea ng-model="note.journal" cols="50" rows="10" class="textAreaContainer md-primary greyOutline"></textarea>
-                </md-input-container>
-            </div>
-            <!-- end parents view only -->
-        </md-content>
-        <md-content layout="column" flex="5"></md-content>
-        <md-content layout="column" flex="45">
-        <form name="babyNote" ng-submit="floatTheModal(note.baby)">
-            Upload A Photo of {{ theBaby.firstName}}<span ng-hide="showForParent">&nbsp;{{ theBaby.lastName}}</span> <br>
-            <input type="file" images="images" accept="image/*" ng-model="note.picturesUrl" placeholder="UPLOAD IMAGE" fileread><br><br>{{pictureError}}<br>
-            <md-checkbox ng-model="note.stats.fed" aria-label="Fed"  class="md-primary">
-                Fed:
-            </md-checkbox>
-            <md-checkbox ng-model="note.stats.changed" aria-label="Changed" class="md-primary">
-                Changed:
-            </md-checkbox>
-            <md-checkbox ng-model="note.stats.bathed" aria-label="Bathed" class="md-primary">
-                Bathed:
-            </md-checkbox>
-            <br><br>
-            <md-button type="button" class="md-flat" layout="column" flex="40"><add-stat></add-stat></md-button>
-            <br><br>
-                <md-content>
-                    <md-input-container>
-                        <label>Blood Pressure</label>
-                        <input type="text" ng-model="note.stats.bloodPressure" class="md-primary">
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Oxygen</label>
-                        <input type="number" ng-model="note.stats.oxygen" class="md-primary">
-                    </md-input-container>
-                    <md-input-container>
-                        `<label>Heart Rate</label>
-                        <input type="number" ng-model="note.stats.heartRate" class="md-primary">
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Weight (grams)</label>
-                        <input type="text" ng-model="note.stats.weight" class="md-primary">
-                    </md-input-container>
-                </md-content>
-            <br>
+<div class="container">
+   <md-toolbar>
+      <span class="md-toolbar-tools md-primary">Create Baby Note: {{ theBaby.firstName}} {{ theBaby.lastName}}</span>
+   </md-toolbar>
+   <div>
+      <div class="medicalFormInnerContainer">
+         <br>
+         <br>
+         <md-content layout="row" flex layout-wrap>
+            <md-content layout="column" flex="5"></md-content>
+            <md-content layout="column" flex="40" layout-padding>
+               <!-- will only show for parents view -->
+               <div ng-hide="showForParent">
+                  Patient Number: {{ theBaby.patientNumber}}
+                  <br> Patient Name: {{ theBaby.firstName}} {{ theBaby.lastName}}
+                  <br> Gender: {{ theBaby.gender }}
+                  <br> Parents: &nbsp;<span ng-repeat="parent in theBaby.parents">{{parent.name}}{{$last ? '' : ',&nbsp;'}}</span>
+                  <br>
+                  <br>
+               </div>
+               <md-input-container>
+                  <label><span class="blackText">&nbsp;&nbsp;Comments</span></label>
+                  <textarea class="textAreaContainer greyOutline" ng-model="note.comment" cols="50" rows="10"></textarea>
+               </md-input-container>
+               <!-- will only show for parents view -->
+               <div ng-show="showForParent">
+                  <md-input-container>
+                     <label class="blackText">&nbsp;&nbsp;Journal</label>
+                     <textarea ng-model="note.journal" cols="50" rows="10" class="textAreaContainer greyOutline"></textarea>
+                  </md-input-container>
+               </div>
+               <!-- end parents view only -->
+            </md-content>
+            <md-content layout="column" flex="5"></md-content>
+            <md-content layout="column" flex="40">
+               <form name="babyNote" ng-submit="floatTheModal(note.baby)">
+                  Upload A Photo <span ng-hide="showForParent">of {{ theBaby.firstName}} {{ theBaby.lastName}}</span>
+                  <br>
+                  <input type="file" images="images" accept="image/*" ng-model="note.picturesUrl" placeholder="UPLOAD IMAGE" fileread>
+                  <br>
+                  <br>{{pictureError}}
+                  <br>
+                  <md-checkbox ng-model="note.stats.fed" aria-label="Fed">
+                     Fed:
+                  </md-checkbox>
+                  <md-checkbox ng-model="note.stats.changed" aria-label="Changed">
+                     Changed:
+                  </md-checkbox>
+                  <md-checkbox ng-model="note.stats.bathed" aria-label="Bathed">
+                     Bathed:
+                  </md-checkbox>
+                  <br>
+                  <br>
+                  <md-button type="button" class="md-flat greyOutline" layout="column" flex="40">
+                     <add-stat></add-stat>
+                  </md-button>
+                  <br>
+                  <br>
+                  <md-content>
+                     <md-input-container>
+                        <label><span class="">Blood Pressure</span></label>
+                        <input type="number" ng-model="note.stats.bloodPressure">
+                     </md-input-container>
+                     <md-input-container>
+                        <label><span class="">Oxygen</span></label>
+                        <input type="number" ng-model="note.stats.oxygen">
+                     </md-input-container>
+                     <md-input-container>
+                        <label><span class="">Heart Rate</span></label>
+                        <input type="text" ng-model="note.stats.heartRate">
+                     </md-input-container>
+                     <md-input-container>
+                        <label><span class="">Weight</span></label>
+                        <input type="text" ng-model="note.stats.weight">
+                     </md-input-container>
+                  </md-content>
+                  <br>
             </md-content>
 
 
-                <div class="alignRight">
-                    <md-button type="button" ng-click="cancelFn()" class="pointer md-raised">Cancel</md-button>
-                    <md-button class="md-primary md-raised" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
+            <div class="alignRight">
+               <md-button type="button" ng-click="clearFields()" class="pointer md-raised">Cancel</md-button>
+               <md-button class="md-primary md-raised" type="Submit" ng-disabled="babyNote.$invalid">Submit</md-button>
 
-                </div>
-                </form>
-        </div>
-    </div>
-
+            </div>
+            </form>
+      </div>
+   </div>
 </div>

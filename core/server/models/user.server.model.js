@@ -25,6 +25,10 @@ var userSchema = new Schema({
       required: true,
       //select: false
    },
+   passwordHasBeenChanged: {
+     type: Boolean,
+     default: false
+   },
    nurse: {
       access: {
          type: String,

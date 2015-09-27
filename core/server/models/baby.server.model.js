@@ -34,7 +34,7 @@ var babySchema = new Schema({
    }],
    theme: {
       type: String,
-      enum: ['camoGreen', 'showerBlue', 'puffyPurple', 'rosePink', 'Bright']
+      enum: [ 'Neutral', 'CamoGreen', 'BabyBlue', 'Purple', 'RosePink', 'Bright']
    },
 
 

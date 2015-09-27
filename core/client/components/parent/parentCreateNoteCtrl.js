@@ -26,6 +26,11 @@
 
          // open modal
          $scope.floatTheModal = function () {
+             if ($scope.note.picturesUrl) {
+                 $scope.shortUrl = $scope.note.picturesUrl;
+                 $scope.shortUrl = $scope.shortUrl.split('/');
+                 $scope.shortUrl = $scope.shortUrl[$scope.shortUrl.length -1];
+             };
             $mdDialog.show({
                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
                scope: $scope,
@@ -42,8 +47,9 @@
             parentService.addBabyNote($scope.note).
             then(function (response) {
                $scope.hideModal();
-               $state.go('parent.landing')
-            })
+               $state.go('parent.landing');
+               $scope.$emit("addedNote");
+            });
          };
 
       });
