@@ -1,45 +1,35 @@
-<div> 
-   
-   <ul class="landingContainer">
-
-      <li><h1 class="specialFont">A Special Baby</h1></li>
-     
-
-      <li>
-            <label class="journalTitle journal">My Journal</label>
-            </li>
-            <li>
-            <label class="questions">What are your thoughts today? How do you feel today? What special moment have you had today?</label>
-            </li>
-            <li>
-         <md-input-container class="journalBox">
-            <label>Description</label>
-            </md-input-container>
-            </li>
-          <!--   <li>
-            <textarea ng-model="journalEntry"></textarea>
-         </li> -->
-         <li>
-         <md-button class="md-primary md-raised" type="Submit" ng-click="addJournalEntry()">Submit</md-button></li>
-      
-
-      <li class="entries md-whiteframe-z3" ng-repeat="entry in baby.journal"><span>{{entry}}</span>
-      </li>
-
-     <!--  <div class="landingImage image1">
-
-         <img src="{{recentImages[0]}}">
-      </div>
-
-
-      <div class="landingImage image2">
-         <img src="{{recentImages[1]}}">
-      </div>
-      <div class="landingImage image3">
-         <img src="{{recentImages[2]}}">
-
-      </div> -->
-
-   </div>
-   
+<div class="landingContainer">
+	<!-- // images  -->
+    <div class="innerLandingContainer">
+    	<div class="image1">
+    		<img src="{{recentImages[0]}}">
+    	</div>
+    	<div class="image2">
+    		<img src="{{recentImages[1]}}">
+    	</div>
+    	<div class="image3">
+    		<img src="{{recentImages[2]}}">
+    	</div>
+    </div>
+	<!-- journal section -->
+    <div class="journalContainer">
+    	<h1 class="specialFont">A Special Baby</h1>
+    	<br>
+    	<label class="journalTitle journal">My Journal</label>
+    	<br>
+    	<label class="questions">
+    		What are your thoughts today? How do you feel today? What special moment have you had today?
+    	</label>
+    	<md-input-container class="entries">
+    		<label>Type Your Journal Entry Below</label>
+    		<textarea ng-model="journalEntry" cols="50" rows="10"></textarea>
+    	</md-input-container>
+    	<md-button class="md-primary md-raised" type="Submit" ng-click="addJournalEntry()">Submit</md-button>
+    	<div class="entries md-whiteframe-z3">
+    		<span ng-repeat="entry in baby.journal | orderBy:'note.created_at': true">{{entry}}
+    			<br>
+    			<br>
+    		</span>
+    	</div>
+    </div>
 </div>
