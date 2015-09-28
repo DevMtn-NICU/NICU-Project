@@ -13,6 +13,7 @@
                      .then(function (baby) {
                         $scope.baby = baby;
                         $scope.notes = baby.notes;
+                        $scope.getImages(baby._id);
                      })
                   return $scope.baby, $scope.notes;
                }
