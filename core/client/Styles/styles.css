@@ -18,21 +18,21 @@ body {
    /*   position: relative;*/
 }
 
-/*.fullPage {
+.fullPage {
    z-index: -1;
    position: relative;
    width: 100%;
    clear: left;
    min-height: 100%;
    margin-bottom: -60px;
-}*/
+}
 
 
-/*.fullPage:after {
+.fullPage:after {
    content: "";
    display: block;
    height: 60px;
-}*/
+}
 
 .blackText {
    color: #BDBDBD;
