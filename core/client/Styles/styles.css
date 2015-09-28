@@ -782,8 +782,8 @@ md-input-container .md-input {
 
 .chart {
     margin:20px auto;
-    width:80%;
-   /* height:520;*/
+    width:1200px;
+    height:520px;
     background-color: #fff;
     opacity: 0.6;
 }
