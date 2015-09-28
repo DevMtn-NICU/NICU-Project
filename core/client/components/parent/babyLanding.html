@@ -1,5 +1,6 @@
 <div class="landingContainer">
 	<!-- // images  -->
+<<<<<<< HEAD
     <div class="imageContainer">
         <div class="landingImage">
         	<div>
@@ -23,6 +24,23 @@
 	<!-- journal section -->
     <div class="journalContainer">
     	<h1 class="specialFont">my special little one</h1>
+=======
+  <div class="imageContainer" ng-if="recentImages.length > 0" layout="row">
+      <div class="landingImage" flex>
+        <img src="{{recentImages[0]}}">
+      </div>
+      <div class="landingImage" flex>
+        <img src="{{recentImages[1]}}">
+      </div>
+      <div class="landingImage" flex>
+        <img src="{{recentImages[2]}}">
+      </div>
+  </div>
+	<!-- journal section -->
+  <div layout="row" layout-align="center">
+    <div class="journalContainer" flex="85">
+    	<h1 class="specialFont">A Special Baby</h1>
+>>>>>>> master
     	<br>
     	<label class="journalTitle journal">My Journal</label>
     	<br>
@@ -41,5 +59,6 @@
     		</span>
     	</div>
     </div>
+  </div>
 </div>
 </div>
