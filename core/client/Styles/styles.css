@@ -531,14 +531,9 @@ md-input-container .md-input {
    border-radius: 20px;
 }
 .md-tab {
-<<<<<<< HEAD
     /*font-weight: bold;*/
     font-size: 1.5em;
     color: black !important;
-=======
-   /*font-weight: bold;*/
-   font-size: 1.5em;
->>>>>>> master
 }
 
 /** {
