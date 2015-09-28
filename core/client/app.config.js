@@ -215,4 +215,34 @@
 				})
 			});
 
+		angular.module("app")
+			.config(function($mdThemingProvider) {
+
+				var mySoftPastels = $mdThemingProvider.extendPalette('green', {
+				'900': 'D1F2A5',
+				'600': 'FFC48C',
+				'500': 'FF9F80',
+				'200': 'F56991'
+			});
+			var honeydo = $mdThemingProvider.extendPalette('pink', {
+				'200': 'EFFAB4'
+			});
+
+			$mdThemingProvider.definePalette('softGreen', mySoftPastels);
+			$mdThemingProvider.definePalette('softPink', honeydo);
+  			
+			$mdThemingProvider.theme('SoftPastels')
+				.primaryPalette('softGreen', {
+					'default': '500',
+					'hue-1': '200',
+					'hue-2': '600'
+				})
+				.accentPalette('softPink', {
+					'default': '200'
+				})
+				.warnPalette('softGreen', {
+					'default': '900'
+				})
+			});
+
 })();

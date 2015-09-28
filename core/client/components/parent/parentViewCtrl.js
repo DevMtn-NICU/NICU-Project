@@ -56,7 +56,9 @@
               'BabyBlue',
               'Purple',
               'RosePink',
-              'Bright'
+              'Bright',
+              'SoftPastels'
+              
           ];
 
 
