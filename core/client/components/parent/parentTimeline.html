@@ -1,5 +1,5 @@
 <div class="parentContainer">
-   <md-tabs md-dynamic-height>
+   <md-tabs md-dynamic-height class="md-warn chartHeader">
 
       <!-- <md-tab label="Journal">
          <div class="md-whiteframe-z3" ng-repeat="note in baby.notes">
@@ -16,7 +16,7 @@
       <md-tab label="Comments">
 
          <div class="md-whiteframe-z3 tlContainer">
-             <md-toolbar class="md-primary">
+             <md-toolbar class="md-warn">
                  <span class="md-toolbar-tools md-primary">Comments about {{ baby.firstName}}</span>
             </md-toolbar><br>
             <div layout-padding ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
@@ -32,8 +32,8 @@
          </md-toolbar> -->
          <div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
          <br>
-         <md-toolbar class="md-primary tlNoteLog">
-             <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Notes</span>
+         <md-toolbar class="md-warn tlNoteLog">
+             <span class="md-toolbar-tools md-warn">{{ baby.firstName}}'s Notes</span>
         </md-toolbar>
          <div class="statbar">
             <md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
@@ -64,7 +64,7 @@
               <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Pictures</span>
          </md-toolbar> -->
          <div class="md-whiteframe-z3 tlContainer">
-             <md-toolbar class="md-primary">
+             <md-toolbar class="md-warn">
                  <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Pictures</span>
             </md-toolbar>
             <div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
