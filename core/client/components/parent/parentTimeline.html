@@ -1,10 +1,6 @@
 <div class="parentContainer">
 	<md-tabs md-dynamic-height class="md-warn chartHeader">
-
         <md-tab label="Pictures" class="tabFont">
-			<!-- <md-toolbar class="md-primary tlNoteLog">
-              <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Pictures</span>
-         </md-toolbar> -->
          <div class="frame">
              <ul rn-carousel rn-carousel-auto-slide="7" rn-carousel-transition="fadeAndSlide" rn-carousel-buffered rn-carousel-controls rn-carousel-index="numberOfImages" class="carousel3">
                  <li ng-repeat="image in images">
@@ -16,12 +12,8 @@
              </ul>
          </div>
          <div class="clear">
-
          </div>
 			<div class="md-whiteframe-z3 tlContainer">
-				<!-- <md-toolbar class="md-warn"> -->
-				<h2 class="md-warn">{{ baby.firstName}}'s Pictures</h2>
-				<!-- </md-toolbar> -->
 				<div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
 					<img src={{note.picturesUrl}}>
 					<br>
@@ -31,49 +23,20 @@
 				</div>
 			</div>
 		</md-tab>
-
-        <md-tab label="Comments"  class="tabFont">
-    		<div class="md-whiteframe-z3 tlContainer">
-                     <span class="md-toolbar-tools md-warn">Comments about {{ baby.firstName}}</span><br>
-    			<div ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
-    				{{ note.comment }}
-    				<span class="tlCommentsCreator">by: {{ note.creator.name }} at {{ note.created_at }}</span>
-    				<br>
-    			</div>
-    			<br>
-    		</div>
-    	</md-tab>
-
-
-		<!-- <md-tab ng-click="" label="Slideshow">
-			<div class="frame">
-				<ul rn-carousel rn-carousel-auto-slide="7" rn-carousel-transition="fadeAndSlide" rn-carousel-buffered rn-carousel-controls rn-carousel-index="numberOfImages" class="carousel3">
-					<li ng-repeat="image in images">
-						<div class="layer">
-							<img ng-src="{{image}}">
-						</div>
-						<div rn-carousel-indicators ng-if="images.length > 1" images="images" rn-carousel-index="numberOfImages"></div>
-					</li>
-				</ul>
-			</div>
-	</md-tab> -->
-
-
-
-
-	<md-tab label="Statistics">
-		<!-- <md-toolbar class="md-primary tlNoteLog">
-           <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Statistics</span>
-      </md-toolbar> -->
-		<!-- <div class="tlContainer">
-			<div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
-			<br>
-        </div> -->
-
-
-
-			<div class=" tlContainer">
-                <h2 class="md-warn">{{ baby.firstName}}'s Notes</h2><br>
+	  <md-tab label="Comments"  class="tabFont">
+		  <div class="md-whiteframe-z3 tlContainer">
+				   <!-- <span class="md-toolbar-tools md-warn">Comments about {{ baby.firstName}}</span><br> -->
+			  <div ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+				  {{ note.comment }}
+				  <span class="tlCommentsCreator">by: {{ note.creator.name }} at {{ note.created_at }}</span>
+				  <br>
+			  </div>
+			  <br>
+		  </div>
+	  </md-tab>
+		<md-tab label="Statistics">
+<div class=" tlContainer">
+	<!-- <h2 class="md-warn">{{ baby.firstName}}'s Notes</h2><br> -->
 				<md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
 					{{ note.created_at }}
 					<br>
@@ -108,11 +71,10 @@
 			</div>
 	</md-tab>
     <md-tab label="Graphs">
-		<!-- <md-toolbar class="md-primary tlNoteLog">
-           <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Statistics</span>
-      </md-toolbar> -->
 		<div class="tlContainer">
 			<div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
+			<br>
+			<div ac-chart="'line'" ac-data="wtData" ac-config="wtConfig" id='wtChart' class='chart'></div>
 			<br>
         </div>
     </md-tab>

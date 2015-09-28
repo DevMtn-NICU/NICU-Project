@@ -10,15 +10,11 @@
          }
       });
 
-      if ($scope.$parent.currentBaby) {
-         $scope.babyId = $scope.$parent.currentBaby._id;
-      }
-
       $scope.contacts = [];
 
       $scope.getContacts = function (babyId) {
-         parentService.getBabyById(babyId).
-         then(function (response) {
+         parentService.getBabyById(babyId)
+         .then(function (response) {
             $scope.contacts = [];
             var lvl1 = response.level1;
             var lvl2 = response.level2;
@@ -38,6 +34,11 @@
             }
          });
       };
+
+      if ($scope.$parent.currentBaby) {
+         $scope.babyId = $scope.$parent.currentBaby._id;
+         $scope.getContacts($scope.babyId);
+      }
 
       $scope.clearFields = function () {
          $scope.auth = {};
