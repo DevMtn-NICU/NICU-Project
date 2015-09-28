@@ -13,6 +13,7 @@
                      .then(function (baby) {
                         $scope.baby = baby;
                         $scope.notes = baby.notes;
+                        $scope.getImages(baby._id);
                      })
                   return $scope.baby, $scope.notes;
                }
@@ -24,7 +25,7 @@
                parentService.getBabyById(babyId)
                   .then(function (baby) {
                      var recentImages = [];
-                     for (var i=baby.notes.length -1; i>=0; i--) {
+                     for (var i = baby.notes.length - 1; i >= 0; i--) {
                         if (baby.notes[i].picturesUrl) {
                            console.log(baby.notes[i].picturesUrl);
                            recentImages.push(baby.notes[i].picturesUrl);
@@ -37,12 +38,12 @@
                   })
             }
 
-            $scope.addJournalEntry = function() {
+            $scope.addJournalEntry = function () {
                parentService.addJournalEntry($scope.baby._id, $scope.journalEntry)
-               .then(function (baby) {
-                  $scope.baby.journal = baby.journal;
-                  $scope.journalEntry = "";
-               })
+                  .then(function (baby) {
+                     $scope.baby.journal = baby.journal;
+                     $scope.journalEntry = "";
+                  })
             }
 
             //watches for dropdown in parent scope to change
