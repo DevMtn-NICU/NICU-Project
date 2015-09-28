@@ -11,10 +11,24 @@
             <md-content layout="column" flex="40" layout-padding>
                <!-- will only show for parents view -->
                <div ng-hide="showForParent">
-                  Patient Number: {{ theBaby.patientNumber}}
-                  <br> Patient Name: {{ theBaby.firstName}} {{ theBaby.lastName}}
-                  <br> Gender: {{ theBaby.gender }}
-                  <br> Parents: &nbsp;<span ng-repeat="parent in theBaby.parents">{{parent.name}}{{$last ? '' : ',&nbsp;'}}</span>
+                   <md-input-container>
+                      <label><span class="">Patient Number</span></label>
+                      <input type="number" ng-model="theBaby.patientNumber" disabled>
+                   </md-input-container>
+                   <md-input-container>
+                      <label><span class="">Gender</span></label>
+                      <input type="text" ng-model="theBaby.gender" disabled>
+                   </md-input-container>
+
+
+
+
+
+
+                  <!-- Patient Number: {{ theBaby.patientNumber}} -->
+                  <!-- <br> Patient Name: {{ theBaby.firstName}} {{ theBaby.lastName}} -->
+                  <!-- <br> Gender: {{ theBaby.gender }} -->
+                  <!-- <br> Parents: &nbsp;<span ng-repeat="parent in theBaby.parents">{{parent.name}}{{$last ? '' : ',&nbsp;'}}</span> -->
                   <br>
                   <br>
                </div>
