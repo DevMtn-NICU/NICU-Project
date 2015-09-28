@@ -1,3 +1,38 @@
-<h1>contactView</h1>
+<div class="backgroundImage {{theme}}"></div>
+<div class="parentFont" md-theme="{{ theme }}">
 
-<div ui-view></div>
+   <div>
+  		<md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
+         <md-toolbar class="md-warn">
+            <h1 class="md-toolbar-tools">{{currentBaby.firstName}} {{currentBaby.lastName}}</h1>
+         </md-toolbar>
+         <md-content layout="column" layout-padding>
+            <md-input-container>
+               <label>Select Baby</label>
+               <md-select ng-model="currentBaby">
+                  <md-option ng-repeat="baby in babies" ng-value="baby">{{baby.firstName}} {{baby.lastName}}</md-option>
+               </md-select>
+            </md-input-container>
+            <md-button class="md-warn md-raised md-button" ui-sref="parent.landing" ng-click="toggleSidenav()" ng-if="level1">Home</md-button>
+            <md-button class="md-warn md-raised md-button" ui-sref="parent.timeline" ng-click="toggleSidenav()" ng-if="level1">Timeline</md-button>
+						<md-button class="md-warn md-raised md-button" ng-click="toggleSidenav(); openPasswordModal();">Change Password</md-button>
+            <md-button class="md-warn md-raised md-button" ng-click="toggleSidenav()">Close Menu</md-button>
+         </md-content>
+      </md-sidenav>
+      <div class="parentNavBar" layout="row">
+         <div>
+            <md-button type="button" class="md-raised md-warn" ng-click="toggleSidenav()">Menu</md-button>
+         </div>
+         <div ui-sref="parent.landing" style="cursor: pointer;">
+            <h1 class="specialFont">{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
+         </div>
+         <div>
+            <md-button class="md-raised md-primary mdbutton" type="button" ng-click="logout()">Logout</md-button>
+         </div>
+      </div>
+      <!-- <div class="break"></div> -->
+      <div class="parentViewContainer">
+         <div ui-view></div>
+      </div>
+   </div>
+</div>

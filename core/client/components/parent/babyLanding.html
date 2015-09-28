@@ -1,43 +1,19 @@
 <div class="landingContainer">
 	<!-- // images  -->
-    <div class="imageContainer">
-        <div class="landingImage">
-        	<div>
-        		<img src="{{recentImages[0]}}">
-        	</div>
-        	<!-- <div class="image2">
-        		<img src="{{recentImages[1]}}">
-        	</div>
-        	<div class="image3">
-        		<img src="{{recentImages[2]}}">
-        	</div> -->
-        </div>
-
-        <div class="landingImage">
-            <!-- <div class="image1">
-                <img src="{{recentImages[0]}}">
-            </div> -->
-            <div>
-                <img src="{{recentImages[1]}}">
-            </div>
-            <!-- <div class="image3">
-                <img src="{{recentImages[2]}}">
-            </div> -->
-        </div>
-        <div class="landingImage">
-            <!-- <div class="image1">
-                <img src="{{recentImages[0]}}">
-            </div>
-            <div class="image2">
-                <img src="{{recentImages[1]}}">
-            </div> -->
-            <div>
-                <img src="{{recentImages[2]}}">
-            </div>
-        </div>
-    </div>
+  <div class="imageContainer" ng-if="recentImages.length > 0" layout="row">
+      <div class="landingImage" flex>
+        <img src="{{recentImages[0]}}">
+      </div>
+      <div class="landingImage" flex>
+        <img src="{{recentImages[1]}}">
+      </div>
+      <div class="landingImage" flex>
+        <img src="{{recentImages[2]}}">
+      </div>
+  </div>
 	<!-- journal section -->
-    <div class="journalContainer">
+  <div layout="row" layout-align="center">
+    <div class="journalContainer" flex="85">
     	<h1 class="specialFont">A Special Baby</h1>
     	<br>
     	<label class="journalTitle journal">My Journal</label>
@@ -57,5 +33,6 @@
     		</span>
     	</div>
     </div>
+  </div>
 </div>
 </div>

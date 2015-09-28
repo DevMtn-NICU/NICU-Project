@@ -1,5 +1,5 @@
-<div class="backgroundImage {{theme}}"></div>
-<div class="parentFont" md-theme="{{ theme }}">
+<div class="parentFont theView" md-theme="{{ theme }}">
+   <div class="backgroundImage {{theme}}"></div>
 
    <div>
       <md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
@@ -31,7 +31,7 @@
          <div>
             <md-button type="button" class="md-raised md-warn" ng-click="toggleSidenav()">Menu</md-button>
          </div>
-         <div ui-sref="parent.landing" style="cursor: pointer;">
+         <div id="babyName" ui-sref="parent.landing" style="cursor: pointer;">
             <h1 class="specialFont">{{currentBaby.firstName}} {{currentBaby.middleName}} {{currentBaby.lastName}}</h1>
          </div>
          <div>
@@ -40,8 +40,7 @@
       </div>
       <!-- <div class="break"></div> -->
       <div class="parentViewContainer">
-         <div ui-view></div>
+         <div ui-view class="theView"></div>
       </div>
    </div>
 </div>
-<!--<div ng-include="'../../footer.html'"></div>-->
