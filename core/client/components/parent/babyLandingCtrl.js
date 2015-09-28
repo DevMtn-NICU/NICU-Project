@@ -4,7 +4,8 @@
    angular.module('app')
       .controller('babyLanding',
          function ($scope, parentService, $mdDialog, $stateParams, $cookies, $rootScope) {
-            $scope.baby = {};
+            $scope.baby = $scope.$parent.currentBaby;
+            $scope.notes = $scope.baby.notes;
 
             function getCurrentBaby() {
                var babyId = parentService.sendBabyId();
@@ -13,38 +14,35 @@
                      .then(function (baby) {
                         $scope.baby = baby;
                         $scope.notes = baby.notes;
-                        $scope.getImages(baby._id);
-                     })
+                        $scope.getImages();
+                     });
                   return $scope.baby, $scope.notes;
                }
                console.log('getCurrentBaby failed');
             }
             getCurrentBaby();
 
-            $scope.getImages = function (babyId) {
-               parentService.getBabyById(babyId)
-                  .then(function (baby) {
-                     var recentImages = [];
-                     for (var i = baby.notes.length - 1; i >= 0; i--) {
-                        if (baby.notes[i].picturesUrl) {
-                           console.log(baby.notes[i].picturesUrl);
-                           recentImages.push(baby.notes[i].picturesUrl);
-                           if (recentImages.length === 2) {
-                              $scope.recentImages = recentImages;
-                           }
-                        }
-                     }
-                     $scope.recentImages = recentImages;
-                  })
-            }
+            $scope.getImages = function () {
+              var recentImages = [];
+              for (var i = $scope.notes.length - 1; i >= 0; i--) {
+                 if ($scope.notes[i].picturesUrl) {
+                    recentImages.push($scope.notes[i].picturesUrl);
+                    if (recentImages.length === 3) {
+                       $scope.recentImages = recentImages;
+                       break;
+                    }
+                 }
+              }
+              $scope.recentImages = recentImages;
+            };
 
             $scope.addJournalEntry = function () {
                parentService.addJournalEntry($scope.baby._id, $scope.journalEntry)
                   .then(function (baby) {
                      $scope.baby.journal = baby.journal;
                      $scope.journalEntry = "";
-                  })
-            }
+                  });
+            };
 
             //watches for dropdown in parent scope to change
             $scope.$on('babyChanged', function (e) {
@@ -53,7 +51,7 @@
                   $scope.getBaby($scope.baby._id);
 
                   $cookies.putObject("babyId", $scope.baby._id);
-                  $scope.getImages($scope.baby._id);
+                  $scope.getImages();
                }
             });
 

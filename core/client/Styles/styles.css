@@ -352,16 +352,14 @@ md-input-container .md-input {
    width: 90%;
    margin: 2% auto;
    text-align: center;
-   display: flex;
-   justify-content: center;
    float: center;
 }
 .imageContainer {
-   flex-direction: row;
-   display: flex;
+   /*flex-direction: row;*/
+   /*display: flex;*/
    overflow: hidden;
    margin-right: 15px;
-   justify-content: space-between;
+   /*justify-content: space-between;*/
 }
 .journalTitle {
    margin-right: 40px;
@@ -401,12 +399,13 @@ md-input-container .md-input {
    border-radius: 20px;
 }
 .journalContainer {
-   position: absolute;
-   top: 75%;
-   left: 10%;
-   width: 80%;
+   /*position: absolute;*/
+   /*top: 75%;*/
+   /*left: 10%;*/
+   /*width: 80%;*/
    background-color: #fff;
    border-radius: 20px;
+   margin-bottom: 2%;
 }
 
 /*******************************Parent Settings Page*******************************/
