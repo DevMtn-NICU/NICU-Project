@@ -2,7 +2,7 @@
 <div class="parentFont" md-theme="{{ theme }}">
 
    <div>
-  		<md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
+      <md-sidenav md-component-id="menu" class="md-sidenav-left" flex style="position: fixed;">
          <md-toolbar class="md-warn">
             <h1 class="md-toolbar-tools">{{currentBaby.firstName}} {{currentBaby.lastName}}</h1>
          </md-toolbar>
@@ -23,7 +23,7 @@
             <md-button class="md-warn md-raised md-button" ui-sref="parent.timeline" ng-click="toggleSidenav()">Timeline</md-button>
             <md-button class="md-warn md-raised md-button" ui-sref="parent.create_note" ng-click="toggleSidenav()">Add a Note</md-button>
             <md-button class="md-warn md-raised md-button" ui-sref="parent.settings" ng-click="toggleSidenav()">Share</md-button>
-						<md-button class="md-warn md-raised md-button" ng-click="toggleSidenav(); openPasswordModal();">Change Password</md-button>
+            <md-button class="md-warn md-raised md-button" ng-click="toggleSidenav(); openPasswordModal();">Change Password</md-button>
             <md-button class="md-warn md-raised md-button" ng-click="toggleSidenav()">Close Menu</md-button>
          </md-content>
       </md-sidenav>

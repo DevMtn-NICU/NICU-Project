@@ -15,30 +15,34 @@
 
       <md-tab label="Comments">
 
-         <div class="md-whiteframe-z3 tlContainer"> 
-             <md-toolbar class="md-warn">
-                 <span class="md-toolbar-tools md-primary">Comments about {{ baby.firstName}}</span>
-            </md-toolbar><br>
+         <div class="md-whiteframe-z3 tlContainer">
+            <md-toolbar class="md-warn">
+               <span class="md-toolbar-tools md-primary">Comments about {{ baby.firstName}}</span>
+            </md-toolbar>
+            <br>
             <div layout-padding ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
-                  {{ note.comment }}
-                  <span class="tlCommentsCreator">by: {{ note.creator.name }} at {{ note.created_at }}</span><br>
-            </div><br>
+               {{ note.comment }}
+               <span class="tlCommentsCreator">by: {{ note.creator.name }} at {{ note.created_at }}</span>
+               <br>
+            </div>
+            <br>
          </div>
       </md-tab>
 
       <md-tab label="Pictures">
-          <!-- <md-toolbar class="md-primary tlNoteLog">
+         <!-- <md-toolbar class="md-primary tlNoteLog">
               <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Pictures</span>
          </md-toolbar> -->
          <div class="md-whiteframe-z3 tlContainer">
-             <md-toolbar class="md-warn">
-                 <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Pictures</span>
+            <md-toolbar class="md-warn">
+               <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Pictures</span>
             </md-toolbar>
             <div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
-                <img src={{note.picturesUrl}}><br>
+               <img src={{note.picturesUrl}}>
+               <br>
             </div>
             <div class="clear">
-                <br>
+               <br>
             </div>
          </div>
       </md-tab>
@@ -55,20 +59,20 @@
             </ul>
          </div>
       </md-tab>
-      
+
       <md-tab label="Graphs">
-          <!-- <md-toolbar class="md-primary tlNoteLog">
+         <!-- <md-toolbar class="md-primary tlNoteLog">
               <span class="md-toolbar-tools md-primary">{{ baby.firstName}}'s Statistics</span>
          </md-toolbar> -->
          <div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
          <br>
-         
+
          <div ac-chart="'line'" ac-data="wtData" ac-config="wtConfig" id='wtChart' class='chart'></div>
          <br>
-         
+
          <md-toolbar class="md-warn tlNoteLog">
-             <span class="md-toolbar-tools md-warn">{{ baby.firstName}}'s Notes</span>
-        </md-toolbar>
+            <span class="md-toolbar-tools md-warn">{{ baby.firstName}}'s Notes</span>
+         </md-toolbar>
          <div class="statbar">
             <md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
                {{ note.created_at }}
@@ -81,11 +85,12 @@
                <span ng-repeat="other in note.stats.other">
 						<!-- <span ng-if="note.stats.other"> -->
 							<span class="tlNoteText">{{ other.stat }}:</span> {{ other.value }}
-						<!-- </span> -->
+               <!-- </span> -->
                <br>
                </span>
-              <span ng-if="note.stats.fed"> <span class="tlNoteText">Fed:</span> {{ note.stats.fed }}</span></span>
-                <span ng-if="note.stats.changed"><br><span class="tlNoteText">Changed:</span> {{ note.stats.changed }}</span>
+               <span ng-if="note.stats.fed"> <span class="tlNoteText">Fed:</span> {{ note.stats.fed }}</span>
+               </span>
+               <span ng-if="note.stats.changed"><br><span class="tlNoteText">Changed:</span> {{ note.stats.changed }}</span>
                <span ng-if="note.stats.bathed"><br><span class="tlNoteText">Bathed:</span> {{ note.stats.bathed }}</span>
                <br>
                <br>
@@ -93,7 +98,7 @@
             </md-content>
          </div>
       </md-tab>
-      
+
    </md-tabs>
 
 
