@@ -30,8 +30,7 @@
          $scope.addBabyNote = function () {
             console.log("note: ", $scope.note);
             $scope.note.baby = promised._id;
-            $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
-            $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
+
             $scope.note.creator = $cookies.getObject('name');
             if (!$scope.note.stats.oxygen) {
                delete($scope.note.stats.oxygen);

@@ -205,6 +205,7 @@ footer {
 .container {
    width: 85%;
    margin: 35px auto;
+   background-color: #fff;
 }
 .headerContainer {
    width: 85%;
