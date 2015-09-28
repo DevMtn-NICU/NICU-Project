@@ -1,122 +1,120 @@
 <div class="parentContainer">
-	<md-tabs md-dynamic-height class="md-warn chartHeader">
-		<md-tab label="Pictures" class="tabFont">
-			<div class="frame">
-				<ul rn-carousel rn-carousel-auto-slide="7" rn-carousel-transition="fadeAndSlide" rn-carousel-buffered rn-carousel-controls rn-carousel-index="numberOfImages" class="carousel3" rn-carousel-center>
-					<li ng-repeat="image in images">
-						<div class="layer" layout-padding>
-							<img ng-src="{{image}}">
-						</div>
-						<div rn-carousel-indicators ng-if="images.length > 1" images="images" rn-carousel-index="numberOfImages"></div>
-					</li>
-				</ul>
-			</div>
-			<div class="md-whiteframe-z3 tlContainer">
-				<div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
-					<img src={{note.picturesUrl}}>
-					<br>
-				</div>
-				<div class="clear">
-					<br>
-				</div>
-			</div>
-		</md-tab>
-		<md-tab label="Comments">
-			<div class="md-whiteframe-z3 tlContainer">
-				<br>
-				<div layout-padding ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
-					{{ note.comment }}
-					<span class="tlCommentsCreator">by: {{ note.creator.name }} at {{ note.created_at }}</span>
-					<br>
-				</div>
-				<br>
-			</div>
-		</md-tab>
+   <md-tabs md-dynamic-height class="md-warn chartHeader">
+      <md-tab label="Pictures" class="tabFont">
+         <div class="md-whiteframe-z3 tlContainer">
+            <div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
+               <img ng-click="imageModal()" src={{note.picturesUrl}}>
+               <br>
+            </div>
+            <div class="clear">
+               <br>
+            </div>
+         </div>
+      </md-tab>
+      <md-tab label="Comments">
+         <div class="md-whiteframe-z3 tlContainer">
+            <br>
+            <div layout-padding ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+               {{ note.comment }}
+               <span class="tlCommentsCreator">by: {{ note.creator.name }} at {{ note.created_at }}</span>
+               <br>
+            </div>
+            <br>
+         </div>
+      </md-tab>
 
-		<md-tab label="Statistics">
-			<div class=" tlContainer">
-				<md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
-					{{ note.created_at }}
-					<br>
-					<br>
-					<span class="tlNoteText">Blood Pressure:</span> {{ note.stats.bloodPressure }}
-					<br>
-					<span class="tlNoteText">Heart Rate:</span> {{ note.stats.heartRate }}
-					<br>
-					<span class="tlNoteText">Oxygen:</span> {{ note.stats.oxygen }}
-					<br>
-					<span class="tlNoteText">Weight:</span> {{ note.stats.weight }}
-					<br>
-					<span ng-repeat="other in note.stats.other">
+
+      <md-tab label="Statistics">
+         <div class=" tlContainer">
+            <md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+               {{ note.created_at }}
+               <br>
+               <br>
+               <span class="tlNoteText">Blood Pressure:</span> {{ note.stats.bloodPressure }}
+               <br>
+               <span class="tlNoteText">Heart Rate:</span> {{ note.stats.heartRate }}
+               <br>
+               <span class="tlNoteText">Oxygen:</span> {{ note.stats.oxygen }}
+               <br>
+               <span class="tlNoteText">Weight:</span> {{ note.stats.weight }}
+               <br>
+               <span ng-repeat="other in note.stats.other">
 						<!-- <span ng-if="note.stats.other"> -->
 						<span class="tlNoteText">{{ other.stat }}:</span> {{ other.value }}
-						<!-- </span> -->
-						<br>
-					</span>
-					<span ng-if="note.stats.fed">
+               <!-- </span> -->
+               <br>
+               </span>
+               <span ng-if="note.stats.fed">
 						<span class="tlNoteText">Fed:</span> {{ note.stats.fed }}</span>
-					</span>
-					<span ng-if="note.stats.changed">
+               </span>
+               <span ng-if="note.stats.changed">
 						<br>
 						<span class="tlNoteText">Changed:</span> {{ note.stats.changed }}</span>
-					<span ng-if="note.stats.bathed">
+               <span ng-if="note.stats.bathed">
 						<br>
 						<span class="tlNoteText">Bathed:</span> {{ note.stats.bathed }}</span>
-					<br>
-					<br>
-					<span class="float:right">By: {{ note.creator.name }}</span>
-				</md-content>
-			</div>
-		</md-tab>
-		<md-tab label="Graphs">
-			<div class="tlContainer">
-				<div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
-				<br>
-				<div ac-chart="'line'" ac-data="wtData" ac-config="wtConfig" id='wtChart' class='chart'></div>
-				<br>
-			</div>
-		</md-tab>
-	</md-tabs>
+               <br>
+               <br>
+               <span class="float:right">By: {{ note.creator.name }}</span>
+            </md-content>
+         </div>
+      </md-tab>
+      <md-tab label="Graphs">
+         <div class="tlContainer">
+            <div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
+            <br>
+            <div ac-chart="'line'" ac-data="wtData" ac-config="wtConfig" id='wtChart' class='chart'></div>
+            <br>
+         </div>
+      </md-tab>
+   </md-tabs>
 
-	</md-tab>
+   </md-tab>
 
-	<md-tab label="Graphs">
-		<md-toolbar class="md-warn tlNoteLog">
-			<span class="md-toolbar-tools md-warn">{{ baby.firstName}}'s Notes</span>
-		</md-toolbar>
-		<div class="statbar">
-			<md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
-				{{ note.created_at }}
-				<br>
-				<br>
-				<span class="tlNoteText">Blood Pressure:</span> {{ note.stats.bloodPressure }}
-				<br>
-				<span class="tlNoteText">Heart Rate:</span> {{ note.stats.heartRate }}
-				<br>
-				<span class="tlNoteText">Oxygen:</span> {{ note.stats.oxygen }}
-				<br>
-				<span class="tlNoteText">Weight:</span> {{ note.stats.weight }}
-				<br>
-				<span ng-repeat="other in note.stats.other">
+   <md-tab label="Graphs">
+      <md-toolbar class="md-warn tlNoteLog">
+         <span class="md-toolbar-tools md-warn">{{ baby.firstName}}'s Notes</span>
+      </md-toolbar>
+      <div class="statbar">
+         <md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
+            {{ note.created_at }}
+            <br>
+            <br>
+            <span class="tlNoteText">Blood Pressure:</span> {{ note.stats.bloodPressure }}
+            <br>
+            <span class="tlNoteText">Heart Rate:</span> {{ note.stats.heartRate }}
+            <br>
+            <span class="tlNoteText">Oxygen:</span> {{ note.stats.oxygen }}
+            <br>
+            <span class="tlNoteText">Weight:</span> {{ note.stats.weight }}
+            <br>
+            <span ng-repeat="other in note.stats.other">
 					<!-- <span ng-if="note.stats.other"> -->
 					<span class="tlNoteText">{{ other.stat }}:</span> {{ other.value }}
+<<<<<<< HEAD
 					 </span> 
 					<br>
 				</span>
 				<span ng-if="note.stats.fed">
+=======
+            <!-- </span> -->
+            <br>
+            </span>
+            <span ng-if="note.stats.fed">
+>>>>>>> master
 					<span class="tlNoteText">Fed:</span> {{ note.stats.fed }}</span>
-				</span>
-				<span ng-if="note.stats.changed">
+            </span>
+            <span ng-if="note.stats.changed">
 					<br>
 					<span class="tlNoteText">Changed:</span> {{ note.stats.changed }}</span>
-				<span ng-if="note.stats.bathed">
+            <span ng-if="note.stats.bathed">
 					<br>
 					<span class="tlNoteText">Bathed:</span> {{ note.stats.bathed }}</span>
-				<br>
-				<br>
-				<span class="float:right">By: {{ note.creator.name }}</span>
-			</md-content>
-		</div>
-	</md-tab>
-	</md-tabs>
+            <br>
+            <br>
+            <span class="float:right">By: {{ note.creator.name }}</span>
+         </md-content>
+      </div>
+   </md-tab>
+   </md-tabs>
 </div>
