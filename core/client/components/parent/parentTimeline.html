@@ -54,25 +54,25 @@
 				<span class="tlNoteText">Weight:</span> {{ note.stats.weight }}
 				<br>
 				<span ng-repeat="other in note.stats.other">
-					<!-- <span ng-if="note.stats.other"> -->
+			<!-- <span ng-if="note.stats.other"> -->
 					<span class="tlNoteText">{{ other.stat }}:</span> {{ other.value }}
-					<!-- </span> -->
-					<br>
-				</span>
-				<span ng-if="note.stats.fed">
+            <!-- </span> -->
+            <br>
+            </span>
+            <span ng-if="note.stats.fed">
 					<span class="tlNoteText">Fed:</span> {{ note.stats.fed }}</span>
-				</span>
-				<span ng-if="note.stats.changed">
+            </span>
+            <span ng-if="note.stats.changed">
 					<br>
 					<span class="tlNoteText">Changed:</span> {{ note.stats.changed }}</span>
-				<span ng-if="note.stats.bathed">
+            <span ng-if="note.stats.bathed">
 					<br>
 					<span class="tlNoteText">Bathed:</span> {{ note.stats.bathed }}</span>
-				<br>
-				<br>
-				<span class="float:right">By: {{ note.creator.name }}</span>
-			</md-content>
-		</div>
-	</md-tab>
-	</md-tabs>
+            <br>
+            <br>
+            <span class="float:right">By: {{ note.creator.name }}</span>
+         </md-content>
+      </div>
+   </md-tab>
+   </md-tabs>
 </div>
