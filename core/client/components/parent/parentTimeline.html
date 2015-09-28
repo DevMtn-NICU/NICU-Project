@@ -23,6 +23,7 @@
          </div>
       </md-tab>
 
+
       <md-tab label="Statistics">
          <div class=" tlContainer">
             <md-content class="tlstats md-whiteframe-z3" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
@@ -90,10 +91,17 @@
             <span ng-repeat="other in note.stats.other">
 					<!-- <span ng-if="note.stats.other"> -->
 					<span class="tlNoteText">{{ other.stat }}:</span> {{ other.value }}
+<<<<<<< HEAD
+					 </span> 
+					<br>
+				</span>
+				<span ng-if="note.stats.fed">
+=======
             <!-- </span> -->
             <br>
             </span>
             <span ng-if="note.stats.fed">
+>>>>>>> master
 					<span class="tlNoteText">Fed:</span> {{ note.stats.fed }}</span>
             </span>
             <span ng-if="note.stats.changed">
