@@ -154,65 +154,7 @@ body {
    width: 100px;
    float: center;
 }
-
-/** {
-    outline: 1px solid red;
-}*/
-
-
-/*#logo {
-    margin: 25px auto;
-}
-
-hr {
-    width: 35%;
-    border: 0;
-    height: 1px;
-    background: #000;
-    opacity: 0.2;
-}
-
-.titles h1  {
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.60);
-}
-
-.titles p {
-    text-align: center;
-}*/
-
-
-/*.nurseLogin {
-    margin-left: 27%;
-    padding: 4%;
-    width: 180px;
-    height: auto;
-}
-
-#loginNurseBtn {
-    position: relative;
-    right: 12.5%;
-}
-
-.childLogin {
-    margin-left: 42%;
-    padding: 4%;
-    width: 180px;
-    height: auto;
-}
-
-#loginChildBtn {
-    position: relative;
-    right: 11%;
-}*/
-
 footer {
-   /*
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   right: 0;
-*/
    height: 60px;
    background-color: black;
    position: relative;
@@ -226,23 +168,10 @@ footer {
    display: inline-block;
 }
 
-/*
-.nurseFooter {
-    position: relative;
-    top: 12.5%;
-}*/
-
-
 /****************************END OF HOME PAGE*****************************/
 
 
 /*Styling for Main Nurse template Page*/
-
-
-/*.nurseHeader {
-	width: 100%;
-	height: 15%;
-}*/
 
 .nurseHeader {
    width: 90%;
@@ -273,15 +202,9 @@ footer {
 
 /***************************END OF MAIN NURSE TEMPLATE PAGE************************/
 
-
-/** {
-    border: 1px solid red;
-}*/
-
 .container {
    width: 85%;
    margin: 35px auto;
-   /*outline: 1px solid red;*/
 }
 .headerContainer {
    width: 85%;
@@ -292,12 +215,10 @@ footer {
 #searchCellName,
 #searchCellGender {
    width: 25%;
-   /*    padding-bottom: 20px;*/
 }
 #searchCellBirth {
    width: 15%;
    padding-right: 5%;
-   /*    padding-bottom: 20px;*/
 }
 .pointer {
    cursor: pointer;
@@ -321,37 +242,6 @@ footer {
    right: -180%;
 }
 
-/*
-#comment {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#text {
-   margin-left: 25%;
-   text-decoration-line: underline;
-}
-
-#noteContainer {
-    margin-left: -5%;
-}
-
-#statContainer {
-    position: relative;
-    left: -10%;
-}
-.textAreaContainer {
-    outline: 1px solid #eee;
-}*/
-
-
-/*
-* {
-    border: 1px solid red;
-}
-*/
-
-
 /******************************END CREATE NOTE PAGE**********************/
 
 
@@ -361,24 +251,14 @@ footer {
    width: 90%;
    margin: auto;
    outline: 1px solid #eee;
-   /*background-color: #EEEEEE;*/
-   /*padding: 20px;*/
-   /*box-shadow: 0 0 1px 1px;*/
 }
 .gender {
    position: relative;
    left: 3.5%;
-   /*    margin-left: 10%;*/
 }
-
-/** {
-    outline: 1px
-}*/
-
 .birth {
    position: relative;
    left: 5.1%;
-   /*    margin-left: 10%;*/
 }
 .numbers {
    position: relative;
@@ -421,11 +301,6 @@ md-input-container .md-input {
    padding: 1%;
 }
 
-/*{
-  outline: 1px solid red;
-}*/
-
-
 /*******************************Parent View Template Page**************************/
 
 .parentContainer {
@@ -435,11 +310,6 @@ md-input-container .md-input {
 .BabyBlue {
    background-image: url('../images/ThemeDocs/babyBlue.png');
 }
-
-/*.Neutral{
-  background-image: url('../images/ThemeDocs/.png');
-}*/
-
 .CamoGreen {
    background-image: url('../images/ThemeDocs/camoCamo.png');
 }
@@ -458,7 +328,6 @@ md-input-container .md-input {
 }
 .backgroundImage {
    background-repeat: repeat;
-   /* background-attachment: fixed;*/
    background-size: cover;
    min-height: 100%;
    position: fixed;
@@ -479,7 +348,6 @@ md-input-container .md-input {
    width: 100%;
    height: 85%;
    margin: auto;
-   /*margin-top: 25px;*/
 }
 .break {
    width: 80%;
@@ -500,9 +368,8 @@ md-input-container .md-input {
 .landingContainer {
    width: 90%;
    margin: 2% auto;
-   /*display: inline-block;*/
    text-align: center;
-   dispaly: flex;
+   display: flex;
    justify-content: center;
    float: center;
 }
@@ -513,21 +380,6 @@ md-input-container .md-input {
    margin-right: 15px;
    justify-content: space-between;
 }
-
-/*ul {
-  list-style-type: none;
- }
-.journalBox {
-  border: 5px solid gray;
-  height: auto;
-  width: 900px;
-  background-color: #fff;
-  opacity: 0.6;
-  position: absolute;
-  margin-right: 30px;
-  vertical-align: center;
-}*/
-
 .journalTitle {
    margin-right: 40px;
    font-style: italic;
@@ -546,18 +398,11 @@ md-input-container .md-input {
 }
 .entries {
    height: auto;
-   /*width: 900px;*/
    width: 80%;
    font-size: 15px;
    background-color: #fff;
-   opacity: 0.6;
-   /*margin-top: 5px;*/
-   /*padding: 5px;*/
    padding: 1%;
    margin: 1% auto;
-}
-.entries:hover {
-   opacity: 1;
 }
 .landingImage {
    width: 32%;
@@ -578,11 +423,7 @@ md-input-container .md-input {
    left: 10%;
    width: 80%;
    background-color: #fff;
-   opacity: .6;
    border-radius: 20px;
-}
-.journalContainer:hover {
-   opacity: 1;
 }
 
 /*******************************Parent Settings Page*******************************/
@@ -591,11 +432,9 @@ md-input-container .md-input {
    height: 85%;
    width: 90%;
    display: flex;
-   /*float: center;*/
    align-items: left;
    flex-direction: row;
    margin: auto;
-   /*border: 5px black solid;*/
    padding: 25px;
    background-color: #fff;
    border-radius: 20px;
@@ -638,8 +477,6 @@ md-input-container .md-input {
 }
 .tlContainer {
    margin: 8px;
-   /*   background-color: #fff;*/
-   /*padding: 14px;*/
    background-color: rgba(255, 255, 255, 0.6);
    width: 95%;
    height: 100%;
