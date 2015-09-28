@@ -335,7 +335,7 @@ md-input-container .md-input {
    z-index: -1;
 }
 .parentFont {
-   font-family: Georgia;
+   font-family: Vollkorn;
 }
 .parentNavBar {
    display: flex;
@@ -362,6 +362,11 @@ md-input-container .md-input {
    height: 100%;
    position: fixed;
 }
+.nameBox {
+   border-radius: 10px;
+   height: 75px;
+   width: 100px;
+}
 
 /*******************************Parent Landing Page*******************************/
 
@@ -383,13 +388,14 @@ md-input-container .md-input {
 .journalTitle {
    margin-right: 40px;
    font-style: italic;
-   font-variant: bold;
+   font-weight: bold;
+   font-size: 25px;
 }
 .specialFont {
    font-size: 60px;
-   font-family: Libre-Baskerville;
-   font-size: 40px;
+   font-family: Lobster;
 }
+
 .questions {
    font-size: 15px;
    height: 20px;
@@ -545,11 +551,11 @@ md-input-container .md-input {
 .md-tab {
     /*font-weight: bold;*/
     font-size: 1.5em;
+    color: black !important;
 }
 /** {
     outline: 1px solid red;
 }
-
 
 
 /*br {
