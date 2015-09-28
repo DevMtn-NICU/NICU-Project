@@ -3,8 +3,8 @@
 
    angular.module('app')
       .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
-      
-         
+
+         console.log('parent timeline')
 
          $scope.baby = {};
          $scope.images = [];
@@ -26,19 +26,19 @@
          getCurrentBaby();
 
 
-//         $scope.imageModal = function (ev) {
-//            console.log('image modal');
-//            $mdDialog.show({
-//               templateUrl: 'components/image-slider/slider.html',
-//               locals: {
-//                  note: $scope.notes
-//               },
-//               controller: 'sliderCtrl',
-//               targetEvent: ev,
-//               clickOutsideToClose: true
-//            });
-//
-//         };
+         //         $scope.imageModal = function (ev) {
+         //            console.log('image modal');
+         //            $mdDialog.show({
+         //               templateUrl: 'components/image-slider/slider.html',
+         //               locals: {
+         //                  note: $scope.notes
+         //               },
+         //               controller: 'sliderCtrl',
+         //               targetEvent: ev,
+         //               clickOutsideToClose: true
+         //            });
+         //
+         //         };
 
 
          $scope.$on('babyChanged', function (e) {
@@ -63,9 +63,9 @@
                         y: [note.stats.heartRate, note.stats.oxygen]
                      });
                      $scope.wtData.data.unshift({
-    x: new Date(note.created_at).toLocaleTimeString(),
-    y: [parseInt(note.stats.weight)]
- });
+                        x: new Date(note.created_at).toLocaleTimeString(),
+                        y: [parseInt(note.stats.weight)]
+                     });
                   }
                }());
             }

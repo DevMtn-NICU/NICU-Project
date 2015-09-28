@@ -1,20 +1,23 @@
 (function () {
 
-  "use strict";
+   "use strict";
 
    angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog, initialBaby, $mdToast) {
-     if(!$cookies.getObject("userId")) {
-       $state.go('login');
-     }
-     if($cookies.getObject("pwdChanged") === false) {
-       $mdToast.show($mdToast.simple().content("Please change your password").position("top left"));
-     }
+
+      console.log('parent view')
+
+      if (!$cookies.getObject("userId")) {
+         $state.go('login');
+      }
+      if ($cookies.getObject("pwdChanged") === false) {
+         $mdToast.show($mdToast.simple().content("Please change your password").position("top left"));
+      }
       $scope.babies = [];
       $scope.cookieBabies = $cookies.getObject("parentObj").babies;
       $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
 
-      $scope.toggleSidenav = function() {
-        $mdSidenav('menu').toggle();
+      $scope.toggleSidenav = function () {
+         $mdSidenav('menu').toggle();
       };
 
       $scope.getBabyById = function (babyId) {
@@ -38,15 +41,15 @@
          if ($scope.currentBaby) {
             parentService.setBabyId($scope.currentBaby._id);
             parentService.getBabyById($scope.currentBaby._id)
-            .then(function(response) {
-              $scope.theme = response.theme;
-            });
+               .then(function (response) {
+                  $scope.theme = response.theme;
+               });
          }
       });
 
 
       if ($scope.currentBaby) {
-        $scope.theme = $scope.currentBaby.theme || 'Neutral';
+         $scope.theme = $scope.currentBaby.theme || 'Neutral';
       }
 
 
@@ -58,44 +61,44 @@
               'RosePink',
               'Bright',
               'SoftPastels'
-              
+
           ];
 
 
 
-    $scope.changeTheme = function (theme) {
-      if($scope.currentBaby) {
-        parentService.changeTheme(theme, $scope.currentBaby._id)
-        .then(function (response) {
-          $scope.theme = response.theme;
-        });
-      }
-    };
-
-      $scope.logout = function() {
-				parentService.logout()
-				.then(function() {
-					$state.go('login');
-				});
-			};
-
-
-      $scope.openPasswordModal = function() {
-        $mdDialog.show({
-           templateUrl: "./components/modal-templates/changePasswordModal.html",
-           controller: "changePasswordCtrl",
-           locals: {
-             theme: $scope.theme
-           }
-        });
+      $scope.changeTheme = function (theme) {
+         if ($scope.currentBaby) {
+            parentService.changeTheme(theme, $scope.currentBaby._id)
+               .then(function (response) {
+                  $scope.theme = response.theme;
+               });
+         }
       };
 
-      $scope.$on("addedNote", function(e) {
-        parentService.getBabyById($scope.currentBaby._id)
-        .then(function(baby) {
-          $scope.currentBaby = baby;
-          $scope.$broadcast("babyChanged");
-        });
+      $scope.logout = function () {
+         parentService.logout()
+            .then(function () {
+               $state.go('login');
+            });
+      };
+
+
+      $scope.openPasswordModal = function () {
+         $mdDialog.show({
+            templateUrl: "./components/modal-templates/changePasswordModal.html",
+            controller: "changePasswordCtrl",
+            locals: {
+               theme: $scope.theme
+            }
+         });
+      };
+
+      $scope.$on("addedNote", function (e) {
+         parentService.getBabyById($scope.currentBaby._id)
+            .then(function (baby) {
+               $scope.currentBaby = baby;
+               $scope.$broadcast("babyChanged");
+            });
       });
    });
 
