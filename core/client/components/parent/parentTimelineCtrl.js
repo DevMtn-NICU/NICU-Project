@@ -24,6 +24,20 @@
          getCurrentBaby();
 
 
+         $scope.imageModal = function (ev) {
+            console.log('image modal');
+            $mdDialog.show({
+               templateUrl: 'components/image-slider/slider.html',
+               locals: {
+                  note: $scope.notes
+               },
+               controller: 'sliderCtrl',
+               targetEvent: ev,
+               clickOutsideToClose: true
+            });
+
+         };
+
 
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
