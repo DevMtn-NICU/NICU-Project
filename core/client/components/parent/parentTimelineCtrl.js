@@ -62,7 +62,7 @@
          $scope.config = {
             title: 'Stats Over Time', // chart title. If this is false, no title element will be created.
             tooltips: true,
-            labels: false, // labels on data points
+            labels: true, // labels on data points
             // exposed events
             mouseover: function () {},
             mouseout: function () {},
@@ -72,11 +72,11 @@
                display: true, // can be either 'left' or 'right'.
                position: 'right',
                // you can have html in series name
-               htmlEnabled: false
+               htmlEnabled: true
             },
             // override this array if you're not happy with default colors
             colors: ['red', 'blue'],
-            lineLegend: 'lineEnd', // Only on line Charts
+            lineLegend: false, //'lineEnd', // Only on line Charts
             lineCurveType: 'monotone', // change this as per d3 guidelines to avoid smoothline
             isAnimate: true, // run animations while rendering chart
             yAxisTickFormat: 's', //refer tickFormats in d3 to edit this value
