@@ -17,8 +17,8 @@
       $scope.contacts = [];
 
       $scope.getContacts = function (babyId) {
-         parentService.getBabyById(babyId).
-         then(function (response) {
+         parentService.getBabyById(babyId)
+         .then(function (response) {
             $scope.contacts = [];
             var lvl1 = response.level1;
             var lvl2 = response.level2;
