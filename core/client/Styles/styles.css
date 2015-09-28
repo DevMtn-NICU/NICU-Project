@@ -502,16 +502,16 @@ md-input-container .md-input {
    margin: 2% auto;
    /*display: inline-block;*/
    text-align: center;
-   dispaly: flex;
-   justify-content: center;
+   /*display: flex;*/
+   /*justify-content: center;*/
    float: center;
 }
 .imageContainer {
-   flex-direction: row;
-   display: flex;
+   /*flex-direction: row;*/
+   /*display: flex;*/
    overflow: hidden;
    margin-right: 15px;
-   justify-content: space-between;
+   /*justify-content: space-between;*/
 }
 
 /*ul {
@@ -573,13 +573,14 @@ md-input-container .md-input {
    border-radius: 20px;
 }
 .journalContainer {
-   position: absolute;
-   top: 75%;
-   left: 10%;
-   width: 80%;
+   /*position: absolute;*/
+   /*top: 75%;*/
+   /*left: 10%;*/
+   /*width: 80%;*/
    background-color: #fff;
    opacity: .6;
    border-radius: 20px;
+   margin-bottom: 2%;
 }
 .journalContainer:hover {
    opacity: 1;
