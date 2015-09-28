@@ -2,38 +2,37 @@
    "use strict";
 
    angular.module('app')
-      .controller('contactViewCtrl', function ($scope, $mdDialog, contactService, baby, $cookies, parentService) {
+      .controller('contactViewCtrl', function ($scope, $mdDialog, contactService, baby, $cookies, $mdSidenav, parentService, $state) {
          $scope.babies = [];
          $scope.currentBaby = baby;
          if (!$cookies.getObject("userId")) {
             $state.go('login');
          }
-         $scope.cookieBabies = $cookies.getObject("parentObj").babies;
-         $scope.cookieBabies.concat($cookies.getObject("contactObj").babies);
+         $scope.cookieBabies = $cookies.getObject("contactObj");
 
-         $scope.getBabyById = function (babyId) {
-            parentService.getBabyById(babyId)
+         $scope.getBabyById = function (babyId, level) {
+            contactService.getFeed(babyId, level)
                .then(function (response) {
                   $scope.babies.push(response);
                });
          };
 
          for (var i = 0; i < $scope.cookieBabies.length; i++) {
-            $scope.getBabyById($scope.cookieBabies[i]);
+            $scope.getBabyById($scope.cookieBabies[i].baby, $scope.cookieBabies[i].level);
          }
+
 
          $scope.$watch('currentBaby', function () {
             $scope.$broadcast('babyChanged');
          });
 
          $scope.$on('babyChanged', function (e) {
-            if ($scope.currentBaby) {
-               parentService.setBabyId($scope.currentBaby._id);
-               parentService.getBabyById($scope.currentBaby._id)
-                  .then(function (response) {
-                     $scope.theme = response.theme;
-                  });
-            }
+           $scope.theme = $scope.currentBaby.theme;
+           if($scope.currentBaby.level1.indexOf($cookies.getObject("userId")) !== -1) {
+             $scope.level1 = true;
+           } else {
+             $scope.level1 = false;
+           }
          });
 
          if ($scope.currentBaby) {
@@ -56,6 +55,10 @@
                   theme: $scope.theme
                }
             });
+         };
+
+         $scope.toggleSidenav = function() {
+           $mdSidenav('menu').toggle();
          };
       });
 

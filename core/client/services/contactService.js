@@ -1,12 +1,11 @@
 (function () {
    "use strict";
    angular.module("app").service("contactService", function ($http, $q, $cookies) {
-     this.getFeed = function() {
-       var babyToGet = $cookies.getObject("contactObj")[0];
+     this.getFeed = function(babyId, level) {
        var deferred = $q.defer();
        $http({
          method: "GET",
-         url: "/feed/" + babyToGet.baby + "/" + babyToGet.level
+         url: "/feed/" + babyId + "/" + level
        }).then(function(response) {
          deferred.resolve(response.data);
        });

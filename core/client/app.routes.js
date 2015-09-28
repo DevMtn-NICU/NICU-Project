@@ -151,8 +151,9 @@
                controller: 'contactViewCtrl',
                abstract: true,
                resolve: {
-                  baby: function (contactService) {
-                     return contactService.getFeed();
+                  baby: function (contactService, $cookies) {
+                    var babyToGet = $cookies.getObject("contactObj")[0];
+                    return contactService.getFeed(babyToGet.baby, babyToGet.level);
                   }
                }
             })
