@@ -5,10 +5,10 @@
       .controller('contactTimelineCtrl', function ($scope, $mdDialog, contactService, parentService, $state) {
 
 
-         console.log('contact timeline')
 
          $scope.baby = $scope.$parent.currentBaby;
          $scope.images = [];
+
 
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
@@ -22,30 +22,28 @@
                   })
                return $scope.baby, $scope.notes;
             }
-            console.log('getCurrentBaby failed');
          }
          getCurrentBaby();
 
 
-         //         $scope.imageModal = function (ev) {
-         //            console.log('image modal');
-         //            $mdDialog.show({
-         //               templateUrl: 'components/image-slider/slider.html',
-         //               locals: {
-         //                  note: $scope.notes
-         //               },
-         //               controller: 'sliderCtrl',
-         //               targetEvent: ev,
-         //               clickOutsideToClose: true
-         //            });
-         //
-         //         };
+         $scope.imageModal = function (myImage) {
+            console.log(myImage);
+            $mdDialog.show({
+               templateUrl: 'components/image-slider/slider.html',
+               locals: {
+                  image: myImage
+               },
+               controller: 'sliderCtrl',
+               clickOutsideToClose: true
+            });
+
+         };
 
 
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
                $scope.baby = $scope.$parent.currentBaby;
-               console.log($scope.baby);
+               $scope.images = [];
                for (var j = 0; j < $scope.baby.notes.length; j++) { //date parsing
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
@@ -132,7 +130,6 @@
             data: [] //being populated by the function on baby select
          };
 
-         console.log($scope.baby);
 
 
 
