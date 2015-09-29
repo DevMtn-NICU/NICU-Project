@@ -1,30 +1,30 @@
 <div class="landingContainer">
-	<!-- // images  -->
-    <div class="imageContainer" ng-if="recentImages.length > 0" layout="row">
-        <div class="landingImage" flex>
-      		<img src="{{recentImages[0]}}">
-        </div>
-        <div class="landingImage" flex>
-          <img src="{{recentImages[1]}}">
-        </div>
-        <div class="landingImage" flex>
-          <img src="{{recentImages[2]}}">
-        </div>
-    </div>
-	<!-- journal section -->
-  <div layout="row" layout-align="center">
-    <div class="journalContainer" flex="85">
-    	<h1 class="specialFont">A Special Baby</h1>
-    	<br>
-    	<label class="journalTitle journal">Comments for {{baby.firstName}} {{baby.lastName}}</label>
-    	<br>
-    	<div class="entries md-whiteframe-z3">
-    		<span ng-repeat="note in notes | orderBy:'note.created_at': true" ng-if="note.comment">{{note.comment}}
+   <!-- // images  -->
+   <div class="imageContainer" ng-if="recentImages.length > 0" layout="row">
+      <div ng-click="imageModal(recentImages[0])" class="landingImage" flex>
+         <img src="{{recentImages[0]}}">
+      </div>
+      <div ng-click="imageModal(recentImages[1])" class="landingImage" flex>
+         <img src="{{recentImages[1]}}">
+      </div>
+      <div ng-click="imageModal(recentImages[2])" class="landingImage" flex>
+         <img src="{{recentImages[2]}}">
+      </div>
+   </div>
+   <!-- journal section -->
+   <div layout="row" layout-align="center">
+      <div class="journalContainer" flex="85">
+         <h1 class="specialFont">A Special Baby</h1>
+         <br>
+         <label class="journalTitle journal">Comments for {{baby.firstName}} {{baby.lastName}}</label>
+         <br>
+         <div class="entries md-whiteframe-z3">
+            <span ng-repeat="note in notes | orderBy:'note.created_at': true" ng-if="note.comment">{{note.comment}}
     			<br>
     			<br>
     		</span>
-    	</div>
-    </div>
-  </div>
+         </div>
+      </div>
+   </div>
 </div>
 </div>
