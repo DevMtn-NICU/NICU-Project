@@ -31,7 +31,7 @@
                  $scope.shortUrl = $scope.shortUrl.split('/');
                  $scope.shortUrl = $scope.shortUrl[$scope.shortUrl.length -1];
                  console.log($scope.shortUrl);
-             };
+             }; 
             $mdDialog.show({
                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
                scope: $scope,
