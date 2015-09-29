@@ -1,7 +1,19 @@
 <div class="parentContainer">
 
       <md-tabs md-dynamic-height class="md-warn chartHeader">
+            
             <md-tab label="Pictures" class="tabFont">
+                  <div class="frame">
+                        <ul rn-carousel rn-carousel-auto-slide="7" rn-carousel-transition="fadeAndSlide" rn-carousel-buffered rn-carousel-controls
+                        rn-carousel-index="numberOfImages" class="carousel3" rn-carousel-center>
+                              <li ng-repeat="image in images">
+                                    <div class="layer" layout-padding>
+                                          <img ng-src="{{image}}">
+                                    </div>
+                                    <div rn-carousel-indicators ng-if="images.length > 1" images="images" rn-carousel-index="numberOfImages"></div>
+                              </li>
+                        </ul>
+                  </div>
                   <div class="md-whiteframe-z3 tlContainer">
                         <div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
                               <img ng-click="imageModal()" src={{note.picturesUrl}}>
@@ -12,6 +24,7 @@
                         </div>
                   </div>
             </md-tab>
+            
             <md-tab label="Comments">
                   <div class="md-whiteframe-z3 tlContainer">
                         <br>
@@ -39,6 +52,7 @@
                               <span class="tlNoteText">Weight:</span> {{ note.stats.weight }}
                               <br>
                               <span ng-repeat="other in note.stats.other">
+
 						<!-- <span ng-if="note.stats.other"> -->
 						<span class="tlNoteText">{{ other.stat }}:</span> {{ other.value }}
                               <!-- </span> -->
@@ -59,6 +73,7 @@
                         </md-content>
                   </div>
             </md-tab>
+            
             <md-tab label="Graphs">
                   <div class="tlContainer">
                         <div ac-chart="'line'" ac-data="data" ac-config="config" id='chart' class='chart'></div>
@@ -67,6 +82,7 @@
                         <br>
                   </div>
             </md-tab>
+            
       </md-tabs>
 
 </div>

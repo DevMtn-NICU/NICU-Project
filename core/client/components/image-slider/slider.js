@@ -20,6 +20,7 @@ angular.module('app')
             })
       }
 
+
       $scope.images = [
          {
             image: 'nurse6.png',
