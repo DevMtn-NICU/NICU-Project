@@ -43,39 +43,53 @@ body {
    height: 10%;
    background-color: #fff;
 }
-.productLogo {
-   width: 7%;
-   margin: 10px 20px 20px 20px;
-}
+
 .shareImg {
-   width: 15%;
-   height: 60px;
-   margin-left: 5%;
-   margin-bottom: 1.5%;
+   width: auto;
+   height: 100px;
+   margin-left: 20px;
 }
-#background {
-   background: url('../images/455237505-630x210.jpg') no-repeat 100% 100%;
+
+.backgroundHolder {
+   float: right;
+   width: 41%;
+   margin-right: 40px;
+   margin-top: 40px;
+   display: inline-block;
+   background-color:  rgba(255, 255, 255, 0.6);
+   border-radius: 10px;
+   text-align: center;
+   padding: 10px;
+}
+/** {
+   outline: 1px solid red;
+}*/
+
+#backgroundImage {
+   background-repeat: no-repeat;
    background-size: cover;
-   width: 100%;
-   height: 90%;
+   min-height: 100%;
+   position: fixed;
+   min-width: 100%;
+   z-index: -1;
+   background-image: url('https://s3-us-west-2.amazonaws.com/nicuproject/sarahmaetennessee%40gmail.com/o-DR-OZ-HEALTHY-HEART-facebook.jpg');
+/*   width: 100%;
+   height: 90%;*/
 }
 .headerOne {
-   position: absolute;
-   top: 35%;
-   left: 27%;
-   font-size: 250%;
-   color: #fff;
+   font-size: 3em;
+   color: red;
+   text-align: center;
 }
 .subtitleP {
-   position: absolute;
-   left: 15%;
-   margin-top: 15%;
-   font-size: 1.5em;
+   font-size: 1.4em;
    color: black;
-   margin-left: 40%;
-   margin-right: 5%;
 }
-.call {
+.subtitle {
+   font-size: 1.2em;
+   color: black;
+}
+/*.call {
    color: #ffffff;
    font-size: 0.85em;
    margin-top: 1%;
@@ -88,21 +102,19 @@ body {
    background-color: #080808;
    opacity: 0.9;
    background-color: transparent, #686868;
-}
+}*/
 #showBtn {
-   position: absolute;
-   top: 62%;
-   color: #ffffff;
-   background: transparent;
-   border-radius: 20px;
-   padding: 8px;
-   border: 1px solid #fff;
-   margin-left: 32%;
-   margin-top: -5%;
+ /*  position: absolute;*/
+   /*top: 80%;*/
+   color: #fff;
+   background-color: red;
+   margin-top: 20px;
+ 
+/*   margin-top: -5%;*/
 }
-.greyOutline {
+/*.greyOutline {
    outline: 1px solid #eee;
-}
+}*/
 
 /*************************END OF PRODCUCT PAGE************************/
 
@@ -115,25 +127,17 @@ body {
    background-color: #A41031;
 }
 .outerHome {
-   width: 385px;
-   margin: 45px auto 60px;
-   position: relative;
-}
-.outerHome img {
-   float: center;
-}
-.outerHome h3 {
+   width: 60%;
+   margin: 50px auto;
+   font-size: 25px;
    text-align: center;
 }
-.homeIcon {
-   float: center;
-   margin: auto;
+
+.heart {
+   height: 400px;
+   width: auto;
 }
-.marginAuto {
-   margin: 10px auto;
-   width: 100px;
-   float: center;
-}
+
 .globalFooter {
    height: 60px;
    background-color: black;
@@ -284,7 +288,7 @@ md-input-container .md-input {
 /*******************************Parent View Template Page**************************/
 
 .parentContainer {
-   width: 80%;
+   width: 90%;
    margin: auto;
 }
 #babyName {
@@ -320,7 +324,7 @@ md-input-container .md-input {
    z-index: -1;
 }
 .parentFont {
-   font-family: Georgia;
+   font-family: Vollkorn;
 }
 .parentNavBar {
    display: flex;
@@ -347,6 +351,11 @@ md-input-container .md-input {
    height: 100%;
    position: fixed;
 }
+.nameBox {
+   border-radius: 10px;
+   height: 75px;
+   width: 100px;
+}
 
 /*******************************Parent Landing Page*******************************/
 
@@ -366,13 +375,14 @@ md-input-container .md-input {
 .journalTitle {
    margin-right: 40px;
    font-style: italic;
-   font-variant: bold;
+   font-weight: bold;
+   font-size: 25px;
 }
 .specialFont {
    font-size: 60px;
-   font-family: Libre-Baskerville;
-   font-size: 40px;
+   font-family: Lobster;
 }
+
 .questions {
    font-size: 15px;
    height: 20px;
@@ -401,10 +411,6 @@ md-input-container .md-input {
    border-radius: 20px;
 }
 .journalContainer {
-   /*position: absolute;*/
-   /*top: 75%;*/
-   /*left: 10%;*/
-   /*width: 80%;*/
    background-color: #fff;
    border-radius: 20px;
    margin-bottom: 2%;
@@ -472,11 +478,6 @@ layout-padding {
    width: 100%;
    height: 100%;
 }
-
-/*.tlContainer:hover {
-   background-color: rgba(255, 255, 255, 1);
-}*/
-
 .tlCommentsCreator {
    padding-left: 10px;
    font-weight: bold;
@@ -531,28 +532,10 @@ layout-padding {
    border-radius: 20px;
 }
 .md-tab {
-   /*font-weight: bold;*/
-   font-size: 1.5em;
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+    color: black !important;
 }
-
-/** {
-    outline: 1px solid red;
-}
-
-
-/*br {
- border-width: 10px;
- border-style: inset;
- display: block;
- vertical-align: center;
- color: black;
-}*/
-
-
-/** {
-    border: 1px solid red;
-}*/
-
 
 /*******************************TESTING Parent Landing Page**************************/
 
