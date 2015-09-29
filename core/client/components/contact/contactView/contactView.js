@@ -27,12 +27,12 @@
          });
 
          $scope.$on('babyChanged', function (e) {
-           $scope.theme = $scope.currentBaby.theme;
-           if($scope.currentBaby.level1.indexOf($cookies.getObject("userId")) !== -1) {
-             $scope.level1 = true;
-           } else {
-             $scope.level1 = false;
-           }
+            $scope.theme = $scope.currentBaby.theme;
+            if ($scope.currentBaby.level1.indexOf($cookies.getObject("userId")) !== -1) {
+               $scope.level1 = true;
+            } else {
+               $scope.level1 = false;
+            }
          });
 
          if ($scope.currentBaby) {
@@ -53,12 +53,13 @@
                controller: "changePasswordCtrl",
                locals: {
                   theme: $scope.theme
-               }
+               },
+               clickOutsideToClose: true
             });
          };
 
-         $scope.toggleSidenav = function() {
-           $mdSidenav('menu').toggle();
+         $scope.toggleSidenav = function () {
+            $mdSidenav('menu').toggle();
          };
       });
 

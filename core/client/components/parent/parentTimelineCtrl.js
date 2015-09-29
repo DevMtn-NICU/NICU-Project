@@ -6,9 +6,9 @@
 
          console.log('parent timeline')
 
-         $scope.baby = {};
+         $scope.baby = $scope.$parent.currentBaby;
          $scope.images = [];
-         $scope.notes;
+         $scope.notes = $scope.$parent.currentBaby.notes;
 
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
@@ -26,16 +26,14 @@
          }
          getCurrentBaby();
 
-
-         $scope.imageModal = function (ev) {
+         $scope.imageModal = function (myImage) {
             console.log('image modal');
             $mdDialog.show({
                templateUrl: 'components/image-slider/slider.html',
                locals: {
-                  notes: $scope.notes
+                  image: myImage
                },
                controller: 'sliderCtrl',
-               targetEvent: ev,
                clickOutsideToClose: true
             });
 
