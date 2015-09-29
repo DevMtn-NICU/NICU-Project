@@ -9,6 +9,22 @@
          $scope.theBaby = promised;
          $scope.images = [];
 
+         // create patient's full name, to put in disabled input fields
+         $scope.getFullName = function() {
+             if ($scope.theBaby.middleName) {
+                $scope.patientFullName = $scope.theBaby.firstName + " " + $scope.theBaby.middleName + " " + $scope.theBaby.lastName;
+             }
+             else $scope.patientFullName = $scope.theBaby.firstName + " " + $scope.theBaby.lastName;
+         }();
+         // create string of parents' names, to put in disabled input fields
+         $scope.getParentNames = function() {
+             var patientParents = [];
+             for (var i = 0; i < $scope.theBaby.parents.length; i++) {
+                 patientParents.push($scope.theBaby.parents[i].name);
+             }
+             $scope.patientParents = patientParents.join(', ');
+         }();
+
          // clear the note
          $scope.clearFields = function () {
             $scope.note = {};
@@ -33,8 +49,8 @@
             $scope.note.stats.heartRate = parseInt($scope.note.stats.heartRate);
             $scope.note.stats.oxygen = parseInt($scope.note.stats.oxygen);
             $scope.note.creator = $cookies.getObject('name');
-           
-            
+
+
             if (!$scope.note.stats.oxygen) {
     delete($scope.note.stats.oxygen);
  }

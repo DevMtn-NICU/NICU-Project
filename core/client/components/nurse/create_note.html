@@ -10,11 +10,29 @@
             <md-content layout="column" flex="5"></md-content>
             <md-content layout="column" flex="40" layout-padding>
                <!-- will only show for parents view -->
-               <div ng-hide="showForParent">te
-                  Patient Number: {{ theBaby.patientNumber}}
-                  <br> Patient Name: {{ theBaby.firstName}} {{ theBaby.lastName}}
-                  <br> Gender: {{ theBaby.gender }}
-                  <br> Parents: &nbsp;<span ng-repeat="parent in theBaby.parents">{{parent.name}}{{$last ? '' : ',&nbsp;'}}</span>
+               <div ng-hide="showForParent">
+                  <md-input-container>
+                     <label><span class="">Patient Number</span></label>
+                     <input type="text" ng-model="theBaby.patientNumber" disabled>
+                  </md-input-container>
+                  <md-input-container>
+                     <label><span class="">Patient Name</span></label>
+                     <input type="text" ng-model="patientFullName" disabled>
+                  </md-input-container>
+                  <md-input-container>
+                     <label><span class="">Patient Gender</span></label>
+                     <input type="text" ng-model="theBaby.gender" disabled>
+                  </md-input-container>
+                  <md-input-container>
+                     <label><span class="">Parents</span></label>
+                     <input type="text" ng-model="patientParents" disabled>
+                  </md-input-container>
+
+
+                  <!-- Patient Number: {{ theBaby.patientNumber}}
+                  <br> Patient Name: {{ theBaby.firstName}} {{ theBaby.lastName}} -->
+                  <!-- <br> Gender: {{ theBaby.gender }}
+                  <br> Parents: &nbsp;<span ng-repeat="parent in theBaby.parents">{{parent.name}}{{$last ? '' : ',&nbsp;'}}</span> -->
                   <br>
                   <br>
                </div>
@@ -22,14 +40,6 @@
                   <label><span class="blackText">&nbsp;&nbsp;Comments</span></label>
                   <textarea class="textAreaContainer greyOutline" ng-model="note.comment" cols="50" rows="10"></textarea>
                </md-input-container>
-               <!-- will only show for parents view -->
-               <div ng-show="showForParent">
-                  <md-input-container>
-                     <label class="blackText">&nbsp;&nbsp;Journal</label>
-                     <textarea ng-model="note.journal" cols="50" rows="10" class="textAreaContainer greyOutline"></textarea>
-                  </md-input-container>
-               </div>
-               <!-- end parents view only -->
             </md-content>
             <md-content layout="column" flex="5"></md-content>
             <md-content layout="column" flex="40">
@@ -59,7 +69,7 @@
                   <md-content>
                      <md-input-container>
                         <label><span class="">Blood Pressure</span></label>
-                        <input type="number" ng-model="note.stats.bloodPressure">
+                        <input type="text" ng-model="note.stats.bloodPressure">
                      </md-input-container>
                      <md-input-container>
                         <label><span class="">Oxygen</span></label>
