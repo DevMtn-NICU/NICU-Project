@@ -1,7 +1,7 @@
 Share Heart-to-Heart
 ============
 
-A DevMountain group project designed to normalize the experience of parents with babies in a NICU unit. The app allows parents to share their baby's pictures, statistics, test results, etc. with family and close friends. This project was built as a donation for the University of Utah NICU unit, but could be implemented for other hospitals and even other types of isolated medical units.
+A DevMountain group project created for the University of Utah, designed to normalize the experience of parents with babies in a NICU unit. The app allows parents to share their baby's pictures, statistics, test results, etc. with family and close friends, and also keeps an online journal or scrapbook of their baby's time in the NICU. Although this project was built as a donation for the University of Utah NICU unit, but could be implemented for other hospitals and even other types of isolated medical units.
 
 ##How it works
 
