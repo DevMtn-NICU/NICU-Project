@@ -185,11 +185,7 @@ body {
 
 /***************************END OF MAIN NURSE TEMPLATE PAGE************************/
 
-.container {
-   width: 85%;
-   margin: 35px auto;
-   background-color: #fff;
-}
+
 .headerContainer {
    width: 85%;
    margin: 0 auto;
@@ -234,6 +230,7 @@ body {
 .container {
    width: 90%;
    margin: auto;
+   background-color: #fff;
    outline: 1px solid #eee;
 }
 .gender {
@@ -576,4 +573,3 @@ div[ui-view] {
 }
 
 /*******************************END Parent Settings Page**************************/
-
