@@ -4,10 +4,10 @@
       <div class="landingImage" flex>
         <img src="{{recentImages[0]}}">
       </div>
-      <div class="landingImage" flex>
+      <div class="landingImage" flex ng-if="recentImages.length > 1">
         <img src="{{recentImages[1]}}">
       </div>
-      <div class="landingImage" flex>
+      <div class="landingImage" flex ng-if="recentImages.length > 2">
         <img src="{{recentImages[2]}}">
       </div>
   </div>
