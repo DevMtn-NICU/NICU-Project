@@ -8,6 +8,7 @@
 
          $scope.baby = {};
          $scope.images = [];
+         $scope.notes;
 
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
@@ -26,19 +27,19 @@
          getCurrentBaby();
 
 
-         //         $scope.imageModal = function (ev) {
-         //            console.log('image modal');
-         //            $mdDialog.show({
-         //               templateUrl: 'components/image-slider/slider.html',
-         //               locals: {
-         //                  note: $scope.notes
-         //               },
-         //               controller: 'sliderCtrl',
-         //               targetEvent: ev,
-         //               clickOutsideToClose: true
-         //            });
-         //
-         //         };
+         $scope.imageModal = function (ev) {
+            console.log('image modal');
+            $mdDialog.show({
+               templateUrl: 'components/image-slider/slider.html',
+               locals: {
+                  notes: $scope.notes
+               },
+               controller: 'sliderCtrl',
+               targetEvent: ev,
+               clickOutsideToClose: true
+            });
+
+         };
 
 
          $scope.$on('babyChanged', function (e) {
