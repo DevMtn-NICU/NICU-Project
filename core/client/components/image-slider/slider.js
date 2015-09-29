@@ -1,9 +1,9 @@
 angular.module('app')
-   .controller('sliderCtrl', function ($scope, notes) {
+   .controller('sliderCtrl', function ($scope, image) {
       console.log('slider controller');
 
-      console.log(notes);
-
+      console.log(image);
+      $scope.image = image;
       $scope.getImages = function (babyId) {
          parentService.getBabyById(babyId)
             .then(function (baby) {
