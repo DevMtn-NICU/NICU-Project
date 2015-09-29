@@ -4,11 +4,10 @@
    angular.module('app')
       .controller('parentTimelineCtrl', function ($scope, parentService, $mdDialog, $cookies, $rootScope) {
 
-         console.log('parent timeline')
 
-         $scope.baby = {};
+         $scope.baby = $scope.$parent.currentBaby;
          $scope.images = [];
-         $scope.notes;
+         $scope.notes = $scope.$parent.currentBaby.notes;
 
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
@@ -22,20 +21,16 @@
                   })
                return $scope.baby, $scope.notes;
             }
-            console.log('getCurrentBaby failed');
          }
          getCurrentBaby();
 
-
-         $scope.imageModal = function (ev) {
-            console.log('image modal');
+         $scope.imageModal = function (myImage) {
             $mdDialog.show({
                templateUrl: 'components/image-slider/slider.html',
                locals: {
-                  notes: $scope.notes
+                  image: myImage
                },
                controller: 'sliderCtrl',
-               targetEvent: ev,
                clickOutsideToClose: true
             });
 
@@ -45,7 +40,7 @@
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
                $scope.baby = $scope.$parent.currentBaby;
-               console.log($scope.baby);
+               $scope.images = [];
                for (var j = 0; j < $scope.baby.notes.length; j++) { //date parsing
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
@@ -133,7 +128,6 @@
             data: [] //being populated by the function on baby select
          };
 
-         console.log($scope.baby);
 
 
 
@@ -145,7 +139,6 @@
 
 // ZOMBIE CODE TO WORK ON LATER PERHAPS
 // for (var i = ($scope.baby.notes.length - 1); i > ($scope.baby.notes.length - 6); i--) {
-//               console.log(i);
 //               var note = $scope.baby.notes[i];
 //               if (i === $scope.baby.notes.length - 1 || i === $scope.baby.notes.length - 5) {
 //                 $scope.data.data.unshift({
