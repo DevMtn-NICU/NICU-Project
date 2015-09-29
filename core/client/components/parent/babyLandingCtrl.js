@@ -21,6 +21,8 @@
               $scope.recentImages = recentImages;
             };
 
+            $scope.getImages();
+
             $scope.addJournalEntry = function () {
                parentService.addJournalEntry($scope.baby._id, $scope.journalEntry)
                   .then(function (baby) {
