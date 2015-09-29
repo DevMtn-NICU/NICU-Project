@@ -287,7 +287,7 @@ md-input-container .md-input {
    width: 90%;
    margin: auto;
 }
-#babyName{
+#babyName {
    background-color: rgba(255, 255, 255, 0.6);
    border-radius: 20px;
    padding: 15px;
@@ -443,10 +443,10 @@ md-input-container .md-input {
 
 /* Parent Timeline Page (for testing only) */
 
-.layer, layout-padding {
-    margin: 0 auto;
+.layer,
+layout-padding {
+   margin: 0 auto;
 }
-
 .repeatNote {
    padding: 10px;
    outline: 1px solid black;
@@ -544,3 +544,8 @@ div[ui-view] {
 }
 
 /*******************************END Parent Settings Page**************************/
+
+.brendansModalHeight {
+   max-height: 720px;
+   width: auto;
+}
