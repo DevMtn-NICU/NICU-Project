@@ -7,21 +7,6 @@
             $scope.baby = $scope.$parent.currentBaby;
             $scope.notes = $scope.baby.notes;
 
-            function getCurrentBaby() {
-               var babyId = parentService.sendBabyId();
-               if (babyId) {
-                  parentService.getBabyById(babyId)
-                     .then(function (baby) {
-                        $scope.baby = baby;
-                        $scope.notes = baby.notes;
-                        $scope.getImages();
-                     });
-                  return $scope.baby, $scope.notes;
-               }
-               console.log('getCurrentBaby failed');
-            }
-            getCurrentBaby();
-
             $scope.getImages = function () {
               var recentImages = [];
               for (var i = $scope.notes.length - 1; i >= 0; i--) {
@@ -48,6 +33,7 @@
             $scope.$on('babyChanged', function (e) {
                if ($scope.$parent.currentBaby) {
                   $scope.baby = $scope.$parent.currentBaby;
+                  $scope.notes = $scope.baby.notes;
                   $scope.getBaby($scope.baby._id);
 
                   $cookies.putObject("babyId", $scope.baby._id);
