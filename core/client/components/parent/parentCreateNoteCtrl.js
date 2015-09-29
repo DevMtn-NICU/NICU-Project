@@ -19,8 +19,8 @@
          }
          $scope.images = [];
 
-         // clear the note
-         $scope.cancelFn = function () {
+         // cancel button redirects
+         $scope.cancel = function() {
             $state.go('parent.landing');
          };
 
@@ -30,6 +30,7 @@
                  $scope.shortUrl = $scope.note.picturesUrl;
                  $scope.shortUrl = $scope.shortUrl.split('/');
                  $scope.shortUrl = $scope.shortUrl[$scope.shortUrl.length -1];
+                 console.log($scope.shortUrl);
              };
             $mdDialog.show({
                templateUrl: "./components/modal-templates/addNoteConfirmationModal.html",
