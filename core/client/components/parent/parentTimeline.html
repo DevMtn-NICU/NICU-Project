@@ -13,7 +13,7 @@
          </div>
          <div class="md-whiteframe-z3 tlContainer">
             <div class="imgContainer" ng-repeat="note in baby.notes" ng-if="note.picturesUrl">
-               <div ng-click="imageModal()">
+               <div ng-click="imageModal(note.picturesUrl)">
                   <img src={{note.picturesUrl}}>
                </div>
                <br>
