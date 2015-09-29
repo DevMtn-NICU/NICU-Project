@@ -131,7 +131,6 @@
             controller: 'parentTimelineCtrl'
          })
 
-
          .state('parent.create_note', {
             url: '/create_note',
             templateUrl: 'components/parent/parentCreateNote.html',
