@@ -2,12 +2,22 @@
    "use strict";
 
    angular.module('app')
-      .controller('contactTimelineCtrl', function ($scope, $mdDialog, contactService, parentService, $state) {
-
-
+      .controller('contactTimelineCtrl', function ($scope, $mdDialog, contactService, parentService, $state, $cookies) {
 
          $scope.baby = $scope.$parent.currentBaby;
          $scope.images = [];
+
+         $scope.getAuthLevel = function() {
+           var userId = $cookies.getObject("userId");
+           if($scope.baby.level1.map(function(x) {
+             return x;
+           }).indexOf(userId) !== -1) {
+             $scope.authLevel = "level1";
+           } else {
+             $scope.authLevel = "level2";
+           }
+         };
+         $scope.getAuthLevel();
 
 
          function getCurrentBaby() {
@@ -16,10 +26,11 @@
                parentService.getBabyById(babyId)
                   .then(function (baby) {
                      $scope.baby = baby;
+                     $scope.getAuthLevel();
                      $scope.notes = baby.notes;
                      $scope.comments = baby.comments;
                      $scope.$broadcast('babyChanged');
-                  })
+                  });
                return $scope.baby, $scope.notes;
             }
          }
@@ -43,11 +54,12 @@
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
                $scope.baby = $scope.$parent.currentBaby;
+               $scope.getAuthLevel();
                $scope.images = [];
                for (var j = 0; j < $scope.baby.notes.length; j++) { //date parsing
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
-                     $scope.images.push($scope.baby.notes[j].picturesUrl)
+                     $scope.images.push($scope.baby.notes[j].picturesUrl);
 
 
                   }
@@ -129,13 +141,5 @@
             series: ["Weight(g)"],
             data: [] //being populated by the function on baby select
          };
-
-
-
-
-
-
-
       });
-
-}())
+}());
