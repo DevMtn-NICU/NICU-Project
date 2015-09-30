@@ -9,9 +9,7 @@
 
          $scope.getAuthLevel = function() {
            var userId = $cookies.getObject("userId");
-           if($scope.baby.level1.map(function(x) {
-             return x;
-           }).indexOf(userId) !== -1) {
+           if($scope.baby.level1.indexOf(userId) !== -1) {
              $scope.authLevel = "level1";
            } else {
              $scope.authLevel = "level2";
