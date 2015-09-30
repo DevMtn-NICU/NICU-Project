@@ -4,7 +4,7 @@
    margin-right: auto;
    height: 500px;
    display: flex;
-    padding: 5%;
+   padding: 5%;
 }
 .layer {
    margin: 0 auto;
@@ -38,7 +38,7 @@ ul[rn-carousel] {
     color:white;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 100%; 
     background-position: center center;
 }
 ul[rn-carousel] {

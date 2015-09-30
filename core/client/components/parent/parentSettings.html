@@ -1,50 +1,50 @@
 <div class="form">
-	<form name="levelAuth" ng-submit="authLevel()" class="addFrame">
-		<div>
-			<md-toolbar class="md-primary" flex="1" layout="center">
-				<div class="md-toolbar-tools paddingLeft" layout="row" flex>Add a Family Member or Friend To Receive Information</div>
-			</md-toolbar>
-			<div id="contactInfo">
-				<md-input-container flex>
-					<label>Name</label>
-					<input type="text" ng-model="auth.name" required>
-				</md-input-container>
-				<md-input-container flex>
-					<label>Email</label>
-					<input type="email" ng-model="auth.email" required>
-				</md-input-container>
-				<label>Assign the Level of Information for this Person: </label>
-				<md-radio-group ng-model="auth.level" required>
-					<md-radio-button value="level1" class="md-primary" label="Assign Level 1 Information">Share Level 1.
-						<br>These users will receive medical information
-						<br>(stats), pictures, and comments.</md-radio-button>
-					<md-radio-button value="level2" label="Assign Level 2 Information">Share Level 2.
-						<br>These users will receive pictures and comments. </md-radio-button>
-				</md-radio-group>
-				<div layout="row">
-					<md-button flex="20" type="button" ng-click="clearField()" class="pointer md-raised">Reset</md-button>
-					<md-button flex="10" type="Submit" ng-disabled="levelAuth.$invalid" class="md-raised md-warn">Submit</md-button>
-				</div>
-			</div>
-		</div>
-	</form>
-	<div id="spacer"></div>
-	<div class="shareContainer">
-		<md-toolbar class="md-primary">
-			<div flex="4" layout="center">
-				<span class="md-toolbar-tools paddingLeft" layout="row" flex>Name</span>
-				<span class="md-toolbar-tools paddingLeft" layout="row" flex>Email</span>
-				<span class="md-toolbar-tools paddingLeft" layout="row" flex>Share Level</span>
-				<span class="md-toolbar-tools paddingLeft" layout="row" flex></span>
-			</div>
-		</md-toolbar>
-		<div flex="4" layout="center" ng-repeat="contact in contacts" class="rowColor">
-			<span layout="row" flex>{{contact.name}}</span>
-			<span layout="row" flex>{{contact.email}}</span>
-			<span layout="row" flex>{{contact.level}}</span>
-			<span layout="row" flex><a ng-click="removeContact(contact._id, contact.level)" style="cursor: pointer;">Remove</a></span>
-		</div>
-	</div>
+   <form name="levelAuth" ng-submit="authLevel()" class="addFrame">
+      <div>
+         <md-toolbar class="md-primary" flex="1" layout="center">
+            <div class="md-toolbar-tools paddingLeft" layout="row" flex>Add a Family Member or Friend To Receive Information</div>
+         </md-toolbar>
+         <div id="contactInfo">
+            <md-input-container flex>
+               <label>Name</label>
+               <input type="text" ng-model="auth.name" required>
+            </md-input-container>
+            <md-input-container flex>
+               <label>Email</label>
+               <input type="email" ng-model="auth.email" required>
+            </md-input-container>
+            <label>Assign the Level of Information for this Person: </label>
+            <md-radio-group ng-model="auth.level" required>
+               <md-radio-button value="level1" class="md-primary" label="Assign Level 1 Information">Share Level 1.
+                  <br>These users will receive medical information
+                  <br>(stats), pictures, and comments.</md-radio-button>
+               <md-radio-button value="level2" label="Assign Level 2 Information">Share Level 2.
+                  <br>These users will receive pictures and comments. </md-radio-button>
+            </md-radio-group>
+            <div layout="row">
+               <md-button flex="20" type="button" ng-click="clearField()" class="pointer md-raised">Reset</md-button>
+               <md-button flex="10" type="Submit" ng-disabled="levelAuth.$invalid" class="md-raised md-warn">Submit</md-button>
+            </div>
+         </div>
+      </div>
+   </form>
+   <div id="spacer"></div>
+   <div class="shareContainer">
+      <md-toolbar class="md-primary">
+         <div flex="4" layout="center">
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex>Name</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex>Email</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex>Share Level</span>
+            <span class="md-toolbar-tools paddingLeft" layout="row" flex></span>
+         </div>
+      </md-toolbar>
+      <div flex="4" layout="center" ng-repeat="contact in contacts" class="rowColor">
+         <span layout="row" flex>{{contact.name}}</span>
+         <span layout="row" flex>{{contact.email}}</span>
+         <span layout="row" flex>{{contact.level}}</span>
+         <span layout="row" flex><a ng-click="removeContact(contact._id, contact.level)" style="cursor: pointer;">Remove</a></span>
+      </div>
+   </div>
 </div>
 
 
