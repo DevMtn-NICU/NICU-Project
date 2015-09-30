@@ -12,20 +12,16 @@
          var userId = $cookies.getObject("userId");
 
          $scope.getAuthLevel = function () {
-            console.log("user id: ", userId);
             if (!userId) {
                console.log('crappiness');
             }
             if ($scope.baby.level1.indexOf(userId) !== -1) {
-               console.log('level1');
                $scope.authLevel = "level1";
                return $scope.authLevel;
             } else if ($scope.baby.level2) {
-               console.log('level2');
                $scope.authLevel = "level2";
                return $scope.authLevel;
             } else {
-               console.log('unauth');
                $scope.authLevel = "unauthorized";
             }
          };
@@ -50,7 +46,6 @@
 
 
          $scope.imageModal = function (myImage) {
-            console.log(myImage);
             $mdDialog.show({
                templateUrl: 'components/image-slider/slider.html',
                locals: {
@@ -66,7 +61,6 @@
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
                $scope.baby = $scope.$parent.currentBaby;
-               console.log($scope.baby);
                $scope.getAuthLevel();
                $scope.images = [];
                for (var j = 0; j < $scope.baby.notes.length; j++) { //date parsing
@@ -84,7 +78,6 @@
                      var note = $scope.baby.notes[i];
                      if (note.stats) {
                         if (note.stats.oxygen) {
-                           console.log('oxy', note.stats.oxygen);
                            $scope.data.data.unshift({
                               x: new Date(note.created_at).toLocaleTimeString(),
                               y: [note.stats.heartRate, note.stats.oxygen]
