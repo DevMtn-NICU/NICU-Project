@@ -9,6 +9,7 @@
 
          console.log($scope.baby);
 
+
          var userId = $cookies.getObject("userId");
 
          $scope.getAuthLevel = function () {
@@ -39,6 +40,7 @@
                      $scope.comments = baby.comments;
                      $scope.$broadcast('babyChanged');
                   });
+
                return $scope.baby, $scope.notes;
             }
          }
