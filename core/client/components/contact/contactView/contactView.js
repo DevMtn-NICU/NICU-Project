@@ -24,6 +24,7 @@
 
          $scope.$watch('currentBaby', function () {
             $scope.$broadcast('babyChanged');
+            
          });
 
          $scope.$on('babyChanged', function (e) {

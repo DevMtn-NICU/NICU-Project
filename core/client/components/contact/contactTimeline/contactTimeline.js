@@ -2,12 +2,34 @@
    "use strict";
 
    angular.module('app')
-      .controller('contactTimelineCtrl', function ($scope, $mdDialog, contactService, parentService, $state) {
-
-
+      .controller('contactTimelineCtrl', function ($scope, $mdDialog, contactService, parentService, $state, $cookies) {
 
          $scope.baby = $scope.$parent.currentBaby;
          $scope.images = [];
+
+         console.log($scope.baby);
+
+         var userId = $cookies.getObject("userId");
+
+         $scope.getAuthLevel = function () {
+            console.log("user id: ", userId);
+            if (!userId) {
+               console.log('crappiness');
+            }
+            if ($scope.baby.level1.indexOf(userId) !== -1) {
+               console.log('level1');
+               $scope.authLevel = "level1";
+               return $scope.authLevel;
+            } else if ($scope.baby.level2) {
+               console.log('level2');
+               $scope.authLevel = "level2";
+               return $scope.authLevel;
+            } else {
+               console.log('unauth');
+               $scope.authLevel = "unauthorized";
+            }
+         };
+         $scope.getAuthLevel();
 
 
          function getCurrentBaby() {
@@ -16,10 +38,11 @@
                parentService.getBabyById(babyId)
                   .then(function (baby) {
                      $scope.baby = baby;
+                     $scope.getAuthLevel();
                      $scope.notes = baby.notes;
                      $scope.comments = baby.comments;
                      $scope.$broadcast('babyChanged');
-                  })
+                  });
                return $scope.baby, $scope.notes;
             }
          }
@@ -43,11 +66,13 @@
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
                $scope.baby = $scope.$parent.currentBaby;
+               console.log($scope.baby);
+               $scope.getAuthLevel();
                $scope.images = [];
                for (var j = 0; j < $scope.baby.notes.length; j++) { //date parsing
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
-                     $scope.images.push($scope.baby.notes[j].picturesUrl)
+                     $scope.images.push($scope.baby.notes[j].picturesUrl);
 
 
                   }
@@ -57,14 +82,21 @@
                   $scope.data.data = [];
                   for (var i = ($scope.baby.notes.length - 1); i > ($scope.baby.notes.length - 6); i--) {
                      var note = $scope.baby.notes[i];
-                     $scope.data.data.unshift({
-                        x: new Date(note.created_at).toLocaleTimeString(),
-                        y: [note.stats.heartRate, note.stats.oxygen]
-                     });
-                     $scope.wtData.data.unshift({
-                        x: new Date(note.created_at).toLocaleTimeString(),
-                        y: [parseInt(note.stats.weight)]
-                     });
+                     if (note.stats) {
+                        if (note.stats.oxygen) {
+                           console.log('oxy', note.stats.oxygen);
+                           $scope.data.data.unshift({
+                              x: new Date(note.created_at).toLocaleTimeString(),
+                              y: [note.stats.heartRate, note.stats.oxygen]
+                           });
+                        }
+                        if (note.stats.weight) {
+                           $scope.wtData.data.unshift({
+                              x: new Date(note.created_at).toLocaleTimeString(),
+                              y: [parseInt(note.stats.weight)]
+                           });
+                        }
+                     }
                   }
                }());
             }
@@ -129,13 +161,5 @@
             series: ["Weight(g)"],
             data: [] //being populated by the function on baby select
          };
-
-
-
-
-
-
-
       });
-
-}())
+}());
