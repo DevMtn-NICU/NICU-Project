@@ -8,6 +8,7 @@
 
          $scope.baby = {};
          $scope.images = [];
+         $scope.notes;
 
          function getCurrentBaby() {
             var babyId = parentService.sendBabyId();
@@ -26,19 +27,19 @@
          getCurrentBaby();
 
 
-         //         $scope.imageModal = function (ev) {
-         //            console.log('image modal');
-         //            $mdDialog.show({
-         //               templateUrl: 'components/image-slider/slider.html',
-         //               locals: {
-         //                  note: $scope.notes
-         //               },
-         //               controller: 'sliderCtrl',
-         //               targetEvent: ev,
-         //               clickOutsideToClose: true
-         //            });
-         //
-         //         };
+         $scope.imageModal = function (ev) {
+            console.log('image modal');
+            $mdDialog.show({
+               templateUrl: 'components/image-slider/slider.html',
+               locals: {
+                  notes: $scope.notes
+               },
+               controller: 'sliderCtrl',
+               targetEvent: ev,
+               clickOutsideToClose: true
+            });
+
+         };
 
 
          $scope.$on('babyChanged', function (e) {
@@ -49,8 +50,6 @@
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
                      $scope.images.push($scope.baby.notes[j].picturesUrl)
-
-
                   }
                }
                $scope.numberOfImages = $scope.images.length;
@@ -134,26 +133,5 @@
 
          console.log($scope.baby);
 
-
-
-
-
-
       })
 }());
-
-// ZOMBIE CODE TO WORK ON LATER PERHAPS
-// for (var i = ($scope.baby.notes.length - 1); i > ($scope.baby.notes.length - 6); i--) {
-//               console.log(i);
-//               var note = $scope.baby.notes[i];
-//               if (i === $scope.baby.notes.length - 1 || i === $scope.baby.notes.length - 5) {
-//                 $scope.data.data.unshift({
-//                   x: new Date(note.created_at).toLocaleTimeString(),
-//                   y: [note.stats.heartRate, note.stats.oxygen]
-//                 });
-//               }
-//               $scope.data.data.unshift({
-//                   x: " ",
-//                   y: [note.stats.heartRate, note.stats.oxygen]
-//                 });
-//             }
