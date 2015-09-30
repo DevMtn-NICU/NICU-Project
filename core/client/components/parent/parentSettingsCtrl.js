@@ -14,25 +14,25 @@
 
       $scope.getContacts = function (babyId) {
          parentService.getBabyById(babyId)
-         .then(function (response) {
-            $scope.contacts = [];
-            var lvl1 = response.level1;
-            var lvl2 = response.level2;
-            for (var i = 0; i < lvl1.length; i++) {
-               Object.defineProperty(lvl1[i], 'level', {
-                  writable: true,
-                  value: 1
-               });
-               $scope.contacts.push(lvl1[i]);
-            }
-            for (var x = 0; x < lvl2.length; x++) {
-               Object.defineProperty(lvl2[x], 'level', {
-                  writable: true,
-                  value: 2
-               });
-               $scope.contacts.push(lvl2[x]);
-            }
-         });
+            .then(function (response) {
+               $scope.contacts = [];
+               var lvl1 = response.level1;
+               var lvl2 = response.level2;
+               for (var i = 0; i < lvl1.length; i++) {
+                  Object.defineProperty(lvl1[i], 'level', {
+                     writable: true,
+                     value: 1
+                  });
+                  $scope.contacts.push(lvl1[i]);
+               }
+               for (var x = 0; x < lvl2.length; x++) {
+                  Object.defineProperty(lvl2[x], 'level', {
+                     writable: true,
+                     value: 2
+                  });
+                  $scope.contacts.push(lvl2[x]);
+               }
+            });
       };
 
       if ($scope.$parent.currentBaby) {

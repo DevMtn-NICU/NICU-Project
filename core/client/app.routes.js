@@ -10,7 +10,7 @@
             .state('home', {
                url: '/',
                templateUrl: 'components/product/product-page.html',
-               controller: 'productController'
+               //controller: 'productController'
             })
             ////////////   LOGIN /////////////////////////
             .state('login', {
@@ -152,8 +152,8 @@
                abstract: true,
                resolve: {
                   baby: function (contactService, $cookies) {
-                    var babyToGet = $cookies.getObject("contactObj")[0];
-                    return contactService.getFeed(babyToGet.baby, babyToGet.level);
+                     var babyToGet = $cookies.getObject("contactObj")[0];
+                     return contactService.getFeed(babyToGet.baby, babyToGet.level);
                   }
                }
             })

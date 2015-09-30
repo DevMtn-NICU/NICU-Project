@@ -5,16 +5,16 @@
       .service('parentService', function ($http, $q, $cookies) {
          var babyId;
 
-         this.getInitialBaby = function() {
-           var babyToGet = $cookies.getObject("parentObj").babies[0];
-           var deferred = $q.defer();
-           $http({
-             method: "GET",
-             url: "/api/babies/" + babyToGet
-           }).then(function(response) {
-             deferred.resolve(response.data);
-           });
-           return deferred.promise;
+         this.getInitialBaby = function () {
+            var babyToGet = $cookies.getObject("parentObj").babies[0];
+            var deferred = $q.defer();
+            $http({
+               method: "GET",
+               url: "/api/babies/" + babyToGet
+            }).then(function (response) {
+               deferred.resolve(response.data);
+            });
+            return deferred.promise;
          };
 
          this.addBabyNote = function (note) { //this is a repeat from the nurse service, we might want to refactor
@@ -57,7 +57,6 @@
 
          this.setBabyId = function (id) {
             babyId = id;
-            console.log('baby id', babyId);
             return babyId;
          };
 
@@ -78,12 +77,14 @@
          this.addJournalEntry = function (babyId, journalEntry) {
             var deferred = $q.defer();
             $http({
-              method: 'POST',
-              url: '/api/babies/journal/' + babyId,
-              data: {journal: journalEntry}
+               method: 'POST',
+               url: '/api/babies/journal/' + babyId,
+               data: {
+                  journal: journalEntry
+               }
             }).then(function (res) {
-              var results = res.data;
-              deferred.resolve(results);
+               var results = res.data;
+               deferred.resolve(results);
             });
             return deferred.promise;
          };
@@ -130,37 +131,37 @@
             return deferred.promise;
          };
 
-         this.logout = function() {
-   				var deferred = $q.defer();
-   				$http({
-   					method: 'GET',
-   					url: '/logout'
-   				}).then(function() {
-            $cookies.remove("userId");
-            $cookies.remove("userName");
-            $cookies.remove("userRoles");
-            $cookies.remove("userEmail");
-            $cookies.remove("parentObj");
-            $cookies.remove("contactObj");
-            $cookies.remove("nurseObj");
-            $cookies.remove("pwdChanged");
-   					deferred.resolve();
-   				});
-   				return deferred.promise;
-   			};
+         this.logout = function () {
+            var deferred = $q.defer();
+            $http({
+               method: 'GET',
+               url: '/logout'
+            }).then(function () {
+               $cookies.remove("userId");
+               $cookies.remove("userName");
+               $cookies.remove("userRoles");
+               $cookies.remove("userEmail");
+               $cookies.remove("parentObj");
+               $cookies.remove("contactObj");
+               $cookies.remove("nurseObj");
+               $cookies.remove("pwdChanged");
+               deferred.resolve();
+            });
+            return deferred.promise;
+         };
 
-        this.changePassword = function(password) {
-          var deferred = $q.defer();
-          $http({
-            method: "PUT",
-            url: "/user/password/" + $cookies.getObject("userId"),
-            data: {
-              password: password
-            }
-          }).then(function(response) {
-            deferred.resolve(response.data);
-          });
-          return deferred.promise;
-        };
+         this.changePassword = function (password) {
+            var deferred = $q.defer();
+            $http({
+               method: "PUT",
+               url: "/user/password/" + $cookies.getObject("userId"),
+               data: {
+                  password: password
+               }
+            }).then(function (response) {
+               deferred.resolve(response.data);
+            });
+            return deferred.promise;
+         };
       });
 }());
