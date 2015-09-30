@@ -1,10 +1,10 @@
-(function() {
-		"use strict";
+(function () {
+   "use strict";
 
-		angular.module('app')
-			.controller('productController', function($scope) {
+   angular.module('app')
+      .controller('productController', function ($scope) {
 
 
-        })
+      })
 
 }());

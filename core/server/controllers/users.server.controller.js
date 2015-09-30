@@ -234,15 +234,15 @@ module.exports = {
       }
    },
 
-   changePassword: function(req, res) {
-     User.findById(req.params.id, function(err, user) {
-       if (err) return res.status(500).send(err);
-       user.password = req.body.password;
-       user.passwordHasBeenChanged = true;
-       user.save(function(err, user) {
+   changePassword: function (req, res) {
+      User.findById(req.params.id, function (err, user) {
          if (err) return res.status(500).send(err);
-         res.send(user);
-       });
-     });
+         user.password = req.body.password;
+         user.passwordHasBeenChanged = true;
+         user.save(function (err, user) {
+            if (err) return res.status(500).send(err);
+            res.send(user);
+         });
+      });
    }
 };

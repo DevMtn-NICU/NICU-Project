@@ -43,24 +43,23 @@ body {
    height: 10%;
    background-color: #fff;
 }
-
 .shareImg {
    width: auto;
    height: 100px;
    margin-left: 20px;
 }
-
 .backgroundHolder {
    float: right;
    width: 41%;
    margin-right: 40px;
    margin-top: 40px;
    display: inline-block;
-   background-color:  rgba(255, 255, 255, 0.6);
+   background-color: rgba(255, 255, 255, 0.6);
    border-radius: 10px;
    text-align: center;
    padding: 10px;
 }
+
 /** {
    outline: 1px solid red;
 }*/
@@ -73,7 +72,7 @@ body {
    min-width: 100%;
    z-index: -1;
    background-image: url('https://s3-us-west-2.amazonaws.com/nicuproject/sarahmaetennessee%40gmail.com/o-DR-OZ-HEALTHY-HEART-facebook.jpg');
-/*   width: 100%;
+   /*   width: 100%;
    height: 90%;*/
 }
 .headerOne {
@@ -89,6 +88,7 @@ body {
    font-size: 1.2em;
    color: black;
 }
+
 /*.call {
    color: #ffffff;
    font-size: 0.85em;
@@ -103,18 +103,20 @@ body {
    opacity: 0.9;
    background-color: transparent, #686868;
 }*/
+
 #showBtn {
- /*  position: absolute;*/
+   /*  position: absolute;*/
    /*top: 80%;*/
    color: #fff;
    background-color: red;
    margin-top: 20px;
- 
-/*   margin-top: -5%;*/
+   /*   margin-top: -5%;*/
 }
+
 /*.greyOutline {
    outline: 1px solid #eee;
 }*/
+
 
 /*************************END OF PRODCUCT PAGE************************/
 
@@ -132,12 +134,10 @@ body {
    font-size: 25px;
    text-align: center;
 }
-
 .heart {
    height: 400px;
    width: auto;
 }
-
 .globalFooter {
    height: 60px;
    background-color: black;
@@ -382,7 +382,6 @@ md-input-container .md-input {
    font-size: 60px;
    font-family: Lobster;
 }
-
 .questions {
    font-size: 15px;
    height: 20px;
@@ -532,9 +531,9 @@ layout-padding {
    border-radius: 20px;
 }
 .md-tab {
-    /*font-weight: bold;*/
-    font-size: 1.5em;
-    color: black !important;
+   /*font-weight: bold;*/
+   font-size: 1.5em;
+   color: black !important;
 }
 
 /*******************************TESTING Parent Landing Page**************************/
