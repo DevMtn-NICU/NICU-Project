@@ -118,12 +118,22 @@ body {
 
 /*LOGIN PAGE*/
 
+
 .outerHome {
-   width: 60%;
+   width: 40%;
    margin: 50px auto;
-   font-size: 25px;
+   font-size: 1.1em;
    text-align: center;
 }
+
+
+.marginAuto {
+   margin-top: 20px;
+}
+.info {
+   margin-top: 20px;
+}
+
 .heart {
    height: 400px;
    width: auto;
