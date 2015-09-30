@@ -10,7 +10,7 @@
             .state('home', {
                url: '/',
                templateUrl: 'components/product/product-page.html',
-               controller: 'productController'
+               //controller: 'productController'
             })
             ////////////   LOGIN /////////////////////////
             .state('login', {
