@@ -10,6 +10,19 @@
          }
          $scope.cookieBabies = $cookies.getObject("contactObj");
 
+
+         function testAuth(element, index, array) {
+            console.log(array);
+         }
+
+
+
+         var contact = $cookies.getAll()
+         var contactObj = contact.contactObj;
+         console.log(contactObj);
+
+         contactObj.forEach(testAuth);
+
          $scope.getBabyById = function (babyId, level) {
             contactService.getFeed(babyId, level)
                .then(function (response) {
