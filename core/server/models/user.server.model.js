@@ -26,8 +26,8 @@ var userSchema = new Schema({
       //select: false
    },
    passwordHasBeenChanged: {
-     type: Boolean,
-     default: false
+      type: Boolean,
+      default: false
    },
    nurse: {
       access: {
@@ -66,7 +66,7 @@ var userSchema = new Schema({
 
 
 //this only runs on user.save() it won't work work with user.update()
-userSchema.pre('save',function (next) {
+userSchema.pre('save', function (next) {
    console.log('presave loaded');
    var user = this;
    bcryptPasswordChecker(user, next);

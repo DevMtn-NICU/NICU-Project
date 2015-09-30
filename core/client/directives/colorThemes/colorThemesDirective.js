@@ -1,5 +1,3 @@
-
-
 // 		function generateThemes($injector) {
 //     var styles = $injector.has('$MD_THEME_STYLESHEETS') ? $injector.get('$MD_THEME_STYLESHEETS') : [];
 //     if (styles) {
