@@ -1,25 +1,26 @@
 <div class="landingContainer">
-	<!-- // images  -->
-  <div class="imageContainer" ng-if="recentImages.length > 0" layout="row">
-      <div class="landingImage" flex>
-        <img src="{{recentImages[0]}}">
+   <!-- // images  -->
+   <div class="imageContainer" ng-if="recentImages.length > 0" layout="row">
+      <div class="landingImage" flex ng-click="imageModal(recentImages[0])">
+         <img src="{{recentImages[0]}}">
       </div>
-      <div class="landingImage" flex>
-        <img src="{{recentImages[1]}}">
+      <div class="landingImage" flex ng-click="imageModal(recentImages[1])">
+         <img src="{{recentImages[1]}}">
       </div>
-      <div class="landingImage" flex>
-        <img src="{{recentImages[2]}}">
+      <div class="landingImage" flex ng-click="imageModal(recentImages[2])">
+         <img src="{{recentImages[2]}}">
       </div>
+
   </div>
 	<!-- journal section -->
   <div layout="row" layout-align="center">
     <div class="journalContainer" flex="85">
-    	<h1 class="specialFont">A Special Baby</h1>
+    	<h1 class="specialFont">my special little one</h1>
     	<br>
     	<label class="journalTitle journal">My Journal</label>
     	<br>
     	<label class="questions">
-    		What are your thoughts today? How do you feel today? What special moment have you had today?
+    		What are you thinking at this very moment?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How do you feel today?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What special moment have you had with your little one today?
     	</label>
     	<md-input-container class="entries">
     		<label>Type Your Journal Entry Below</label>
@@ -28,11 +29,12 @@
     	<md-button class="md-primary md-raised" type="Submit" ng-click="addJournalEntry()">Submit</md-button>
     	<div class="entries md-whiteframe-z3">
     		<span ng-repeat="entry in baby.journal | orderBy:'note.created_at': true">{{entry}}
+
     			<br>
     			<br>
     		</span>
-    	</div>
-    </div>
-  </div>
+         </div>
+      </div>
+   </div>
 </div>
 </div>

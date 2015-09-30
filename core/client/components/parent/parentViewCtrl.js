@@ -89,7 +89,8 @@
             controller: "changePasswordCtrl",
             locals: {
                theme: $scope.theme
-            }
+            },
+            clickOutsideToClose: true
          });
       };
 
