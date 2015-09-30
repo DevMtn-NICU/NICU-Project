@@ -217,7 +217,7 @@ module.exports = {
          console.log(155);
          Baby.findById(req.params.babyId)
             .populate("notes")
-            .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes theme level1")
+            .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes theme level1 level2")
             .exec(function (err, baby) {
                if (err) return res.status(500).send(err);
                res.send(baby);
@@ -225,7 +225,7 @@ module.exports = {
       } else if (req.params.level === 'level2') {
          console.log(164);
          Baby.findById(req.params.babyId)
-            .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes theme level1")
+            .select("firstName middleName lastName gender birthWeight birthLength birthDate dischargeDate deathDate notes theme level1 level2")
             .populate("notes", "picturesUrl comment")
             .exec(function (err, baby) {
                if (err) return res.status(500).send(err);

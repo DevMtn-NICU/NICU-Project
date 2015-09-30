@@ -57,7 +57,6 @@
 
          this.setBabyId = function (id) {
             babyId = id;
-            console.log('baby id', babyId);
             return babyId;
          };
 

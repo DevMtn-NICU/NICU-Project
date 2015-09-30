@@ -4,7 +4,6 @@
 
    angular.module('app').controller('parentViewCtrl', function ($scope, parentService, $stateParams, $state, $cookies, $mdSidenav, $mdDialog, initialBaby, $mdToast) {
 
-      console.log('parent view')
 
       if (!$cookies.getObject("userId")) {
          $state.go('login');
