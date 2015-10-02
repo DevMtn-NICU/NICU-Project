@@ -9,13 +9,24 @@
          console.log($scope.baby);
          $scope.images = [];
 
-         $scope.getAuthLevel = function() {
-           var userId = $cookies.getObject("userId");
-           if($scope.baby.level1.indexOf(userId) !== -1) {
-             $scope.authLevel = "level1";
-           } else {
-             $scope.authLevel = "level2";
-           }
+         console.log($scope.baby);
+
+
+         var userId = $cookies.getObject("userId");
+
+         $scope.getAuthLevel = function () {
+            if (!userId) {
+               console.log('crappiness');
+            }
+            if ($scope.baby.level1.indexOf(userId) !== -1) {
+               $scope.authLevel = "level1";
+               return $scope.authLevel;
+            } else if ($scope.baby.level2) {
+               $scope.authLevel = "level2";
+               return $scope.authLevel;
+            } else {
+               $scope.authLevel = "unauthorized";
+            }
          };
          $scope.getAuthLevel();
 
@@ -31,6 +42,7 @@
                      $scope.comments = baby.comments;
                      $scope.$broadcast('babyChanged');
                   });
+
                return $scope.baby, $scope.notes;
             }
          }
@@ -38,7 +50,6 @@
 
 
          $scope.imageModal = function (myImage) {
-            console.log(myImage);
             $mdDialog.show({
                templateUrl: 'components/image-slider/slider.html',
                locals: {
@@ -67,14 +78,20 @@
                   $scope.data.data = [];
                   for (var i = ($scope.baby.notes.length - 1); i > ($scope.baby.notes.length - 6); i--) {
                      var note = $scope.baby.notes[i];
-                     $scope.data.data.unshift({
-                        x: new Date(note.created_at).toLocaleTimeString(),
-                        y: [note.stats.heartRate, note.stats.oxygen]
-                     });
-                     $scope.wtData.data.unshift({
-                        x: new Date(note.created_at).toLocaleTimeString(),
-                        y: [parseInt(note.stats.weight)]
-                     });
+                     if (note.stats) {
+                        if (note.stats.oxygen) {
+                           $scope.data.data.unshift({
+                              x: new Date(note.created_at).toLocaleTimeString(),
+                              y: [note.stats.heartRate, note.stats.oxygen]
+                           });
+                        }
+                        if (note.stats.weight) {
+                           $scope.wtData.data.unshift({
+                              x: new Date(note.created_at).toLocaleTimeString(),
+                              y: [parseInt(note.stats.weight)]
+                           });
+                        }
+                     }
                   }
                }());
             }
