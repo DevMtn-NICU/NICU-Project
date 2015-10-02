@@ -2,9 +2,11 @@
    "use strict";
 
    angular.module('app')
+
       .controller('contactTimelineCtrl', function ($scope, $mdDialog, contactService, parentService, $state, $cookies) {
 
          $scope.baby = $scope.$parent.currentBaby;
+         console.log($scope.baby);
          $scope.images = [];
 
          console.log($scope.baby);
@@ -69,8 +71,6 @@
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
                      $scope.images.push($scope.baby.notes[j].picturesUrl);
-
-
                   }
                }
                $scope.numberOfImages = $scope.images.length;
@@ -121,6 +121,7 @@
             xAxisMaxTicks: 5, // Optional: maximum number of X axis ticks to show if data points exceed this number
             waitForHeightAndWidth: false // if true, it will not throw an error when the height or width are not defined (e.g. while creating a modal form), and it will be keep  watching for valid height and width values
          };
+         
          $scope.data = {
             series: ["Heart Rate", "Oxygen(%)"],
             data: [] //being populated by the function on baby select
@@ -156,5 +157,8 @@
             series: ["Weight(g)"],
             data: [] //being populated by the function on baby select
          };
+
+         console.log($scope.baby);
+
       });
-}());
+}())

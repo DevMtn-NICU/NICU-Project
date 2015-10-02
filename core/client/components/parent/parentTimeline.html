@@ -13,8 +13,9 @@
             </div>
          </div>
       </md-tab>
+      
       <md-tab label="Comments">
-         <div class="md-whiteframe-z3 tlContainer">
+         <div class="tlContainer">
             <br>
             <div layout-padding ng-show="note.comment" ng-repeat="note in baby.notes | orderBy:'note.created_at': true">
                {{ note.comment }}
@@ -24,7 +25,6 @@
             <br>
          </div>
       </md-tab>
-
 
       <md-tab label="Statistics">
          <div class=" tlContainer">

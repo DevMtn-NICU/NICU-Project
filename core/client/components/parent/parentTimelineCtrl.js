@@ -45,8 +45,6 @@
                   $scope.baby.notes[j].created_at = new Date($scope.baby.notes[j].created_at).toLocaleString();
                   if ($scope.baby.notes[j].picturesUrl) {
                      $scope.images.push($scope.baby.notes[j].picturesUrl)
-
-
                   }
                }
                $scope.numberOfImages = $scope.images.length;
@@ -70,7 +68,7 @@
          $scope.config = {
             title: 'Stats Over Time', // chart title. If this is false, no title element will be created.
             tooltips: true,
-            labels: true, // labels on data points
+            labels: false, // labels on data points
             // exposed events
             mouseover: function () {},
             mouseout: function () {},
@@ -84,9 +82,9 @@
             },
             // override this array if you're not happy with default colors
             colors: ['red', 'blue'],
-            lineLegend: false, //'lineEnd', // Only on line Charts
+            lineLegend: 'lineEnd', // Only on line Charts
             lineCurveType: 'monotone', // change this as per d3 guidelines to avoid smoothline
-            isAnimate: true, // run animations while rendering chart
+            isAnimate: false,//true, // run animations while rendering chart
             yAxisTickFormat: 's', //refer tickFormats in d3 to edit this value
             xAxisMaxTicks: 5, // Optional: maximum number of X axis ticks to show if data points exceed this number
             waitForHeightAndWidth: false // if true, it will not throw an error when the height or width are not defined (e.g. while creating a modal form), and it will be keep watching for valid height and width values
@@ -128,26 +126,5 @@
             data: [] //being populated by the function on baby select
          };
 
-
-
-
-
-
-
       })
 }());
-
-// ZOMBIE CODE TO WORK ON LATER PERHAPS
-// for (var i = ($scope.baby.notes.length - 1); i > ($scope.baby.notes.length - 6); i--) {
-//               var note = $scope.baby.notes[i];
-//               if (i === $scope.baby.notes.length - 1 || i === $scope.baby.notes.length - 5) {
-//                 $scope.data.data.unshift({
-//                   x: new Date(note.created_at).toLocaleTimeString(),
-//                   y: [note.stats.heartRate, note.stats.oxygen]
-//                 });
-//               }
-//               $scope.data.data.unshift({
-//                   x: " ",
-//                   y: [note.stats.heartRate, note.stats.oxygen]
-//                 });
-//             }
