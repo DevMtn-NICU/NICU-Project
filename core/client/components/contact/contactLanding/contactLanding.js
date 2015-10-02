@@ -6,6 +6,8 @@
          $scope.baby = $scope.$parent.currentBaby;
          $scope.notes = $scope.baby.notes;
 
+         console.log($scope);
+
          $scope.$on('babyChanged', function (e) {
             if ($scope.$parent.currentBaby) {
                $scope.baby = $scope.$parent.currentBaby;
